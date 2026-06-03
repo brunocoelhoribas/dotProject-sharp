@@ -21,6 +21,10 @@ use App\Http\Controllers\Planning\PlanningQualityController;
 use App\Http\Controllers\Planning\Risk\RiskController;
 use App\Http\Controllers\Project\ProjectController;
 use App\Http\Controllers\User\UserCostController;
+use App\Models\Company\Company;
+use App\Models\Project\Project;
+use App\Models\User\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,7 +43,51 @@ Route::get('lang/{locale}', [LanguageController::class, 'switch'])->name('lang.s
 
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', static function () {
-        return view('dashboard');
+        $companiesCount = Company::count();
+        $usersCount = User::count();
+        $activeProjectsCount = Project::where('project_status', '!=', 7)->count();
+        $avgCompletion = Project::where('project_status', '!=', 7)->avg('project_percent_complete') ?? 0;
+
+        $projectsByStatus = Project::selectRaw('project_status, count(*) as total')
+            ->groupBy('project_status')
+            ->pluck('total', 'project_status')
+            ->toArray();
+
+        $statusMap = [
+            0 => 'Não Definido', 1 => 'Proposto', 2 => 'Planejamento',
+            3 => 'Em Andamento', 4 => 'Em Espera', 5 => 'Concluído', 7 => 'Arquivado'
+        ];
+
+        $chartStatusLabels = [];
+        $chartStatusData = [];
+        foreach ($projectsByStatus as $status => $total) {
+            $chartStatusLabels[] = $statusMap[$status] ?? "Status {$status}";
+            $chartStatusData[] = $total;
+        }
+
+        $recentMonths = collect();
+        for ($i = 5; $i >= 0; $i--) {
+            $recentMonths->push(now()->subMonths($i)->format('Y-m'));
+        }
+
+        $projectsByMonth = Project::whereNotNull('project_start_date')
+            ->where('project_start_date', '>=', now()->subMonths(6)->startOfMonth())
+            ->selectRaw('DATE_FORMAT(project_start_date, "%Y-%m") as month, count(*) as total')
+            ->groupBy('month')
+            ->pluck('total', 'month');
+
+        $chartMonths = $recentMonths->map(fn($m) => Carbon::createFromFormat('Y-m', $m)->translatedFormat('M/Y'))->values();
+        $chartProjectsCount = $recentMonths->map(fn($m) => $projectsByMonth->get($m, 0))->values();
+
+        $latestProjects = Project::with('company')
+            ->orderBy('project_start_date', 'desc')
+            ->limit(5)
+            ->get();
+
+        return view('home.index', compact(
+            'companiesCount', 'usersCount', 'activeProjectsCount', 'avgCompletion',
+            'chartStatusLabels', 'chartStatusData', 'chartMonths', 'chartProjectsCount', 'latestProjects'
+        ));
     })->name('dashboard');
 
     Route::prefix('users/{user}')->name('users.')->group(function () {

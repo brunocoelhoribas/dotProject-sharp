@@ -5,6 +5,7 @@ namespace App\Models\Company;
 use App\Models\HumanResource\HumanResourcesRole;
 use App\Models\Project\Project;
 use App\Models\User\User;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -39,7 +40,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  *
  * @property-read User $owner The user (owner) associated with this company.
  * @property-read CompanyPolicy|null $policy The associated company policy (if it exists).
- * @property-read \Illuminate\Database\Eloquent\Collection|Project[] $projects The collection of projects for this company.
+ * @property-read Collection|Project[] $projects The collection of projects for this company.
  */
 class Company extends Model {
     /**

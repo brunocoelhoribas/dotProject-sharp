@@ -6,7 +6,7 @@
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
                 <div class="container">
-                    <a class="navbar-brand fw-bold text-warning"  href="{{ route('dashboard') }}">dotProject+</a>
+                    <a class="navbar-brand fw-bold text-warning"  href="{{ route('dashboard') }}">dotProject#</a>
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav">
                         <span class="navbar-toggler-icon"></span>

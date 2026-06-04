@@ -14,6 +14,15 @@ return [
     ],
     'dashboard' => [
         'title' => 'Visión General del Sistema',
+        'subtitle' => 'Realiza un seguimiento de las métricas y el progreso de tus proyectos.',
+
+        'filters' => [
+            'all_companies' => 'Todas las Empresas',
+            'date_from' => 'Fecha Inicial',
+            'date_to' => 'Fecha Final',
+            'filter_btn' => 'Filtrar',
+            'clear_btn' => 'Limpiar',
+        ],
 
         'cards' => [
             'total_companies' => 'Total de Empresas',

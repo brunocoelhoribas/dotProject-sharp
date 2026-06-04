@@ -14,6 +14,15 @@ return [
     ],
     'dashboard' => [
         'title' => 'System Overview',
+        'subtitle' => 'Track the metrics and progress of your projects.',
+
+        'filters' => [
+            'all_companies' => 'All Companies',
+            'date_from' => 'Start Date',
+            'date_to' => 'End Date',
+            'filter_btn' => 'Filter',
+            'clear_btn' => 'Clear',
+        ],
 
         'cards' => [
             'total_companies' => 'Total Companies',

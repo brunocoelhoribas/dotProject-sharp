@@ -4,47 +4,56 @@ return [
     'activities' => [
         'sequencing' => 'Sequence Activities',
         'training' => 'Training',
-        'minutes' => 'Minutes',
+        'minutes' => 'Minutes/Records',
 
         'table' => [
-            'wbs' => 'Activity / WBS',
+            'wbs' => 'WBS / Activity',
             'start' => 'Start',
             'end' => 'End',
             'duration' => 'Duration',
-            'resources' => 'Resources',
+            'status' => 'Status',
             'actions' => 'Actions',
         ],
+
         'menu' => [
             'new_activity' => 'New Activity',
-            'new_subitem' => 'New Sub-item',
-            'delete_item' => 'Delete Item',
+            'new_subitem' => 'New Sub-package',
+            'move_up' => 'Move Up',
+            'move_down' => 'Move Down',
+            'delete_item' => 'Delete Package',
         ],
+
         'task' => [
+            'single' => 'task',
+            'plural' => 'tasks',
             'days' => 'days',
             'hours' => 'hours',
+
             'status' => [
                 'completed' => 'Completed',
                 'not_started' => 'Not Started',
             ],
+
             'actions' => [
-                'edit' => 'Edit',
-                'delete' => 'Delete',
+                'edit' => 'Edit Activity',
+                'delete' => 'Delete Activity',
+                'move_up' => 'Move up',
+                'move_down' => 'Move down',
             ],
+
             'details' => [
-                'owner' => 'Owner:',
+                'owner' => 'Owner',
                 'not_defined' => 'Not defined',
-                'effort' => 'Effort:',
-                'units' => [
-                    'person_hour' => 'Person/Hour',
-                    'minutes' => 'Minutes',
-                    'days' => 'Days',
-                    'hours' => 'Hours',
-                ],
+                'effort' => 'Effort',
             ],
         ],
+
         'empty' => [
             'message' => 'No WBS structure defined.',
-            'btn' => 'Create first WBS item',
+            'sub_message' => 'Create your first work package or let Artificial Intelligence generate a structure based on the project scope.',
+            'btn_manual' => 'New Manual Structure',
+            'btn_ai' => 'Generate with Artificial Intelligence',
+            'generating' => 'Generating with AI...',
         ],
     ],
     'schedule' => [

@@ -3,48 +3,57 @@
 return [
     'activities' => [
         'sequencing' => 'Secuenciar Actividades',
-        'training' => 'Capacitación',
-        'minutes' => 'Actas',
+        'training' => 'Entrenamiento',
+        'minutes' => 'Actas/Minutas',
 
         'table' => [
-            'wbs' => 'Actividad / EDT',
+            'wbs' => 'Paquete / Actividad',
             'start' => 'Inicio',
             'end' => 'Fin',
             'duration' => 'Duración',
-            'resources' => 'Recursos',
+            'status' => 'Estado',
             'actions' => 'Acciones',
         ],
+
         'menu' => [
             'new_activity' => 'Nueva Actividad',
-            'new_subitem' => 'Nuevo Sub-elemento',
-            'delete_item' => 'Eliminar Elemento',
+            'new_subitem' => 'Nuevo Subpaquete',
+            'move_up' => 'Mover hacia Arriba',
+            'move_down' => 'Mover hacia Abajo',
+            'delete_item' => 'Eliminar Paquete',
         ],
+
         'task' => [
+            'single' => 'tarea',
+            'plural' => 'tareas',
             'days' => 'días',
             'hours' => 'horas',
+
             'status' => [
                 'completed' => 'Completado',
-                'not_started' => 'No Iniciada',
+                'not_started' => 'No Iniciado',
             ],
+
             'actions' => [
-                'edit' => 'Editar',
-                'delete' => 'Eliminar',
+                'edit' => 'Editar Actividad',
+                'delete' => 'Eliminar Actividad',
+                'move_up' => 'Mover hacia arriba',
+                'move_down' => 'Mover hacia abajo',
             ],
+
             'details' => [
-                'owner' => 'Responsable:',
+                'owner' => 'Responsable',
                 'not_defined' => 'No definido',
-                'effort' => 'Esfuerzo:',
-                'units' => [
-                    'person_hour' => 'Personas/Hora',
-                    'minutes' => 'Minutos',
-                    'days' => 'Días',
-                    'hours' => 'Horas',
-                ],
+                'effort' => 'Esfuerzo',
             ],
         ],
+
         'empty' => [
             'message' => 'Ninguna estructura EDT definida.',
-            'btn' => 'Crear primer elemento de la EDT',
+            'sub_message' => 'Cree su primer paquete de trabajo o deje que la Inteligencia Artificial genere una estructura basada en el alcance del proyecto.',
+            'btn_manual' => 'Nueva Estructura Manual',
+            'btn_ai' => 'Generar con Inteligencia Artificial',
+            'generating' => 'Generando con IA...',
         ],
     ],
     'schedule' => [

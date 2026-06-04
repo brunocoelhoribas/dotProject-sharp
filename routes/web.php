@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\Company\CompanyController;
 use App\Http\Controllers\Company\CompanyHumanResourceController;
 use App\Http\Controllers\Company\CompanyOrganogramController;
@@ -22,10 +23,6 @@ use App\Http\Controllers\Planning\PlanningQualityController;
 use App\Http\Controllers\Planning\Risk\RiskController;
 use App\Http\Controllers\Project\ProjectController;
 use App\Http\Controllers\User\UserCostController;
-use App\Models\Company\Company;
-use App\Models\Project\Project;
-use App\Models\User\User;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +38,7 @@ Route::get('login', [LoginController::class, 'create'])->name('login');
 Route::post('login', [LoginController::class, 'store']);
 Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
 Route::get('lang/{locale}', [LanguageController::class, 'switch'])->name('lang.switch');
+Route::post('/chat', [ChatController::class, 'chatWithAssistant'])->name('chat.assistant');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -80,6 +78,7 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('gantt-data', [PlanningController::class, 'ganttData'])->name('gantt.data');
 
+        Route::post('wbs/generate-ai', [PlanningController::class, 'generateWbsWithAi'])->name('wbs.generate_ai');
         Route::post('wbs', [PlanningController::class, 'storeWbsItem'])->name('wbs.store');
         Route::delete('wbs/{wbsItem}', [PlanningController::class, 'destroyWbsItem'])->name('wbs.destroy');
         Route::post('wbs/{wbsItem}/move/{direction}', [PlanningController::class, 'moveWbsItem'])->name('wbs.move');

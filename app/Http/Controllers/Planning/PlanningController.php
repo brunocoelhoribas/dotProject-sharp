@@ -22,7 +22,9 @@ use App\Models\Project\Task\Task;
 use App\Models\Project\Task\TasksWorkpackage;
 use App\Models\User\User;
 use App\Models\User\UserContact;
+use App\Http\Services\AiWbsGeneratorService;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -52,51 +54,106 @@ class PlanningController extends Controller {
 //    }
 
     /**
+     * Gera a EAP usando Inteligência Artificial
+     * @throws Throwable
+     */
+    public function generateWbsWithAi(Request $request, Project $project, AiWbsGeneratorService $aiService): RedirectResponse {
+        try {
+            $existingItems = ProjectWbsItem::where('project_id', $project->project_id)->count();
+            if ($existingItems > 0) {
+                return back()->with('error', 'Este projeto já possui uma EAP. Limpe a estrutura atual antes de gerar uma nova.');
+            }
+
+            $aiService->generateForProject($project);
+
+            return redirect()->route('projects.show', [
+                'project' => $project->project_id,
+                'tab' => 'planning',
+                'subtab' => 'activities'
+            ])->with('success', 'EAP gerada com sucesso pela Inteligência Artificial!');
+
+        } catch (Exception $e) {
+            return redirect()->route('projects.show', [
+                'project' => $project->project_id,
+                'tab' => 'planning',
+                'subtab' => 'activities'
+            ])->with('error', 'Erro ao gerar EAP: ' . $e->getMessage());
+        }
+    }
+
+    /**
      * @throws Throwable
      */
     public function storeWbsItem(Request $request, Project $project): RedirectResponse {
         $request->validate([
             'name' => 'required|string|max:255',
-            'parent_id' => 'required|integer|exists:project_eap_items,id',
+            'parent_id' => 'nullable|integer',
         ]);
 
         $parentId = $request->input('parent_id');
 
-        DB::transaction(static function () use ($project, $request, $parentId) {
-            $parentItem = ProjectWbsItem::findOrFail($parentId);
+        try {
+            DB::transaction(static function () use ($project, $request, $parentId) {
 
-            $newIndentation = $parentItem->identation . '&nbsp;&nbsp;&nbsp;';
+                if ($parentId) {
+                    $parentItem = ProjectWbsItem::findOrFail($parentId);
+                    $newIdentation = $parentItem->identation . '&nbsp;&nbsp;&nbsp;';
 
-            $childCount = ProjectWbsItem::where('project_id', $project->project_id)
-                ->where('identation', $newIndentation)
-                ->where('sort_order', '>', $parentItem->sort_order)
-                ->count();
+                    $childCount = ProjectWbsItem::where('project_id', $project->project_id)
+                        ->where('identation', $newIdentation)
+                        ->where('sort_order', '>', $parentItem->sort_order)
+                        ->count();
 
-            $newNumber = $parentItem->number . '.' . ($childCount + 1);
+                    $newNumber = $parentItem->number . '.' . ($childCount + 1);
+                    $insertPosition = $parentItem->sort_order + 1;
 
-            $insertPosition = $parentItem->sort_order + 1;
+                    ProjectWbsItem::where('project_id', $project->project_id)
+                        ->where('sort_order', '>=', $insertPosition)
+                        ->increment('sort_order');
 
-            ProjectWbsItem::where('project_id', $project->project_id)
-                ->where('sort_order', '>=', $insertPosition)
-                ->increment('sort_order');
+                    ProjectWbsItem::create([
+                        'project_id' => $project->project_id,
+                        'item_name' => $request->input('name'),
+                        'number' => $newNumber,
+                        'sort_order' => $insertPosition,
+                        'is_leaf' => 1,
+                        'identation' => $newIdentation,
+                    ]);
 
-            ProjectWbsItem::create([
-                'project_id' => $project->project_id,
-                'name' => $request->input('name'),
-                'number' => $newNumber,
-                'sort_order' => $insertPosition,
-                'is_leaf' => 1, // Nasce como folha
-                'indentation' => $newIndentation,
-            ]);
+                    $parentItem->update(['is_leaf' => 0]);
+                } else {
+                    $rootCount = ProjectWbsItem::where('project_id', $project->project_id)
+                        ->where(function ($q) {
+                            $q->where('identation', '')
+                                ->orWhereNull('identation');
+                        })
+                        ->count();
 
-            $parentItem->update(['is_leaf' => 0]);
-        });
+                    $newNumber = (string)($rootCount + 1);
 
-        return redirect()->route('projects.planning.tab', [
-            'project' => $project->project_id,
-            'tab' => 'planning',
-            'subtab' => 'activities'
-        ])->with('success', __('planning/messages.wbs.created'));
+                    $maxSortOrder = ProjectWbsItem::where('project_id', $project->project_id)->max('sort_order') ?? 0;
+                    $insertPosition = $maxSortOrder + 1;
+
+                    ProjectWbsItem::create([
+                        'project_id' => $project->project_id,
+                        'item_name' => $request->input('name'),
+                        'number' => $newNumber,
+                        'sort_order' => $insertPosition,
+                        'is_leaf' => 1,
+                        'identation' => '',
+                    ]);
+                }
+            });
+
+            return redirect()->route('projects.show', [
+                'project' => $project->project_id,
+                'tab' => 'planning',
+                'subtab' => 'activities'
+            ])->with('success', __('planning/messages.wbs.created') ?? 'Estrutura criada com sucesso!');
+
+        } catch (Exception $e) {
+            return back()->with('error', 'Erro ao salvar o item: ' . $e->getMessage());
+        }
     }
 
     /**
@@ -131,7 +188,7 @@ class PlanningController extends Controller {
             ]);
         });
 
-        return redirect()->route('projects.planning.tab', [
+        return redirect()->route('projects.show', [
             'project' => $project->project_id,
             'tab' => 'planning',
             'subtab' => 'activities'
@@ -149,7 +206,7 @@ class PlanningController extends Controller {
 
         $task->update($validated);
 
-        return redirect()->route('projects.planning.tab', [
+        return redirect()->route('projects.show', [
             'project' => $project->project_id,
             'tab' => 'planning',
             'subtab' => 'activities'
@@ -167,7 +224,7 @@ class PlanningController extends Controller {
 
         DB::transaction(static function () use ($project, $wbsItem, $direction) {
             $allItems = ProjectWbsItem::where('project_id', $project->project_id)
-                ->orderBy('sort_order', 'asc')
+                ->orderBy('sort_order')
                 ->get();
 
             $currentIndex = $allItems->search(fn($i) => $i->id === $wbsItem->id);
@@ -251,7 +308,7 @@ class PlanningController extends Controller {
             }
         });
 
-        return redirect()->route('projects.planning.tab', [
+        return redirect()->route('projects.show', [
             'project' => $project->project_id,
             'tab' => 'planning',
             'subtab' => 'activities'
@@ -295,7 +352,7 @@ class PlanningController extends Controller {
             $targetTask->update(['task_order' => $order1]);
         }
 
-        return redirect()->route('projects.planning.tab', [
+        return redirect()->route('projects.show', [
             'project' => $project->project_id,
             'tab' => 'planning',
             'subtab' => 'activities'
@@ -327,7 +384,7 @@ class PlanningController extends Controller {
             ProjectWbsItem::whereIn('id', $idsToDelete)->delete();
         });
 
-        return redirect()->route('projects.planning.tab', [
+        return redirect()->route('projects.show', [
             'project' => $project->project_id,
             'tab' => 'planning',
             'subtab' => 'activities'
@@ -343,7 +400,7 @@ class PlanningController extends Controller {
             $task->delete();
         });
 
-        return redirect()->route('projects.planning.tab', [
+        return redirect()->route('projects.show', [
             'project' => $project->project_id,
             'tab' => 'planning',
             'subtab' => 'activities'

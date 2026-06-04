@@ -21,7 +21,6 @@ class ProjectWbsItem extends Model {
         'is_leaf',
         'identation',
         'parent_id',
-        'name',
         'indentation'
     ];
 

@@ -3,6 +3,7 @@
 return [
     'nav' => [
         'companies' => 'Companies',
+        'costs' => 'Costs',
         'projects' => 'Projects',
         'my_data' => 'My Data',
         'logout' => 'Logout',

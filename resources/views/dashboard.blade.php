@@ -14,11 +14,20 @@
 
                     <div class="collapse navbar-collapse" id="main-nav">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link"
-                                    href="{{ route('companies.index') }}">{{ __('layout.nav.companies') }}</a>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="{{ route('companies.index') }}">{{ __('layout.nav.companies') }}
+                                </a>
                             </li>
-                            <li class="nav-item"><a class="nav-link"
-                                    href="{{ route('projects.index') }}">{{ __('layout.nav.projects') }}</a>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="{{ route('projects.index') }}">{{ __('layout.nav.projects') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('costs.index') }}">
+                                    {{ __('layout.nav.costs') }}
+                                </a>
                             </li>
                         </ul>
 

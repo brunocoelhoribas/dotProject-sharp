@@ -6,6 +6,7 @@ use App\Http\Controllers\Company\CompanyController;
 use App\Http\Controllers\Company\CompanyHumanResourceController;
 use App\Http\Controllers\Company\CompanyOrganogramController;
 use App\Http\Controllers\Company\CompanyRoleController;
+use App\Http\Controllers\Cost\CostController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Execution\ExecutionController;
 use App\Http\Controllers\HumanResource\HumanResourcePerformanceController;
@@ -159,6 +160,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/closure', [App\Http\Controllers\Closure\ClosureController::class, 'show'])->name('closure.show');
         Route::post('/closure', [App\Http\Controllers\Closure\ClosureController::class, 'store'])->name('closure.store');
     });
+
+    Route::get('/costs', [CostController::class, 'index'])->name('costs.index');
+    Route::get('/costs/{project}/s-curve', [CostController::class, 'getProjectSCurve'])->name('costs.s_curve');
 
     Route::get('projects/{project}/initiating/pdf', [InitiatingController::class, 'generatePDF'])->name('initiating.pdf');
     Route::get('initiating/{initiating}/stakeholders/pdf', [InitiatingStakeholderController::class, 'generatePDF'])->name('initiating.stakeholders.pdf');

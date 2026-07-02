@@ -10,6 +10,7 @@ use App\Models\Planning\Acquisition\AcquisitionRequirement;
 use App\Models\Planning\Acquisition\AcquisitionRole;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AcquisitionController extends Controller {
     private function successResponse($key): JsonResponse {
@@ -84,10 +85,9 @@ class AcquisitionController extends Controller {
     }
 
     public function destroy(Project $project, AcquisitionPlanning $acquisition) {
-        $acquisition->criteria()->delete();
-        $acquisition->requirements()->delete();
-        $acquisition->roles()->delete();
-        $acquisition->delete();
+        DB::transaction(static function () use ($acquisition) {
+            $acquisition->delete();
+        });
 
         return $this->successResponse('planning/messages.acquisition.deleted');
     }

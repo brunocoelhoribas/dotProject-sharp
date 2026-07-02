@@ -11,16 +11,19 @@ use Illuminate\Support\Facades\DB;
 use Exception;
 use RuntimeException;
 use Throwable;
+use App\Http\Services\Traits\HandlesOpenRouterRequests;
 
 class AiWbsGeneratorService {
+    use HandlesOpenRouterRequests;
     /**
      * @throws Throwable
      */
     public function generateForProject(Project $project): void {
-        $apiKey = config('services.nvidia_api.key');
+        $apiKey = config('services.openrouter.key');
+        $model = config('services.openrouter.model', 'qwen/qwen3-next-80b-a3b-instruct:free');
 
         if (!$apiKey) {
-            throw new RuntimeException('Chave da API da NVIDIA não configurada no arquivo .env.');
+            throw new RuntimeException('Chave da API do OpenRouter não configurada no arquivo .env.');
         }
 
         $locale = app()->getLocale();
@@ -54,10 +57,7 @@ class AiWbsGeneratorService {
             ]
         ";
 
-        $url = "https://integrate.api.nvidia.com/v1/chat/completions";
-
-        $response = Http::withToken($apiKey)->post($url, [
-            'model' => 'nvidia/nemotron-3-ultra-550b-a55b',
+        $responseData = $this->sendOpenRouterRequest($apiKey, $model, [
             'messages' => [
                 [
                     'role' => 'system',
@@ -72,11 +72,7 @@ class AiWbsGeneratorService {
             'max_tokens' => 2048,
         ]);
 
-        if (!$response->successful()) {
-            throw new RuntimeException('Falha ao comunicar com a API da NVIDIA: ' . $response->body());
-        }
-
-        $content = $response->json('choices.0.message.content');
+        $content = $responseData['choices'][0]['message']['content'] ?? '';
         $content = preg_replace('/```json\s*/i', '', $content);
         $content = preg_replace('/```\s*/', '', $content);
         $content = trim($content);

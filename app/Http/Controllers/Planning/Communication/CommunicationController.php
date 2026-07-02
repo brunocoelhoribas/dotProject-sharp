@@ -11,6 +11,7 @@ use App\Models\Planning\Communication\CommunicationChannel;
 use App\Models\Planning\Communication\CommunicationFrequency;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CommunicationController extends Controller {
     private function successResponse($key): JsonResponse {
@@ -105,7 +106,9 @@ class CommunicationController extends Controller {
     }
 
     public function destroy(Project $project, Communication $communication): JsonResponse {
-        $communication->delete();
+        DB::transaction(static function () use ($communication) {
+            $communication->delete();
+        });
         return $this->successResponse('planning/messages.communication.event_deleted');
     }
 

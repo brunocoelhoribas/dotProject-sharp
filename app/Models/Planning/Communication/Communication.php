@@ -37,4 +37,11 @@ class Communication extends Model {
     public function receptors(): HasMany {
         return $this->hasMany(CommunicationReceptor::class, 'communication_id', 'communication_id');
     }
+
+    protected static function booted(): void {
+        static::deleting(static function (Communication $communication) {
+            $communication->issuers()->delete();
+            $communication->receptors()->delete();
+        });
+    }
 }

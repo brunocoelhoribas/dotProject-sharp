@@ -39,9 +39,8 @@ Route::get('login', [LoginController::class, 'create'])->name('login');
 Route::post('login', [LoginController::class, 'store']);
 Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
 Route::get('lang/{locale}', [LanguageController::class, 'switch'])->name('lang.switch');
-Route::post('/chat', [ChatController::class, 'chatWithAssistant'])->name('chat.assistant');
-
 Route::middleware(['auth'])->group(function () {
+    Route::post('/chat', [ChatController::class, 'chatWithAssistant'])->name('chat.assistant');
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::prefix('users/{user}')->name('users.')->group(function () {

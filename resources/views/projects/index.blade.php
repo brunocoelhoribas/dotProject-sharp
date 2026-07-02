@@ -5,7 +5,7 @@
     <div class="card shadow-sm border-0">
         <div class="card-body p-4">
 
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-end mb-4 gap-3">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
                 <div>
                     <h1 class="h4 fw-bold mb-0 text-dark">{{ __('projects/views.index.title') }}</h1>
                 </div>
@@ -77,17 +77,17 @@
 
                 <div class="table-responsive">
                     <table class="table table-hover table-bordered align-middle mb-0">
-                        <thead class="table-light">
+                        <thead class="thead-dotproject">
                         <tr>
-                            <th class="fw-bold text-dark py-2 text-center" style="width: 8%; background-color: #f8f9fa;">{{ __('projects/views.index.table.complete') }}</th>
-                            <th class="fw-bold text-dark py-2" style="background-color: #f8f9fa;">{{ __('projects/views.index.table.company') }}</th>
-                            <th class="fw-bold text-dark py-2" style="background-color: #f8f9fa;">{{ __('projects/views.index.table.name') }}</th>
-                            <th class="fw-bold text-dark py-2" style="width: 12%; background-color: #f8f9fa;">{{ __('projects/views.index.table.start') }}</th>
-                            <th class="fw-bold text-dark py-2" style="width: 12%; background-color: #f8f9fa;">{{ __('projects/views.index.table.end') }}</th>
-                            <th class="fw-bold text-dark py-2" style="width: 10%; background-color: #f8f9fa;">{{ __('projects/views.index.table.updated') }}</th>
-                            <th class="fw-bold text-dark py-2" style="background-color: #f8f9fa;">{{ __('projects/views.index.table.owner') }}</th>
-                            <th class="fw-bold text-dark py-2 text-center" style="width: 5%; background-color: #f8f9fa;">{{ __('projects/views.index.table.tasks') }}</th>
-                            <th class="fw-bold text-dark py-2 text-center" style="width: 5%; background-color: #f8f9fa;">{{ __('projects/views.index.table.selection') }}</th>
+                            <th class="fw-bold py-2 text-center" style="width: 8%;">{{ __('projects/views.index.table.complete') }}</th>
+                            <th class="fw-bold py-2">{{ __('projects/views.index.table.company') }}</th>
+                            <th class="fw-bold py-2">{{ __('projects/views.index.table.name') }}</th>
+                            <th class="fw-bold py-2" style="width: 12%;">{{ __('projects/views.index.table.start') }}</th>
+                            <th class="fw-bold py-2" style="width: 12%;">{{ __('projects/views.index.table.end') }}</th>
+                            <th class="fw-bold py-2" style="width: 10%;">{{ __('projects/views.index.table.updated') }}</th>
+                            <th class="fw-bold py-2">{{ __('projects/views.index.table.owner') }}</th>
+                            <th class="fw-bold py-2 text-center" style="width: 5%;">{{ __('projects/views.index.table.tasks') }}</th>
+                            <th class="fw-bold py-2 text-center" style="width: 5%;">{{ __('projects/views.index.table.selection') }}</th>
                         </tr>
                         </thead>
                         <tbody class="bg-white">

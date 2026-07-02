@@ -9,13 +9,17 @@ use App\Models\Project\Project;
 use App\Http\Services\AiAssistantService;
 
 class ChatController extends Controller {
-    public function chatWithAssistant(Request $request, ?Project $project, AiAssistantService $aiService): ?JsonResponse {
+    public function chatWithAssistant(Request $request, AiAssistantService $aiService): ?JsonResponse {
         $request->validate([
             'message' => 'required|string',
-            'history' => 'nullable|array'
+            'history' => 'nullable|array',
+            'project_id' => 'nullable|integer'
         ]);
 
         try {
+            $projectId = $request->input('project_id');
+            $project = $projectId ? Project::find($projectId) : null;
+
             $reply = $aiService->askProjectAssistant(
                 $project,
                 $request->input('message'),

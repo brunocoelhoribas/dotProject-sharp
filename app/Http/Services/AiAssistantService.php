@@ -10,17 +10,20 @@ use Illuminate\Support\Facades\Http;
 use Exception;
 use JsonException;
 use RuntimeException;
+use App\Http\Services\Traits\HandlesOpenRouterRequests;
 
 class AiAssistantService {
+    use HandlesOpenRouterRequests;
     /**
      * @throws ConnectionException
      * @throws JsonException
      */
     public function askProjectAssistant(?Project $currentProject, string $userMessage, array $chatHistory = []): string {
-        $apiKey = config('services.nvidia_api.key');
+        $apiKey = config('services.openrouter.key');
+        $model = config('services.openrouter.model', 'qwen/qwen3-next-80b-a3b-instruct:free');
 
         if (!$apiKey) {
-            throw new RuntimeException('Chave da API da NVIDIA não configurada.');
+            throw new RuntimeException('Chave da API do OpenRouter não configurada.');
         }
 
         $locale = app()->getLocale();
@@ -91,19 +94,12 @@ class AiAssistantService {
 
         $messages[] = ['role' => 'user', 'content' => $userMessage];
 
-        $response = Http::withoutVerifying()
-            ->withToken($apiKey)
-            ->post('https://integrate.api.nvidia.com/v1/chat/completions', [
-                'model' => 'nvidia/nemotron-3-ultra-550b-a55b',
-                'messages' => $messages,
-                'temperature' => 0.4,
-                'max_tokens' => 1024,
-            ]);
+        $responseData = $this->sendOpenRouterRequest($apiKey, $model, [
+            'messages' => $messages,
+            'temperature' => 0.4,
+            'max_tokens' => 1024,
+        ]);
 
-        if (!$response->successful()) {
-            throw new RuntimeException('Erro na IA: ' . $response->body());
-        }
-
-        return $response->json('choices.0.message.content');
+        return $responseData['choices'][0]['message']['content'] ?? '';
     }
 }

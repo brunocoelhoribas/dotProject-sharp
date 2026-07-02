@@ -5,7 +5,7 @@
 @section('dashboard-content')
     <div class="card shadow-sm border-0 mb-4">
         <div class="card-body p-4">
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-end mb-4 gap-3">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
                 <div>
                     <h1 class="h4 fw-bold mb-0 text-dark">
                         <i class="bi bi-currency-dollar text-success me-2"></i> {{ __('costs/view.header') }}
@@ -15,15 +15,15 @@
 
             <div class="table-responsive">
                 <table class="table table-hover table-bordered align-middle mb-0">
-                    <thead class="table-light">
+                    <thead class="thead-dotproject">
                     <tr>
-                        <th class="fw-bold text-dark py-2" style="background-color: #f8f9fa;">{{ __('costs/view.table.project') }}</th>
-                        <th class="fw-bold text-dark py-2" style="background-color: #f8f9fa;">{{ __('costs/view.table.company') }}</th>
-                        <th class="fw-bold text-dark py-2 text-center" style="background-color: #f8f9fa;">{{ __('costs/view.table.target_budget') }}</th>
-                        <th class="fw-bold text-dark py-2 text-center" style="background-color: #f8f9fa;">{{ __('costs/view.table.hr_costs') }}</th>
-                        <th class="fw-bold text-dark py-2 text-center" style="background-color: #f8f9fa;">{{ __('costs/view.table.other_costs') }}</th>
-                        <th class="fw-bold text-dark py-2 text-end" style="background-color: #f8f9fa;">{{ __('costs/view.table.current_total_cost') }}</th>
-                        <th class="fw-bold text-dark py-2 text-center" style="background-color: #f8f9fa; width: 60px;"><i class="bi bi-gear"></i></th>
+                        <th class="fw-bold py-2">{{ __('costs/view.table.project') }}</th>
+                        <th class="fw-bold py-2">{{ __('costs/view.table.company') }}</th>
+                        <th class="fw-bold py-2 text-center">{{ __('costs/view.table.target_budget') }}</th>
+                        <th class="fw-bold py-2 text-center">{{ __('costs/view.table.hr_costs') }}</th>
+                        <th class="fw-bold py-2 text-center">{{ __('costs/view.table.other_costs') }}</th>
+                        <th class="fw-bold py-2 text-end">{{ __('costs/view.table.current_total_cost') }}</th>
+                        <th class="fw-bold py-2 text-center" style="width: 60px;"><i class="bi bi-gear"></i></th>
                     </tr>
                     </thead>
                     <tbody class="bg-white">

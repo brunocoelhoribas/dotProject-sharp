@@ -12,6 +12,7 @@ use App\Models\Planning\Quality\QualityRequirement;
 use App\Models\Project\Project;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PlanningQualityController extends Controller {
     private function successResponse($translationKey): JsonResponse {
@@ -78,7 +79,9 @@ class PlanningQualityController extends Controller {
     }
 
     public function destroyGoal(Project $project, QualityGoal $goal): JsonResponse {
-        $goal->delete();
+        DB::transaction(static function () use ($goal) {
+            $goal->delete();
+        });
         return $this->successResponse('planning/messages.quality.goal_removed');
     }
 
@@ -89,7 +92,9 @@ class PlanningQualityController extends Controller {
     }
 
     public function destroyQuestion(Project $project, QualityAnalysisQuestion $question): JsonResponse {
-        $question->delete();
+        DB::transaction(static function () use ($question) {
+            $question->delete();
+        });
         return $this->successResponse('planning/messages.quality.question_removed');
     }
 
@@ -100,7 +105,9 @@ class PlanningQualityController extends Controller {
     }
 
     public function destroyMetric(Project $project, QualityMetric $metric): JsonResponse {
-        $metric->delete();
+        DB::transaction(static function () use ($metric) {
+            $metric->delete();
+        });
         return $this->successResponse('planning/messages.quality.metric_removed');
     }
 }

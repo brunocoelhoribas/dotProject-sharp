@@ -7,6 +7,7 @@ use App\Models\Project\Project;
 use App\Models\User\User;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
+use Illuminate\Support\Facades\DB;
 
 class DashboardService {
     public function getDashboardData(array $filters = []): array {
@@ -77,9 +78,15 @@ class DashboardService {
             $monthsList[$date->format('Y-m')] = 0;
         }
 
+        $driver = DB::connection()->getDriverName();
+        $dateSelect = match ($driver) {
+            'sqlite' => "strftime('%Y-%m', project_start_date) as month",
+            default => "DATE_FORMAT(project_start_date, '%Y-%m') as month"
+        };
+
         $query = Project::whereNotNull('project_start_date')
             ->whereBetween('project_start_date', [$startDate, $endDate])
-            ->selectRaw('DATE_FORMAT(project_start_date, "%Y-%m") as month, count(*) as total')
+            ->selectRaw($dateSelect . ', count(*) as total')
             ->groupBy('month');
 
         $query = $this->applyProjectFilters($query, $filters);

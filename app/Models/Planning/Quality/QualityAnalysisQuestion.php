@@ -18,4 +18,10 @@ class QualityAnalysisQuestion extends Model {
     public function metrics(): HasMany {
         return $this->hasMany(QualityMetric::class, 'question_id', 'id');
     }
+
+    protected static function booted(): void {
+        static::deleting(static function (QualityAnalysisQuestion $question) {
+            $question->metrics()->delete();
+        });
+    }
 }

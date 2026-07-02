@@ -22,4 +22,12 @@ class QualityGoal extends Model
     public function questions(): HasMany {
         return $this->hasMany(QualityAnalysisQuestion::class, 'goal_id', 'id');
     }
+
+    protected static function booted(): void {
+        static::deleting(static function (QualityGoal $goal) {
+            foreach ($goal->questions as $question) {
+                $question->delete();
+            }
+        });
+    }
 }

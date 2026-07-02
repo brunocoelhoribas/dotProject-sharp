@@ -141,5 +141,12 @@ class Company extends Model {
     public function roles(): self|HasMany {
         return $this->hasMany(HumanResourcesRole::class, 'human_resources_role_company_id', 'company_id');
     }
+
+    protected static function booted(): void {
+        static::deleting(static function (Company $company) {
+            $company->policy()->delete();
+            $company->roles()->delete();
+        });
+    }
 }
 

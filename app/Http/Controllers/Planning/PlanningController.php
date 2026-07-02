@@ -667,9 +667,13 @@ class PlanningController extends Controller {
         $activeRisks = $risks->filter(fn($r) => (int)$r->risk_active === 1);
         $inactiveRisks = $risks->filter(fn($r) => (int)$r->risk_active === 0);
 
+        $concatSql = DB::connection()->getDriverName() === 'sqlite'
+            ? "contact_first_name || ' ' || contact_last_name"
+            : "CONCAT(contact_first_name, ' ', contact_last_name)";
+
         $users = User::join('dotp_contacts', 'dotp_users.user_contact', '=', 'dotp_contacts.contact_id')
             ->orderBy('contact_first_name')
-            ->select('user_id', DB::raw("CONCAT(contact_first_name, ' ', contact_last_name) as full_name"))
+            ->select('user_id', DB::raw($concatSql . " as full_name"))
             ->pluck('full_name', 'user_id');
 
         $tasks = Task::where('task_project', $project->project_id)
@@ -697,9 +701,13 @@ class PlanningController extends Controller {
             'goals.questions.metrics'
         ])->firstOrCreate(['project_id' => $project->project_id]);
 
+        $concatSql = DB::connection()->getDriverName() === 'sqlite'
+            ? "contact_first_name || ' ' || contact_last_name"
+            : "CONCAT(contact_first_name, ' ', contact_last_name)";
+
         $users = User::join('dotp_contacts', 'dotp_users.user_contact', '=', 'dotp_contacts.contact_id')
             ->orderBy('contact_first_name')
-            ->select('user_id', DB::raw("CONCAT(contact_first_name, ' ', contact_last_name) as full_name"))
+            ->select('user_id', DB::raw($concatSql . " as full_name"))
             ->pluck('full_name', 'user_id');
 
         $html = view('projects.planning.tabs.quality', [
@@ -723,9 +731,13 @@ class PlanningController extends Controller {
         $channels = CommunicationChannel::orderBy('communication_channel')->get();
         $frequencies = CommunicationFrequency::orderBy('communication_frequency')->get();
 
+        $concatSql = DB::connection()->getDriverName() === 'sqlite'
+            ? "contact_first_name || ' ' || contact_last_name"
+            : "CONCAT(contact_first_name, ' ', contact_last_name)";
+
         $users = User::join('dotp_contacts', 'dotp_users.user_contact', '=', 'dotp_contacts.contact_id')
             ->orderBy('contact_first_name')
-            ->select('user_id', DB::raw("CONCAT(contact_first_name, ' ', contact_last_name) as full_name"))
+            ->select('user_id', DB::raw($concatSql . " as full_name"))
             ->pluck('full_name', 'user_id');
 
         $html = view('projects.planning.tabs.communication', [
@@ -768,8 +780,12 @@ class PlanningController extends Controller {
                 ->get();
         }
 
+        $concatSql = DB::connection()->getDriverName() === 'sqlite'
+            ? "contact_first_name || ' ' || contact_last_name"
+            : "CONCAT(contact_first_name, ' ', contact_last_name)";
+
         $contacts = UserContact::orderBy('contact_first_name')
-            ->select('contact_id', DB::raw("CONCAT(contact_first_name, ' ', contact_last_name) as full_name"))
+            ->select('contact_id', DB::raw($concatSql . " as full_name"))
             ->get();
 
         $html = view('projects.planning.tabs.stakeholder', [
@@ -963,6 +979,10 @@ class PlanningController extends Controller {
         $totalEV = 0;
 
         foreach ($tasks as $task) {
+            if ($date < $task->start) {
+                continue;
+            }
+
             if (($task->start <= $date) && ($date >= $task->end)) {
                 $totalEV += $task->budget * ($task->percent / 100);
             } else {

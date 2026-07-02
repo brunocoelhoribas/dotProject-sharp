@@ -1,5 +1,5 @@
 <div class="modal fade" id="editActivityModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <form id="editActivityForm" method="POST">
                 @csrf
@@ -16,22 +16,22 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-6 mb-3">
+                        <div class="col-sm-6 mb-3">
                             <label class="form-label">{{ __('planning/modals.common.start') }}</label>
                             <input type="date" name="task_start_date" id="edit_task_start_date" class="form-control">
                         </div>
-                        <div class="col-6 mb-3">
+                        <div class="col-sm-6 mb-3">
                             <label class="form-label">{{ __('planning/modals.common.end') }}</label>
                             <input type="date" name="task_end_date" id="edit_task_end_date" class="form-control">
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-6 mb-3">
+                        <div class="col-sm-6 mb-3">
                             <label class="form-label">{{ __('planning/modals.common.duration') }}</label>
                             <input type="number" name="task_duration" id="edit_task_duration" class="form-control">
                         </div>
-                        <div class="col-6 mb-3">
+                        <div class="col-sm-6 mb-3">
                             <label class="form-label">{{ __('planning/modals.activity.percent_complete') }}</label>
                             <select name="task_percent_complete" id="edit_task_percent_complete" class="form-select">
                                 <option value="0">{{ __('planning/modals.activity.status.0') }}</option>

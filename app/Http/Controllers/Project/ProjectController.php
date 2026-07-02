@@ -210,8 +210,9 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project): RedirectResponse
     {
-        // TODO: Implement cascading delete logic via Observers
-        $project->delete();
+        DB::transaction(static function () use ($project) {
+            $project->delete();
+        });
 
         return redirect()->route('projects.index')
             ->with('success', __('projects/messages.success.deleted'));
@@ -264,10 +265,14 @@ class ProjectController extends Controller
 
     private function getOwnerList(): Collection
     {
+        $concatSql = DB::connection()->getDriverName() === 'sqlite'
+            ? "contact_first_name || ' ' || contact_last_name"
+            : "CONCAT(contact_first_name, ' ', contact_last_name)";
+
         return User::join('dotp_contacts', 'dotp_users.user_contact', '=', 'dotp_contacts.contact_id')
             ->orderBy('dotp_contacts.contact_first_name')
             ->orderBy('dotp_contacts.contact_last_name')
-            ->pluck(DB::raw("CONCAT(contact_first_name, ' ', contact_last_name)"), 'dotp_users.user_id');
+            ->pluck(DB::raw($concatSql), 'dotp_users.user_id');
     }
 
     private function getProjectStatus(): array

@@ -92,7 +92,7 @@
             <h6 class="text-dark fw-normal mb-3">{{ __('companies/view.hr.details.section_costs') }}</h6>
 
             <table class="table table-bordered table-sm align-middle mx-auto" style="max-width: 900px;" id="costsTable">
-                <thead style="background-color: #FFC107;">
+                <thead class="thead-dotproject">
                 <tr class="small fw-bold text-dark">
                     <th>{{ __('companies/view.hr.costs.project') }}</th>
                     <th>{{ __('companies/view.hr.costs.start_date') }}</th>

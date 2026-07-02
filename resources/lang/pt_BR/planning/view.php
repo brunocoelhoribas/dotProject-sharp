@@ -7,44 +7,53 @@ return [
         'minutes' => 'Atas/Minutas',
 
         'table' => [
-            'wbs' => 'Atividade / EAP',
+            'wbs' => 'Pacote / Atividade',
             'start' => 'Início',
             'end' => 'Fim',
             'duration' => 'Duração',
-            'resources' => 'Recursos',
+            'status' => 'Status',
             'actions' => 'Ações',
         ],
+
         'menu' => [
             'new_activity' => 'Nova Atividade',
-            'new_subitem' => 'Novo Sub-item',
-            'delete_item' => 'Excluir Item',
+            'new_subitem' => 'Novo Subpacote',
+            'move_up' => 'Mover para Cima',
+            'move_down' => 'Mover para Baixo',
+            'delete_item' => 'Excluir Pacote',
         ],
+
         'task' => [
+            'single' => 'tarefa',
+            'plural' => 'tarefas',
             'days' => 'dias',
             'hours' => 'horas',
+
             'status' => [
                 'completed' => 'Concluído',
-                'not_started' => 'Não Iniciada',
+                'not_started' => 'Não Iniciado',
             ],
+
             'actions' => [
-                'edit' => 'Editar',
-                'delete' => 'Excluir',
+                'edit' => 'Editar Atividade',
+                'delete' => 'Excluir Atividade',
+                'move_up' => 'Mover para cima',
+                'move_down' => 'Mover para baixo',
             ],
+
             'details' => [
-                'owner' => 'Responsável:',
+                'owner' => 'Responsável',
                 'not_defined' => 'Não definido',
-                'effort' => 'Esforço:',
-                'units' => [
-                    'person_hour' => 'Pessoas/Hora',
-                    'minutes' => 'Minutos',
-                    'days' => 'Dias',
-                    'hours' => 'Horas',
-                ],
+                'effort' => 'Esforço',
             ],
         ],
+
         'empty' => [
             'message' => 'Nenhuma estrutura EAP definida.',
-            'btn' => 'Criar primeiro item da EAP',
+            'sub_message' => 'Crie seu primeiro pacote de trabalho ou deixe a Inteligência Artificial gerar uma estrutura baseada no escopo do projeto.',
+            'btn_manual' => 'Nova Estrutura Manual',
+            'btn_ai' => 'Gerar com Inteligência Artificial',
+            'generating' => 'Gerando com IA...',
         ],
     ],
     'schedule' => [

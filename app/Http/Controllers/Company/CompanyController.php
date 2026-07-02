@@ -148,7 +148,14 @@ class CompanyController extends Controller {
      * Remove the specified company from storage.
      */
     public function destroy(Company $company): RedirectResponse {
-        $company->delete();
+        if ($company->activeProjects()->exists()) {
+            return redirect()->route('companies.index')
+                ->with('error', __('companies/messages.cannot_delete_has_projects'));
+        }
+
+        DB::transaction(static function () use ($company) {
+            $company->delete();
+        });
 
         // ALTERADO: Mensagem traduzida
         return redirect()->route('companies.index')
@@ -179,10 +186,14 @@ class CompanyController extends Controller {
      * Private helper to get a list of owners (Users) for dropdowns.
      */
     private function getOwnerList(): Collection {
+        $concatSql = DB::connection()->getDriverName() === 'sqlite'
+            ? "contact_first_name || ' ' || contact_last_name"
+            : "CONCAT(contact_first_name, ' ', contact_last_name)";
+
         return User::join('dotp_contacts', 'dotp_users.user_contact', '=', 'dotp_contacts.contact_id')
             ->orderBy('dotp_contacts.contact_first_name')
             ->orderBy('dotp_contacts.contact_last_name')
-            ->pluck(DB::raw("CONCAT(contact_first_name, ' ', contact_last_name)"), 'dotp_users.user_id');
+            ->pluck(DB::raw($concatSql), 'dotp_users.user_id');
     }
 
     /**

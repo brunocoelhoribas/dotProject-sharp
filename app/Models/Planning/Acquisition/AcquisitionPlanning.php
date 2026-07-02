@@ -28,4 +28,12 @@ class AcquisitionPlanning extends Model {
     public function roles(): HasMany {
         return $this->hasMany(AcquisitionRole::class, 'acquisition_id', 'id');
     }
+
+    protected static function booted(): void {
+        static::deleting(static function (AcquisitionPlanning $acquisition) {
+            $acquisition->criteria()->delete();
+            $acquisition->requirements()->delete();
+            $acquisition->roles()->delete();
+        });
+    }
 }

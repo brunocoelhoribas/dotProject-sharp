@@ -1,5 +1,5 @@
 <div class="modal fade" id="createWbsModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             {{-- Note: A rota aqui depende da variável $project estar disponível na view --}}
             <form action="{{ route('projects.wbs.store', $project) }}" method="POST">

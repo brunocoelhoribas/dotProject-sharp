@@ -5,7 +5,7 @@
     <div class="card shadow-sm border-0">
         <div class="card-body p-4">
 
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-end mb-4 gap-3">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
                 <div>
                     <h1 class="h4 fw-bold mb-0 text-dark">{{ __('companies/view.index.title') }}</h1>
                 </div>
@@ -74,7 +74,7 @@
 
             <div class="table-responsive">
                 <table class="table table-bordered table-sm align-middle mb-0">
-                    <thead class="table-light">
+                    <thead class="thead-dotproject">
                     <tr>
                         <th style="width: 35%;">{{ __('companies/view.index.table.name') }}</th>
                         <th style="width: 15%;" class="text-center">{{ __('companies/view.index.table.active_projects') }}</th>

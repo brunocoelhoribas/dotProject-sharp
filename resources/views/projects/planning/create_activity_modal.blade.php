@@ -1,5 +1,5 @@
 <div class="modal fade" id="createActivityModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <form id="createActivityForm" method="POST">
                 @csrf
@@ -15,11 +15,11 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-6 mb-3">
+                        <div class="col-sm-6 mb-3">
                             <label class="form-label">{{ __('planning/modals.common.start') }}</label>
                             <input type="date" name="task_start_date" class="form-control">
                         </div>
-                        <div class="col-6 mb-3">
+                        <div class="col-sm-6 mb-3">
                             <label class="form-label">{{ __('planning/modals.common.end') }}</label>
                             <input type="date" name="task_end_date" class="form-control">
                         </div>

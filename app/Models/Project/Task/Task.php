@@ -5,6 +5,7 @@ namespace App\Models\Project\Task;
 use App\Models\Project\Project;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -106,4 +107,39 @@ class Task extends Model {
     public function logs(): self|HasMany {
         return $this->hasMany(TaskLog::class, 'task_log_task', 'task_id');
     }
+
+    protected static function booted(): void {
+        static::deleting(static function (Task $task) {
+            // Delete task logs
+            DB::table('dotp_task_log')->where('task_log_task', $task->task_id)->delete();
+
+            // Delete task estimations
+            DB::table('dotp_project_tasks_estimations')->where('task_id', $task->task_id)->delete();
+
+            // Get estimated roles and delete allocations first
+            $roleIds = DB::table('dotp_project_tasks_estimated_roles')
+                ->where('task_id', $task->task_id)
+                ->pluck('id');
+
+            if ($roleIds->isNotEmpty()) {
+                DB::table('dotp_human_resource_allocation')
+                    ->whereIn('project_tasks_estimated_roles_id', $roleIds)
+                    ->delete();
+            }
+
+            // Delete estimated roles
+            DB::table('dotp_project_tasks_estimated_roles')->where('task_id', $task->task_id)->delete();
+
+            // Delete dependencies (both predecessor and successor)
+            DB::table('dotp_task_dependencies')
+                ->where('dependencies_task_id', $task->task_id)
+                ->orWhere('dependencies_req_task_id', $task->task_id)
+                ->delete();
+
+            // Delete pivots
+            DB::table('dotp_user_tasks')->where('task_id', $task->task_id)->delete();
+            DB::table('dotp_tasks_workpackages')->where('task_id', $task->task_id)->delete();
+        });
+    }
 }
+

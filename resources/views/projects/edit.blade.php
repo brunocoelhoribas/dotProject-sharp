@@ -33,50 +33,58 @@
 
                             <div class="row g-4">
                                 <div class="col-md-6 border-end-md">
-                                    <div class="mb-3">
-                                        <label for="project_name" class="form-label small fw-bold text-muted">
+                                    <div class="mb-3 row">
+                                        <label for="project_name" class="col-sm-4 col-form-label">
                                             {{ __('projects/views.form.name') }} <span class="text-danger">*</span>
                                         </label>
-                                        <input type="text" class="form-control form-control-sm" id="project_name" name="project_name"
-                                               value="{{ old('project_name', $project->project_name) }}" required>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control form-control-sm" id="project_name" name="project_name"
+                                                   value="{{ old('project_name', $project->project_name) }}" required>
+                                        </div>
                                     </div>
 
-                                    <div class="mb-3">
-                                        <label for="project_company" class="form-label small fw-bold text-muted">
+                                    <div class="mb-3 row">
+                                        <label for="project_company" class="col-sm-4 col-form-label">
                                             {{ __('projects/views.form.company') }} <span class="text-danger">*</span>
                                         </label>
-                                        <select class="form-select form-select-sm" id="project_company" name="project_company" required>
-                                            <option value="">{{ __('projects/views.form.select_company') }}</option>
-                                            @foreach($companies as $id => $name)
-                                                <option value="{{ $id }}" {{ old('project_company', $project->project_company) === $id ? 'selected' : '' }}>
-                                                    {{ $name }}
-                                                </option>
-                                            @endforeach
-                                        </select>
+                                        <div class="col-sm-8">
+                                            <select class="form-select form-select-sm" id="project_company" name="project_company" required>
+                                                <option value="">{{ __('projects/views.form.select_company') }}</option>
+                                                @foreach($companies as $id => $name)
+                                                    <option value="{{ $id }}" {{ old('project_company', $project->project_company) === $id ? 'selected' : '' }}>
+                                                        {{ $name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
 
-                                    <div class="mb-3">
-                                        <label for="project_owner" class="form-label small fw-bold text-muted">
+                                    <div class="mb-3 row">
+                                        <label for="project_owner" class="col-sm-4 col-form-label">
                                             {{ __('projects/views.form.owner') }} <span class="text-danger">*</span>
                                         </label>
-                                        <select class="form-select form-select-sm" id="project_owner" name="project_owner" required>
-                                            <option value="">{{ __('projects/views.form.select_owner') }}</option>
-                                            @foreach($users as $id => $name)
-                                                <option value="{{ $id }}" {{ old('project_owner', $project->project_owner) === $id ? 'selected' : '' }}>
-                                                    {{ $name }}
-                                                </option>
-                                            @endforeach
-                                        </select>
+                                        <div class="col-sm-8">
+                                            <select class="form-select form-select-sm" id="project_owner" name="project_owner" required>
+                                                <option value="">{{ __('projects/views.form.select_owner') }}</option>
+                                                @foreach($users as $id => $name)
+                                                    <option value="{{ $id }}" {{ old('project_owner', $project->project_owner) === $id ? 'selected' : '' }}>
+                                                        {{ $name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
 
-                                    <div class="mb-3">
-                                        <label for="project_target_budget" class="form-label small fw-bold text-muted">
+                                    <div class="mb-3 row">
+                                        <label for="project_target_budget" class="col-sm-4 col-form-label">
                                             {{ __('projects/views.form.target_budget') }}
                                         </label>
-                                        <div class="input-group input-group-sm">
-                                            <span class="input-group-text">R$</span>
-                                            <input type="number" step="0.01" class="form-control" id="project_target_budget"
-                                                   name="project_target_budget" value="{{ old('project_target_budget', $project->project_target_budget) }}">
+                                        <div class="col-sm-8">
+                                            <div class="input-group input-group-sm">
+                                                <span class="input-group-text">R$</span>
+                                                <input type="number" step="0.01" class="form-control" id="project_target_budget"
+                                                       name="project_target_budget" value="{{ old('project_target_budget', $project->project_target_budget) }}">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -84,57 +92,71 @@
                                 <div class="col-md-6">
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
-                                            <label for="project_start_date" class="form-label small fw-bold text-muted">
-                                                {{ __('projects/views.form.start_date') }}
-                                            </label>
-                                            <input type="date" class="form-control form-control-sm" id="project_start_date"
-                                                   name="project_start_date" value="{{ old('project_start_date', optional($project->project_start_date)->format('Y-m-d')) }}">
+                                            <div class="mb-3 row">
+                                                <label for="project_start_date" class="col-sm-12 col-md-5 col-form-label">
+                                                    {{ __('projects/views.form.start_date') }}
+                                                </label>
+                                                <div class="col-sm-12 col-md-7">
+                                                    <input type="date" class="form-control form-control-sm" id="project_start_date"
+                                                           name="project_start_date" value="{{ old('project_start_date', optional($project->project_start_date)->format('Y-m-d')) }}">
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
-                                            <label for="project_end_date" class="form-label small fw-bold text-muted">
-                                                {{ __('projects/views.form.end_date') }}
-                                            </label>
-                                            <input type="date" class="form-control form-control-sm" id="project_end_date"
-                                                   name="project_end_date" value="{{ old('project_end_date', optional($project->project_end_date)->format('Y-m-d')) }}">
+                                            <div class="mb-3 row">
+                                                <label for="project_end_date" class="col-sm-12 col-md-5 col-form-label">
+                                                    {{ __('projects/views.form.end_date') }}
+                                                </label>
+                                                <div class="col-sm-12 col-md-7">
+                                                    <input type="date" class="form-control form-control-sm" id="project_end_date"
+                                                           name="project_end_date" value="{{ old('project_end_date', optional($project->project_end_date)->format('Y-m-d')) }}">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="mb-3">
-                                        <label for="project_status" class="form-label small fw-bold text-muted">
+                                    <div class="mb-3 row">
+                                        <label for="project_status" class="col-sm-4 col-form-label">
                                             {{ __('projects/views.form.status') }} <span class="text-danger">*</span>
                                         </label>
-                                        <select class="form-select form-select-sm" id="project_status" name="project_status" required>
-                                            @foreach($statuses as $id => $name)
-                                                <option value="{{ $id }}" {{ old('project_status', $project->project_status) === $id ? 'selected' : '' }}>
-                                                    {{ $name }}
-                                                </option>
-                                            @endforeach
-                                        </select>
+                                        <div class="col-sm-8">
+                                            <select class="form-select form-select-sm" id="project_status" name="project_status" required>
+                                                @foreach($statuses as $id => $name)
+                                                    <option value="{{ $id }}" {{ old('project_status', $project->project_status) === $id ? 'selected' : '' }}>
+                                                        {{ $name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
 
-                                    <div class="mb-3">
-                                        <label for="project_priority" class="form-label small fw-bold text-muted">
+                                    <div class="mb-3 row">
+                                        <label for="project_priority" class="col-sm-4 col-form-label">
                                             {{ __('projects/views.form.priority') }} <span class="text-danger">*</span>
                                         </label>
-                                        <select class="form-select form-select-sm" id="project_priority" name="project_priority" required>
-                                            @foreach($priorities as $id => $name)
-                                                <option value="{{ $id }}" {{ old('project_priority', $project->project_priority) === $id ? 'selected' : '' }}>
-                                                    {{ $name }}
-                                                </option>
-                                            @endforeach
-                                        </select>
+                                        <div class="col-sm-8">
+                                            <select class="form-select form-select-sm" id="project_priority" name="project_priority" required>
+                                                @foreach($priorities as $id => $name)
+                                                    <option value="{{ $id }}" {{ old('project_priority', $project->project_priority) === $id ? 'selected' : '' }}>
+                                                        {{ $name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row mt-2">
                                 <div class="col-12">
-                                    <div class="mb-3">
-                                        <label for="project_description" class="form-label small fw-bold text-muted">
+                                    <div class="mb-3 row">
+                                        <label for="project_description" class="col-sm-2 col-form-label">
                                             {{ __('projects/views.form.description') }}
                                         </label>
-                                        <textarea class="form-control form-control-sm" id="project_description" name="project_description"
-                                                  rows="5">{{ old('project_description', $project->project_description) }}</textarea>
+                                        <div class="col-sm-10">
+                                            <textarea class="form-control form-control-sm" id="project_description" name="project_description"
+                                                      rows="5">{{ old('project_description', $project->project_description) }}</textarea>
+                                        </div>
                                     </div>
                                 </div>
                                 <input type="hidden" name="project_departments" id="project_departments" value="{{ old('project_departments') }}">

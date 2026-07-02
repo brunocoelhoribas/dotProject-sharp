@@ -20,12 +20,12 @@
 
     <div class="table-responsive mb-3">
         <table class="table table-bordered table-sm align-middle" id="tb_organogram">
-            <thead style="background-color: #e0e0e0;">
+            <thead class="thead-dotproject">
             <tr class="text-center small fw-bold">
-                <th style="width: 80px; background-color: #FFC107;">{{ __('companies/view.organogram.order') }}</th>
-                <th style="width: 100px; background-color: #FFC107;">{{ __('companies/view.organogram.indentation') }}</th>
-                <th style="background-color: #FFC107;">{{ __('companies/view.organogram.role') }}</th>
-                <th style="width: 100px; background-color: #FFC107;">{{ __('companies/view.organogram.actions') }}</th>
+                <th style="width: 80px;">{{ __('companies/view.organogram.order') }}</th>
+                <th style="width: 100px;">{{ __('companies/view.organogram.indentation') }}</th>
+                <th>{{ __('companies/view.organogram.role') }}</th>
+                <th style="width: 100px;">{{ __('companies/view.organogram.actions') }}</th>
             </tr>
             </thead>
             <tbody id="organogram_body">

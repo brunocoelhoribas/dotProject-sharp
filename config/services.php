@@ -13,7 +13,14 @@ return [
     | a conventional file to locate the various service credentials.
     |
     */
-
+    'nvidia_api' => [
+        'key' => env('NVIDIA_API_KEY')
+    ],
+    'openrouter' => [
+        'key' => env('OPENROUTER_API_KEY'),
+        'model' => env('OPENROUTER_MODEL', 'meta-llama/llama-3.3-70b-instruct:free'),
+        'fallback_models' => array_values(array_filter(array_map('trim', explode(',', env('OPENROUTER_FALLBACK_MODELS', 'openrouter/free'))))),
+    ],
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],

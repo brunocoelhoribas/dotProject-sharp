@@ -33,12 +33,12 @@
 
     <div class="table-responsive mb-4">
         <table class="table table-bordered table-hover align-middle mb-0" id="hrTable">
-            <thead style="background-color: #e0e0e0;">
+            <thead class="thead-dotproject">
                 <tr class="text-center small fw-bold">
-                    <th style="width: 50px; background-color: #FFC107;"></th>
-                    <th style="width: 35%; background-color: #FFC107;">{{ __('companies/view.hr.table.member') }}</th>
-                    <th style="width: 45%; background-color: #FFC107;">{{ __('companies/view.hr.table.roles') }}</th>
-                    <th style="background-color: #FFC107;">{{ __('companies/view.hr.table.actions') }}</th>
+                    <th style="width: 50px;"></th>
+                    <th style="width: 35%;">{{ __('companies/view.hr.table.member') }}</th>
+                    <th style="width: 45%;">{{ __('companies/view.hr.table.roles') }}</th>
+                    <th>{{ __('companies/view.hr.table.actions') }}</th>
                 </tr>
             </thead>
             <tbody>

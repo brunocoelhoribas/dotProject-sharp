@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\Company\CompanyController;
 use App\Http\Controllers\Company\CompanyHumanResourceController;
 use App\Http\Controllers\Company\CompanyOrganogramController;
 use App\Http\Controllers\Company\CompanyRoleController;
+use App\Http\Controllers\Cost\CostController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Execution\ExecutionController;
 use App\Http\Controllers\HumanResource\HumanResourcePerformanceController;
 use App\Http\Controllers\HumanResource\HumanResourceRaciController;
@@ -36,11 +39,9 @@ Route::get('login', [LoginController::class, 'create'])->name('login');
 Route::post('login', [LoginController::class, 'store']);
 Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
 Route::get('lang/{locale}', [LanguageController::class, 'switch'])->name('lang.switch');
-
 Route::middleware(['auth'])->group(function () {
-    Route::get('dashboard', static function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::post('/chat', [ChatController::class, 'chatWithAssistant'])->name('chat.assistant');
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::prefix('users/{user}')->name('users.')->group(function () {
         Route::post('costs', [UserCostController::class, 'store'])->name('costs.store');
@@ -77,6 +78,7 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('gantt-data', [PlanningController::class, 'ganttData'])->name('gantt.data');
 
+        Route::post('wbs/generate-ai', [PlanningController::class, 'generateWbsWithAi'])->name('wbs.generate_ai');
         Route::post('wbs', [PlanningController::class, 'storeWbsItem'])->name('wbs.store');
         Route::delete('wbs/{wbsItem}', [PlanningController::class, 'destroyWbsItem'])->name('wbs.destroy');
         Route::post('wbs/{wbsItem}/move/{direction}', [PlanningController::class, 'moveWbsItem'])->name('wbs.move');
@@ -157,6 +159,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/closure', [App\Http\Controllers\Closure\ClosureController::class, 'show'])->name('closure.show');
         Route::post('/closure', [App\Http\Controllers\Closure\ClosureController::class, 'store'])->name('closure.store');
     });
+
+    Route::get('/costs', [CostController::class, 'index'])->name('costs.index');
+    Route::get('/costs/{project}/s-curve', [CostController::class, 'getProjectSCurve'])->name('costs.s_curve');
 
     Route::get('projects/{project}/initiating/pdf', [InitiatingController::class, 'generatePDF'])->name('initiating.pdf');
     Route::get('initiating/{initiating}/stakeholders/pdf', [InitiatingStakeholderController::class, 'generatePDF'])->name('initiating.stakeholders.pdf');

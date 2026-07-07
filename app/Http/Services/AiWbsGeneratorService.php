@@ -11,20 +11,14 @@ use Illuminate\Support\Facades\DB;
 use Exception;
 use RuntimeException;
 use Throwable;
-use App\Http\Services\Traits\HandlesOpenRouterRequests;
+use OpenAI\Laravel\Facades\OpenAI;
 
 class AiWbsGeneratorService {
-    use HandlesOpenRouterRequests;
     /**
      * @throws Throwable
      */
     public function generateForProject(Project $project): void {
-        $apiKey = config('services.openrouter.key');
-        $model = config('services.openrouter.model', 'qwen/qwen3-next-80b-a3b-instruct:free');
-
-        if (!$apiKey) {
-            throw new RuntimeException('Chave da API do OpenRouter não configurada no arquivo .env.');
-        }
+        $model = env('OLLAMA_MODEL', 'llama3.2');
 
         $locale = app()->getLocale();
 
@@ -57,22 +51,27 @@ class AiWbsGeneratorService {
             ]
         ";
 
-        $responseData = $this->sendOpenRouterRequest($apiKey, $model, [
-            'messages' => [
-                [
-                    'role' => 'system',
-                    'content' => 'Você é uma API. Retorne APENAS o JSON puro. Não use blocos de código markdown, não diga "Aqui está", não explique nada.'
+        try {
+            $response = OpenAI::chat()->create([
+                'model' => $model,
+                'messages' => [
+                    [
+                        'role' => 'system',
+                        'content' => 'Você é uma API. Retorne APENAS o JSON puro. Não use blocos de código markdown, não diga "Aqui está", não explique nada.'
+                    ],
+                    [
+                        'role' => 'user',
+                        'content' => $context
+                    ]
                 ],
-                [
-                    'role' => 'user',
-                    'content' => $context
-                ]
-            ],
-            'temperature' => 0.2,
-            'max_tokens' => 2048,
-        ]);
+                'temperature' => 0.2,
+                'max_tokens' => 2048,
+            ]);
 
-        $content = $responseData['choices'][0]['message']['content'] ?? '';
+            $content = $response->choices[0]->message->content ?? '';
+        } catch (Exception $e) {
+            throw new RuntimeException("Erro ao gerar EAP via IA local (Ollama): " . $e->getMessage());
+        }
         $content = preg_replace('/```json\s*/i', '', $content);
         $content = preg_replace('/```\s*/', '', $content);
         $content = trim($content);

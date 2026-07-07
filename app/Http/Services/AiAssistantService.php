@@ -5,26 +5,18 @@ namespace App\Http\Services;
 use App\Models\Project\Project;
 use App\Models\Company\Company;
 use App\Models\Project\Task\Task;
-use Illuminate\Http\Client\ConnectionException;
-use Illuminate\Support\Facades\Http;
 use Exception;
 use JsonException;
 use RuntimeException;
-use App\Http\Services\Traits\HandlesOpenRouterRequests;
+use OpenAI\Laravel\Facades\OpenAI;
 
 class AiAssistantService {
-    use HandlesOpenRouterRequests;
     /**
-     * @throws ConnectionException
+     * @throws Exception
      * @throws JsonException
      */
     public function askProjectAssistant(?Project $currentProject, string $userMessage, array $chatHistory = []): string {
-        $apiKey = config('services.openrouter.key');
-        $model = config('services.openrouter.model', 'qwen/qwen3-next-80b-a3b-instruct:free');
-
-        if (!$apiKey) {
-            throw new RuntimeException('Chave da API do OpenRouter não configurada.');
-        }
+        $model = env('OLLAMA_MODEL', 'llama3.2');
 
         $locale = app()->getLocale();
         $languageMap = [
@@ -76,7 +68,7 @@ class AiAssistantService {
 
             Suas regras de comportamento:
             - Seja direto, profissional e prestativo.
-            - Se o usuário perguntar sobre o 'projeto atual', consulte a chave 'currentProject'.
+            - Se o usuário perguntar sobre o 'projeto atual', consulte a chave 'projeto_atual_visualizado'.
             - Se perguntar sobre outros projetos ou visão geral, use a chave 'projectsSummary'.
             - Não invente dados. Se não estiver no JSON de contexto, diga que você ainda não tem acesso a essa informação.
             - Use formatação Markdown (negrito, listas) para tornar a leitura fácil no chat.
@@ -94,12 +86,17 @@ class AiAssistantService {
 
         $messages[] = ['role' => 'user', 'content' => $userMessage];
 
-        $responseData = $this->sendOpenRouterRequest($apiKey, $model, [
-            'messages' => $messages,
-            'temperature' => 0.4,
-            'max_tokens' => 1024,
-        ]);
+        try {
+            $response = OpenAI::chat()->create([
+                'model' => $model,
+                'messages' => $messages,
+                'temperature' => 0.4,
+                'max_tokens' => 1024,
+            ]);
 
-        return $responseData['choices'][0]['message']['content'] ?? '';
+            return $response->choices[0]->message->content ?? '';
+        } catch (Exception $e) {
+            throw new RuntimeException("Erro ao conectar com a IA local (Ollama): " . $e->getMessage());
+        }
     }
 }

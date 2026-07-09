@@ -97,7 +97,7 @@ Para facilitar a avaliação e os testes sem necessidade de instalar dependênci
 #### 🔑 Credenciais de Acesso (VM)
 * **Acesso ao Sistema (dotProject):**
   * **Usuário:** `admin`
-  * **Senha:** `passwd`
+  * **Senha:** `admin123`
 * **Acesso interno à VM Debian (Terminal):**
   * **Usuário:** `root`
   * **Senha:** `labredes`

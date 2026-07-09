@@ -1,13 +1,3 @@
-# dotProject+ 2025 (TCC - Bruno Coelho Ribas)
-
-Este repositório contém o código-fonte referente ao Trabalho de Conclusão de Curso (TCC) desenvolvido por **Bruno Coelho Ribas**. O projeto foca na modernização da ferramenta de gestão de projetos **dotProject**, com ênfase no aprimoramento do módulo de Recursos Humanos para alinhamento com as práticas do PMBOK v7.
-
-A aplicação foi migrada de sua arquitetura legada para um ambiente moderno e escalável, utilizando **PHP 8.4** e o framework **Laravel 12**, com interface atualizada via **Tailwind CSS**.
-
-Link de acesso ao trabalho escrito: [Documento do TCC](https://ifcedubr-my.sharepoint.com/:w:/g/personal/bruno_ribas_estudantes_ifc_edu_br/EVJoDo6Jka5Mg-QMRb7IjFoBXEVGsxDZPT_FlT9WeF0Erg?e=Qbb6L0)
-
----
-
 ## 🛠️ Como Rodar a Aplicação
 
 Existem duas formas disponíveis para executar a aplicação no seu ambiente local:

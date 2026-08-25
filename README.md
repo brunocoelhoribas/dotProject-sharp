@@ -1,3 +1,33 @@
+# 🚀 dotProject#
+
+[![PHP Version](https://img.shields.io/badge/PHP-8.4-777BB4?style=flat-square&logo=php&logoColor=white)](https://www.php.net/)
+[![Framework](https://img.shields.io/badge/Laravel-12.x-FF2D20?style=flat-square&logo=laravel&logoColor=white)](https://laravel.com/)
+[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg?style=flat-square)](LICENSE)
+[![LGPD Compliant](https://img.shields.io/badge/LGPD-Privacy%20by%20Design-success?style=flat-square)](PRIVACY.md)
+[![PMBOK Alignment](https://img.shields.io/badge/PMBOK-7th%20Edition-orange?style=flat-square)](https://www.pmi.org/pmbok-guide-standards/foundational/pmbok)
+
+O **dotProject#** é uma plataforma de gerenciamento de projetos de código aberto (*open-source*) que evolui a ferramenta legada *dotProject+*, reestruturando sua arquitetura para o padrão MVC no **Laravel 12** e **PHP 8.4**. O sistema foi concebido para alinhar a gestão de equipes aos princípios e domínios de desempenho do **Guia PMBOK 7ª edição (PMI, 2021)**, combatendo a *dívida de gestão* (*management debt*) e colocando o fator humano como elemento central para a entrega de valor em projetos.
+
+---
+
+### ✨ Principais Funcionalidades
+* **Gestão de Competências (Mapeamento CHA & Skill Map):** Inventário de conhecimentos, habilidades e atitudes com representação visual em gráfico de radar (*Chart.js*).
+* **Governança de Papéis (Matriz RACI Dinâmica):** Atribuição assíncrona de responsabilidades (*Responsible*, *Accountable*, *Consulted*, *Informed*) por tarefa.
+* **Avaliação Estratégica (Matriz 9-Box):** Classificação interativa de colaboradores por potencial e desempenho.
+* **Monitoramento Financeiro (Curva S):** Visualização gráfica de custos acumulados versus orçamento alvo (*target budget*).
+* **Automação Inteligente por IA Local (Ollama + Llama 3.2):** Geração automática de EAP (WBS) e assistente virtual de chat PMO com **100% de privacidade de dados (tráfego zero externo)** em estrita conformidade com a **LGPD (Lei nº 13.709/2018)**.
+
+---
+
+## 📄 Governança, Licença e Privacidade
+
+* 📜 **Licença:** Este projeto é distribuído sob a licença [GNU General Public License v2.0 (GPL-2.0)](LICENSE).
+* 🛡️ **Privacidade e LGPD:** Conheça nossa política de proteção de dados e privacidade em [PRIVACY.md](PRIVACY.md).
+* 🤝 **Contribuições:** Leia o guia para desenvolvedores em [CONTRIBUTING.md](CONTRIBUTING.md).
+* 🔒 **Segurança:** Diretrizes de segurança e reporte responsável em [SECURITY.md](SECURITY.md).
+
+---
+
 ## 🛠️ Como Rodar a Aplicação
 
 Existem duas formas disponíveis para executar a aplicação no seu ambiente local:

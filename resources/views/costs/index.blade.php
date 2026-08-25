@@ -11,6 +11,35 @@
                         <i class="bi bi-currency-dollar text-success me-2"></i> {{ __('costs/view.header') }}
                     </h1>
                 </div>
+
+                <form class="d-flex flex-wrap align-items-end gap-2" role="search" method="GET" action="{{ route('costs.index') }}">
+                    <div>
+                        <label for="search" class="form-label fw-bold small text-muted mb-0">Projeto</label>
+                        <input type="text" id="search" name="search" class="form-control form-control-sm"
+                               placeholder="Buscar projeto..." value="{{ $filterSearch ?? '' }}" style="min-width: 180px;">
+                    </div>
+
+                    <div>
+                        <label for="company" class="form-label fw-bold small text-muted mb-0">Empresa</label>
+                        <select id="company" name="company" class="form-select form-select-sm" style="min-width: 180px;">
+                            <option value="">Todas as empresas</option>
+                            @foreach ($companies as $companyId => $companyName)
+                                <option value="{{ $companyId }}" {{ (string)$filterCompany === (string)$companyId ? 'selected' : '' }}>
+                                    {{ $companyName }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-sm">
+                        <i class="bi bi-search me-1"></i> Filtrar
+                    </button>
+                    @if($filterSearch || $filterCompany)
+                        <a href="{{ route('costs.index') }}" class="btn btn-outline-secondary btn-sm" title="Limpar filtros">
+                            <i class="bi bi-x-circle"></i>
+                        </a>
+                    @endif
+                </form>
             </div>
 
             <div class="table-responsive">
@@ -70,6 +99,12 @@
                     @endforelse
                     </tbody>
                 </table>
+            </div>
+
+            <div class="mt-3 d-flex justify-content-between align-items-center">
+                <div>
+                    {{ $projects->links('pagination::bootstrap-5') }}
+                </div>
             </div>
         </div>
     </div>

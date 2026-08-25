@@ -9,11 +9,25 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Carbon\Carbon;
 
-class CostController extends Controller {
-    public function index(): View {
-        $projects = Project::with('company')->orderBy('project_name')->get();
+use App\Models\Company\Company;
+use Illuminate\Http\Request;
 
-        $projectsWithCosts = $projects->map(function ($project) {
+class CostController extends Controller {
+    public function index(Request $request): View {
+        $query = Project::with('company');
+
+        if ($request->filled('search')) {
+            $query->where('project_name', 'LIKE', '%' . $request->input('search') . '%');
+        }
+
+        if ($request->filled('company')) {
+            $query->where('project_company', $request->input('company'));
+        }
+
+        $projects = $query->orderBy('project_name')->paginate(15)->appends($request->query());
+
+        // Attach calculated costs dynamically to the paginated collection
+        $projects->getCollection()->transform(function ($project) {
             $costs = Cost::where('cost_project_id', $project->project_id)->get();
 
             $totalHr = $costs->whereNotNull('cost_human_resource_id')->sum('cost_value_total');
@@ -26,8 +40,13 @@ class CostController extends Controller {
             return $project;
         });
 
+        $companies = Company::orderBy('company_name')->pluck('company_name', 'company_id');
+
         return view('costs.index', [
-            'projects' => $projectsWithCosts
+            'projects' => $projects,
+            'companies' => $companies,
+            'filterSearch' => $request->input('search'),
+            'filterCompany' => $request->input('company'),
         ]);
     }
 

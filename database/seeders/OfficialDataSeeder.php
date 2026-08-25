@@ -34,6 +34,9 @@ class OfficialDataSeeder extends Seeder
         DB::table('dotp_projects')->truncate();
         DB::table('dotp_departments')->truncate();
         DB::table('dotp_companies')->truncate();
+        DB::table('dotp_human_resource_performance')->truncate();
+        DB::table('dotp_raci')->truncate();
+        DB::table('dotp_human_resource')->truncate();
         
         // Keep standard users but we can truncate/delete fake ones
         // To be safe, let's clear dotp_users and dotp_contacts
@@ -67,35 +70,6 @@ class OfficialDataSeeder extends Seeder
             'user_parent' => 0,
         ]);
 
-        // Create 30 other users / resources
-        $users = [$adminUser];
-        for ($i = 0; $i < 30; $i++) {
-            $contact = UserContact::create([
-                'contact_first_name' => $faker->firstName,
-                'contact_last_name' => $faker->lastName,
-                'contact_title' => $faker->jobTitle,
-                'contact_birthday' => $faker->date('Y-m-d', '-20 years'),
-                'contact_company' => $faker->company,
-                'contact_email' => $faker->unique()->safeEmail,
-                'contact_phone' => $faker->phoneNumber,
-                'contact_address1' => $faker->streetAddress,
-                'contact_city' => $faker->city,
-                'contact_state' => $faker->stateAbbr,
-                'contact_zip' => substr($faker->postcode, 0, 11),
-            ]);
-
-            $user = User::create([
-                'user_username' => $faker->unique()->userName,
-                'user_password' => Hash::make('password'),
-                'user_contact' => $contact->contact_id,
-                'user_type' => 0,
-                'user_company' => 0,
-                'user_department' => 0,
-                'user_parent' => 0,
-            ]);
-            $users[] = $user;
-        }
-
         // 2. Create 25 Companies
         $companies = [];
         for ($i = 0; $i < 25; $i++) {
@@ -113,6 +87,42 @@ class OfficialDataSeeder extends Seeder
                 'company_email' => $faker->companyEmail,
             ]);
             $companies[] = $company;
+        }
+
+        // Create 30 other users / resources and associate their contacts to the seeded companies
+        $users = [$adminUser];
+        for ($i = 0; $i < 30; $i++) {
+            // Assign at least 5-6 users explicitly to Company 1 so that HR/RACI/9-Box views are full and rich
+            $comp = ($i < 6) ? $companies[0] : $faker->randomElement($companies);
+            $contact = UserContact::create([
+                'contact_first_name' => $faker->firstName,
+                'contact_last_name' => $faker->lastName,
+                'contact_title' => $faker->jobTitle,
+                'contact_birthday' => $faker->date('Y-m-d', '-20 years'),
+                'contact_company' => $comp->company_id, // Associate to company
+                'contact_email' => $faker->unique()->safeEmail,
+                'contact_phone' => $faker->phoneNumber,
+                'contact_address1' => $faker->streetAddress,
+                'contact_city' => $faker->city,
+                'contact_state' => $faker->stateAbbr,
+                'contact_zip' => substr($faker->postcode, 0, 11),
+            ]);
+
+            $user = User::create([
+                'user_username' => $faker->unique()->userName,
+                'user_password' => Hash::make('password'),
+                'user_contact' => $contact->contact_id,
+                'user_type' => 0,
+                'user_company' => $comp->company_id,
+                'user_department' => 0,
+                'user_parent' => 0,
+            ]);
+            $users[] = $user;
+        }
+        
+        // Also associate admin contact to Company 1
+        if (!empty($companies)) {
+            $adminContact->update(['contact_company' => $companies[0]->company_id]);
         }
 
         // 3. Create 75 Departments distributed among companies
@@ -143,7 +153,8 @@ class OfficialDataSeeder extends Seeder
         ];
         $numProjects = rand(150, 180);
         for ($p = 0; $p < $numProjects; $p++) {
-            $company = $faker->randomElement($companies);
+            // Ensure first few projects belong to Company 1
+            $company = ($p < 4) ? $companies[0] : $faker->randomElement($companies);
             $name = $faker->randomElement($projectTemplates) . ' - ' . $faker->words(2, true);
             $startDate = now()->subDays(rand(1, 100));
             $endDate = (clone $startDate)->addDays(rand(30, 365));
@@ -232,6 +243,70 @@ class OfficialDataSeeder extends Seeder
                         'user_task_priority' => 0,
                     ]);
                 }
+            }
+        }
+
+        // 6. Ensure all seeded users are registered in dotp_human_resource
+        $hrRecords = [];
+        foreach ($users as $u) {
+            $hrId = DB::table('dotp_human_resource')->insertGetId([
+                'human_resource_user_id' => $u->user_id,
+                'human_resource_lattes_url' => 'http://lattes.cnpq.br/99' . $u->user_id . '99887766',
+                'human_resource_mon' => 8,
+                'human_resource_tue' => 8,
+                'human_resource_wed' => 8,
+                'human_resource_thu' => 8,
+                'human_resource_fri' => 8,
+                'human_resource_sat' => 0,
+            ]);
+            $hrRecords[$u->user_id] = $hrId;
+        }
+
+        // 7. Seed RACI Responsibilities matrix (dotp_raci)
+        // Fully populate RACI for Company 1's projects so all tasks have full RACI rows across all company members
+        $company1 = $companies[0];
+        $company1UserIds = DB::table('dotp_contacts')->where('contact_company', $company1->company_id)->pluck('contact_id')->toArray();
+        $company1HrIds = DB::table('dotp_human_resource')->whereIn('human_resource_user_id', function($q) use ($company1) {
+            $q->select('user_id')->from('dotp_users')->join('dotp_contacts', 'dotp_users.user_contact', '=', 'dotp_contacts.contact_id')->where('contact_company', $company1->company_id);
+        })->pluck('human_resource_id')->toArray();
+
+        foreach ($projects as $project) {
+            $projTasks = DB::table('dotp_tasks')->where('task_project', $project->project_id)->get();
+            $isComp1 = ($project->project_company === $company1->company_id);
+            $targetHrs = $isComp1 ? $company1HrIds : array_values($hrRecords);
+
+            foreach ($projTasks as $t) {
+                // If company 1 project, fill entries for every HR member in Company 1 so the matrix grid is completely filled!
+                $numRoles = $isComp1 ? count($targetHrs) : rand(1, min(4, count($targetHrs)));
+                $selectedHrs = $faker->randomElements($targetHrs, $numRoles);
+
+                foreach ($selectedHrs as $hId) {
+                    DB::table('dotp_raci')->insert([
+                        'human_resource_id' => $hId,
+                        'project_id' => $project->project_id,
+                        'activity_name' => $t->task_name,
+                        'raci_role' => $faker->randomElement(['R', 'A', 'C', 'I']),
+                        'created_at' => now(),
+                        'updated_at' => now(),
+                    ]);
+                }
+            }
+        }
+
+        // 8. Seed 9-Box performance evaluations (dotp_human_resource_performance)
+        foreach ($companies as $company) {
+            // Evaluates all resources for each company they work in
+            foreach ($hrRecords as $uId => $hrId) {
+                DB::table('dotp_human_resource_performance')->insert([
+                    'company_id' => $company->company_id,
+                    'human_resource_id' => $hrId,
+                    'performance_score' => rand(1, 3), // 1: Low, 2: Medium, 3: High
+                    'potential_score' => rand(1, 3), // 1: Low, 2: Medium, 3: High
+                    'facilitator_notes' => 'Avaliação populada dinamicamente via seeder oficial para validação do estudo de caso.',
+                    'evaluation_date' => now()->subDays(rand(1, 30)),
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
             }
         }
     }

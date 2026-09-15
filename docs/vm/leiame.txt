@@ -1,1 +1,15 @@
+README
 
+** Versões:
+
+____________
+* dotprojectsharp-fork.01.2026 (03/Março/2026)   {link} https://ifcedubr-my.sharepoint.com/:p:/g/personal/bruno_ribas_estudantes_ifc_edu_br/IQBBRnV-e26CS6OWpqtgnizJASeNeOktVljrqKpZT7nzkHo?e=YfPMf7
+
+____________
+* dotprojectsharp-fork.02.2026 (06/Abril/2026)   {link} https://ifcedubr-my.sharepoint.com/:u:/g/personal/bruno_ribas_estudantes_ifc_edu_br/IQBcA36q9bRLSLToaPpbP3TPAUdRSrv9gSuN7aHAeDIvi6I?e=nRc9Ow 
+
+____________
+* dotprojectsharp-fork.03.2026 (09/Julho/2026)   {link} https://ifcedubr-my.sharepoint.com/:u:/g/personal/bruno_ribas_estudantes_ifc_edu_br/IQBA47OHpnkISKQ18JDpGNa9Aco_7Q4rAo43q1MwrFxe8NU?e=wdmha4
+
+____________
+* dotprojectsharp-fork.03.2026 (08/Agosto/2026)   {link} https://ifcedubr-my.sharepoint.com/personal/bruno_ribas_estudantes_ifc_edu_br/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fbruno%5Fribas%5Festudantes%5Fifc%5Fedu%5Fbr%2FDocuments%2Fdebian13%2Dserver%2Erar&parent=%2Fpersonal%2Fbruno%5Fribas%5Festudantes%5Fifc%5Fedu%5Fbr%2FDocuments&ga=1

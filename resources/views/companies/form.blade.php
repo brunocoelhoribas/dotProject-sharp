@@ -32,7 +32,7 @@
                 <select id="company_type" name="company_type" class="form-select">
                     <option value="">{{ __('companies/view.form.select') }}</option>
                     @foreach($types as $idType => $typeName)
-                        <option value="{{ $idType }}" @selected((old('company_type', $company->company_type ?? null) === $idType))>
+                        <option value="{{ $idType }}" @selected(old('company_type', $company->company_type ?? null) !== null && (string)old('company_type', $company->company_type) === (string)$idType)>
                             {{ $typeName }}
                         </option>
                     @endforeach

@@ -47,7 +47,7 @@ class CompanyController extends Controller {
             $query->where('company_owner', $request->input('owner'));
         }
 
-        if ($selectedTypeId) {
+        if ($selectedTypeId !== null && $selectedTypeId !== '' && $selectedTypeId !== 'all') {
             $query->where('company_type', $selectedTypeId);
         }
 
@@ -210,11 +210,19 @@ class CompanyController extends Controller {
             return [];
         }
 
-        preg_match_all('/(\d+)\|(\D+)/', $data, $matches);
+        preg_match_all('/(\d+)\|([^\r\n]+)/', $data, $matches);
 
         $types = [];
         if (!empty($matches[1]) && !empty($matches[2])) {
             $types = array_combine($matches[1], array_map('trim', $matches[2]));
+        }
+
+        foreach ($types as $id => $name) {
+            if (\Illuminate\Support\Facades\Lang::has("companies/view.types.{$id}")) {
+                $types[$id] = __("companies/view.types.{$id}");
+            } elseif (\Illuminate\Support\Facades\Lang::has("companies/view.types.{$name}")) {
+                $types[$id] = __("companies/view.types.{$name}");
+            }
         }
 
         return $types;

@@ -1,54 +1,78 @@
 services:
-    laravel.test:
+    app:
         build:
-            context: './vendor/laravel/sail/runtimes/8.4'
-            dockerfile: Dockerfile
-            args:
-                WWWGROUP: '${WWWGROUP:-1000}'
-        image: 'sail-8.4/app'
-        extra_hosts:
-            - 'host.docker.internal:host-gateway'
+            context: .
+            dockerfile: docker/app/Dockerfile
+        container_name: dotproject_app
+        restart: unless-stopped
         ports:
-            - '${APP_PORT:-80}:80'
-            - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
+            - '${APP_PORT:-8080}:8080'
+            - '${VITE_PORT:-5173}:5173'
         environment:
-            WWWUSER: '${WWWUSER:-1000}'
-            LARAVEL_SAIL: 1
-            XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
-            XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
-            IGNITION_LOCAL_SITES_PATH: '${PWD}'
+            APP_ENV: '${APP_ENV:-local}'
+            APP_DEBUG: '${APP_DEBUG:-true}'
+            APP_URL: 'http://localhost:${APP_PORT:-8080}'
+            DB_CONNECTION: mysql
+            DB_HOST: mysql
+            DB_PORT: 3306
+            DB_DATABASE: '${DB_DATABASE:-dotproject}'
+            DB_USERNAME: '${DB_USERNAME:-root}'
+            DB_PASSWORD: '${DB_PASSWORD:-12345}'
+            SESSION_DRIVER: '${SESSION_DRIVER:-file}'
+            PHP_CLI_SERVER_WORKERS: '${PHP_CLI_SERVER_WORKERS:-4}'
+            OPENAI_BASE_URL: '${OPENAI_BASE_URL:-http://ollama:11434/v1}'
+            OPENAI_API_KEY: '${OPENAI_API_KEY:-ollama}'
+            OLLAMA_MODEL: '${OLLAMA_MODEL:-llama3.2}'
+            OPENAI_REQUEST_TIMEOUT: '${OPENAI_REQUEST_TIMEOUT:-180}'
         volumes:
             - '.:/var/www/html'
-        networks:
-            - sail
         depends_on:
-            - mysql
+            mysql:
+                condition: service_healthy
+            ollama:
+                condition: service_started
+        networks:
+            - dotproject_network
+
     mysql:
         image: 'mysql:8.4'
+        container_name: dotproject_mysql
+        restart: unless-stopped
         ports:
-            - '${FORWARD_DB_PORT:-3306}:3306'
+            - '${FORWARD_DB_PORT:-3307}:3306'
         environment:
-            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
-            MYSQL_ROOT_HOST: '%'
-            MYSQL_DATABASE: '${DB_DATABASE}'
-            MYSQL_ALLOW_EMPTY_PASSWORD: 1
-            MYSQL_EXTRA_OPTIONS: '${MYSQL_EXTRA_OPTIONS:-}'
+            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD:-12345}'
+            MYSQL_DATABASE: '${DB_DATABASE:-dotproject}'
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'no'
         volumes:
-            - 'sail-mysql:/var/lib/mysql'
-            - './vendor/laravel/sail/database/mysql/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh'
+            - 'dotproject_mysql_data:/var/lib/mysql'
+            - './database/dump.sql:/docker-entrypoint-initdb.d/01-dump.sql:ro'
         networks:
-            - sail
+            - dotproject_network
         healthcheck:
-            test:
-                - CMD
-                - mysqladmin
-                - ping
-                - '-p${DB_PASSWORD}'
-            retries: 3
+            test: ['CMD-SHELL', 'mysqladmin ping -h localhost -uroot -p${DB_PASSWORD:-12345} || exit 1']
+            interval: 5s
             timeout: 5s
+            retries: 20
+            start_period: 10s
+
+    ollama:
+        image: 'ollama/ollama:latest'
+        container_name: dotproject_ollama
+        restart: unless-stopped
+        ports:
+            - '11434:11434'
+        volumes:
+            - 'dotproject_ollama_data:/root/.ollama'
+        networks:
+            - dotproject_network
+
 networks:
-    sail:
+    dotproject_network:
         driver: bridge
+
 volumes:
-    sail-mysql:
+    dotproject_mysql_data:
+        driver: local
+    dotproject_ollama_data:
         driver: local

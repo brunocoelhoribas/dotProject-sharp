@@ -1,0 +1,41 @@
+﻿id,project_id,sort_order,item_name,number,is_leaf,identation
+79,2,1,Sistema para pizzaria,1,0,
+80,2,2,Gerência do projeto,1.1,0,&nbsp;&nbsp;&nbsp;
+82,2,15,Modelo do sistema,1.2,0,&nbsp;&nbsp;&nbsp;
+83,2,19,Sistema,1.3,0,&nbsp;&nbsp;&nbsp;
+84,2,24,Módulo web,1.3.2,0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+85,2,27,Módulo para dispositivo móvel,1.3.3,0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+86,2,30,Implantação,1.4,0,&nbsp;&nbsp;&nbsp;
+87,2,31,Treinamento dos usuários,1.4.1,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+88,2,32,Instalação do sistema em servidor web produtivo,1.4.2,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+89,2,33,Instalação de apps nos dispositivos móveis,1.4.3,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+90,2,34,Site da pizzaria atualizado,1.4.4,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+93,2,28,Funcionalidade de consulta dos pedidos em aberto,1.3.3.1,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+94,2,26,Interface gráfica para os operadores ,1.3.2.2,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+96,2,25,Interface gráfica para os clientes,1.3.2.1,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+97,2,20,Módulo core,1.3.1,0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+98,2,23,Serviço para autenticação de usuários,1.3.1.3,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+99,2,22,Serviços para manter o cadastro de pedidos,1.3.1.2,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+100,2,21,Serviços para manter o cadastro de clientes,1.3.1.1,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+101,2,18,Protótipos,1.2.3,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+102,2,17,Diagramas,1.2.2,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+103,2,16,Requisitos,1.2.1,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+104,2,11,Encerramento,1.1.4,0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+105,2,7,Monitoramento e controle,1.1.3,0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+106,2,4,Execução,1.1.2,0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+107,2,3,Plano de gerenciamento do projeto,1.1.1,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+108,2,6,Contratos das aquisições com fornecedores,1.1.2.2,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+109,2,5,Auditoria da garantia da qualidade do processo,1.1.2.1,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+110,2,10,Inspeção do controle da qualidade do produto,1.1.3.3,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+111,2,9,Relatórios do progresso,1.1.3.2,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+112,2,8,Reuniões de acompanhamento,1.1.3.1,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+113,2,14,Ata da reunião de post mortem,1.1.4.3,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+114,2,13,Registro das lições aprendidas,1.1.4.2,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+115,2,12,Encerramento do contrato,1.1.4.1,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+158,8,1,Pizza System,1,0,
+159,8,2,System design,1.1,1,   
+160,8,3,Project Management,1.2,0,   
+161,8,4,Project plan,1.2.1,1,      
+182,2,29,Novo item da EAP,1.3.3.2,1,         
+183,9,1,1.0.0.1-Abertura do Projeto,1,0,
+184,9,2,1.0.0.2-Estudo de Viabilidade,1.1,1,ÃÂ ÃÂ ÃÂ 

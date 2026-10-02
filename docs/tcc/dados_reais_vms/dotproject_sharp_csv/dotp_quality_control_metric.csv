@@ -1,0 +1,9 @@
+﻿id,question_id,metric,how_to_collect
+6,41,"Número de linhas de código com erros","Case tool"
+8,41,"Número de linhas de código total","Case tool"
+9,41,"Número de defeitos dectados","Testes de unidade"
+10,42,Satisfação,"Aplicando questionário SUS - avaliando pontuação do questionário"
+11,43,"Quantos usuários participaram dos testes","Contabilizando quantidade de respostas recebidas"
+12,43,"Quantos usuários conseguiram concluir as tarefas","Por teste de usabilidade - quantos participantes consequem concluir todas as tarefas"
+14,54,"Number o LOC with issues","case tool"
+15,54,"Total number of LOC","case tool"

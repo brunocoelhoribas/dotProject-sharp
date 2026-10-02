@@ -6,12 +6,12 @@ return [
         'costs' => 'Costos',
         'projects' => 'Proyectos',
         'my_data' => 'Mis Datos',
-        'logout' => 'Salir',
+        'logout' => 'Cerrar Sesión',
     ],
     'flash' => [
         'success' => 'Éxito',
         'error' => 'Error',
-        'warning' => 'Atención',
+        'warning' => 'Advertencia',
     ],
     'dashboard' => [
         'title' => 'Visión General del Sistema',
@@ -23,6 +23,10 @@ return [
             'date_to' => 'Fecha Final',
             'filter_btn' => 'Filtrar',
             'clear_btn' => 'Limpiar',
+            'all_time' => 'Desde el Principio',
+            'project_period' => '2013 - 2016 (Activo)',
+            'placeholder_from' => 'Desde el principio',
+            'placeholder_to' => 'Hasta hoy',
         ],
 
         'cards' => [
@@ -33,9 +37,15 @@ return [
         ],
 
         'charts' => [
-            'timeline_title' => 'Proyectos Iniciados (Últimos 6 Meses)',
+            'timeline_title' => 'Evolución de Proyectos y Tareas',
+            'timeline_projects' => 'Proyectos Iniciados',
+            'timeline_tasks' => 'Tareas Planificadas / Ejecutadas',
+            'timeline_monthly' => 'Mensual',
+            'timeline_yearly' => 'Anual',
             'status_title' => 'Distribución por Estado',
-            'no_data' => 'No hay datos de proyectos disponibles.',
+            'status_projects' => 'Proyectos',
+            'status_tasks' => 'Tareas',
+            'no_data' => 'No hay datos disponibles para el período.',
         ],
 
         'latest_projects' => [

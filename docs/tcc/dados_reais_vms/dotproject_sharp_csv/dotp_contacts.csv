@@ -1,0 +1,31 @@
+﻿contact_id,contact_first_name,contact_last_name,contact_order_by,contact_title,contact_birthday,contact_job,contact_company,contact_department,contact_type,contact_email,contact_email2,contact_url,contact_phone,contact_phone2,contact_fax,contact_mobile,contact_address1,contact_address2,contact_city,contact_state,contact_zip,contact_country,contact_jabber,contact_icq,contact_msn,contact_yahoo,contact_aol,contact_notes,contact_project,contact_icon,contact_owner,contact_private
+1,Admin,Person,,,,,,,,admin@example.com,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+2,Lula,Molusco,,,,,1,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+3,Bob,Esponja,,,,,1,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+4,B,B_Sobrenome,,,,,2,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+5,A,A_Sobrenome,,,,,2,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+6,Patrick,C_Sobrenome,,,,,2,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+7,teste,sobrenome,,,,,,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+8,Stakeholde,Segundo,,,,,,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+9,Stakeholder,primeiro,,,,,,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+10,Patrick,Estrela,,,,,1,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+11,Gary,Caracol,"Caracol, Gary",,0000-00-00,,1,0,,,,,,,,,,,,,,,,,,,,,0,obj/contact,1,0
+12,Sr.,Siriguejo,,,,,1,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+13,Tio,Chico,,,,,,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+14,Sandy,Bochecha,,,,,,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+15,Plankton,"Balde de Lixo",,,,,,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+16,Larry,Salva-vidas,,,,,,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+17,Ciclano,beltrano,,,,,2,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+18,patrocinador,x,,,,,,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+19,admin,EN,,,,,0,,,admin_en@dp.com,,,,,,,,,,,,,,,,,,,0,obj/contact,1,0
+20,Group,1,,,,,0,,,g1@dpp.com,,,,,,,,,,,,,,,,,,,0,obj/contact,11,0
+21,Sponge,Bob,,,,,4,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+22,Patrick,Star,,,,,4,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+23,Mr,Plankton,,,,,,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+24,Goku,SS,,,,,3,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+25,Vedita,SS,,,,,3,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+26,teste,-,,,,,,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+27,"Aluno 1",BSI18,,,,,6,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+28,"Aluno 2",BSI18,,,,,6,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+30,"Andre Fabiano de",Moraes,Andre,,0000-00-00,Sr.,7,0,,,,,,,,,,,,,,,,,,,,,0,obj/contact,1,0
+31,Bruno,Ribas,"Ribas, Bruno",,0000-00-00,"Desenvolvedor PhP",1,0,,,,,,,,,,,,,,,,,,,,,0,obj/contact,1,0

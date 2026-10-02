@@ -1,0 +1,6 @@
+﻿budget_reserve_id,budget_reserve_project_id,budget_reserve_risk_id,budget_reserve_description,budget_reserve_financial_impact,budget_reserve_inicial_month,budget_reserve_final_month,budget_reserve_value_total
+2,2,2,"Afastamento do analista de testes",5700,"2013-03-01 00:00:00","2013-07-31 00:00:00",5700.00
+4,2,5,"O cliente pode declarar falência durante o projeto.",12756,"2013-02-01 00:00:00","2013-07-31 00:00:00",12756.00
+5,2,7,"Greve de ônibus na Ilha do Silí­cio",2100,"2013-03-01 00:00:00","2013-07-31 00:00:00",2100.00
+6,2,8,"Extraviar o dispositivo móvel de testes.",2000,"2013-04-01 00:00:00","2013-07-02 00:00:00",2000.00
+9,8,17,"Programmer leave the project",1000,"2016-03-14 00:00:00","2016-09-01 00:00:00",1000.00

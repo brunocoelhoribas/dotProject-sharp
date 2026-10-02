@@ -1,0 +1,4 @@
+﻿id,project_id,minute_date,description,isEffort,isDuration,isResource,isSize
+1,8,2016-03-14 00:00:00,"<p>It was estimated the effort for the development of the mobile module, including functionalities to view the open requests, and to verify its details.</p><p>It was addopted the planning poker technique.</p>",1,1,NULL,NULL
+2,9,2026-05-11 00:00:00,<p>ATA com relato....</p>,1,1,1,1
+3,9,2026-05-12 00:00:00,<p>ATA com segundo relato</p>,1,1,1,1

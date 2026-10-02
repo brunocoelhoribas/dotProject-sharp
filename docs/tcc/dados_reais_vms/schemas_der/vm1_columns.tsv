@@ -1,0 +1,934 @@
+TABLE_NAME	COLUMN_NAME	COLUMN_TYPE	IS_NULLABLE	COLUMN_KEY	EXTRA	COLUMN_COMMENT
+dotp_acquisition_execution	id	int(11)	NO	PRI	auto_increment	
+dotp_acquisition_execution	project_id	int(11)	YES	MUL		
+dotp_acquisition_execution	is_delivered	int(11)	YES			
+dotp_acquisition_execution	is_risk_contingency	int(11)	YES			
+dotp_acquisition_execution	value	float	YES			
+dotp_acquisition_execution	date	date	YES			
+dotp_acquisition_execution	description	text	YES			
+dotp_acquisition_execution	reference_id	int(11)	YES			
+dotp_acquisition_planning	id	int(11)	NO	PRI	auto_increment	
+dotp_acquisition_planning	project_id	int(11)	YES	MUL		
+dotp_acquisition_planning	items_to_be_acquired	text	YES			
+dotp_acquisition_planning	contract_type	text	YES			
+dotp_acquisition_planning	documents_to_acquisition	text	YES			
+dotp_acquisition_planning	criteria_for_supplier_selection	text	YES			
+dotp_acquisition_planning	additional_requirements	text	YES			
+dotp_acquisition_planning	supplier_management_process	text	YES			
+dotp_acquisition_planning	acquisition_roles	text	YES			
+dotp_acquisition_planning_criteria	id	int(11)	NO	PRI	auto_increment	
+dotp_acquisition_planning_criteria	acquisition_id	int(11)	YES	MUL		
+dotp_acquisition_planning_criteria	criteria	text	YES			
+dotp_acquisition_planning_criteria	weight	int(11)	YES			
+dotp_acquisition_planning_requirements	id	int(11)	NO	PRI	auto_increment	
+dotp_acquisition_planning_requirements	acquisition_id	int(11)	YES	MUL		
+dotp_acquisition_planning_requirements	requirement	text	YES			
+dotp_acquisition_planning_roles	id	int(11)	NO	PRI	auto_increment	
+dotp_acquisition_planning_roles	acquisition_id	int(11)	YES	MUL		
+dotp_acquisition_planning_roles	role	text	YES			
+dotp_acquisition_planning_roles	responsability	text	YES			
+dotp_billingcode	billingcode_id	bigint(20)	NO	PRI	auto_increment	
+dotp_billingcode	billingcode_name	varchar(25)	NO			
+dotp_billingcode	billingcode_value	float	NO			
+dotp_billingcode	billingcode_desc	varchar(255)	NO			
+dotp_billingcode	billingcode_status	int(1)	NO			
+dotp_billingcode	company_id	bigint(20)	NO			
+dotp_budget	budget_id	int(11)	NO	PRI	auto_increment	
+dotp_budget	budget_project_id	int(11)	NO	MUL		
+dotp_budget	budget_reserve_management	decimal(9,2)	NO			
+dotp_budget	budget_sub_total	decimal(9,2)	NO			
+dotp_budget	budget_total	decimal(9,2)	NO			
+dotp_budget_reserve	budget_reserve_id	int(11)	NO	PRI	auto_increment	
+dotp_budget_reserve	budget_reserve_project_id	int(11)	NO	MUL		
+dotp_budget_reserve	budget_reserve_risk_id	int(11)	NO			
+dotp_budget_reserve	budget_reserve_description	varchar(250)	YES			
+dotp_budget_reserve	budget_reserve_financial_impact	int(11)	YES			
+dotp_budget_reserve	budget_reserve_inicial_month	datetime	YES			
+dotp_budget_reserve	budget_reserve_final_month	datetime	YES			
+dotp_budget_reserve	budget_reserve_value_total	decimal(9,2)	YES			
+dotp_common_notes	note_id	int(10) unsigned	NO	PRI	auto_increment	
+dotp_common_notes	note_author	int(10) unsigned	NO			
+dotp_common_notes	note_module	int(10) unsigned	NO			
+dotp_common_notes	note_record_id	int(10) unsigned	NO			
+dotp_common_notes	note_category	int(3) unsigned	NO			
+dotp_common_notes	note_title	varchar(100)	NO			
+dotp_common_notes	note_body	text	NO			
+dotp_common_notes	note_date	datetime	NO			
+dotp_common_notes	note_hours	float	NO			
+dotp_common_notes	note_code	varchar(8)	NO			
+dotp_common_notes	note_created	datetime	NO			
+dotp_common_notes	note_modified	timestamp	NO		on update current_timestamp()	
+dotp_common_notes	note_modified_by	int(10) unsigned	NO			
+dotp_communication	communication_id	int(11)	NO	PRI	auto_increment	
+dotp_communication	communication_title	varchar(255)	NO			
+dotp_communication	communication_information	varchar(2000)	NO			
+dotp_communication	communication_frequency_id	int(11)	NO			
+dotp_communication	communication_channel_id	int(11)	NO			
+dotp_communication	communication_project_id	int(11)	NO			
+dotp_communication	communication_restrictions	varchar(2000)	NO			
+dotp_communication	communication_date	varchar(30)	NO			
+dotp_communication	communication_responsible_authorization	varchar(80)	NO			
+dotp_communication_channel	communication_channel_id	int(11)	NO	PRI	auto_increment	
+dotp_communication_channel	communication_channel	varchar(255)	NO			
+dotp_communication_frequency	communication_frequency_id	int(11)	NO	PRI	auto_increment	
+dotp_communication_frequency	communication_frequency	varchar(255)	NO			
+dotp_communication_frequency	communication_frequency_hasdate	char(3)	YES			
+dotp_communication_issuing	communication_issuing_id	int(11)	NO	PRI	auto_increment	
+dotp_communication_issuing	communication_id	int(11)	NO			
+dotp_communication_issuing	communication_stakeholder_id	int(11)	NO	MUL		
+dotp_communication_receptor	communication_receptor_id	int(11)	NO	PRI	auto_increment	
+dotp_communication_receptor	communication_id	int(11)	NO			
+dotp_communication_receptor	communication_stakeholder_id	int(11)	NO	MUL		
+dotp_companies	company_id	int(10)	NO	PRI	auto_increment	
+dotp_companies	company_module	int(10)	NO			
+dotp_companies	company_name	varchar(100)	YES			
+dotp_companies	company_phone1	varchar(30)	YES			
+dotp_companies	company_phone2	varchar(30)	YES			
+dotp_companies	company_fax	varchar(30)	YES			
+dotp_companies	company_address1	varchar(50)	YES			
+dotp_companies	company_address2	varchar(50)	YES			
+dotp_companies	company_city	varchar(30)	YES			
+dotp_companies	company_state	varchar(30)	YES			
+dotp_companies	company_zip	varchar(11)	YES			
+dotp_companies	company_primary_url	varchar(255)	YES			
+dotp_companies	company_owner	int(11)	NO	MUL		
+dotp_companies	company_description	text	YES			
+dotp_companies	company_type	int(3)	NO			
+dotp_companies	company_email	varchar(255)	YES			
+dotp_companies	company_custom	longtext	YES			
+dotp_company_policies	company_policies_id	int(11)	NO	PRI	auto_increment	
+dotp_company_policies	company_policies_recognition	text	YES			
+dotp_company_policies	company_policies_policy	text	YES			
+dotp_company_policies	company_policies_safety	text	YES			
+dotp_company_policies	company_policies_company_id	int(11)	NO	MUL		
+dotp_company_role	id	int(11)	NO	PRI	auto_increment	
+dotp_company_role	company_id	int(11)	YES	MUL		
+dotp_company_role	sort_order	int(11)	YES			
+dotp_company_role	role_name	text	YES			
+dotp_company_role	identation	text	YES			
+dotp_config	config_id	int(11)	NO	PRI	auto_increment	
+dotp_config	config_name	varchar(255)	NO	UNI		
+dotp_config	config_value	varchar(255)	NO			
+dotp_config	config_group	varchar(255)	NO			
+dotp_config	config_type	varchar(255)	NO			
+dotp_config_list	config_list_id	int(11)	NO	PRI	auto_increment	
+dotp_config_list	config_id	int(11)	NO	MUL		
+dotp_config_list	config_list_name	varchar(30)	NO			
+dotp_contacts	contact_id	int(11)	NO	PRI	auto_increment	
+dotp_contacts	contact_first_name	varchar(30)	YES			
+dotp_contacts	contact_last_name	varchar(30)	YES			
+dotp_contacts	contact_order_by	varchar(30)	NO	MUL		
+dotp_contacts	contact_title	varchar(50)	YES			
+dotp_contacts	contact_birthday	date	YES			
+dotp_contacts	contact_job	varchar(255)	YES			
+dotp_contacts	contact_company	varchar(100)	NO	MUL		
+dotp_contacts	contact_department	tinytext	YES			
+dotp_contacts	contact_type	varchar(20)	YES			
+dotp_contacts	contact_email	varchar(255)	YES			
+dotp_contacts	contact_email2	varchar(255)	YES			
+dotp_contacts	contact_url	varchar(255)	YES			
+dotp_contacts	contact_phone	varchar(30)	YES			
+dotp_contacts	contact_phone2	varchar(30)	YES			
+dotp_contacts	contact_fax	varchar(30)	YES			
+dotp_contacts	contact_mobile	varchar(30)	YES			
+dotp_contacts	contact_address1	varchar(60)	YES			
+dotp_contacts	contact_address2	varchar(60)	YES			
+dotp_contacts	contact_city	varchar(30)	YES			
+dotp_contacts	contact_state	varchar(30)	YES			
+dotp_contacts	contact_zip	varchar(11)	YES			
+dotp_contacts	contact_country	varchar(30)	YES			
+dotp_contacts	contact_jabber	varchar(255)	YES			
+dotp_contacts	contact_icq	varchar(20)	YES			
+dotp_contacts	contact_msn	varchar(255)	YES			
+dotp_contacts	contact_yahoo	varchar(255)	YES			
+dotp_contacts	contact_aol	varchar(30)	YES			
+dotp_contacts	contact_notes	text	YES			
+dotp_contacts	contact_project	int(11)	NO	MUL		
+dotp_contacts	contact_icon	varchar(20)	YES			
+dotp_contacts	contact_owner	int(10) unsigned	YES			
+dotp_contacts	contact_private	tinyint(3) unsigned	YES			
+dotp_costs	cost_id	int(11)	NO	PRI	auto_increment	
+dotp_costs	cost_type_id	int(11)	NO			
+dotp_costs	cost_project_id	int(11)	NO	MUL		
+dotp_costs	cost_description	varchar(150)	NO			
+dotp_costs	cost_quantity	int(11)	YES			
+dotp_costs	cost_date_begin	datetime	YES			
+dotp_costs	cost_date_end	datetime	YES			
+dotp_costs	cost_value_unitary	decimal(9,2)	YES			
+dotp_costs	cost_value_total	decimal(9,2)	YES			
+dotp_costs	cost_human_resource_id	int(11)	YES	MUL		
+dotp_costs	cost_human_resource_role_id	int(11)	YES	MUL		
+dotp_custom_fields_lists	field_id	int(11)	YES			
+dotp_custom_fields_lists	list_option_id	int(11)	YES			
+dotp_custom_fields_lists	list_value	varchar(250)	YES			
+dotp_custom_fields_struct	field_id	int(11)	NO	PRI		
+dotp_custom_fields_struct	field_module	varchar(30)	YES			
+dotp_custom_fields_struct	field_page	varchar(30)	YES			
+dotp_custom_fields_struct	field_htmltype	varchar(20)	YES			
+dotp_custom_fields_struct	field_datatype	varchar(20)	YES			
+dotp_custom_fields_struct	field_order	int(11)	YES			
+dotp_custom_fields_struct	field_name	varchar(100)	YES			
+dotp_custom_fields_struct	field_extratags	varchar(250)	YES			
+dotp_custom_fields_struct	field_description	varchar(250)	YES			
+dotp_custom_fields_values	value_id	int(11)	YES	MUL		
+dotp_custom_fields_values	value_module	varchar(30)	YES			
+dotp_custom_fields_values	value_object_id	int(11)	YES			
+dotp_custom_fields_values	value_field_id	int(11)	YES			
+dotp_custom_fields_values	value_charvalue	varchar(250)	YES			
+dotp_custom_fields_values	value_intvalue	int(11)	YES			
+dotp_departments	dept_id	int(10) unsigned	NO	PRI	auto_increment	
+dotp_departments	dept_parent	int(10) unsigned	NO			
+dotp_departments	dept_company	int(10) unsigned	NO			
+dotp_departments	dept_name	tinytext	NO			
+dotp_departments	dept_phone	varchar(30)	YES			
+dotp_departments	dept_fax	varchar(30)	YES			
+dotp_departments	dept_address1	varchar(30)	YES			
+dotp_departments	dept_address2	varchar(30)	YES			
+dotp_departments	dept_city	varchar(30)	YES			
+dotp_departments	dept_state	varchar(30)	YES			
+dotp_departments	dept_zip	varchar(11)	YES			
+dotp_departments	dept_url	varchar(25)	YES			
+dotp_departments	dept_desc	text	YES			
+dotp_departments	dept_owner	int(10) unsigned	NO			
+dotp_dotpermissions	acl_id	int(11)	NO			
+dotp_dotpermissions	user_id	varchar(80)	NO	MUL		
+dotp_dotpermissions	section	varchar(80)	NO			
+dotp_dotpermissions	axo	varchar(80)	NO			
+dotp_dotpermissions	permission	varchar(80)	NO			
+dotp_dotpermissions	allow	int(11)	NO			
+dotp_dotpermissions	priority	int(11)	NO			
+dotp_dotpermissions	enabled	int(11)	NO			
+dotp_dpversion	code_version	varchar(10)	NO			
+dotp_dpversion	db_version	int(11)	NO			
+dotp_dpversion	last_db_update	date	NO			
+dotp_dpversion	last_code_update	date	NO			
+dotp_eap_item_estimations	id	int(11)	NO	PRI	auto_increment	
+dotp_eap_item_estimations	eap_item_id	int(11)	YES	MUL		
+dotp_eap_item_estimations	size	float	YES			
+dotp_eap_item_estimations	size_unit	text	YES			
+dotp_events	event_id	int(11)	NO	PRI	auto_increment	
+dotp_events	event_title	varchar(255)	NO			
+dotp_events	event_start_date	datetime	YES	MUL		
+dotp_events	event_end_date	datetime	YES	MUL		
+dotp_events	event_parent	int(11) unsigned	NO	MUL		
+dotp_events	event_description	text	YES			
+dotp_events	event_times_recuring	int(11) unsigned	NO			
+dotp_events	event_recurs	int(11) unsigned	NO			
+dotp_events	event_remind	int(10) unsigned	NO			
+dotp_events	event_icon	varchar(20)	YES			
+dotp_events	event_owner	int(11)	YES	MUL		
+dotp_events	event_project	int(11)	YES	MUL		
+dotp_events	event_private	tinyint(3)	YES			
+dotp_events	event_type	tinyint(3)	YES			
+dotp_events	event_cwd	tinyint(3)	YES			
+dotp_events	event_notify	tinyint(3)	NO			
+dotp_event_queue	queue_id	int(11)	NO	PRI	auto_increment	
+dotp_event_queue	queue_start	int(11)	NO			
+dotp_event_queue	queue_type	varchar(40)	NO	MUL		
+dotp_event_queue	queue_repeat_interval	int(11)	NO			
+dotp_event_queue	queue_repeat_count	int(11)	NO			
+dotp_event_queue	queue_data	longblob	NO			
+dotp_event_queue	queue_callback	varchar(127)	NO			
+dotp_event_queue	queue_owner	int(11)	NO			
+dotp_event_queue	queue_origin_id	int(11)	NO	MUL		
+dotp_event_queue	queue_module	varchar(40)	NO	MUL		
+dotp_event_queue	queue_batched	int(11)	NO	MUL		
+dotp_files	file_id	int(11)	NO	PRI	auto_increment	
+dotp_files	file_real_filename	varchar(255)	NO			
+dotp_files	file_folder	int(11)	NO			
+dotp_files	file_project	int(11)	NO	MUL		
+dotp_files	file_task	int(11)	NO	MUL		
+dotp_files	file_name	varchar(255)	NO			
+dotp_files	file_parent	int(11)	YES	MUL		
+dotp_files	file_description	text	YES			
+dotp_files	file_type	varchar(100)	YES			
+dotp_files	file_owner	int(11)	YES			
+dotp_files	file_date	datetime	YES			
+dotp_files	file_size	int(11)	YES			
+dotp_files	file_version	float	NO			
+dotp_files	file_icon	varchar(20)	YES			
+dotp_files	file_category	int(11)	YES			
+dotp_files	file_checkout	varchar(255)	NO			
+dotp_files	file_co_reason	text	YES			
+dotp_files	file_version_id	int(11)	NO	MUL		
+dotp_files_index	file_id	int(11)	NO	PRI		
+dotp_files_index	word	varchar(50)	NO	PRI		
+dotp_files_index	word_placement	int(11)	NO	PRI		
+dotp_file_folders	file_folder_id	int(11)	NO	PRI	auto_increment	
+dotp_file_folders	file_folder_parent	int(11)	NO			
+dotp_file_folders	file_folder_name	varchar(255)	NO			
+dotp_file_folders	file_folder_description	text	YES			
+dotp_forums	forum_id	int(11)	NO	PRI	auto_increment	
+dotp_forums	forum_project	int(11)	NO	MUL		
+dotp_forums	forum_status	tinyint(4)	NO	MUL		
+dotp_forums	forum_owner	int(11)	NO	MUL		
+dotp_forums	forum_name	varchar(50)	NO			
+dotp_forums	forum_create_date	datetime	YES			
+dotp_forums	forum_last_date	datetime	YES			
+dotp_forums	forum_last_id	int(10) unsigned	NO			
+dotp_forums	forum_message_count	int(11)	NO			
+dotp_forums	forum_description	varchar(255)	YES			
+dotp_forums	forum_moderated	int(11)	NO			
+dotp_forum_messages	message_id	int(11)	NO	PRI	auto_increment	
+dotp_forum_messages	message_forum	int(11)	NO	MUL		
+dotp_forum_messages	message_parent	int(11)	NO	MUL		
+dotp_forum_messages	message_author	int(11)	NO			
+dotp_forum_messages	message_editor	int(11)	NO			
+dotp_forum_messages	message_title	varchar(255)	NO			
+dotp_forum_messages	message_date	datetime	YES	MUL		
+dotp_forum_messages	message_body	text	YES			
+dotp_forum_messages	message_published	tinyint(1)	NO			
+dotp_forum_visits	visit_user	int(10)	NO	MUL		
+dotp_forum_visits	visit_forum	int(10)	NO			
+dotp_forum_visits	visit_message	int(10)	NO			
+dotp_forum_visits	visit_date	timestamp	NO		on update current_timestamp()	
+dotp_forum_watch	watch_user	int(10) unsigned	NO	MUL		
+dotp_forum_watch	watch_forum	int(10) unsigned	YES			
+dotp_forum_watch	watch_topic	int(10) unsigned	YES			
+dotp_gacl_acl	id	int(11)	NO	PRI		
+dotp_gacl_acl	section_value	varchar(80)	NO	MUL		
+dotp_gacl_acl	allow	int(11)	NO			
+dotp_gacl_acl	enabled	int(11)	NO	MUL		
+dotp_gacl_acl	return_value	longtext	YES			
+dotp_gacl_acl	note	longtext	YES			
+dotp_gacl_acl	updated_date	int(11)	NO	MUL		
+dotp_gacl_acl_sections	id	int(11)	NO	PRI		
+dotp_gacl_acl_sections	value	varchar(80)	NO	UNI		
+dotp_gacl_acl_sections	order_value	int(11)	NO			
+dotp_gacl_acl_sections	name	varchar(230)	NO			
+dotp_gacl_acl_sections	hidden	int(11)	NO	MUL		
+dotp_gacl_acl_seq	id	int(11)	NO			
+dotp_gacl_aco	id	int(11)	NO	PRI		
+dotp_gacl_aco	section_value	varchar(80)	NO	MUL		
+dotp_gacl_aco	value	varchar(80)	NO			
+dotp_gacl_aco	order_value	int(11)	NO			
+dotp_gacl_aco	name	varchar(255)	NO			
+dotp_gacl_aco	hidden	int(11)	NO	MUL		
+dotp_gacl_aco_map	acl_id	int(11)	NO	PRI		
+dotp_gacl_aco_map	section_value	varchar(80)	NO	PRI		
+dotp_gacl_aco_map	value	varchar(80)	NO	PRI		
+dotp_gacl_aco_sections	id	int(11)	NO	PRI		
+dotp_gacl_aco_sections	value	varchar(80)	NO	UNI		
+dotp_gacl_aco_sections	order_value	int(11)	NO			
+dotp_gacl_aco_sections	name	varchar(230)	NO			
+dotp_gacl_aco_sections	hidden	int(11)	NO	MUL		
+dotp_gacl_aco_sections_seq	id	int(11)	NO			
+dotp_gacl_aco_seq	id	int(11)	NO			
+dotp_gacl_aro	id	int(11)	NO	PRI		
+dotp_gacl_aro	section_value	varchar(80)	NO	MUL		
+dotp_gacl_aro	value	varchar(80)	NO			
+dotp_gacl_aro	order_value	int(11)	NO			
+dotp_gacl_aro	name	varchar(255)	NO			
+dotp_gacl_aro	hidden	int(11)	NO	MUL		
+dotp_gacl_aro_groups	id	int(11)	NO	PRI		
+dotp_gacl_aro_groups	parent_id	int(11)	NO	MUL		
+dotp_gacl_aro_groups	lft	int(11)	NO	MUL		
+dotp_gacl_aro_groups	rgt	int(11)	NO			
+dotp_gacl_aro_groups	name	varchar(255)	NO			
+dotp_gacl_aro_groups	value	varchar(80)	NO	PRI		
+dotp_gacl_aro_groups_id_seq	id	int(11)	NO			
+dotp_gacl_aro_groups_map	acl_id	int(11)	NO	PRI		
+dotp_gacl_aro_groups_map	group_id	int(11)	NO	PRI		
+dotp_gacl_aro_map	acl_id	int(11)	NO	PRI		
+dotp_gacl_aro_map	section_value	varchar(80)	NO	PRI		
+dotp_gacl_aro_map	value	varchar(80)	NO	PRI		
+dotp_gacl_aro_sections	id	int(11)	NO	PRI		
+dotp_gacl_aro_sections	value	varchar(80)	NO	UNI		
+dotp_gacl_aro_sections	order_value	int(11)	NO			
+dotp_gacl_aro_sections	name	varchar(230)	NO			
+dotp_gacl_aro_sections	hidden	int(11)	NO	MUL		
+dotp_gacl_aro_sections_seq	id	int(11)	NO			
+dotp_gacl_aro_seq	id	int(11)	NO			
+dotp_gacl_axo	id	int(11)	NO	PRI		
+dotp_gacl_axo	section_value	varchar(80)	NO	MUL		
+dotp_gacl_axo	value	varchar(80)	NO			
+dotp_gacl_axo	order_value	int(11)	NO			
+dotp_gacl_axo	name	varchar(255)	NO			
+dotp_gacl_axo	hidden	int(11)	NO	MUL		
+dotp_gacl_axo_groups	id	int(11)	NO	PRI		
+dotp_gacl_axo_groups	parent_id	int(11)	NO	MUL		
+dotp_gacl_axo_groups	lft	int(11)	NO	MUL		
+dotp_gacl_axo_groups	rgt	int(11)	NO			
+dotp_gacl_axo_groups	name	varchar(255)	NO			
+dotp_gacl_axo_groups	value	varchar(80)	NO	PRI		
+dotp_gacl_axo_groups_id_seq	id	int(11)	NO			
+dotp_gacl_axo_groups_map	acl_id	int(11)	NO	PRI		
+dotp_gacl_axo_groups_map	group_id	int(11)	NO	PRI		
+dotp_gacl_axo_map	acl_id	int(11)	NO	PRI		
+dotp_gacl_axo_map	section_value	varchar(80)	NO	PRI		
+dotp_gacl_axo_map	value	varchar(80)	NO	PRI		
+dotp_gacl_axo_sections	id	int(11)	NO	PRI		
+dotp_gacl_axo_sections	value	varchar(80)	NO	UNI		
+dotp_gacl_axo_sections	order_value	int(11)	NO			
+dotp_gacl_axo_sections	name	varchar(230)	NO			
+dotp_gacl_axo_sections	hidden	int(11)	NO	MUL		
+dotp_gacl_axo_sections_seq	id	int(11)	NO			
+dotp_gacl_axo_seq	id	int(11)	NO			
+dotp_gacl_groups_aro_map	group_id	int(11)	NO	PRI		
+dotp_gacl_groups_aro_map	aro_id	int(11)	NO	PRI		
+dotp_gacl_groups_axo_map	group_id	int(11)	NO	PRI		
+dotp_gacl_groups_axo_map	axo_id	int(11)	NO	PRI		
+dotp_gacl_phpgacl	name	varchar(230)	NO	PRI		
+dotp_gacl_phpgacl	value	varchar(230)	NO			
+dotp_history	history_id	int(10) unsigned	NO	PRI	auto_increment	
+dotp_history	history_date	datetime	NO			
+dotp_history	history_user	int(10)	NO			
+dotp_history	history_action	varchar(20)	NO			
+dotp_history	history_item	int(10)	NO	MUL		
+dotp_history	history_table	varchar(20)	NO	MUL		
+dotp_history	history_project	int(10)	NO			
+dotp_history	history_name	varchar(255)	YES			
+dotp_history	history_changes	text	YES			
+dotp_history	history_description	text	YES			
+dotp_human_resource	human_resource_id	int(11)	NO	PRI	auto_increment	
+dotp_human_resource	human_resource_user_id	int(11)	NO	MUL		
+dotp_human_resource	human_resource_lattes_url	text	YES			
+dotp_human_resource	human_resource_mon	int(11)	YES			
+dotp_human_resource	human_resource_tue	int(11)	YES			
+dotp_human_resource	human_resource_wed	int(11)	YES			
+dotp_human_resource	human_resource_thu	int(11)	YES			
+dotp_human_resource	human_resource_fri	int(11)	YES			
+dotp_human_resource	human_resource_sat	int(11)	YES			
+dotp_human_resource	human_resource_sun	int(11)	YES			
+dotp_human_resources_role	human_resources_role_id	int(11)	NO	PRI	auto_increment	
+dotp_human_resources_role	human_resources_role_name	text	NO			
+dotp_human_resources_role	human_resources_role_authority	text	YES			
+dotp_human_resources_role	human_resources_role_responsability	text	YES			
+dotp_human_resources_role	human_resources_role_competence	text	YES			
+dotp_human_resources_role	human_resources_role_company_id	int(11)	NO	MUL		
+dotp_human_resource_allocation	human_resource_allocation_id	int(11)	NO	PRI	auto_increment	
+dotp_human_resource_allocation	project_tasks_estimated_roles_id	int(11)	NO	MUL		
+dotp_human_resource_allocation	human_resource_id	int(11)	NO	MUL		
+dotp_human_resource_performance	id	bigint(20) unsigned	NO	PRI	auto_increment	
+dotp_human_resource_performance	company_id	int(11)	NO	MUL		
+dotp_human_resource_performance	human_resource_id	int(11)	NO	MUL		
+dotp_human_resource_performance	performance_score	tinyint(4)	NO			1: Low, 2: Medium, 3: High
+dotp_human_resource_performance	potential_score	tinyint(4)	NO			1: Low, 2: Medium, 3: High
+dotp_human_resource_performance	facilitator_notes	text	YES			
+dotp_human_resource_performance	evaluation_date	date	NO			
+dotp_human_resource_performance	created_at	timestamp	YES			
+dotp_human_resource_performance	updated_at	timestamp	YES			
+dotp_human_resource_roles	human_resource_roles_id	int(11)	NO	PRI	auto_increment	
+dotp_human_resource_roles	human_resources_role_id	int(11)	NO	MUL		
+dotp_human_resource_roles	human_resource_id	int(11)	NO	MUL		
+dotp_human_resource_skills	id	bigint(20) unsigned	NO	PRI	auto_increment	
+dotp_human_resource_skills	human_resource_id	int(11)	NO	MUL		
+dotp_human_resource_skills	skill_id	bigint(20) unsigned	NO	MUL		
+dotp_human_resource_skills	proficiency_level	tinyint(4)	NO			
+dotp_initiating	initiating_id	int(11)	NO	PRI	auto_increment	
+dotp_initiating	initiating_title	varchar(255)	NO			
+dotp_initiating	initiating_manager	int(11)	NO			
+dotp_initiating	initiating_create_by	int(11)	NO			
+dotp_initiating	initiating_date_create	datetime	NO			
+dotp_initiating	initiating_justification	varchar(2000)	YES			
+dotp_initiating	initiating_objective	varchar(2000)	YES			
+dotp_initiating	initiating_expected_result	varchar(2000)	YES			
+dotp_initiating	initiating_premise	varchar(2000)	YES			
+dotp_initiating	initiating_restrictions	varchar(2000)	YES			
+dotp_initiating	initiating_budget	float	YES			
+dotp_initiating	initiating_start_date	date	YES			
+dotp_initiating	initiating_end_date	date	YES			
+dotp_initiating	initiating_milestone	varchar(2000)	YES			
+dotp_initiating	initiating_success	varchar(2000)	YES			
+dotp_initiating	initiating_approved	int(1)	YES			
+dotp_initiating	initiating_authorized	int(1)	YES			
+dotp_initiating	initiating_completed	int(1)	NO			
+dotp_initiating	initiating_approved_comments	varchar(2000)	YES			
+dotp_initiating	initiating_authorized_comments	varchar(2000)	YES			
+dotp_initiating	project_id	int(11)	YES			
+dotp_initiating_stakeholder	initiating_stakeholder_id	int(11)	NO	PRI	auto_increment	
+dotp_initiating_stakeholder	initiating_id	int(11)	NO			
+dotp_initiating_stakeholder	contact_id	int(11)	NO			
+dotp_initiating_stakeholder	stakeholder_responsibility	varchar(100)	YES			
+dotp_initiating_stakeholder	stakeholder_interest	varchar(100)	YES			
+dotp_initiating_stakeholder	stakeholder_power	varchar(100)	YES			
+dotp_initiating_stakeholder	stakeholder_strategy	varchar(100)	YES			
+dotp_links	link_id	int(11)	NO	PRI	auto_increment	
+dotp_links	link_url	varchar(255)	NO			
+dotp_links	link_project	int(11)	NO	MUL		
+dotp_links	link_task	int(11)	NO	MUL		
+dotp_links	link_name	varchar(255)	NO			
+dotp_links	link_parent	int(11)	YES	MUL		
+dotp_links	link_description	text	YES			
+dotp_links	link_owner	int(11)	YES			
+dotp_links	link_date	datetime	YES			
+dotp_links	link_icon	varchar(20)	YES			
+dotp_links	link_category	int(11)	NO			
+dotp_modules	mod_id	int(11)	NO	PRI	auto_increment	
+dotp_modules	mod_name	varchar(64)	NO			
+dotp_modules	mod_directory	varchar(64)	NO	PRI		
+dotp_modules	mod_version	varchar(10)	NO			
+dotp_modules	mod_setup_class	varchar(64)	NO			
+dotp_modules	mod_type	varchar(64)	NO			
+dotp_modules	mod_active	int(1) unsigned	NO			
+dotp_modules	mod_ui_name	varchar(20)	NO			
+dotp_modules	mod_ui_icon	varchar(64)	NO			
+dotp_modules	mod_ui_order	tinyint(3)	NO			
+dotp_modules	mod_ui_active	int(1) unsigned	NO			
+dotp_modules	mod_description	varchar(255)	NO			
+dotp_modules	permissions_item_table	char(100)	YES			
+dotp_modules	permissions_item_field	char(100)	YES			
+dotp_modules	permissions_item_label	char(100)	YES			
+dotp_monitoring_baseline	baseline_id	int(11)	NO	PRI	auto_increment	
+dotp_monitoring_baseline	project_id	int(10) unsigned	NO			
+dotp_monitoring_baseline	baseline_name	varchar(255)	YES			
+dotp_monitoring_baseline	baseline_version	varchar(255)	YES			
+dotp_monitoring_baseline	baseline_observation	text	YES			
+dotp_monitoring_baseline	user_id	int(11)	NO			
+dotp_monitoring_baseline	baseline_date	timestamp	NO			
+dotp_monitoring_baseline_task	baseline_task_id	int(11)	NO	PRI	auto_increment	
+dotp_monitoring_baseline_task	baseline_id	int(10) unsigned	NO			
+dotp_monitoring_baseline_task	task_id	int(10) unsigned	NO			
+dotp_monitoring_baseline_task	task_start_date	datetime	YES			
+dotp_monitoring_baseline_task	task_duration	float unsigned	YES			
+dotp_monitoring_baseline_task	task_duration_type	int(11)	NO			
+dotp_monitoring_baseline_task	task_hours_worked	float unsigned	YES			
+dotp_monitoring_baseline_task	task_end_date	datetime	YES			
+dotp_monitoring_baseline_task	task_percent_complete	tinyint(4)	YES			
+dotp_monitoring_baseline_task_log	baseline_task_id_log	int(11)	NO	PRI	auto_increment	
+dotp_monitoring_baseline_task_log	baseline_task_id	int(10) unsigned	NO			
+dotp_monitoring_baseline_task_log	task_log_id	int(10) unsigned	NO			
+dotp_monitoring_baseline_task_log	task_log_creator	int(11)	NO			
+dotp_monitoring_baseline_task_log	task_log_hours	float	NO			
+dotp_monitoring_baseline_task_log	task_log_date	datetime	YES			
+dotp_monitoring_baseline_user_cost	baseline_cost_id	int(11)	NO	PRI	auto_increment	
+dotp_monitoring_baseline_user_cost	baseline_id	int(10) unsigned	NO			
+dotp_monitoring_baseline_user_cost	cost_id	int(11) unsigned	NO			
+dotp_monitoring_baseline_user_cost	user_id	int(11) unsigned	NO			
+dotp_monitoring_baseline_user_cost	cost_value	decimal(10,2)	YES			
+dotp_monitoring_baseline_user_cost	cost_per_use	decimal(11,0)	YES			
+dotp_monitoring_baseline_user_cost	cost_dt_begin	datetime	NO			
+dotp_monitoring_baseline_user_cost	cost_dt_end	datetime	YES			
+dotp_monitoring_change_request	change_id	int(10)	NO	PRI	auto_increment	
+dotp_monitoring_change_request	task_id	int(10)	YES			
+dotp_monitoring_change_request	change_impact	int(11)	NO			
+dotp_monitoring_change_request	change_status	int(11)	YES			
+dotp_monitoring_change_request	change_description	text	NO			
+dotp_monitoring_change_request	change_cause	text	NO			
+dotp_monitoring_change_request	change_request	text	NO			
+dotp_monitoring_change_request	user_id	int(10)	NO			
+dotp_monitoring_change_request	change_date_limit	datetime	NO			
+dotp_monitoring_change_request	meeting_id	int(10) unsigned	YES			
+dotp_monitoring_change_request	project_id	int(10)	NO			
+dotp_monitoring_meeting	meeting_id	int(10) unsigned	NO	PRI	auto_increment	
+dotp_monitoring_meeting	project_id	int(10) unsigned	NO			
+dotp_monitoring_meeting	dt_meeting_begin	timestamp	NO			
+dotp_monitoring_meeting	ds_title	text	NO			
+dotp_monitoring_meeting	ds_subject	text	NO			
+dotp_monitoring_meeting	dt_meeting_end	timestamp	NO			
+dotp_monitoring_meeting	meeting_type_id	int(10)	NO			
+dotp_monitoring_meeting_item	meeting_item_id	int(11)	NO	PRI	auto_increment	
+dotp_monitoring_meeting_item	meeting_item_description	text	YES			
+dotp_monitoring_meeting_item	knownledge_area	text	YES			
+dotp_monitoring_meeting_item	language	text	YES			
+dotp_monitoring_meeting_item	item_order	int(11)	YES			
+dotp_monitoring_meeting_item_select	meeting_item_select_id	int(10) unsigned	NO	PRI	auto_increment	
+dotp_monitoring_meeting_item_select	meeting_item_id	int(10) unsigned	NO			
+dotp_monitoring_meeting_item_select	meeting_id	int(10) unsigned	NO			
+dotp_monitoring_meeting_item_select	status	int(10) unsigned	NO			
+dotp_monitoring_meeting_item_senior	meeting_item_senior_id	int(10) unsigned	NO	PRI	auto_increment	
+dotp_monitoring_meeting_item_senior	meeting_percentual	decimal(10,2)	YES			
+dotp_monitoring_meeting_item_senior	meeting_size	int(10) unsigned	NO			
+dotp_monitoring_meeting_item_senior	meeting_idc	decimal(10,2)	YES			
+dotp_monitoring_meeting_item_senior	meeting_idp	decimal(10,2)	YES			
+dotp_monitoring_meeting_item_senior	meeting_vp	decimal(10,2)	YES			
+dotp_monitoring_meeting_item_senior	meeting_va	decimal(10,2)	YES			
+dotp_monitoring_meeting_item_senior	meeting_cr	decimal(10,2)	YES			
+dotp_monitoring_meeting_item_senior	meeting_baseline	int(10) unsigned	NO			
+dotp_monitoring_meeting_item_senior	meeting_id	int(10) unsigned	NO			
+dotp_monitoring_meeting_item_tasks_delivered	meeting_item_taks_delivered_id	int(10) unsigned	NO	PRI	auto_increment	
+dotp_monitoring_meeting_item_tasks_delivered	task_id	int(10) unsigned	NO			
+dotp_monitoring_meeting_item_tasks_delivered	meeting_id	int(10) unsigned	NO			
+dotp_monitoring_meeting_type	meeting_type_id	int(11)	NO	PRI	auto_increment	
+dotp_monitoring_meeting_type	meeting_type_name	varchar(255)	YES			
+dotp_monitoring_meeting_user	meeting_user_id	int(10) unsigned	NO	PRI	auto_increment	
+dotp_monitoring_meeting_user	user_id	int(10) unsigned	NO			
+dotp_monitoring_meeting_user	meeting_id	int(10) unsigned	NO			
+dotp_monitoring_quality	quality_id	int(11)	NO	PRI	auto_increment	
+dotp_monitoring_quality	quality_type_id	int(11)	NO			
+dotp_monitoring_quality	quality_description	text	YES			
+dotp_monitoring_quality	user_id	int(11)	YES			
+dotp_monitoring_quality	quality_status_id	int(11)	NO			
+dotp_monitoring_quality	quality_date_end	datetime	YES			
+dotp_monitoring_quality	task_id	int(11)	NO			
+dotp_monitoring_quality_status	quality_status_id	int(11)	NO	PRI	auto_increment	
+dotp_monitoring_quality_status	quality_status_name	varchar(255)	YES			
+dotp_monitoring_quality_type	quality_type_id	int(11)	NO	PRI	auto_increment	
+dotp_monitoring_quality_type	quality_type_name	varchar(255)	YES			
+dotp_monitoring_responsibility_matriz	responsibility_id	int(11)	NO	PRI	auto_increment	
+dotp_monitoring_responsibility_matriz	responsibility_description	varchar(255)	YES			
+dotp_monitoring_responsibility_matriz	responsibility_user_id_consultation	int(11)	YES			
+dotp_monitoring_responsibility_matriz	responsibility_user_id_execut	int(11)	YES			
+dotp_monitoring_responsibility_matriz	responsibility_user_id_support	int(11)	YES			
+dotp_monitoring_responsibility_matriz	responsibility_user_id_approve	int(11)	YES			
+dotp_monitoring_responsibility_matriz	project_id	int(11)	NO			
+dotp_monitoring_user_cost	cost_id	int(11)	NO	PRI	auto_increment	
+dotp_monitoring_user_cost	user_id	int(11)	NO			
+dotp_monitoring_user_cost	cost_value	decimal(10,2)	YES			
+dotp_monitoring_user_cost	cost_per_use	decimal(11,0)	YES			
+dotp_monitoring_user_cost	cost_dt_begin	datetime	NO			
+dotp_monitoring_user_cost	cost_dt_end	datetime	YES			
+dotp_need_for_training	project_id	int(11)	NO	PRI		
+dotp_need_for_training	description	text	YES			
+dotp_permissions	permission_id	int(11)	NO	PRI	auto_increment	
+dotp_permissions	permission_user	int(11)	NO	MUL		
+dotp_permissions	permission_grant_on	varchar(12)	NO	MUL		
+dotp_permissions	permission_item	int(11)	NO			
+dotp_permissions	permission_value	int(11)	NO	MUL		
+dotp_post_mortem_analysis	pma_id	int(11)	NO	PRI	auto_increment	
+dotp_post_mortem_analysis	project_name	varchar(255)	NO			
+dotp_post_mortem_analysis	project_start_date	datetime	YES			
+dotp_post_mortem_analysis	project_end_date	datetime	YES			
+dotp_post_mortem_analysis	project_planned_start_date	datetime	YES			
+dotp_post_mortem_analysis	project_planned_end_date	datetime	YES			
+dotp_post_mortem_analysis	project_meeting_date	datetime	YES			
+dotp_post_mortem_analysis	planned_budget	text	YES			
+dotp_post_mortem_analysis	budget	text	YES			
+dotp_post_mortem_analysis	participants	text	YES			
+dotp_post_mortem_analysis	project_strength	text	YES			
+dotp_post_mortem_analysis	project_weaknesses	text	YES			
+dotp_post_mortem_analysis	improvement_suggestions	text	YES			
+dotp_post_mortem_analysis	conclusions	text	YES			
+dotp_projects	project_id	int(11)	NO	PRI	auto_increment	
+dotp_projects	project_company	int(11)	NO	MUL		
+dotp_projects	project_company_internal	int(11)	NO			
+dotp_projects	project_department	int(11)	NO			
+dotp_projects	project_name	varchar(255)	YES			
+dotp_projects	project_short_name	varchar(10)	YES	MUL		
+dotp_projects	project_owner	int(11)	YES	MUL		
+dotp_projects	project_url	varchar(255)	YES			
+dotp_projects	project_demo_url	varchar(255)	YES			
+dotp_projects	project_start_date	datetime	YES	MUL		
+dotp_projects	project_end_date	datetime	YES	MUL		
+dotp_projects	project_status	int(11)	YES			
+dotp_projects	project_percent_complete	tinyint(4)	YES			
+dotp_projects	project_color_identifier	varchar(6)	YES			
+dotp_projects	project_description	text	YES			
+dotp_projects	project_target_budget	decimal(10,2)	YES			
+dotp_projects	project_actual_budget	decimal(10,2)	YES			
+dotp_projects	project_creator	int(11)	YES			
+dotp_projects	project_private	tinyint(3) unsigned	YES			
+dotp_projects	project_departments	char(100)	YES			
+dotp_projects	project_contacts	char(100)	YES			
+dotp_projects	project_priority	tinyint(4)	YES			
+dotp_projects	project_type	smallint(6)	NO			
+dotp_project_contacts	project_id	int(10)	NO			
+dotp_project_contacts	contact_id	int(10)	NO			
+dotp_project_departments	project_id	int(10)	NO			
+dotp_project_departments	department_id	int(10)	NO			
+dotp_project_designer_options	pd_option_id	int(11)	NO	PRI	auto_increment	
+dotp_project_designer_options	pd_option_user	int(11)	NO	UNI		
+dotp_project_designer_options	pd_option_view_project	int(1)	NO			
+dotp_project_designer_options	pd_option_view_gantt	int(1)	NO			
+dotp_project_designer_options	pd_option_view_tasks	int(1)	NO			
+dotp_project_designer_options	pd_option_view_actions	int(1)	NO			
+dotp_project_designer_options	pd_option_view_addtasks	int(1)	NO			
+dotp_project_designer_options	pd_option_view_files	int(1)	NO			
+dotp_project_eap_items	id	int(11)	NO	PRI	auto_increment	
+dotp_project_eap_items	project_id	int(11)	YES	MUL		
+dotp_project_eap_items	sort_order	int(11)	YES			
+dotp_project_eap_items	item_name	text	YES			
+dotp_project_eap_items	number	text	YES			
+dotp_project_eap_items	is_leaf	text	YES			
+dotp_project_eap_items	identation	text	YES			
+dotp_project_ear_items	id	int(11)	NO	PRI	auto_increment	
+dotp_project_ear_items	project_id	int(11)	YES	MUL		
+dotp_project_ear_items	sort_order	int(11)	YES			
+dotp_project_ear_items	item_name	text	YES			
+dotp_project_ear_items	number	text	YES			
+dotp_project_ear_items	is_leaf	text	YES			
+dotp_project_ear_items	identation	text	YES			
+dotp_project_minutes	id	int(11)	NO	PRI	auto_increment	
+dotp_project_minutes	project_id	int(11)	YES	MUL		
+dotp_project_minutes	minute_date	datetime	YES			
+dotp_project_minutes	description	text	YES			
+dotp_project_minutes	isEffort	int(11)	YES			
+dotp_project_minutes	isDuration	int(11)	YES			
+dotp_project_minutes	isResource	int(11)	YES			
+dotp_project_minutes	isSize	int(11)	YES			
+dotp_project_tasks_estimated_roles	id	int(11)	NO	PRI	auto_increment	
+dotp_project_tasks_estimated_roles	task_id	int(11)	YES	MUL		
+dotp_project_tasks_estimated_roles	role_id	int(11)	YES	MUL		
+dotp_project_tasks_estimations	id	int(11)	NO	PRI	auto_increment	
+dotp_project_tasks_estimations	task_id	int(11)	YES	MUL		
+dotp_project_tasks_estimations	effort	float	YES			
+dotp_project_tasks_estimations	effort_unit	text	YES			
+dotp_project_tasks_estimations	duration	float	YES			
+dotp_quality_assurance_item	id	int(11)	NO	PRI	auto_increment	
+dotp_quality_assurance_item	quality_planning_id	int(11)	YES	MUL		
+dotp_quality_assurance_item	what	text	YES			
+dotp_quality_assurance_item	who	text	YES			
+dotp_quality_assurance_item	when	text	YES			
+dotp_quality_assurance_item	how	text	YES			
+dotp_quality_control_analiysis_question	id	int(11)	NO	PRI	auto_increment	
+dotp_quality_control_analiysis_question	goal_id	int(11)	YES	MUL		
+dotp_quality_control_analiysis_question	question	text	YES			
+dotp_quality_control_analiysis_question	target	text	YES			
+dotp_quality_control_goal	id	int(11)	NO	PRI	auto_increment	
+dotp_quality_control_goal	quality_planning_id	int(11)	YES	MUL		
+dotp_quality_control_goal	gqm_goal_object	text	YES			
+dotp_quality_control_goal	gqm_goal_propose	text	YES			
+dotp_quality_control_goal	gqm_goal_respect_to	text	YES			
+dotp_quality_control_goal	gqm_goal_point_of_view	text	YES			
+dotp_quality_control_goal	gqm_goal_context	text	YES			
+dotp_quality_control_metric	id	int(11)	NO	PRI	auto_increment	
+dotp_quality_control_metric	question_id	int(11)	YES	MUL		
+dotp_quality_control_metric	metric	text	YES			
+dotp_quality_control_metric	how_to_collect	text	YES			
+dotp_quality_control_requirement	id	int(11)	NO	PRI	auto_increment	
+dotp_quality_control_requirement	quality_planning_id	int(11)	YES	MUL		
+dotp_quality_control_requirement	requirement	text	YES			
+dotp_quality_planning	id	int(11)	NO	PRI	auto_increment	
+dotp_quality_planning	project_id	int(11)	YES	MUL		
+dotp_quality_planning	quality_controlling	text	YES			
+dotp_quality_planning	quality_assurance	text	YES			
+dotp_quality_planning	quality_policies	text	YES			
+dotp_raci	id	bigint(20) unsigned	NO	PRI	auto_increment	
+dotp_raci	human_resource_id	int(11)	NO	MUL		
+dotp_raci	project_id	int(11)	NO	MUL		
+dotp_raci	activity_name	varchar(255)	NO			
+dotp_raci	raci_role	enum('R','A','C','I')	NO			
+dotp_raci	created_at	timestamp	YES			
+dotp_raci	updated_at	timestamp	YES			
+dotp_resources	resource_id	int(11)	NO	PRI	auto_increment	
+dotp_resources	resource_name	varchar(255)	NO	MUL		
+dotp_resources	resource_key	varchar(64)	NO			
+dotp_resources	resource_type	int(11)	NO	MUL		
+dotp_resources	resource_note	text	NO			
+dotp_resources	resource_max_allocation	int(11)	NO			
+dotp_resource_tasks	resource_id	int(11)	NO	MUL		
+dotp_resource_tasks	task_id	int(11)	NO	MUL		
+dotp_resource_tasks	percent_allocated	int(11)	NO			
+dotp_resource_types	resource_type_id	int(11)	NO	PRI	auto_increment	
+dotp_resource_types	resource_type_name	varchar(255)	NO			
+dotp_resource_types	resource_type_note	text	YES			
+dotp_risks	risk_id	int(11)	NO	PRI	auto_increment	
+dotp_risks	risk_name	varchar(255)	NO			
+dotp_risks	risk_cause	varchar(255)	NO			
+dotp_risks	risk_consequence	varchar(255)	NO			
+dotp_risks	risk_responsible	int(11)	NO			
+dotp_risks	risk_description	varchar(2000)	YES			
+dotp_risks	risk_probability	varchar(15)	NO			
+dotp_risks	risk_impact	varchar(15)	NO			
+dotp_risks	risk_answer_to_risk	varchar(2000)	YES			
+dotp_risks	risk_project	int(11)	YES			
+dotp_risks	risk_task	int(11)	YES			
+dotp_risks	risk_notes	varchar(2000)	YES			
+dotp_risks	risk_potential_other_projects	varchar(2)	NO			
+dotp_risks	risk_lessons_learned	varchar(2000)	YES			
+dotp_risks	risk_priority	varchar(15)	NO			
+dotp_risks	risk_active	int(11)	NO			
+dotp_risks	risk_strategy	int(11)	NO			
+dotp_risks	risk_prevention_actions	varchar(2000)	YES			
+dotp_risks	risk_contingency_plan	varchar(2000)	YES			
+dotp_risks	risk_period_start_date	date	YES			
+dotp_risks	risk_period_end_date	date	YES			
+dotp_risks	risk_status	varchar(45)	YES			
+dotp_risks	risk_ear_classification	varchar(45)	YES			
+dotp_risks	risk_triggers	varchar(2000)	YES			
+dotp_risks	risk_is_contingency	int(11)	YES			
+dotp_risks_management_plan	risk_plan_id	int(11)	NO	PRI		
+dotp_risks_management_plan	project_id	int(11)	YES			
+dotp_risks_management_plan	probability_super_low	varchar(250)	YES			
+dotp_risks_management_plan	probability_low	varchar(250)	YES			
+dotp_risks_management_plan	probability_medium	varchar(250)	YES			
+dotp_risks_management_plan	probability_high	varchar(250)	YES			
+dotp_risks_management_plan	probability_super_high	varchar(250)	YES			
+dotp_risks_management_plan	impact_super_low	varchar(250)	YES			
+dotp_risks_management_plan	impact_low	varchar(250)	YES			
+dotp_risks_management_plan	impact_medium	varchar(250)	YES			
+dotp_risks_management_plan	impact_high	varchar(250)	YES			
+dotp_risks_management_plan	impact_super_high	varchar(250)	YES			
+dotp_risks_management_plan	matrix_superlow_superlow	varchar(30)	YES			
+dotp_risks_management_plan	matrix_superlow_low	varchar(30)	YES			
+dotp_risks_management_plan	matrix_superlow_medium	varchar(30)	YES			
+dotp_risks_management_plan	matrix_superlow_high	varchar(30)	YES			
+dotp_risks_management_plan	matrix_superlow_superhigh	varchar(30)	YES			
+dotp_risks_management_plan	matrix_low_superlow	varchar(30)	YES			
+dotp_risks_management_plan	matrix_low_low	varchar(30)	YES			
+dotp_risks_management_plan	matrix_low_medium	varchar(30)	YES			
+dotp_risks_management_plan	matrix_low_high	varchar(30)	YES			
+dotp_risks_management_plan	matrix_low_superhigh	varchar(30)	YES			
+dotp_risks_management_plan	matrix_medium_superlow	varchar(30)	YES			
+dotp_risks_management_plan	matrix_medium_low	varchar(30)	YES			
+dotp_risks_management_plan	matrix_medium_medium	varchar(30)	YES			
+dotp_risks_management_plan	matrix_medium_high	varchar(30)	YES			
+dotp_risks_management_plan	matrix_medium_superhigh	varchar(30)	YES			
+dotp_risks_management_plan	matrix_high_superlow	varchar(30)	YES			
+dotp_risks_management_plan	matrix_high_low	varchar(30)	YES			
+dotp_risks_management_plan	matrix_high_medium	varchar(30)	YES			
+dotp_risks_management_plan	matrix_high_high	varchar(30)	YES			
+dotp_risks_management_plan	matrix_high_superhigh	varchar(30)	YES			
+dotp_risks_management_plan	matrix_superhigh_superlow	varchar(30)	YES			
+dotp_risks_management_plan	matrix_superhigh_low	varchar(30)	YES			
+dotp_risks_management_plan	matrix_superhigh_medium	varchar(30)	YES			
+dotp_risks_management_plan	matrix_superhigh_high	varchar(30)	YES			
+dotp_risks_management_plan	matrix_superhigh_superhigh	varchar(30)	YES			
+dotp_risks_management_plan	risk_contengency_reserve_protocol	varchar(500)	YES			
+dotp_risks_management_plan	risk_revision_frequency	varchar(3)	YES			
+dotp_roles	role_id	int(10) unsigned	NO	PRI	auto_increment	
+dotp_roles	role_name	varchar(24)	NO			
+dotp_roles	role_description	varchar(255)	NO			
+dotp_roles	role_type	int(3) unsigned	NO			
+dotp_roles	role_module	int(10) unsigned	NO			
+dotp_scope_requirements	req_id	int(11)	NO	PRI	auto_increment	
+dotp_scope_requirements	req_idname	varchar(6)	NO			
+dotp_scope_requirements	req_description	text	NO			
+dotp_scope_requirements	req_source	varchar(60)	NO			
+dotp_scope_requirements	req_owner	varchar(60)	NO			
+dotp_scope_requirements	req_categ_prefix_id	varchar(3)	NO	MUL		
+dotp_scope_requirements	req_priority_id	varchar(20)	NO	MUL		
+dotp_scope_requirements	req_status_id	varchar(20)	NO	MUL		
+dotp_scope_requirements	req_version	varchar(20)	YES			
+dotp_scope_requirements	req_inclusiondate	date	NO			
+dotp_scope_requirements	req_conclusiondate	date	YES			
+dotp_scope_requirements	eapitem_id	int(11)	YES	MUL		
+dotp_scope_requirements	req_testcase	text	YES			
+dotp_scope_requirements	project_id	int(11)	NO	MUL		
+dotp_scope_requirements_managplan	req_managplan_id	int(11)	NO	PRI	auto_increment	
+dotp_scope_requirements_managplan	project_id	int(11)	NO	MUL		
+dotp_scope_requirements_managplan	req_managplan_collect_descr	text	YES			
+dotp_scope_requirements_managplan	req_managplan_reqcategories	text	YES			
+dotp_scope_requirements_managplan	req_managplan_reqprioritization	text	YES			
+dotp_scope_requirements_managplan	req_managplan_trac_descr	text	YES			
+dotp_scope_requirements_managplan	req_managplan_config_descr	text	YES			
+dotp_scope_requirements_managplan	req_managplan_verif_descr	text	YES			
+dotp_scope_requirement_categories	req_categ_prefix_id	varchar(3)	NO	PRI		
+dotp_scope_requirement_categories	req_categ_description	text	YES			
+dotp_scope_requirement_categories	req_categ_name	varchar(20)	NO			
+dotp_scope_requirement_categories	req_categ_priority	tinyint(4)	YES			
+dotp_scope_requirement_priorities	req_priority_id	varchar(20)	NO	PRI		
+dotp_scope_requirement_status	req_status_id	varchar(20)	NO	PRI		
+dotp_scope_statement	scope_id	int(11)	NO	PRI	auto_increment	
+dotp_scope_statement	project_id	int(11)	NO	MUL		
+dotp_scope_statement	scope_description	text	YES			
+dotp_scope_statement	scope_acceptancecriteria	text	YES			
+dotp_scope_statement	scope_deliverables	text	YES			
+dotp_scope_statement	scope_exclusions	text	YES			
+dotp_scope_statement	scope_constraints	text	YES			
+dotp_scope_statement	scope_assumptions	text	YES			
+dotp_sessions	session_id	varchar(60)	NO	PRI		
+dotp_sessions	session_user	int(11)	NO			
+dotp_sessions	session_data	longblob	YES			
+dotp_sessions	session_updated	timestamp	NO	MUL	on update current_timestamp()	
+dotp_sessions	session_created	datetime	NO	MUL		
+dotp_skills	skill_id	bigint(20) unsigned	NO	PRI	auto_increment	
+dotp_skills	skill_name	varchar(255)	NO			
+dotp_skills	skill_type	enum('technical','behavioral')	NO			
+dotp_skills	created_at	timestamp	YES			
+dotp_skills	updated_at	timestamp	YES			
+dotp_syskeys	syskey_id	int(10) unsigned	NO	PRI	auto_increment	
+dotp_syskeys	syskey_name	varchar(48)	NO	UNI		
+dotp_syskeys	syskey_label	varchar(255)	NO			
+dotp_syskeys	syskey_type	int(1) unsigned	NO			
+dotp_syskeys	syskey_sep1	char(2)	YES			
+dotp_syskeys	syskey_sep2	char(2)	NO			
+dotp_sysvals	sysval_id	int(10) unsigned	NO	PRI	auto_increment	
+dotp_sysvals	sysval_key_id	int(10) unsigned	NO			
+dotp_sysvals	sysval_title	varchar(48)	NO	UNI		
+dotp_sysvals	sysval_value	text	NO			
+dotp_tasks	task_id	int(11)	NO	PRI	auto_increment	
+dotp_tasks	task_name	varchar(255)	YES			
+dotp_tasks	task_parent	int(11)	YES	MUL		
+dotp_tasks	task_milestone	tinyint(1)	YES			
+dotp_tasks	task_project	int(11)	NO	MUL		
+dotp_tasks	task_owner	int(11)	NO	MUL		
+dotp_tasks	task_start_date	datetime	YES	MUL		
+dotp_tasks	task_duration	float unsigned	YES			
+dotp_tasks	task_duration_type	int(11)	NO			
+dotp_tasks	task_hours_worked	float unsigned	YES			
+dotp_tasks	task_end_date	datetime	YES	MUL		
+dotp_tasks	task_status	int(11)	YES			
+dotp_tasks	task_priority	tinyint(4)	YES			
+dotp_tasks	task_percent_complete	tinyint(4)	YES			
+dotp_tasks	task_description	text	YES			
+dotp_tasks	task_target_budget	decimal(10,2)	YES			
+dotp_tasks	task_related_url	varchar(255)	YES			
+dotp_tasks	task_creator	int(11)	NO			
+dotp_tasks	task_order	int(11)	NO	MUL		
+dotp_tasks	task_client_publish	tinyint(1)	NO			
+dotp_tasks	task_dynamic	tinyint(1)	NO			
+dotp_tasks	task_access	int(11)	NO			
+dotp_tasks	task_notify	int(11)	NO			
+dotp_tasks	task_departments	char(100)	YES			
+dotp_tasks	task_contacts	char(100)	YES			
+dotp_tasks	task_custom	longtext	YES			
+dotp_tasks	task_type	smallint(6)	NO			
+dotp_tasks_mdp	id	int(11)	NO	PRI	auto_increment	
+dotp_tasks_mdp	task_id	int(11)	YES	MUL		
+dotp_tasks_mdp	pos_x	int(11)	YES			
+dotp_tasks_mdp	pos_y	int(11)	YES			
+dotp_tasks_workpackages	task_id	int(11)	NO	PRI		
+dotp_tasks_workpackages	eap_item_id	int(11)	YES			
+dotp_task_contacts	task_id	int(10)	NO	MUL		
+dotp_task_contacts	contact_id	int(10)	NO			
+dotp_task_departments	task_id	int(10)	NO	MUL		
+dotp_task_departments	department_id	int(10)	NO			
+dotp_task_dependencies	dependencies_task_id	int(11)	NO	PRI		
+dotp_task_dependencies	dependencies_req_task_id	int(11)	NO	PRI		
+dotp_task_log	task_log_id	int(11)	NO	PRI	auto_increment	
+dotp_task_log	task_log_task	int(11)	NO	MUL		
+dotp_task_log	task_log_name	varchar(255)	YES			
+dotp_task_log	task_log_description	text	YES			
+dotp_task_log	task_log_creator	int(11)	NO			
+dotp_task_log	task_log_hours	float	NO			
+dotp_task_log	task_log_date	datetime	YES			
+dotp_task_log	task_log_costcode	varchar(8)	NO			
+dotp_task_log	task_log_problem	tinyint(1)	YES			
+dotp_task_log	task_log_reference	tinyint(4)	YES			
+dotp_task_log	task_log_related_url	varchar(255)	YES			
+dotp_task_minute_members	id	int(11)	NO	PRI	auto_increment	
+dotp_task_minute_members	user_id	int(11)	YES	MUL		
+dotp_task_minute_members	task_minute_id	int(11)	YES	MUL		
+dotp_tickets	ticket	int(10) unsigned	NO	PRI	auto_increment	
+dotp_tickets	ticket_company	int(10)	NO			
+dotp_tickets	ticket_project	int(10)	NO			
+dotp_tickets	author	varchar(100)	NO			
+dotp_tickets	recipient	varchar(100)	NO			
+dotp_tickets	subject	varchar(100)	NO			
+dotp_tickets	attachment	tinyint(1) unsigned	NO			
+dotp_tickets	timestamp	int(10) unsigned	NO			
+dotp_tickets	type	varchar(15)	NO	MUL		
+dotp_tickets	assignment	int(10) unsigned	NO			
+dotp_tickets	parent	int(10) unsigned	NO	MUL		
+dotp_tickets	activity	int(10) unsigned	NO			
+dotp_tickets	priority	tinyint(1) unsigned	NO			
+dotp_tickets	cc	varchar(255)	NO			
+dotp_tickets	body	text	NO			
+dotp_tickets	signature	text	YES			
+dotp_users	user_id	int(11)	NO	PRI	auto_increment	
+dotp_users	user_contact	int(11)	NO			
+dotp_users	user_username	varchar(255)	NO	MUL		
+dotp_users	user_password	varchar(255)	YES	MUL		
+dotp_users	user_parent	int(11)	NO	MUL		
+dotp_users	user_type	tinyint(3)	NO			
+dotp_users	user_company	int(11)	YES			
+dotp_users	user_department	int(11)	YES			
+dotp_users	user_owner	int(11)	NO			
+dotp_users	user_signature	text	YES			
+dotp_user_access_log	user_access_log_id	int(10) unsigned	NO	PRI	auto_increment	
+dotp_user_access_log	user_id	int(10) unsigned	NO			
+dotp_user_access_log	user_ip	varchar(15)	NO			
+dotp_user_access_log	date_time_in	datetime	YES			
+dotp_user_access_log	date_time_out	datetime	YES			
+dotp_user_access_log	date_time_last_action	datetime	YES			
+dotp_user_events	user_id	int(11)	NO	MUL		
+dotp_user_events	event_id	int(11)	NO	MUL		
+dotp_user_preferences	pref_user	varchar(12)	NO	MUL		
+dotp_user_preferences	pref_name	varchar(72)	NO			
+dotp_user_preferences	pref_value	varchar(32)	NO			
+dotp_user_roles	user_id	int(10) unsigned	NO			
+dotp_user_roles	role_id	int(10) unsigned	NO			
+dotp_user_tasks	user_id	int(11)	NO	PRI		
+dotp_user_tasks	user_type	tinyint(4)	NO	MUL		
+dotp_user_tasks	task_id	int(11)	NO	PRI		
+dotp_user_tasks	perc_assignment	int(11)	NO			
+dotp_user_tasks	user_task_priority	tinyint(4)	YES			
+dotp_user_task_pin	user_id	int(11)	NO	PRI		
+dotp_user_task_pin	task_id	int(10)	NO	PRI		
+dotp_user_task_pin	task_pinned	tinyint(2)	NO			
+dotp_wbs_dictionary	wbs_item_id	int(11)	NO	PRI		
+dotp_wbs_dictionary	description	text	YES			
+migrations	id	int(10) unsigned	NO	PRI	auto_increment	
+migrations	migration	varchar(255)	NO			
+migrations	batch	int(11)	NO			

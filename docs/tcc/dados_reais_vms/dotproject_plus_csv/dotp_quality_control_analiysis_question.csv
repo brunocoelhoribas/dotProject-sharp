@@ -1,0 +1,5 @@
+﻿id,goal_id,question,target
+41,1,Qual  a densidade de defeitos?,menor que 10kloc
+42,3,Qual a taxa de satisfaça£o com a usabilidade do sistema?,80 pontos SUS
+43,3,Qual a eficâcia do sistema?,90%
+54,10,What is the issues density?,lower than 10kloc

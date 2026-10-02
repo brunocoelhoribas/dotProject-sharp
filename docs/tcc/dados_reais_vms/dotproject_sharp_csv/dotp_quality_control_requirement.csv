@@ -1,0 +1,5 @@
+﻿id,quality_planning_id,requirement
+2,1,"Confiabilidade: densidade de defeitos inferior a 10kloc."
+4,1,"Usabilidade: todas as tarefas podem ser concluidas por 90% dos usuários para os quais foram feitas."
+5,1,"Usabilidade: a taxa de satisfação com questionario SUS (System Usability Scale) deve ser igual ou superior a 80%."
+6,4,"Confiability: Issues density lower than 10kloc."

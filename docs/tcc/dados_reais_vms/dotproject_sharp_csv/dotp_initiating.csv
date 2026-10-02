@@ -1,0 +1,19 @@
+﻿initiating_id,initiating_title,initiating_manager,initiating_create_by,initiating_date_create,initiating_justification,initiating_objective,initiating_expected_result,initiating_premise,initiating_restrictions,initiating_budget,initiating_start_date,initiating_end_date,initiating_milestone,initiating_success,initiating_approved,initiating_authorized,initiating_completed,initiating_approved_comments,initiating_authorized_comments,project_id
+1,"Sistema de pizzaria do Tio Chico",2,1,"2015-07-21 21:34:23","A pizzaria do Tio Chico localizada no centro da Ilha do SilÃƒÂ­Ã‚Â­cio, ÃƒÂ© famosa por suas pizzas. Na parte leste da ilha a demanda de pedidos por pizzas vieram aumentando nos ÃƒÂºltimos trÃƒÂªs anos. A pizzaria Tio Chico deseja ter capacidade para explorar esta oportunidade, para isto, quer oferecer um novo serviÃƒÂ§o de entrega de pizzas que irÃƒÂ¡ focar na ÃƒÂ¡rea leste da ilha, jÃƒÂ¡ que a pizzaria Tio Chico ÃƒÂ© a primeira a atuar nesta regiÃƒÂ£o. Dessa maneira a pizzaria irÃƒÂ¡ atender uma ÃƒÂ¡rea de 70.000 mÃ‚Â² e mais de 25.000 residentes, e estima um aumento de 30% nas vendas para os prÃƒÂ³ximos dois anos.","Desenvolver um sistema web para a venda online de pizzas na pizzaria do Tio Chico. O sistema incluirÃƒÂ¡ tambÃƒÂ©m um mÃƒÂ³dulo para ser acessado pelos smartphones dos entregadores, por qual eles possam verificar detalhes da entrega (endereÃƒÂ§o, valor total, etc.).","-MÃƒÂ³dulo web para a encomenda de pizzas.
+-MÃƒÂ³dulo web para controle de pizzas encomendadas.
+-MÃƒÂ³dulo web para cadastro de clientes.
+-MÃƒÂ³dulo mobile para controle de pizzas encomendadas.
+-InstalaÃƒÂ§ÃƒÂ£o do sistema web no servidor escolhido pela empresa.
+-Treinamento dos funcionÃƒÆ’Ã‚Â¡rios da pizzaria.","A pizzaria fornecerÃƒÂ¡ todos os equipamentos (hardware, celulares) e acesso ÃƒÂ  internet.","Os resultados devem ser entregues antes do dia 1 de setembro de 2013. O sistema precisa ser integrado no site existente da pizzaria e seguir os padrÃƒÂµes de design da pizzaria nos mÃƒÂ³dulos web e mobile.",34400,2013-02-01,2013-08-01,"- MÃƒÂ³dulo do sistema web: 20/06/2013 
+- MÃƒÂ³dulo para celular para controle de pizzas encomendadas: 01/07/2013
+- Treinamento dos funcionÃƒÂ¡rios da pizzaria: 18/07/2013
+- InstalaÃƒÂ§ÃƒÂ£o do sistema web no servidor escolhido pela empresa: 29/07/2013","Sistema instalado no ambiente produtivo. Custo total nÃƒÂ£o deve ultrapassar o orÃƒÂ§amento. Atendentes e entregadores treinados para operar o sistema.",1,1,1,,,2
+2,"Melhoria da usabilidade do dotProject",6,1,"2016-02-03 20:43:58",teste,,TCC,,,0,2015-01-05,2016-02-03,,,1,1,1,,,1
+3,"Projeto - módulo de feedback",2,1,"2016-02-08 11:42:37",teste,,"Documento do TCC.",,,1000,2016-02-08,2016-02-08,,,0,0,1,,,4
+4,"teste feedback",7,1,"2016-02-19 20:16:02",,,,,,0,2016-02-19,2017-03-30,,,0,0,1,,,5
+5,"teste feedback",0,11,"2016-03-09 06:44:05",teste,,,,,0,2016-03-09,2016-03-09,,,0,0,0,,,7
+6,"Pizza System - Uncle Chico",13,12,"2016-03-14 02:42:43","The Uncle Chico pizza is located in Downtown of Silicio's Island. In the east side of this islad there is an ascendent demand for pizzas, and the Uncle Chico wants to meet this demand.","Develop a computational system, available for web and mobile access, which customers my request some pizza, and the deliveres may search the requests content, such as the customer address and requested items.","- Web module.
+- Mobile module.
+- Tranning of Uncle Chico employees.","Uncle Chico will provide all necessary hardware, such as mobile phones and computers.","The system may be delivered in the begin of the first semester.",30000,2016-03-14,2016-09-01,"- Delivery of web module.
+- Delivery of mobile module.","Be completed developed until de deadline, and not overrun the budget.",1,1,1,,,8
+7,"teste feedback",15,1,"2016-04-01 00:44:30",eDUCAÇÃO,,,,,0,2016-04-16,2016-04-16,,,0,0,0,,,9

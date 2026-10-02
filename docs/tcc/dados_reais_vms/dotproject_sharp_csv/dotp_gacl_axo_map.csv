@@ -1,0 +1,4 @@
+﻿acl_id,section_value,value
+12,sys,acl
+16,app,users
+17,users,12

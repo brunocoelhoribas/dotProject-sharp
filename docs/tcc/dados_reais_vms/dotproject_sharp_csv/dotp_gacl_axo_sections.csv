@@ -1,0 +1,9 @@
+﻿id,value,order_value,name,hidden
+10,sys,1,System,0
+11,app,2,Application,0
+12,post_mortem_analysis,0,"Post_mortem_analysis Record",0
+13,communication,0,"Communication Record",0
+14,costs,0,"Costs Record",0
+15,users,0,"Users Record",0
+16,resources,0,"Resources Record",0
+17,links,0,"Links Record",0

@@ -1,0 +1,15 @@
+﻿risk_id,risk_name,risk_cause,risk_consequence,risk_responsible,risk_description,risk_probability,risk_impact,risk_answer_to_risk,risk_project,risk_task,risk_notes,risk_potential_other_projects,risk_lessons_learned,risk_priority,risk_active,risk_strategy,risk_prevention_actions,risk_contingency_plan,risk_period_start_date,risk_period_end_date,risk_status,risk_ear_classification,risk_triggers,risk_is_contingency
+2,Afastamento do analista de testes,teste,consequencia,5,-------------------,3,3,NULL,2,20,teste,1,NULL,2,0,2,"Oferecer ao analista de testes uma bonificação financeira ao têrmino do projeto, para que ele postergue a mudança para depois do projeto.",Contratar um novo analista de testes.,0000-00-00,0000-00-00,0,3,teste,1
+4,Problemas com HD,,,5,--------,3,3,NULL,2,0,,0,NULL,2,0,2,Realização de backup diariamente ao têrmino do trabalho.,Recuperar o backup mais recente após a detecção da indisponibilidade dos dados.,0000-00-00,0000-00-00,0,3,,0
+5,O cliente pode declarar falência durante o projeto.,,,0,teste,2,4,NULL,2,0,,0,NULL,2,0,0,NULL,NULL,0000-00-00,0000-00-00,0,3,,1
+6,Problemas de disponibilidade do servidor quando o dispositivo móvel estiver em campo.,,,5,-----------------,2,4,NULL,2,0,,0,NULL,2,0,3,"Será delegado ao cliente a contratação de um provedor para hospedagem do aplicativo.
+A disponibilidade do aplicativo será de responsabilidade deste provedor.",,0000-00-00,0000-00-00,0,3,,0
+7,Greve de ônibus na Ilha do Silí­cio,,,5,--------------,4,3,NULL,2,0,,0,NULL,2,0,2,Apoiar o sindicato dos trabalhadores do transporte coletivo.,Acordar com os membros da equipe para trabalharem remotamente nos dias de greve.,0000-00-00,0000-00-00,0,3,,1
+8,Extraviar o dispositivo móvel de testes.,,,5,-----------------,1,3,NULL,2,0,,0,NULL,1,0,2,"Manter o dispositivo móvel dentro da empresa.
+Transportá-lo apenas quando estritamente necessário.",Adquirir um novo dispositivo móvel.,0000-00-00,0000-00-00,0,3,,1
+9,O usuário não estará disponíve para levantar os requisitos.,,,5,"Devido a agenda difícil do usuários, podem ocorrer dificuldades em agendar reuniões de levantamento de requisitos.",0,0,NULL,1,0,,0,NULL,0,0,0,,,0000-00-00,0000-00-00,0,9,,0
+10,Teste,,,0,teste,0,0,NULL,4,0,NULL,0,NULL,0,0,0,NULL,NULL,NULL,NULL,0,0,NULL,0
+12,teste - eliminar,,,5,-=-------------,0,0,NULL,5,0,NULL,0,NULL,0,0,1,NULL,NULL,NULL,NULL,0,0,NULL,0
+15,teste,,,5,teste',0,0,NULL,1,0,,0,NULL,0,0,1,prevenção...,d,0000-00-00,0000-00-00,0,9,,0
+16,teste,,,5,teste,0,0,NULL,1,0,NULL,0,NULL,0,0,0,NULL,NULL,NULL,NULL,0,9,NULL,0
+17,Programmer leave the project,The programer may receive a better opportunity.,The project may delay until a new programmer is hired.,13,"The programmer may leave the project, thus it may delay.",1,3,NULL,8,0,,0,NULL,1,0,2,Offer a good rewarding to the programmer.,"Ask the programmer to work from home office, then he may continue working in the projct activities.",2016-03-01,2016-09-01,0,12,Programmer informs he needs to leave the project team.,1

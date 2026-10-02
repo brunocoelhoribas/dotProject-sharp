@@ -1,0 +1,63 @@
+﻿sistema_origem,contact_id,contact_first_name,contact_last_name,contact_order_by,contact_title,contact_birthday,contact_job,contact_company,contact_department,contact_type,contact_email,contact_email2,contact_url,contact_phone,contact_phone2,contact_fax,contact_mobile,contact_address1,contact_address2,contact_city,contact_state,contact_zip,contact_country,contact_jabber,contact_icq,contact_msn,contact_yahoo,contact_aol,contact_notes,contact_project,contact_icon,contact_owner,contact_private
+dotProject+ (VM 192.168.56.102),1,Admin,Person,,NULL,NULL,NULL,,NULL,NULL,admin@example.com,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),2,Lula,Molusco,,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),3,Bob,Esponja,,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),4,B,B_Sobrenome,,NULL,NULL,NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),5,A,A_Sobrenome,,NULL,NULL,NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),6,Patrick,C_Sobrenome,,NULL,NULL,NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),7,teste,sobrenome,,NULL,NULL,NULL,,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),8,Stakeholde,Segundo,,NULL,NULL,NULL,,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),9,Stakeholder,primeiro,,NULL,NULL,NULL,,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),10,Patrick,Estrela,,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),11,Gary,Caracol,"Caracol, Gary",,0000-00-00,,1,0,,,,,,,,,,,,,,,,,,,,,0,obj/contact,1,0
+dotProject+ (VM 192.168.56.102),12,Sr.,Siriguejo,,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),13,Tio,Chico,,NULL,NULL,NULL,,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),14,Sandy,Bochecha,,NULL,NULL,NULL,,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),15,Plankton,Balde de Lixo,,NULL,NULL,NULL,,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),16,Larry,Salva-vidas,,NULL,NULL,NULL,,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),17,Ciclano,beltrano,,NULL,NULL,NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),18,patrocinador,x,,NULL,NULL,NULL,,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),19,admin,EN,,NULL,NULL,NULL,0,NULL,NULL,admin_en@dp.com,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,1,0
+dotProject+ (VM 192.168.56.102),20,Group,1,,NULL,NULL,NULL,0,NULL,NULL,g1@dpp.com,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,11,0
+dotProject+ (VM 192.168.56.102),21,Sponge,Bob,,NULL,NULL,NULL,4,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),22,Patrick,Star,,NULL,NULL,NULL,4,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),23,Mr,Plankton,,NULL,NULL,NULL,,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),24,Goku,SS,,NULL,NULL,NULL,3,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),25,Vedita,SS,,NULL,NULL,NULL,3,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),26,teste,-,,NULL,NULL,NULL,,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),27,Aluno 1,BSI18,,NULL,NULL,NULL,6,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),28,Aluno 2,BSI18,,NULL,NULL,NULL,6,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),30,Andre Fabiano de,Moraes,Andre,,0000-00-00,Sr.,7,0,,,,,,,,,,,,,,,,,,,,,0,obj/contact,1,0
+dotProject+ (VM 192.168.56.102),31,Moraes -AF.,Moraes,Moraes,,1971-02-23,Sr.,1,0,,andre.moraes@ifc.edu.br,,,47 21040800,47 21040804,,47 999812970,"Rua Joaquim Garcia, s/n",,Camboriú,SC,88340-000,Brasil,,,,,,.,0,obj/contact,1,0
+dotProject+ (VM 192.168.56.102),32,Diretor da Empresa - CEO,CEO,,NULL,NULL,NULL,,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject+ (VM 192.168.56.102),33,Aluno  TSI2026,Teste,,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),1,Admin,Person,,,,,,,,admin@example.com,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),2,Lula,Molusco,,,,,1,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),3,Bob,Esponja,,,,,1,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),4,B,B_Sobrenome,,,,,2,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),5,A,A_Sobrenome,,,,,2,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),6,Patrick,C_Sobrenome,,,,,2,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),7,teste,sobrenome,,,,,,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),8,Stakeholde,Segundo,,,,,,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),9,Stakeholder,primeiro,,,,,,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),10,Patrick,Estrela,,,,,1,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),11,Gary,Caracol,"Caracol, Gary",,0000-00-00,,1,0,,,,,,,,,,,,,,,,,,,,,0,obj/contact,1,0
+dotProject# (VM 192.168.56.101),12,Sr.,Siriguejo,,,,,1,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),13,Tio,Chico,,,,,,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),14,Sandy,Bochecha,,,,,,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),15,Plankton,Balde de Lixo,,,,,,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),16,Larry,Salva-vidas,,,,,,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),17,Ciclano,beltrano,,,,,2,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),18,patrocinador,x,,,,,,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),19,admin,EN,,,,,0,,,admin_en@dp.com,,,,,,,,,,,,,,,,,,,0,obj/contact,1,0
+dotProject# (VM 192.168.56.101),20,Group,1,,,,,0,,,g1@dpp.com,,,,,,,,,,,,,,,,,,,0,obj/contact,11,0
+dotProject# (VM 192.168.56.101),21,Sponge,Bob,,,,,4,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),22,Patrick,Star,,,,,4,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),23,Mr,Plankton,,,,,,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),24,Goku,SS,,,,,3,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),25,Vedita,SS,,,,,3,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),26,teste,-,,,,,,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),27,Aluno 1,BSI18,,,,,6,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),28,Aluno 2,BSI18,,,,,6,,,,,,,,,,,,,,,,,,,,,,0,obj/contact,0,0
+dotProject# (VM 192.168.56.101),30,Andre Fabiano de,Moraes,Andre,,0000-00-00,Sr.,7,0,,,,,,,,,,,,,,,,,,,,,0,obj/contact,1,0
+dotProject# (VM 192.168.56.101),31,Bruno,Ribas,"Ribas, Bruno",,0000-00-00,Desenvolvedor PhP,1,0,,,,,,,,,,,,,,,,,,,,,0,obj/contact,1,0

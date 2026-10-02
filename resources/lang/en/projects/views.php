@@ -32,6 +32,34 @@ return [
         ],
     ],
 
+    'status' => [
+        0 => 'Not Defined',
+        1 => 'Proposed',
+        2 => 'In Planning',
+        3 => 'In Progress',
+        4 => 'On Hold',
+        5 => 'Complete',
+        6 => 'Template',
+        7 => 'Archived',
+        'Not Defined' => 'Not Defined',
+        'Proposed' => 'Proposed',
+        'In Planning' => 'In Planning',
+        'In Progress' => 'In Progress',
+        'On Hold' => 'On Hold',
+        'Complete' => 'Complete',
+        'Template' => 'Template',
+        'Archived' => 'Archived',
+    ],
+
+    'priority' => [
+        -1 => 'Low',
+        0 => 'Normal',
+        1 => 'High',
+        'low' => 'Low',
+        'normal' => 'Normal',
+        'high' => 'High',
+    ],
+
     'edit' => [
         'page_title' => 'Edit Project: :name',
         'title' => 'Edit Project',

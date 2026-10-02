@@ -91,9 +91,6 @@
             @yield('dashboard-content')
         </main>
 
-        {{-- Modal de status global (showMessage disponível em todas as páginas) --}}
-        @includeIf('components.status_modal')
-
         <footer class="text-center py-4 text-muted small border-top bg-white mt-auto">
             <div class="container">
                 <p class="mb-1 fw-medium text-dark">dotProject+ | Uma Ferramenta Educacional para o Gerenciamento de Projetos</p>

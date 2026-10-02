@@ -23,6 +23,10 @@ return [
             'date_to' => 'Data Final',
             'filter_btn' => 'Filtrar',
             'clear_btn' => 'Limpar',
+            'all_time' => 'Desde o Início',
+            'project_period' => '2013 - 2016 (Ativo)',
+            'placeholder_from' => 'Desde o início',
+            'placeholder_to' => 'Até hoje',
         ],
 
         'cards' => [
@@ -33,9 +37,15 @@ return [
         ],
 
         'charts' => [
-            'timeline_title' => 'Projetos Iniciados (Últimos 6 Meses)',
+            'timeline_title' => 'Evolução de Projetos e Tarefas',
+            'timeline_projects' => 'Projetos Iniciados',
+            'timeline_tasks' => 'Tarefas Planejadas / Executadas',
+            'timeline_monthly' => 'Mensal',
+            'timeline_yearly' => 'Anual',
             'status_title' => 'Distribuição por Status',
-            'no_data' => 'Nenhum dado de projeto disponível.',
+            'status_projects' => 'Projetos',
+            'status_tasks' => 'Tarefas',
+            'no_data' => 'Nenhum dado disponível para o período.',
         ],
 
         'latest_projects' => [

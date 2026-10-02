@@ -178,25 +178,6 @@
         });
     });
 
-    function showMessage(title, message, type) {
-        if (typeof globalStatusModal !== 'undefined' && globalStatusModal) {
-            const header = document.getElementById('statusModalHeader');
-            const titleEl = document.getElementById('statusModalTitle');
-            const bodyEl = document.getElementById('statusModalBody');
-            titleEl.innerText = title;
-            if (type === 'success') {
-                header.className = 'modal-header bg-success text-white';
-                bodyEl.innerHTML = `<i class="bi bi-check-circle-fill text-success display-4 mb-3 d-block"></i><span class="fw-bold">${message}</span>`;
-            } else {
-                header.className = 'modal-header bg-danger text-white';
-                bodyEl.innerHTML = `<i class="bi bi-x-circle-fill text-danger display-4 mb-3 d-block"></i><span class="fw-bold">${message}</span>`;
-            }
-            globalStatusModal.show();
-        } else {
-            alert(title + ": " + message);
-        }
-    }
-
     function moveRow(btn, direction) {
         const row = btn.closest('tr');
         const tbody = row.parentNode;

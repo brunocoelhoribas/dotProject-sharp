@@ -1,0 +1,4 @@
+﻿id,quality_planning_id,gqm_goal_object,gqm_goal_propose,gqm_goal_respect_to,gqm_goal_point_of_view,gqm_goal_context
+1,1,"sistema web",caracterizar,confiabilidade,desenvolvedor,"pizzaria do tio chico"
+3,1,"sistema web",caracterizar,usabilidade,"cliente da pizzaria","pizzaria do tio chico"
+10,4,"web system",characterize,confiability,Developer,"Uncle Chico  pizzeria"

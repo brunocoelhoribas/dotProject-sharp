@@ -12,8 +12,9 @@ return [
     | and organization on your OpenAI dashboard, at https://openai.com.
     */
 
-    'api_key' => env('OPENAI_API_KEY'),
+    'api_key' => env('OPENAI_API_KEY', 'ollama'),
     'organization' => env('OPENAI_ORGANIZATION'),
+    'model' => env('OLLAMA_MODEL', 'llama3.2'),
 
     /*
     |--------------------------------------------------------------------------
@@ -45,5 +46,5 @@ return [
     | for a response. By default, the client will time out after 30 seconds.
     */
 
-    'request_timeout' => env('OPENAI_REQUEST_TIMEOUT', 30),
+    'request_timeout' => (int) env('OPENAI_REQUEST_TIMEOUT', 180),
 ];

@@ -122,7 +122,7 @@
                                         <div class="col-sm-8">
                                             <select class="form-select form-select-sm" id="project_status" name="project_status" required>
                                                 @foreach($statuses as $id => $name)
-                                                    <option value="{{ $id }}" {{ old('project_status', $project->project_status) === $id ? 'selected' : '' }}>
+                                                    <option value="{{ $id }}" @selected(old('project_status', $project->project_status) !== null && (string)old('project_status', $project->project_status) === (string)$id)>
                                                         {{ $name }}
                                                     </option>
                                                 @endforeach
@@ -137,7 +137,7 @@
                                         <div class="col-sm-8">
                                             <select class="form-select form-select-sm" id="project_priority" name="project_priority" required>
                                                 @foreach($priorities as $id => $name)
-                                                    <option value="{{ $id }}" {{ old('project_priority', $project->project_priority) === $id ? 'selected' : '' }}>
+                                                    <option value="{{ $id }}" @selected(old('project_priority', $project->project_priority) !== null && (string)old('project_priority', $project->project_priority) === (string)$id)>
                                                         {{ $name }}
                                                     </option>
                                                 @endforeach

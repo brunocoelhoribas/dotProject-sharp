@@ -1,0 +1,53 @@
+﻿sistema_origem,cost_id,cost_type_id,cost_project_id,cost_description,cost_quantity,cost_date_begin,cost_date_end,cost_value_unitary,cost_value_total,cost_human_resource_id,cost_human_resource_role_id
+dotProject+ (VM 192.168.56.102),3,0,2,Lula Molusco - Gerente de projetos,80,2013-02-01 00:00:00,2013-07-31 00:00:00,60.00,28800.00,1,1
+dotProject+ (VM 192.168.56.102),5,0,2,Bob Esponja - Programador,80,2013-02-01 00:00:00,2013-07-31 00:00:00,35.00,16800.00,2,2
+dotProject+ (VM 192.168.56.102),7,1,2,Dispositivo Mobile para testes,1,2013-04-11 00:00:00,2013-04-11 00:00:00,2000.00,2000.00,NULL,NULL
+dotProject+ (VM 192.168.56.102),9,0,2,Patrick Estrela - Programador,40,2013-02-01 00:00:00,2013-07-31 00:00:00,33.00,7920.00,6,2
+dotProject+ (VM 192.168.56.102),13,0,2,Bob Esponja - Analista de sistemas,25,2013-02-01 00:00:00,2013-07-31 00:00:00,35.00,5250.00,2,6
+dotProject+ (VM 192.168.56.102),14,0,2,Gary Caracol - Gerente da qualidade,20,2013-02-01 00:00:00,2013-07-31 00:00:00,40.00,4800.00,7,7
+dotProject+ (VM 192.168.56.102),15,0,2,Sr. Siriguejo - Programador,80,2013-02-01 00:00:00,2013-07-31 00:00:00,19.00,9120.00,8,2
+dotProject+ (VM 192.168.56.102),16,1,2,Ingressos para o cinema,5,2013-08-01 00:00:00,2013-08-01 00:00:00,20.00,100.00,NULL,NULL
+dotProject+ (VM 192.168.56.102),17,1,2,Internet sem fio (wi-fi) e cabeada (ethernet),1,2013-02-01 00:00:00,2013-07-31 00:00:00,1530.00,1530.00,NULL,NULL
+dotProject+ (VM 192.168.56.102),18,1,2,Máquina de café expresso,1,2013-02-04 00:00:00,2013-02-04 00:00:00,963.00,963.00,NULL,NULL
+dotProject+ (VM 192.168.56.102),19,1,2,Mesa de sinuca,1,2013-04-01 00:00:00,2013-04-01 00:00:00,3000.00,3000.00,NULL,NULL
+dotProject+ (VM 192.168.56.102),20,1,2,Notebook para desenvolvimento,1,2013-03-01 00:00:00,2013-03-01 00:00:00,3000.00,3000.00,NULL,NULL
+dotProject+ (VM 192.168.56.102),21,1,2,Pacote de pizzas promocionais Tio Chico,1,2013-05-01 00:00:00,2013-05-01 00:00:00,1.00,1.00,NULL,NULL
+dotProject+ (VM 192.168.56.102),22,1,2,Projetor,1,2013-06-10 00:00:00,2013-06-10 00:00:00,1560.00,1560.00,NULL,NULL
+dotProject+ (VM 192.168.56.102),23,1,2,Sala de reuniões,1,2013-02-01 00:00:00,2013-07-31 00:00:00,250.00,250.00,NULL,NULL
+dotProject+ (VM 192.168.56.102),24,1,2,Servidor de aplicação para testes,1,2013-05-01 00:00:00,2013-05-01 00:00:00,2340.00,2340.00,NULL,NULL
+dotProject+ (VM 192.168.56.102),25,0,2,Sr. Siriguejo - Gerente da qualidade,5,2013-05-01 00:00:00,2013-07-31 00:00:00,19.00,285.00,8,7
+dotProject+ (VM 192.168.56.102),33,0,8,Patrick Star - Programmer,15,2016-03-14 00:00:00,2016-09-01 00:00:00,89.00,6675.00,10,9
+dotProject+ (VM 192.168.56.102),34,0,8,Patrick Star - System Analyst,80,2016-03-14 00:00:00,2016-04-14 00:00:00,89.00,7120.00,10,10
+dotProject+ (VM 192.168.56.102),35,0,8,Sponge Bob - Project Manager,15,2016-03-14 00:00:00,2016-09-01 00:00:00,45.00,3375.00,9,8
+dotProject+ (VM 192.168.56.102),36,1,8,Mobile devices,3,2016-04-01 00:00:00,2016-07-29 00:00:00,1320.00,3960.00,NULL,NULL
+dotProject+ (VM 192.168.56.102),37,1,8,Notebook,2,2016-03-01 00:00:00,2016-09-01 00:00:00,1890.00,3780.00,NULL,NULL
+dotProject+ (VM 192.168.56.102),38,1,8,Pizzas,3,2016-05-02 00:00:00,2016-05-31 00:00:00,45.00,135.00,NULL,NULL
+dotProject+ (VM 192.168.56.102),39,0,9,Moraes -AF. Moraes - Gerente da qualidade,4,2026-05-11 00:00:00,2026-06-11 00:00:00,10.00,40.00,14,7
+dotProject+ (VM 192.168.56.102),40,0,9,Moraes -AF. Moraes - Gerente de projetos,8,2026-05-11 00:00:00,2026-06-11 00:00:00,10.00,80.00,14,1
+dotProject+ (VM 192.168.56.102),41,0,2,Moraes -AF. Moraes - Gerente da qualidade,1,2026-05-28 18:14:53,2026-06-28 00:00:00,5.00,5.00,14,7
+dotProject+ (VM 192.168.56.102),42,0,2,Moraes -AF. Moraes - Gerente de projetos,1,2026-05-28 18:14:53,2026-06-28 00:00:00,5.00,5.00,14,1
+dotProject+ (VM 192.168.56.102),43,0,2,Moraes -AF. Moraes - Gerente da qualidade,1,2026-05-28 18:14:53,2026-06-28 00:00:00,5.00,5.00,14,7
+dotProject+ (VM 192.168.56.102),44,0,2,Moraes -AF. Moraes - Gerente de projetos,1,2026-05-28 18:14:53,2026-06-28 00:00:00,5.00,5.00,14,1
+dotProject# (VM 192.168.56.101),3,0,2,Lula Molusco - Gerente de projetos,80,2013-02-01 00:00:00,2013-07-31 00:00:00,60.00,28800.00,1,1
+dotProject# (VM 192.168.56.101),5,0,2,Bob Esponja - Programador,80,2013-02-01 00:00:00,2013-07-31 00:00:00,35.00,16800.00,2,2
+dotProject# (VM 192.168.56.101),7,1,2,Dispositivo Mobile para testes,1,2013-04-11 00:00:00,2013-04-11 00:00:00,2000.00,2000.00,,
+dotProject# (VM 192.168.56.101),9,0,2,Patrick Estrela - Programador,40,2013-02-01 00:00:00,2013-07-31 00:00:00,33.00,7920.00,6,2
+dotProject# (VM 192.168.56.101),13,0,2,Bob Esponja - Analista de sistemas,25,2013-02-01 00:00:00,2013-07-31 00:00:00,35.00,5250.00,2,6
+dotProject# (VM 192.168.56.101),14,0,2,Gary Caracol - Gerente da qualidade,20,2013-02-01 00:00:00,2013-07-31 00:00:00,40.00,4800.00,7,7
+dotProject# (VM 192.168.56.101),15,0,2,Sr. Siriguejo - Programador,80,2013-02-01 00:00:00,2013-07-31 00:00:00,19.00,9120.00,8,2
+dotProject# (VM 192.168.56.101),16,1,2,Ingressos para o cinema,5,2013-08-01 00:00:00,2013-08-01 00:00:00,20.00,100.00,,
+dotProject# (VM 192.168.56.101),17,1,2,Internet sem fio (wi-fi) e cabeada (ethernet),1,2013-02-01 00:00:00,2013-07-31 00:00:00,1530.00,1530.00,,
+dotProject# (VM 192.168.56.101),18,1,2,Máquina de café expresso,1,2013-02-04 00:00:00,2013-02-04 00:00:00,963.00,963.00,,
+dotProject# (VM 192.168.56.101),19,1,2,Mesa de sinuca,1,2013-04-01 00:00:00,2013-04-01 00:00:00,3000.00,3000.00,,
+dotProject# (VM 192.168.56.101),20,1,2,Notebook para desenvolvimento,1,2013-03-01 00:00:00,2013-03-01 00:00:00,3000.00,3000.00,,
+dotProject# (VM 192.168.56.101),21,1,2,Pacote de pizzas promocionais Tio Chico,1,2013-05-01 00:00:00,2013-05-01 00:00:00,1.00,1.00,,
+dotProject# (VM 192.168.56.101),22,1,2,Projetor,1,2013-06-10 00:00:00,2013-06-10 00:00:00,1560.00,1560.00,,
+dotProject# (VM 192.168.56.101),23,1,2,Sala de reuniões,1,2013-02-01 00:00:00,2013-07-31 00:00:00,250.00,250.00,,
+dotProject# (VM 192.168.56.101),24,1,2,Servidor de aplicação para testes,1,2013-05-01 00:00:00,2013-05-01 00:00:00,2340.00,2340.00,,
+dotProject# (VM 192.168.56.101),25,0,2,Sr. Siriguejo - Gerente da qualidade,5,2013-05-01 00:00:00,2013-07-31 00:00:00,19.00,285.00,8,7
+dotProject# (VM 192.168.56.101),33,0,8,Patrick Star - Programmer,15,2016-03-14 00:00:00,2016-09-01 00:00:00,89.00,6675.00,10,9
+dotProject# (VM 192.168.56.101),34,0,8,Patrick Star - System Analyst,80,2016-03-14 00:00:00,2016-04-14 00:00:00,89.00,7120.00,10,10
+dotProject# (VM 192.168.56.101),35,0,8,Sponge Bob - Project Manager,15,2016-03-14 00:00:00,2016-09-01 00:00:00,45.00,3375.00,9,8
+dotProject# (VM 192.168.56.101),36,1,8,Mobile devices,3,2016-04-01 00:00:00,2016-07-29 00:00:00,1320.00,3960.00,,
+dotProject# (VM 192.168.56.101),37,1,8,Notebook,2,2016-03-01 00:00:00,2016-09-01 00:00:00,1890.00,3780.00,,
+dotProject# (VM 192.168.56.101),38,1,8,Pizzas,3,2016-05-02 00:00:00,2016-05-31 00:00:00,45.00,135.00,,

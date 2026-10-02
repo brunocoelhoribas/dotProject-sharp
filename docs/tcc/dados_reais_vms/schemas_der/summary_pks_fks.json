@@ -1,0 +1,1199 @@
+{
+  "vm1_table_count": 145,
+  "vm2_table_count": 140,
+  "vm1_pks": {
+    "dotp_acquisition_execution": [
+      "id"
+    ],
+    "dotp_acquisition_planning": [
+      "id"
+    ],
+    "dotp_acquisition_planning_criteria": [
+      "id"
+    ],
+    "dotp_acquisition_planning_requirements": [
+      "id"
+    ],
+    "dotp_acquisition_planning_roles": [
+      "id"
+    ],
+    "dotp_billingcode": [
+      "billingcode_id"
+    ],
+    "dotp_budget": [
+      "budget_id"
+    ],
+    "dotp_budget_reserve": [
+      "budget_reserve_id"
+    ],
+    "dotp_common_notes": [
+      "note_id"
+    ],
+    "dotp_communication": [
+      "communication_id"
+    ],
+    "dotp_communication_channel": [
+      "communication_channel_id"
+    ],
+    "dotp_communication_frequency": [
+      "communication_frequency_id"
+    ],
+    "dotp_communication_issuing": [
+      "communication_issuing_id"
+    ],
+    "dotp_communication_receptor": [
+      "communication_receptor_id"
+    ],
+    "dotp_companies": [
+      "company_id"
+    ],
+    "dotp_company_policies": [
+      "company_policies_id"
+    ],
+    "dotp_company_role": [
+      "id"
+    ],
+    "dotp_config": [
+      "config_id"
+    ],
+    "dotp_config_list": [
+      "config_list_id"
+    ],
+    "dotp_contacts": [
+      "contact_id"
+    ],
+    "dotp_costs": [
+      "cost_id"
+    ],
+    "dotp_custom_fields_lists": [],
+    "dotp_custom_fields_struct": [
+      "field_id"
+    ],
+    "dotp_custom_fields_values": [],
+    "dotp_departments": [
+      "dept_id"
+    ],
+    "dotp_dotpermissions": [],
+    "dotp_dpversion": [],
+    "dotp_eap_item_estimations": [
+      "id"
+    ],
+    "dotp_events": [
+      "event_id"
+    ],
+    "dotp_event_queue": [
+      "queue_id"
+    ],
+    "dotp_files": [
+      "file_id"
+    ],
+    "dotp_files_index": [
+      "file_id",
+      "word",
+      "word_placement"
+    ],
+    "dotp_file_folders": [
+      "file_folder_id"
+    ],
+    "dotp_forums": [
+      "forum_id"
+    ],
+    "dotp_forum_messages": [
+      "message_id"
+    ],
+    "dotp_forum_visits": [],
+    "dotp_forum_watch": [],
+    "dotp_gacl_acl": [
+      "id"
+    ],
+    "dotp_gacl_acl_sections": [
+      "id"
+    ],
+    "dotp_gacl_acl_seq": [],
+    "dotp_gacl_aco": [
+      "id"
+    ],
+    "dotp_gacl_aco_map": [
+      "acl_id",
+      "section_value",
+      "value"
+    ],
+    "dotp_gacl_aco_sections": [
+      "id"
+    ],
+    "dotp_gacl_aco_sections_seq": [],
+    "dotp_gacl_aco_seq": [],
+    "dotp_gacl_aro": [
+      "id"
+    ],
+    "dotp_gacl_aro_groups": [
+      "id",
+      "value"
+    ],
+    "dotp_gacl_aro_groups_id_seq": [],
+    "dotp_gacl_aro_groups_map": [
+      "acl_id",
+      "group_id"
+    ],
+    "dotp_gacl_aro_map": [
+      "acl_id",
+      "section_value",
+      "value"
+    ],
+    "dotp_gacl_aro_sections": [
+      "id"
+    ],
+    "dotp_gacl_aro_sections_seq": [],
+    "dotp_gacl_aro_seq": [],
+    "dotp_gacl_axo": [
+      "id"
+    ],
+    "dotp_gacl_axo_groups": [
+      "id",
+      "value"
+    ],
+    "dotp_gacl_axo_groups_id_seq": [],
+    "dotp_gacl_axo_groups_map": [
+      "acl_id",
+      "group_id"
+    ],
+    "dotp_gacl_axo_map": [
+      "acl_id",
+      "section_value",
+      "value"
+    ],
+    "dotp_gacl_axo_sections": [
+      "id"
+    ],
+    "dotp_gacl_axo_sections_seq": [],
+    "dotp_gacl_axo_seq": [],
+    "dotp_gacl_groups_aro_map": [
+      "group_id",
+      "aro_id"
+    ],
+    "dotp_gacl_groups_axo_map": [
+      "group_id",
+      "axo_id"
+    ],
+    "dotp_gacl_phpgacl": [
+      "name"
+    ],
+    "dotp_history": [
+      "history_id"
+    ],
+    "dotp_human_resource": [
+      "human_resource_id"
+    ],
+    "dotp_human_resources_role": [
+      "human_resources_role_id"
+    ],
+    "dotp_human_resource_allocation": [
+      "human_resource_allocation_id"
+    ],
+    "dotp_human_resource_performance": [
+      "id"
+    ],
+    "dotp_human_resource_roles": [
+      "human_resource_roles_id"
+    ],
+    "dotp_human_resource_skills": [
+      "id"
+    ],
+    "dotp_initiating": [
+      "initiating_id"
+    ],
+    "dotp_initiating_stakeholder": [
+      "initiating_stakeholder_id"
+    ],
+    "dotp_links": [
+      "link_id"
+    ],
+    "dotp_modules": [
+      "mod_id",
+      "mod_directory"
+    ],
+    "dotp_monitoring_baseline": [
+      "baseline_id"
+    ],
+    "dotp_monitoring_baseline_task": [
+      "baseline_task_id"
+    ],
+    "dotp_monitoring_baseline_task_log": [
+      "baseline_task_id_log"
+    ],
+    "dotp_monitoring_baseline_user_cost": [
+      "baseline_cost_id"
+    ],
+    "dotp_monitoring_change_request": [
+      "change_id"
+    ],
+    "dotp_monitoring_meeting": [
+      "meeting_id"
+    ],
+    "dotp_monitoring_meeting_item": [
+      "meeting_item_id"
+    ],
+    "dotp_monitoring_meeting_item_select": [
+      "meeting_item_select_id"
+    ],
+    "dotp_monitoring_meeting_item_senior": [
+      "meeting_item_senior_id"
+    ],
+    "dotp_monitoring_meeting_item_tasks_delivered": [
+      "meeting_item_taks_delivered_id"
+    ],
+    "dotp_monitoring_meeting_type": [
+      "meeting_type_id"
+    ],
+    "dotp_monitoring_meeting_user": [
+      "meeting_user_id"
+    ],
+    "dotp_monitoring_quality": [
+      "quality_id"
+    ],
+    "dotp_monitoring_quality_status": [
+      "quality_status_id"
+    ],
+    "dotp_monitoring_quality_type": [
+      "quality_type_id"
+    ],
+    "dotp_monitoring_responsibility_matriz": [
+      "responsibility_id"
+    ],
+    "dotp_monitoring_user_cost": [
+      "cost_id"
+    ],
+    "dotp_need_for_training": [
+      "project_id"
+    ],
+    "dotp_permissions": [
+      "permission_id"
+    ],
+    "dotp_post_mortem_analysis": [
+      "pma_id"
+    ],
+    "dotp_projects": [
+      "project_id"
+    ],
+    "dotp_project_contacts": [],
+    "dotp_project_departments": [],
+    "dotp_project_designer_options": [
+      "pd_option_id"
+    ],
+    "dotp_project_eap_items": [
+      "id"
+    ],
+    "dotp_project_ear_items": [
+      "id"
+    ],
+    "dotp_project_minutes": [
+      "id"
+    ],
+    "dotp_project_tasks_estimated_roles": [
+      "id"
+    ],
+    "dotp_project_tasks_estimations": [
+      "id"
+    ],
+    "dotp_quality_assurance_item": [
+      "id"
+    ],
+    "dotp_quality_control_analiysis_question": [
+      "id"
+    ],
+    "dotp_quality_control_goal": [
+      "id"
+    ],
+    "dotp_quality_control_metric": [
+      "id"
+    ],
+    "dotp_quality_control_requirement": [
+      "id"
+    ],
+    "dotp_quality_planning": [
+      "id"
+    ],
+    "dotp_raci": [
+      "id"
+    ],
+    "dotp_resources": [
+      "resource_id"
+    ],
+    "dotp_resource_tasks": [],
+    "dotp_resource_types": [
+      "resource_type_id"
+    ],
+    "dotp_risks": [
+      "risk_id"
+    ],
+    "dotp_risks_management_plan": [
+      "risk_plan_id"
+    ],
+    "dotp_roles": [
+      "role_id"
+    ],
+    "dotp_scope_requirements": [
+      "req_id"
+    ],
+    "dotp_scope_requirements_managplan": [
+      "req_managplan_id"
+    ],
+    "dotp_scope_requirement_categories": [
+      "req_categ_prefix_id"
+    ],
+    "dotp_scope_requirement_priorities": [
+      "req_priority_id"
+    ],
+    "dotp_scope_requirement_status": [
+      "req_status_id"
+    ],
+    "dotp_scope_statement": [
+      "scope_id"
+    ],
+    "dotp_sessions": [
+      "session_id"
+    ],
+    "dotp_skills": [
+      "skill_id"
+    ],
+    "dotp_syskeys": [
+      "syskey_id"
+    ],
+    "dotp_sysvals": [
+      "sysval_id"
+    ],
+    "dotp_tasks": [
+      "task_id"
+    ],
+    "dotp_tasks_mdp": [
+      "id"
+    ],
+    "dotp_tasks_workpackages": [
+      "task_id"
+    ],
+    "dotp_task_contacts": [],
+    "dotp_task_departments": [],
+    "dotp_task_dependencies": [
+      "dependencies_task_id",
+      "dependencies_req_task_id"
+    ],
+    "dotp_task_log": [
+      "task_log_id"
+    ],
+    "dotp_task_minute_members": [
+      "id"
+    ],
+    "dotp_tickets": [
+      "ticket"
+    ],
+    "dotp_users": [
+      "user_id"
+    ],
+    "dotp_user_access_log": [
+      "user_access_log_id"
+    ],
+    "dotp_user_events": [],
+    "dotp_user_preferences": [],
+    "dotp_user_roles": [],
+    "dotp_user_tasks": [
+      "user_id",
+      "task_id"
+    ],
+    "dotp_user_task_pin": [
+      "user_id",
+      "task_id"
+    ],
+    "dotp_wbs_dictionary": [
+      "wbs_item_id"
+    ],
+    "migrations": [
+      "id"
+    ]
+  },
+  "vm2_pks": {
+    "dotp_acquisition_execution": [
+      "id"
+    ],
+    "dotp_acquisition_planning": [
+      "id"
+    ],
+    "dotp_acquisition_planning_criteria": [
+      "id"
+    ],
+    "dotp_acquisition_planning_requirements": [
+      "id"
+    ],
+    "dotp_acquisition_planning_roles": [
+      "id"
+    ],
+    "dotp_billingcode": [
+      "billingcode_id"
+    ],
+    "dotp_budget": [
+      "budget_id"
+    ],
+    "dotp_budget_reserve": [
+      "budget_reserve_id"
+    ],
+    "dotp_common_notes": [
+      "note_id"
+    ],
+    "dotp_communication": [
+      "communication_id"
+    ],
+    "dotp_communication_channel": [
+      "communication_channel_id"
+    ],
+    "dotp_communication_frequency": [
+      "communication_frequency_id"
+    ],
+    "dotp_communication_issuing": [
+      "communication_issuing_id"
+    ],
+    "dotp_communication_receptor": [
+      "communication_receptor_id"
+    ],
+    "dotp_companies": [
+      "company_id"
+    ],
+    "dotp_company_policies": [
+      "company_policies_id"
+    ],
+    "dotp_company_role": [
+      "id"
+    ],
+    "dotp_config": [
+      "config_id"
+    ],
+    "dotp_config_list": [
+      "config_list_id"
+    ],
+    "dotp_contacts": [
+      "contact_id"
+    ],
+    "dotp_costs": [
+      "cost_id"
+    ],
+    "dotp_custom_fields_lists": [],
+    "dotp_custom_fields_struct": [
+      "field_id"
+    ],
+    "dotp_custom_fields_values": [],
+    "dotp_departments": [
+      "dept_id"
+    ],
+    "dotp_dotpermissions": [],
+    "dotp_dpversion": [],
+    "dotp_eap_item_estimations": [
+      "id"
+    ],
+    "dotp_events": [
+      "event_id"
+    ],
+    "dotp_event_queue": [
+      "queue_id"
+    ],
+    "dotp_files": [
+      "file_id"
+    ],
+    "dotp_files_index": [
+      "file_id",
+      "word",
+      "word_placement"
+    ],
+    "dotp_file_folders": [
+      "file_folder_id"
+    ],
+    "dotp_forums": [
+      "forum_id"
+    ],
+    "dotp_forum_messages": [
+      "message_id"
+    ],
+    "dotp_forum_visits": [],
+    "dotp_forum_watch": [],
+    "dotp_gacl_acl": [
+      "id"
+    ],
+    "dotp_gacl_acl_sections": [
+      "id"
+    ],
+    "dotp_gacl_acl_seq": [],
+    "dotp_gacl_aco": [
+      "id"
+    ],
+    "dotp_gacl_aco_map": [
+      "acl_id",
+      "section_value",
+      "value"
+    ],
+    "dotp_gacl_aco_sections": [
+      "id"
+    ],
+    "dotp_gacl_aco_sections_seq": [],
+    "dotp_gacl_aco_seq": [],
+    "dotp_gacl_aro": [
+      "id"
+    ],
+    "dotp_gacl_aro_groups": [
+      "id",
+      "value"
+    ],
+    "dotp_gacl_aro_groups_id_seq": [],
+    "dotp_gacl_aro_groups_map": [
+      "acl_id",
+      "group_id"
+    ],
+    "dotp_gacl_aro_map": [
+      "acl_id",
+      "section_value",
+      "value"
+    ],
+    "dotp_gacl_aro_sections": [
+      "id"
+    ],
+    "dotp_gacl_aro_sections_seq": [],
+    "dotp_gacl_aro_seq": [],
+    "dotp_gacl_axo": [
+      "id"
+    ],
+    "dotp_gacl_axo_groups": [
+      "id",
+      "value"
+    ],
+    "dotp_gacl_axo_groups_id_seq": [],
+    "dotp_gacl_axo_groups_map": [
+      "acl_id",
+      "group_id"
+    ],
+    "dotp_gacl_axo_map": [
+      "acl_id",
+      "section_value",
+      "value"
+    ],
+    "dotp_gacl_axo_sections": [
+      "id"
+    ],
+    "dotp_gacl_axo_sections_seq": [],
+    "dotp_gacl_axo_seq": [],
+    "dotp_gacl_groups_aro_map": [
+      "group_id",
+      "aro_id"
+    ],
+    "dotp_gacl_groups_axo_map": [
+      "group_id",
+      "axo_id"
+    ],
+    "dotp_gacl_phpgacl": [
+      "name"
+    ],
+    "dotp_history": [
+      "history_id"
+    ],
+    "dotp_human_resource": [
+      "human_resource_id"
+    ],
+    "dotp_human_resources_role": [
+      "human_resources_role_id"
+    ],
+    "dotp_human_resource_allocation": [
+      "human_resource_allocation_id"
+    ],
+    "dotp_human_resource_roles": [
+      "human_resource_roles_id"
+    ],
+    "dotp_initiating": [
+      "initiating_id"
+    ],
+    "dotp_initiating_stakeholder": [
+      "initiating_stakeholder_id"
+    ],
+    "dotp_links": [
+      "link_id"
+    ],
+    "dotp_modules": [
+      "mod_id",
+      "mod_directory"
+    ],
+    "dotp_monitoring_baseline": [
+      "baseline_id"
+    ],
+    "dotp_monitoring_baseline_task": [
+      "baseline_task_id"
+    ],
+    "dotp_monitoring_baseline_task_log": [
+      "baseline_task_id_log"
+    ],
+    "dotp_monitoring_baseline_user_cost": [
+      "baseline_cost_id"
+    ],
+    "dotp_monitoring_change_request": [
+      "change_id"
+    ],
+    "dotp_monitoring_meeting": [
+      "meeting_id"
+    ],
+    "dotp_monitoring_meeting_item": [
+      "meeting_item_id"
+    ],
+    "dotp_monitoring_meeting_item_select": [
+      "meeting_item_select_id"
+    ],
+    "dotp_monitoring_meeting_item_senior": [
+      "meeting_item_senior_id"
+    ],
+    "dotp_monitoring_meeting_item_tasks_delivered": [
+      "meeting_item_taks_delivered_id"
+    ],
+    "dotp_monitoring_meeting_type": [
+      "meeting_type_id"
+    ],
+    "dotp_monitoring_meeting_user": [
+      "meeting_user_id"
+    ],
+    "dotp_monitoring_quality": [
+      "quality_id"
+    ],
+    "dotp_monitoring_quality_status": [
+      "quality_status_id"
+    ],
+    "dotp_monitoring_quality_type": [
+      "quality_type_id"
+    ],
+    "dotp_monitoring_responsibility_matriz": [
+      "responsibility_id"
+    ],
+    "dotp_monitoring_user_cost": [
+      "cost_id"
+    ],
+    "dotp_need_for_training": [
+      "project_id"
+    ],
+    "dotp_permissions": [
+      "permission_id"
+    ],
+    "dotp_post_mortem_analysis": [
+      "pma_id"
+    ],
+    "dotp_projects": [
+      "project_id"
+    ],
+    "dotp_project_contacts": [],
+    "dotp_project_departments": [],
+    "dotp_project_designer_options": [
+      "pd_option_id"
+    ],
+    "dotp_project_eap_items": [
+      "id"
+    ],
+    "dotp_project_ear_items": [
+      "id"
+    ],
+    "dotp_project_minutes": [
+      "id"
+    ],
+    "dotp_project_tasks_estimated_roles": [
+      "id"
+    ],
+    "dotp_project_tasks_estimations": [
+      "id"
+    ],
+    "dotp_quality_assurance_item": [
+      "id"
+    ],
+    "dotp_quality_control_analiysis_question": [
+      "id"
+    ],
+    "dotp_quality_control_goal": [
+      "id"
+    ],
+    "dotp_quality_control_metric": [
+      "id"
+    ],
+    "dotp_quality_control_requirement": [
+      "id"
+    ],
+    "dotp_quality_planning": [
+      "id"
+    ],
+    "dotp_resources": [
+      "resource_id"
+    ],
+    "dotp_resource_tasks": [],
+    "dotp_resource_types": [
+      "resource_type_id"
+    ],
+    "dotp_risks": [
+      "risk_id"
+    ],
+    "dotp_risks_management_plan": [
+      "risk_plan_id"
+    ],
+    "dotp_roles": [
+      "role_id"
+    ],
+    "dotp_scope_requirements": [
+      "req_id"
+    ],
+    "dotp_scope_requirements_managplan": [
+      "req_managplan_id"
+    ],
+    "dotp_scope_requirement_categories": [
+      "req_categ_prefix_id"
+    ],
+    "dotp_scope_requirement_priorities": [
+      "req_priority_id"
+    ],
+    "dotp_scope_requirement_status": [
+      "req_status_id"
+    ],
+    "dotp_scope_statement": [
+      "scope_id"
+    ],
+    "dotp_sessions": [
+      "session_id"
+    ],
+    "dotp_syskeys": [
+      "syskey_id"
+    ],
+    "dotp_sysvals": [
+      "sysval_id"
+    ],
+    "dotp_tasks": [
+      "task_id"
+    ],
+    "dotp_tasks_mdp": [
+      "id"
+    ],
+    "dotp_tasks_workpackages": [
+      "task_id"
+    ],
+    "dotp_task_contacts": [],
+    "dotp_task_departments": [],
+    "dotp_task_dependencies": [
+      "dependencies_task_id",
+      "dependencies_req_task_id"
+    ],
+    "dotp_task_log": [
+      "task_log_id"
+    ],
+    "dotp_task_minute_members": [
+      "id"
+    ],
+    "dotp_tickets": [
+      "ticket"
+    ],
+    "dotp_users": [
+      "user_id"
+    ],
+    "dotp_user_access_log": [
+      "user_access_log_id"
+    ],
+    "dotp_user_events": [],
+    "dotp_user_preferences": [],
+    "dotp_user_roles": [],
+    "dotp_user_tasks": [
+      "user_id",
+      "task_id"
+    ],
+    "dotp_user_task_pin": [
+      "user_id",
+      "task_id"
+    ],
+    "dotp_wbs_dictionary": [
+      "wbs_item_id"
+    ]
+  },
+  "vm1_explicit_fks": {
+    "dotp_acquisition_planning": [
+      {
+        "col": "project_id",
+        "ref_table": "dotp_projects",
+        "ref_col": "project_id",
+        "name": "FK_PROJECT_QUALITY"
+      }
+    ],
+    "dotp_communication_issuing": [
+      {
+        "col": "communication_stakeholder_id",
+        "ref_table": "dotp_contacts",
+        "ref_col": "contact_id",
+        "name": "fk_communication_issuing"
+      }
+    ],
+    "dotp_tasks_workpackages": [
+      {
+        "col": "task_id",
+        "ref_table": "dotp_tasks",
+        "ref_col": "task_id",
+        "name": "fk_task_eap_item"
+      }
+    ],
+    "dotp_human_resource_allocation": [
+      {
+        "col": "human_resource_id",
+        "ref_table": "dotp_human_resource",
+        "ref_col": "human_resource_id",
+        "name": "dotp_human_resource_allocation_ibfk_1"
+      },
+      {
+        "col": "project_tasks_estimated_roles_id",
+        "ref_table": "dotp_project_tasks_estimated_roles",
+        "ref_col": "id",
+        "name": "dotp_human_resource_allocation_ibfk_2"
+      }
+    ],
+    "dotp_wbs_dictionary": [
+      {
+        "col": "wbs_item_id",
+        "ref_table": "dotp_project_eap_items",
+        "ref_col": "id",
+        "name": "FK_WBS_ITEM_DICTIONARY"
+      }
+    ],
+    "dotp_project_tasks_estimations": [
+      {
+        "col": "task_id",
+        "ref_table": "dotp_tasks",
+        "ref_col": "task_id",
+        "name": "fk_estimation_task_attributes"
+      }
+    ],
+    "dotp_quality_assurance_item": [
+      {
+        "col": "quality_planning_id",
+        "ref_table": "dotp_quality_planning",
+        "ref_col": "id",
+        "name": "FK_PROJECT_QUALITY_ASSURANCE_ITEM"
+      }
+    ],
+    "dotp_acquisition_execution": [
+      {
+        "col": "project_id",
+        "ref_table": "dotp_projects",
+        "ref_col": "project_id",
+        "name": "FK_PROJECT_AQC_EXE"
+      }
+    ],
+    "dotp_budget": [
+      {
+        "col": "budget_project_id",
+        "ref_table": "dotp_projects",
+        "ref_col": "project_id",
+        "name": "fk_budget_project_id"
+      }
+    ],
+    "dotp_costs": [
+      {
+        "col": "cost_human_resource_id",
+        "ref_table": "dotp_human_resource",
+        "ref_col": "human_resource_id",
+        "name": "fk_cost_human_resource_id"
+      },
+      {
+        "col": "cost_human_resource_role_id",
+        "ref_table": "dotp_human_resources_role",
+        "ref_col": "human_resources_role_id",
+        "name": "fk_cost_human_resource_role_id"
+      },
+      {
+        "col": "cost_project_id",
+        "ref_table": "dotp_projects",
+        "ref_col": "project_id",
+        "name": "fk_cost_project_id"
+      }
+    ],
+    "dotp_scope_requirements_managplan": [
+      {
+        "col": "project_id",
+        "ref_table": "dotp_projects",
+        "ref_col": "project_id",
+        "name": "dotp_scope_requirements_managplan_ibfk_1"
+      }
+    ],
+    "dotp_raci": [
+      {
+        "col": "human_resource_id",
+        "ref_table": "dotp_human_resource",
+        "ref_col": "human_resource_id",
+        "name": "dotp_raci_human_resource_id_foreign"
+      },
+      {
+        "col": "project_id",
+        "ref_table": "dotp_projects",
+        "ref_col": "project_id",
+        "name": "dotp_raci_project_id_foreign"
+      }
+    ],
+    "dotp_eap_item_estimations": [
+      {
+        "col": "eap_item_id",
+        "ref_table": "dotp_project_eap_items",
+        "ref_col": "id",
+        "name": "fk_estimation_eap_item"
+      }
+    ],
+    "dotp_task_minute_members": [
+      {
+        "col": "task_minute_id",
+        "ref_table": "dotp_project_minutes",
+        "ref_col": "id",
+        "name": "fk_task_minute_partipant_task"
+      },
+      {
+        "col": "user_id",
+        "ref_table": "dotp_contacts",
+        "ref_col": "contact_id",
+        "name": "fk_task_minute_partipant_user"
+      }
+    ],
+    "dotp_human_resource_performance": [
+      {
+        "col": "company_id",
+        "ref_table": "dotp_companies",
+        "ref_col": "company_id",
+        "name": "dotp_human_resource_performance_company_id_foreign"
+      },
+      {
+        "col": "human_resource_id",
+        "ref_table": "dotp_human_resource",
+        "ref_col": "human_resource_id",
+        "name": "dotp_human_resource_performance_human_resource_id_foreign"
+      }
+    ],
+    "dotp_quality_control_metric": [
+      {
+        "col": "question_id",
+        "ref_table": "dotp_quality_control_analiysis_question",
+        "ref_col": "id",
+        "name": "FK_PROJECT_QUALITY_METRIC"
+      }
+    ],
+    "dotp_human_resource_skills": [
+      {
+        "col": "human_resource_id",
+        "ref_table": "dotp_human_resource",
+        "ref_col": "human_resource_id",
+        "name": "dotp_human_resource_skills_human_resource_id_foreign"
+      },
+      {
+        "col": "skill_id",
+        "ref_table": "dotp_skills",
+        "ref_col": "skill_id",
+        "name": "dotp_human_resource_skills_skill_id_foreign"
+      }
+    ],
+    "dotp_project_ear_items": [
+      {
+        "col": "project_id",
+        "ref_table": "dotp_projects",
+        "ref_col": "project_id",
+        "name": "fk_ear_item_project"
+      }
+    ],
+    "dotp_quality_control_goal": [
+      {
+        "col": "quality_planning_id",
+        "ref_table": "dotp_quality_planning",
+        "ref_col": "id",
+        "name": "FK_PROJECT_QUALITY_CONTROL_GOAL"
+      }
+    ],
+    "dotp_project_tasks_estimated_roles": [
+      {
+        "col": "role_id",
+        "ref_table": "dotp_company_role",
+        "ref_col": "id",
+        "name": "fk_estimation_roles"
+      },
+      {
+        "col": "task_id",
+        "ref_table": "dotp_tasks",
+        "ref_col": "task_id",
+        "name": "fk_estimation_task_roles"
+      }
+    ],
+    "dotp_quality_control_analiysis_question": [
+      {
+        "col": "goal_id",
+        "ref_table": "dotp_quality_control_goal",
+        "ref_col": "id",
+        "name": "FK_PROJECT_QUALITY_GOAL_QUESTION"
+      }
+    ],
+    "dotp_project_minutes": [
+      {
+        "col": "project_id",
+        "ref_table": "dotp_projects",
+        "ref_col": "project_id",
+        "name": "fk_minute_project"
+      }
+    ],
+    "dotp_acquisition_planning_roles": [
+      {
+        "col": "acquisition_id",
+        "ref_table": "dotp_acquisition_planning",
+        "ref_col": "id",
+        "name": "FK_ACQUISITION_ROLE"
+      }
+    ],
+    "dotp_scope_requirements": [
+      {
+        "col": "req_categ_prefix_id",
+        "ref_table": "dotp_scope_requirement_categories",
+        "ref_col": "req_categ_prefix_id",
+        "name": "dotp_scope_requirements_ibfk_1"
+      },
+      {
+        "col": "req_priority_id",
+        "ref_table": "dotp_scope_requirement_priorities",
+        "ref_col": "req_priority_id",
+        "name": "dotp_scope_requirements_ibfk_2"
+      },
+      {
+        "col": "req_status_id",
+        "ref_table": "dotp_scope_requirement_status",
+        "ref_col": "req_status_id",
+        "name": "dotp_scope_requirements_ibfk_3"
+      },
+      {
+        "col": "eapitem_id",
+        "ref_table": "dotp_project_eap_items",
+        "ref_col": "id",
+        "name": "dotp_scope_requirements_ibfk_4"
+      },
+      {
+        "col": "project_id",
+        "ref_table": "dotp_projects",
+        "ref_col": "project_id",
+        "name": "dotp_scope_requirements_ibfk_5"
+      }
+    ],
+    "dotp_company_policies": [
+      {
+        "col": "company_policies_company_id",
+        "ref_table": "dotp_companies",
+        "ref_col": "company_id",
+        "name": "dotp_company_policies_ibfk_1"
+      }
+    ],
+    "dotp_acquisition_planning_criteria": [
+      {
+        "col": "acquisition_id",
+        "ref_table": "dotp_acquisition_planning",
+        "ref_col": "id",
+        "name": "FK_ACQUISITION_CRITERIA"
+      }
+    ],
+    "dotp_quality_control_requirement": [
+      {
+        "col": "quality_planning_id",
+        "ref_table": "dotp_quality_planning",
+        "ref_col": "id",
+        "name": "FK_PROJECT_QUALITY_CONTROL_REQUIREMENT"
+      }
+    ],
+    "dotp_human_resource_roles": [
+      {
+        "col": "human_resources_role_id",
+        "ref_table": "dotp_human_resources_role",
+        "ref_col": "human_resources_role_id",
+        "name": "dotp_human_resource_roles_ibfk_1"
+      },
+      {
+        "col": "human_resource_id",
+        "ref_table": "dotp_human_resource",
+        "ref_col": "human_resource_id",
+        "name": "dotp_human_resource_roles_ibfk_2"
+      }
+    ],
+    "dotp_need_for_training": [
+      {
+        "col": "project_id",
+        "ref_table": "dotp_projects",
+        "ref_col": "project_id",
+        "name": "FK_PROJECT_NEED_FOR_TRAINING"
+      }
+    ],
+    "dotp_communication_receptor": [
+      {
+        "col": "communication_stakeholder_id",
+        "ref_table": "dotp_contacts",
+        "ref_col": "contact_id",
+        "name": "fk_communication_receptor"
+      }
+    ],
+    "dotp_quality_planning": [
+      {
+        "col": "project_id",
+        "ref_table": "dotp_projects",
+        "ref_col": "project_id",
+        "name": "FK_PROJECT_ACQUISITION"
+      }
+    ],
+    "dotp_tasks_mdp": [
+      {
+        "col": "task_id",
+        "ref_table": "dotp_tasks",
+        "ref_col": "task_id",
+        "name": "fk_mdp_task"
+      }
+    ],
+    "dotp_human_resources_role": [
+      {
+        "col": "human_resources_role_company_id",
+        "ref_table": "dotp_companies",
+        "ref_col": "company_id",
+        "name": "dotp_human_resources_role_ibfk_1"
+      }
+    ],
+    "dotp_acquisition_planning_requirements": [
+      {
+        "col": "acquisition_id",
+        "ref_table": "dotp_acquisition_planning",
+        "ref_col": "id",
+        "name": "FK_AQUISITION_REQUIREMENT"
+      }
+    ],
+    "dotp_human_resource": [
+      {
+        "col": "human_resource_user_id",
+        "ref_table": "dotp_users",
+        "ref_col": "user_id",
+        "name": "dotp_human_resource_ibfk_1"
+      }
+    ],
+    "dotp_project_eap_items": [
+      {
+        "col": "project_id",
+        "ref_table": "dotp_projects",
+        "ref_col": "project_id",
+        "name": "fk_eap_item_project"
+      }
+    ],
+    "dotp_budget_reserve": [
+      {
+        "col": "budget_reserve_project_id",
+        "ref_table": "dotp_projects",
+        "ref_col": "project_id",
+        "name": "fk_budget_reserve_project_id"
+      }
+    ],
+    "dotp_scope_statement": [
+      {
+        "col": "project_id",
+        "ref_table": "dotp_projects",
+        "ref_col": "project_id",
+        "name": "dotp_scope_statement_ibfk_1"
+      }
+    ],
+    "dotp_company_role": [
+      {
+        "col": "company_id",
+        "ref_table": "dotp_companies",
+        "ref_col": "company_id",
+        "name": "fk_role_company"
+      }
+    ]
+  }
+}

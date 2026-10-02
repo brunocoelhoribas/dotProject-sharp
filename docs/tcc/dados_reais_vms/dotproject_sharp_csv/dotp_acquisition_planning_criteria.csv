@@ -1,0 +1,7 @@
+﻿id,acquisition_id,criteria,weight
+2,2,Formation,1
+3,2,Hour/rate,1
+4,2,Availability,1
+5,3,"critério 1",2
+6,3,"critério 2",1
+7,4,"Empresa com CNPJ.",10

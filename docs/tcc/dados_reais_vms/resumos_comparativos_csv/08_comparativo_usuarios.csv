@@ -1,0 +1,42 @@
+﻿sistema_origem,user_id,user_contact,user_username,user_password,user_parent,user_type,user_company,user_department,user_owner,user_signature
+dotProject+ (VM 192.168.56.102),1,1,admin,76a2173be6393254e72ffa4d6df1030a,0,1,0,0,0,
+dotProject+ (VM 192.168.56.102),2,2,Lula Molusco,d41d8cd98f00b204e9800998ecf8427e,0,0,1,0,0,NULL
+dotProject+ (VM 192.168.56.102),3,3,Bob Esponja,d41d8cd98f00b204e9800998ecf8427e,0,0,1,0,0,NULL
+dotProject+ (VM 192.168.56.102),4,4,B B_Sobrenome,d41d8cd98f00b204e9800998ecf8427e,0,0,2,0,0,NULL
+dotProject+ (VM 192.168.56.102),5,5,A A_Sobrenome,d41d8cd98f00b204e9800998ecf8427e,0,0,2,0,0,NULL
+dotProject+ (VM 192.168.56.102),6,6,C C_Sobrenome,d41d8cd98f00b204e9800998ecf8427e,0,0,2,0,0,NULL
+dotProject+ (VM 192.168.56.102),7,10,Patrick Estrela,d41d8cd98f00b204e9800998ecf8427e,0,0,1,0,0,NULL
+dotProject+ (VM 192.168.56.102),8,11,Gary Caracol,d41d8cd98f00b204e9800998ecf8427e,0,0,1,0,0,NULL
+dotProject+ (VM 192.168.56.102),9,12,Sr. Siriguejo,d41d8cd98f00b204e9800998ecf8427e,0,0,1,0,0,NULL
+dotProject+ (VM 192.168.56.102),10,17,Ciclano beltrano,d41d8cd98f00b204e9800998ecf8427e,0,0,2,0,0,NULL
+dotProject+ (VM 192.168.56.102),11,19,admin_en,76a2173be6393254e72ffa4d6df1030a,0,1,0,0,0,NULL
+dotProject+ (VM 192.168.56.102),12,20,group_1,81dc9bdb52d04dc20036dbd8313ed055,0,0,0,0,0,NULL
+dotProject+ (VM 192.168.56.102),13,21,Sponge Bob,d41d8cd98f00b204e9800998ecf8427e,0,0,4,0,0,NULL
+dotProject+ (VM 192.168.56.102),14,22,Patrick Star,d41d8cd98f00b204e9800998ecf8427e,0,0,4,0,0,NULL
+dotProject+ (VM 192.168.56.102),15,24,Goku SS,d41d8cd98f00b204e9800998ecf8427e,0,0,3,0,0,NULL
+dotProject+ (VM 192.168.56.102),16,25,Vedita SS,d41d8cd98f00b204e9800998ecf8427e,0,0,3,0,0,NULL
+dotProject+ (VM 192.168.56.102),17,27,Aluno 1 BSI18,d41d8cd98f00b204e9800998ecf8427e,0,0,6,0,0,NULL
+dotProject+ (VM 192.168.56.102),18,28,Aluno 2 BSI18,d41d8cd98f00b204e9800998ecf8427e,0,0,6,0,0,NULL
+dotProject+ (VM 192.168.56.102),20,30,André Fabiano de Moraes,d41d8cd98f00b204e9800998ecf8427e,0,0,7,0,0,NULL
+dotProject+ (VM 192.168.56.102),21,31,Moraes -AF. Moraes,d41d8cd98f00b204e9800998ecf8427e,0,0,1,0,0,NULL
+dotProject+ (VM 192.168.56.102),22,33,Aluno  TSI2026 Teste,d41d8cd98f00b204e9800998ecf8427e,0,0,1,0,0,NULL
+dotProject# (VM 192.168.56.101),1,1,admin,$2y$12$i5asSYfyWUj/5vuXJFpwwebshaIj/15nSabicuUxrGRbs87liOIbC,0,1,0,0,0,
+dotProject# (VM 192.168.56.101),2,2,Lula Molusco,d41d8cd98f00b204e9800998ecf8427e,0,0,1,0,0,
+dotProject# (VM 192.168.56.101),3,3,Bob Esponja,d41d8cd98f00b204e9800998ecf8427e,0,0,1,0,0,
+dotProject# (VM 192.168.56.101),4,4,B B_Sobrenome,d41d8cd98f00b204e9800998ecf8427e,0,0,2,0,0,
+dotProject# (VM 192.168.56.101),5,5,A A_Sobrenome,d41d8cd98f00b204e9800998ecf8427e,0,0,2,0,0,
+dotProject# (VM 192.168.56.101),6,6,C C_Sobrenome,d41d8cd98f00b204e9800998ecf8427e,0,0,2,0,0,
+dotProject# (VM 192.168.56.101),7,10,Patrick Estrela,d41d8cd98f00b204e9800998ecf8427e,0,0,1,0,0,
+dotProject# (VM 192.168.56.101),8,11,Gary Caracol,d41d8cd98f00b204e9800998ecf8427e,0,0,1,0,0,
+dotProject# (VM 192.168.56.101),9,12,Sr. Siriguejo,d41d8cd98f00b204e9800998ecf8427e,0,0,1,0,0,
+dotProject# (VM 192.168.56.101),10,17,Ciclano beltrano,d41d8cd98f00b204e9800998ecf8427e,0,0,2,0,0,
+dotProject# (VM 192.168.56.101),11,19,admin_en,76a2173be6393254e72ffa4d6df1030a,0,1,0,0,0,
+dotProject# (VM 192.168.56.101),12,20,group_1,81dc9bdb52d04dc20036dbd8313ed055,0,0,0,0,0,
+dotProject# (VM 192.168.56.101),13,21,Sponge Bob,d41d8cd98f00b204e9800998ecf8427e,0,0,4,0,0,
+dotProject# (VM 192.168.56.101),14,22,Patrick Star,d41d8cd98f00b204e9800998ecf8427e,0,0,4,0,0,
+dotProject# (VM 192.168.56.101),15,24,Goku SS,d41d8cd98f00b204e9800998ecf8427e,0,0,3,0,0,
+dotProject# (VM 192.168.56.101),16,25,Vedita SS,d41d8cd98f00b204e9800998ecf8427e,0,0,3,0,0,
+dotProject# (VM 192.168.56.101),17,27,Aluno 1 BSI18,d41d8cd98f00b204e9800998ecf8427e,0,0,6,0,0,
+dotProject# (VM 192.168.56.101),18,28,Aluno 2 BSI18,d41d8cd98f00b204e9800998ecf8427e,0,0,6,0,0,
+dotProject# (VM 192.168.56.101),20,30,André Fabiano de Moraes,d41d8cd98f00b204e9800998ecf8427e,0,0,7,0,0,
+dotProject# (VM 192.168.56.101),21,31,Bruno Ribas,d41d8cd98f00b204e9800998ecf8427e,0,0,1,0,0,

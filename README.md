@@ -37,66 +37,66 @@ Existem duas formas disponíveis para executar a aplicação no seu ambiente loc
 
 ---
 
-### Opção 1: Rodando via Docker Compose (Recomendada)
+### Opção 1: Rodando via Docker Compose (Stack Completa Recomendada)
 
-Esta opção utiliza o **Laravel Sail** para rodar os containers da aplicação PHP 8.4 e o banco de dados MySQL de forma prática e padronizada.
+Esta opção utiliza uma infraestrutura Docker totalmente autocontida e independente de dependências na máquina host. Ela sobe simultaneamente a **aplicação PHP 8.4 + Node 22**, o **banco de dados MySQL 8.4** com carga automática do dump inicial (`database/dump.sql`) e o motor de **Inteligência Artificial local (Ollama)**.
 
 #### 📋 Pré-requisitos
-* **Docker Desktop** instalado e rodando.
+* **Docker Desktop** instalado e em execução.
 * **Git** instalado.
 
-#### 🚀 Passo a Passo
+#### 🚀 Passo a Passo Rápido
 
 1. **Configurar as Variáveis de Ambiente**:
-   Copie o arquivo de exemplo de ambiente para criar o seu `.env`:
+   Caso ainda não possua o arquivo `.env`, crie-o a partir do `.env.example`:
    ```bash
    cp .env.example .env
    ```
-   *(As configurações padrão do `.env.example` já estão pré-configuradas para funcionar diretamente com o Docker, incluindo a conexão com o banco MySQL na rede interna do Docker).*
+   *(As configurações do `.env.example` já vêm 100% configuradas para a rede interna do Docker, portas e serviços de IA).*
 
-2. **Subir os Containers**:
-   Execute o atalho do Composer para iniciar os containers em segundo plano (isso subirá os serviços da aplicação PHP e o banco de dados MySQL):
+2. **Subir e Construir os Containers**:
+   Execute o comando de construção e inicialização em segundo plano:
    ```bash
-   composer docker-up
+   docker compose up -d --build
    ```
-   *Caso prefira usar o comando direto:*
+   *(O script de inicialização cuidará automaticamente de gerar a chave da aplicação, esperar o MySQL, rodar as migrações e compilar os assets com Vite).*
+
+3. **Baixar o Modelo de IA Local (Ollama - Llama 3.2)**:
+   Para habilitar o gerador automático de EAP e o assistente de chat PMO, baixe o modelo Llama 3.2 para dentro do volume do Ollama:
    ```bash
-   docker compose up -d
+   docker compose exec ollama ollama pull llama3.2
+   ```
+   *(O modelo será salvo no volume persistente do Docker, sendo necessário baixá-lo apenas uma única vez).*
+
+4. **(Opcional) Popular com Dados do Estudo de Caso**:
+   Caso deseje preencher o banco com o conjunto completo de testes (25 empresas, 75 departamentos, 160 projetos, 1.120 tarefas e colaboradores com RACI e 9-Box):
+   ```bash
+   docker compose exec app php artisan db:seed
    ```
 
-3. **Subir o Servidor de Assets (Vite)**:
-   Inicie o servidor de desenvolvimento do Vite para monitorar e compilar as atualizações de CSS/JS em tempo real:
-   ```bash
-   composer docker-dev
-   ```
-   *Caso prefira usar o comando direto:*
-   ```bash
-   docker compose exec laravel.test npm run dev
-   ```
-
-4. **Acessar o Projeto**:
+5. **Acessar o Projeto**:
    Abra no seu navegador:
    * **URL principal**: [http://localhost:8080](http://localhost:8080)
-   * *(Nota: Se o `localhost` estiver lento ou com atrasos de rede no Windows, utilize o IP direto: [http://127.0.0.1:8080](http://127.0.0.1:8080))*
+   * *(Nota: Se o `localhost` apresentar lentidão no Windows, acesse diretamente por: [http://127.0.0.1:8080](http://127.0.0.1:8080))*
 
-#### 🔑 Credenciais de Acesso (Docker)
+#### 🔑 Credenciais de Acesso (Sistema)
 * **Usuário**: `admin`
-* **Senha**: `admin`
+* **Senha**: `admin123` (ou `admin`)
 
 #### 💾 Conexão externa com o Banco de Dados (MySQL no Docker)
-O banco de dados do container está mapeado para a porta **`3307`** no seu host. Caso queira se conectar usando uma ferramenta externa (como DBeaver, TablePlus ou PhpStorm):
+O banco de dados do container está mapeado para a porta **`3308`** no seu host:
 * **Host**: `127.0.0.1` (ou `localhost`)
-* **Porta**: `3307`
+* **Porta**: `3308`
 * **Banco de Dados**: `dotproject`
 * **Usuário**: `root`
 * **Senha**: `12345`
 
-#### ⚡ Dica de Desempenho Ultra Rápido (WSL2 no Windows)
-Se você estiver utilizando Windows com WSL2, rodar o projeto a partir de pastas do Windows (`C:\Users\...`) montadas no Docker causa uma lentidão extrema na leitura de arquivos PHP.
-**Para que o projeto rode em milissegundos:**
-1. Mova ou clone a pasta do projeto diretamente para dentro do sistema de arquivos do Linux WSL (ex: `/home/usuario/projects/dotproject-2025`).
-2. Abra o PhpStorm utilizando o caminho do WSL (`\\wsl$\Ubuntu\home\...`).
-3. Execute o comando `composer docker-up` a partir do terminal do WSL.
+#### 🛠️ Comandos Úteis do Docker
+* Ver logs da aplicação em tempo real: `docker compose logs -f app`
+* Acessar o terminal do container da aplicação: `docker compose exec app bash`
+* Rodar o compilador do Vite em modo dev (hot-reload): `docker compose exec app npm run dev`
+* Parar os containers: `docker compose down`
+
 
 ---
 

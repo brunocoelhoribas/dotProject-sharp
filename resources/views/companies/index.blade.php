@@ -15,6 +15,10 @@
                       method="GET"
                       action="{{ route('companies.index') }}">
 
+                    @if($selectedTypeId !== null && $selectedTypeId !== '' && $selectedTypeId !== 'all')
+                        <input type="hidden" name="type" value="{{ $selectedTypeId }}">
+                    @endif
+
                     <div>
                         <label for="search" class="form-label fw-bold small text-muted mb-0">{{ __('companies/view.index.search') }}</label>
                         <input class="form-control form-control-sm"
@@ -22,7 +26,7 @@
                                type="search"
                                name="search"
                                value="{{ request('search') }}"
-                               placeholder="Buscar...">
+                               placeholder="{{ __('companies/view.index.search_placeholder') }}">
                     </div>
 
                     <div>
@@ -53,19 +57,19 @@
 
             <ul class="nav nav-tabs nav-tabs-dotproject mb-3" id="companyTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link {{ !$selectedTypeId ? 'active' : '' }}"
-                       href="{{ route('companies.index', request()->except('type')) }}"
+                    <a class="nav-link {{ $selectedTypeId === null || $selectedTypeId === '' || $selectedTypeId === 'all' ? 'active' : '' }}"
+                       href="{{ route('companies.index', request()->except(['type', 'page'])) }}"
                        role="tab"
-                       aria-selected="{{ !$selectedTypeId ? 'true' : 'false' }}">
+                       aria-selected="{{ $selectedTypeId === null || $selectedTypeId === '' || $selectedTypeId === 'all' ? 'true' : 'false' }}">
                         {{ __('companies/view.index.tab_all') }}
                     </a>
                 </li>
                 @foreach($types as $id => $name)
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link {{ (int)$selectedTypeId === (int)$id ? 'active' : '' }}"
-                           href="{{ route('companies.index', array_merge(request()->query(), ['type' => $id])) }}"
+                        <a class="nav-link {{ $selectedTypeId !== null && $selectedTypeId !== '' && $selectedTypeId !== 'all' && (string)$selectedTypeId === (string)$id ? 'active' : '' }}"
+                           href="{{ route('companies.index', array_merge(request()->except('page'), ['type' => $id])) }}"
                            role="tab"
-                           aria-selected="{{ (int)$selectedTypeId === (int)$id ? 'true' : 'false' }}">
+                           aria-selected="{{ $selectedTypeId !== null && $selectedTypeId !== '' && $selectedTypeId !== 'all' && (string)$selectedTypeId === (string)$id ? 'true' : 'false' }}">
                             {{ $name }}
                         </a>
                     </li>
@@ -94,7 +98,7 @@
                             </td>
                             <td class="text-center">{{ $company->active_projects_count }}</td>
                             <td class="text-center">{{ $company->archived_projects_count }}</td>
-                            <td>{{ $types[$company->company_type] ?? 'N/A' }}</td>
+                            <td>{{ isset($company->company_type) && isset($types[$company->company_type]) ? $types[$company->company_type] : 'N/A' }}</td>
                             <td class="text-center">
                                 <a href="{{ route('companies.show', $company) }}"
                                    class="btn btn-xs btn-link text-dark p-0 me-2"

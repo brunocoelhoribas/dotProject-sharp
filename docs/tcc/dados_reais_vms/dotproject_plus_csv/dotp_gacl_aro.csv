@@ -1,0 +1,22 @@
+﻿id,section_value,value,order_value,name,hidden
+10,user,1,1,admin,0
+11,user,2,1,Membro da equipe A,0
+12,user,3,1,Membro da equipe B,0
+13,user,4,1,B B_Sobrenome,0
+14,user,5,1,A A_Sobrenome,0
+15,user,6,1,C C_Sobrenome,0
+16,user,7,1,Membro da Equipe  C,0
+17,user,8,1,Gary Caracol,0
+18,user,9,1,Sr. Siriguejo,0
+19,user,10,1,Ciclano beltrano,0
+20,user,11,1,admin_en,0
+21,user,12,1,group_1,0
+22,user,13,1,Sponge Bob,0
+23,user,14,1,Patrick Star,0
+24,user,15,1,Goku SS,0
+25,user,16,1,Vedita SS,0
+28,user,17,1,Aluno 1 BSI18,0
+29,user,18,1,Aluno 2 BSI18,0
+31,user,20,1,André Fabiano de Moraes,0
+32,user,21,1,Moraes -AF. Moraes,0
+33,user,22,1,Aluno  TSI2026 Teste,0

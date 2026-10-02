@@ -1,0 +1,7 @@
+﻿id,section_value,value,order_value,name,hidden
+10,system,login,1,Login,0
+11,application,access,1,Access,0
+12,application,view,2,View,0
+13,application,add,3,Add,0
+14,application,edit,4,Edit,0
+15,application,delete,5,Delete,0

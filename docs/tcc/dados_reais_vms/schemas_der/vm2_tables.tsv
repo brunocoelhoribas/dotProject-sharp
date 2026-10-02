@@ -1,0 +1,141 @@
+TABLE_NAME	ENGINE	TABLE_ROWS	TABLE_COMMENT
+dotp_acquisition_execution	InnoDB	0	InnoDB free: 16384 kB; (`project_id`) REFER `dbdotproject_g6/dotp_projects`(`pro
+dotp_acquisition_planning	InnoDB	3	InnoDB free: 16384 kB; (`project_id`) REFER `dbdotproject_g6/dotp_projects`(`pro
+dotp_acquisition_planning_criteria	InnoDB	6	InnoDB free: 16384 kB; (`acquisition_id`) REFER `dbdotproject_g6/dotp_acquisitio
+dotp_acquisition_planning_requirements	InnoDB	4	InnoDB free: 16384 kB; (`acquisition_id`) REFER `dbdotproject_g6/dotp_acquisitio
+dotp_acquisition_planning_roles	InnoDB	5	InnoDB free: 16384 kB; (`acquisition_id`) REFER `dbdotproject_g6/dotp_acquisitio
+dotp_billingcode	InnoDB	0	InnoDB free: 16384 kB
+dotp_budget	InnoDB	2	InnoDB free: 16384 kB; (`budget_project_id`) REFER `dbdotproject_g6/dotp_project
+dotp_budget_reserve	InnoDB	5	InnoDB free: 16384 kB; (`budget_reserve_project_id`) REFER `dbdotproject_g6/dotp
+dotp_common_notes	InnoDB	0	InnoDB free: 16384 kB
+dotp_communication	InnoDB	7	InnoDB free: 16384 kB
+dotp_communication_channel	InnoDB	4	InnoDB free: 16384 kB
+dotp_communication_frequency	InnoDB	8	InnoDB free: 16384 kB
+dotp_communication_issuing	InnoDB	7	InnoDB free: 16384 kB; (`communication_stakeholder_id`) REFER `dbdotproject_g6/d
+dotp_communication_receptor	InnoDB	12	InnoDB free: 16384 kB; (`communication_stakeholder_id`) REFER `dbdotproject_g6/d
+dotp_companies	InnoDB	8	InnoDB free: 16384 kB
+dotp_company_policies	InnoDB	2	InnoDB free: 16384 kB; (`company_policies_company_id`) REFER `dbdotproject_g6/do
+dotp_company_role	InnoDB	13	InnoDB free: 16384 kB; (`company_id`) REFER `dbdotproject_g6/dotp_companies`(`co
+dotp_config	InnoDB	74	InnoDB free: 16384 kB
+dotp_config_list	InnoDB	7	InnoDB free: 16384 kB
+dotp_contacts	InnoDB	32	InnoDB free: 16384 kB
+dotp_costs	InnoDB	29	InnoDB free: 16384 kB; (`cost_human_resource_id`) REFER `dbdotproject_g6/dotp_hu
+dotp_custom_fields_lists	InnoDB	0	InnoDB free: 16384 kB
+dotp_custom_fields_struct	InnoDB	0	InnoDB free: 16384 kB
+dotp_custom_fields_values	InnoDB	0	InnoDB free: 16384 kB
+dotp_departments	InnoDB	0	Department heirarchy under a company; InnoDB free: 16384 kB
+dotp_dotpermissions	InnoDB	570	InnoDB free: 16384 kB
+dotp_dpversion	InnoDB	1	InnoDB free: 16384 kB
+dotp_eap_item_estimations	InnoDB	40	InnoDB free: 16384 kB; (`eap_item_id`) REFER `dbdotproject_g6/dotp_project_eap_i
+dotp_event_queue	InnoDB	0	InnoDB free: 16384 kB
+dotp_events	InnoDB	0	InnoDB free: 16384 kB
+dotp_file_folders	InnoDB	0	InnoDB free: 16384 kB
+dotp_files	InnoDB	0	InnoDB free: 16384 kB
+dotp_files_index	InnoDB	0	InnoDB free: 16384 kB
+dotp_forum_messages	InnoDB	0	InnoDB free: 16384 kB
+dotp_forum_visits	InnoDB	0	InnoDB free: 16384 kB
+dotp_forum_watch	InnoDB	0	Links users to the forums/messages they are watching; InnoDB free: 16384 kB
+dotp_forums	InnoDB	0	InnoDB free: 16384 kB
+dotp_gacl_acl	InnoDB	8	InnoDB free: 16384 kB
+dotp_gacl_acl_sections	InnoDB	2	InnoDB free: 16384 kB
+dotp_gacl_acl_seq	InnoDB	1	InnoDB free: 16384 kB
+dotp_gacl_aco	InnoDB	6	InnoDB free: 16384 kB
+dotp_gacl_aco_map	InnoDB	20	InnoDB free: 16384 kB
+dotp_gacl_aco_sections	InnoDB	2	InnoDB free: 16384 kB
+dotp_gacl_aco_sections_seq	InnoDB	1	InnoDB free: 16384 kB
+dotp_gacl_aco_seq	InnoDB	1	InnoDB free: 16384 kB
+dotp_gacl_aro	InnoDB	21	InnoDB free: 16384 kB
+dotp_gacl_aro_groups	InnoDB	5	InnoDB free: 16384 kB
+dotp_gacl_aro_groups_id_seq	InnoDB	1	InnoDB free: 16384 kB
+dotp_gacl_aro_groups_map	InnoDB	8	InnoDB free: 16384 kB
+dotp_gacl_aro_map	InnoDB	1	InnoDB free: 16384 kB
+dotp_gacl_aro_sections	InnoDB	1	InnoDB free: 16384 kB
+dotp_gacl_aro_sections_seq	InnoDB	1	InnoDB free: 16384 kB
+dotp_gacl_aro_seq	InnoDB	1	InnoDB free: 16384 kB
+dotp_gacl_axo	InnoDB	36	InnoDB free: 16384 kB
+dotp_gacl_axo_groups	InnoDB	4	InnoDB free: 16384 kB
+dotp_gacl_axo_groups_id_seq	InnoDB	1	InnoDB free: 16384 kB
+dotp_gacl_axo_groups_map	InnoDB	4	InnoDB free: 16384 kB
+dotp_gacl_axo_map	InnoDB	3	InnoDB free: 16384 kB
+dotp_gacl_axo_sections	InnoDB	8	InnoDB free: 16384 kB
+dotp_gacl_axo_sections_seq	InnoDB	1	InnoDB free: 16384 kB
+dotp_gacl_axo_seq	InnoDB	1	InnoDB free: 16384 kB
+dotp_gacl_groups_aro_map	InnoDB	3	InnoDB free: 16384 kB
+dotp_gacl_groups_axo_map	InnoDB	64	InnoDB free: 16384 kB
+dotp_gacl_phpgacl	InnoDB	2	InnoDB free: 16384 kB
+dotp_history	MyISAM	0	
+dotp_human_resource	InnoDB	15	InnoDB free: 16384 kB; (`human_resource_user_id`) REFER `dbdotproject_g6/dotp_us
+dotp_human_resource_allocation	InnoDB	22	InnoDB free: 16384 kB; (`human_resource_id`) REFER `dbdotproject_g6/dotp_human_r
+dotp_human_resource_roles	InnoDB	18	InnoDB free: 16384 kB; (`human_resources_role_id`) REFER `dbdotproject_g6/dotp_h
+dotp_human_resources_role	InnoDB	13	InnoDB free: 16384 kB; (`human_resources_role_company_id`) REFER `dbdotproject_g
+dotp_initiating	InnoDB	7	InnoDB free: 16384 kB
+dotp_initiating_stakeholder	InnoDB	13	InnoDB free: 16384 kB
+dotp_links	MyISAM	0	
+dotp_modules	InnoDB	29	InnoDB free: 16384 kB
+dotp_monitoring_baseline	InnoDB	2	InnoDB free: 16384 kB
+dotp_monitoring_baseline_task	InnoDB	21	InnoDB free: 16384 kB
+dotp_monitoring_baseline_task_log	InnoDB	2	InnoDB free: 16384 kB
+dotp_monitoring_baseline_user_cost	InnoDB	16	InnoDB free: 16384 kB
+dotp_monitoring_change_request	InnoDB	0	InnoDB free: 16384 kB
+dotp_monitoring_meeting	InnoDB	0	InnoDB free: 16384 kB
+dotp_monitoring_meeting_item	InnoDB	18	InnoDB free: 16384 kB
+dotp_monitoring_meeting_item_select	InnoDB	0	InnoDB free: 16384 kB
+dotp_monitoring_meeting_item_senior	InnoDB	0	InnoDB free: 16384 kB
+dotp_monitoring_meeting_item_tasks_delivered	InnoDB	0	InnoDB free: 16384 kB
+dotp_monitoring_meeting_type	InnoDB	5	InnoDB free: 16384 kB
+dotp_monitoring_meeting_user	InnoDB	0	InnoDB free: 16384 kB
+dotp_monitoring_quality	InnoDB	0	InnoDB free: 16384 kB
+dotp_monitoring_quality_status	InnoDB	3	InnoDB free: 16384 kB
+dotp_monitoring_quality_type	InnoDB	3	InnoDB free: 16384 kB
+dotp_monitoring_responsibility_matriz	InnoDB	0	InnoDB free: 16384 kB
+dotp_monitoring_user_cost	InnoDB	10	InnoDB free: 16384 kB
+dotp_need_for_training	InnoDB	3	InnoDB free: 16384 kB; (`project_id`) REFER `dbdotproject_g6/dotp_projects`(`pro
+dotp_permissions	InnoDB	1	InnoDB free: 16384 kB
+dotp_post_mortem_analysis	InnoDB	0	InnoDB free: 16384 kB
+dotp_project_contacts	InnoDB	0	InnoDB free: 16384 kB
+dotp_project_departments	InnoDB	0	InnoDB free: 16384 kB
+dotp_project_designer_options	MyISAM	0	
+dotp_project_eap_items	InnoDB	40	InnoDB free: 16384 kB; (`project_id`) REFER `dbdotproject_g6/dotp_projects`(`pro
+dotp_project_ear_items	InnoDB	12	InnoDB free: 16384 kB; (`project_id`) REFER `dbdotproject_g6/dotp_projects`(`pro
+dotp_project_minutes	InnoDB	3	InnoDB free: 16384 kB; (`project_id`) REFER `dbdotproject_g6/dotp_projects`(`pro
+dotp_project_tasks_estimated_roles	InnoDB	23	InnoDB free: 16384 kB; (`role_id`) REFER `dbdotproject_g6/dotp_company_role`(`id
+dotp_project_tasks_estimations	InnoDB	60	InnoDB free: 16384 kB; (`task_id`) REFER `dbdotproject_g6/dotp_tasks`(`task_id`)
+dotp_projects	InnoDB	3	InnoDB free: 16384 kB
+dotp_quality_assurance_item	InnoDB	5	InnoDB free: 16384 kB; (`quality_planning_id`) REFER `dbdotproject_g6/dotp_quali
+dotp_quality_control_analiysis_question	InnoDB	4	InnoDB free: 16384 kB; (`goal_id`) REFER `dbdotproject_g6/dotp_quality_control_g
+dotp_quality_control_goal	InnoDB	3	InnoDB free: 16384 kB; (`quality_planning_id`) REFER `dbdotproject_g6/dotp_quali
+dotp_quality_control_metric	InnoDB	8	InnoDB free: 16384 kB; (`question_id`) REFER `dbdotproject_g6/dotp_quality_contr
+dotp_quality_control_requirement	InnoDB	4	InnoDB free: 16384 kB; (`quality_planning_id`) REFER `dbdotproject_g6/dotp_quali
+dotp_quality_planning	InnoDB	2	InnoDB free: 16384 kB; (`project_id`) REFER `dbdotproject_g6/dotp_projects`(`pro
+dotp_resource_tasks	MyISAM	0	
+dotp_resource_types	MyISAM	3	
+dotp_resources	MyISAM	0	
+dotp_risks	InnoDB	12	InnoDB free: 16384 kB
+dotp_risks_management_plan	InnoDB	3	InnoDB free: 16384 kB
+dotp_roles	InnoDB	0	InnoDB free: 16384 kB
+dotp_scope_requirement_categories	InnoDB	2	InnoDB free: 16384 kB
+dotp_scope_requirement_priorities	InnoDB	3	InnoDB free: 16384 kB
+dotp_scope_requirement_status	InnoDB	5	InnoDB free: 16384 kB
+dotp_scope_requirements	InnoDB	3	InnoDB free: 16384 kB; (`req_categ_prefix_id`) REFER `dbdotproject_g6/dotp_scope
+dotp_scope_requirements_managplan	InnoDB	1	InnoDB free: 16384 kB; (`project_id`) REFER `dbdotproject_g6/dotp_projects`(`pro
+dotp_scope_statement	InnoDB	1	InnoDB free: 16384 kB; (`project_id`) REFER `dbdotproject_g6/dotp_projects`(`pro
+dotp_sessions	InnoDB	120	InnoDB free: 16384 kB
+dotp_syskeys	InnoDB	3	InnoDB free: 16384 kB
+dotp_sysvals	InnoDB	27	InnoDB free: 16384 kB
+dotp_task_contacts	InnoDB	0	InnoDB free: 16384 kB
+dotp_task_departments	InnoDB	0	InnoDB free: 16384 kB
+dotp_task_dependencies	InnoDB	57	InnoDB free: 16384 kB
+dotp_task_log	InnoDB	12	InnoDB free: 16384 kB
+dotp_task_minute_members	InnoDB	4	InnoDB free: 16384 kB; (`task_minute_id`) REFER `dbdotproject_g6/dotp_project_mi
+dotp_tasks	InnoDB	67	InnoDB free: 16384 kB
+dotp_tasks_mdp	InnoDB	12	InnoDB free: 16384 kB; (`task_id`) REFER `dbdotproject_g6/dotp_tasks`(`task_id`)
+dotp_tasks_workpackages	InnoDB	67	InnoDB free: 16384 kB; (`task_id`) REFER `dbdotproject_g6/dotp_tasks`(`task_id`)
+dotp_tickets	InnoDB	0	InnoDB free: 16384 kB
+dotp_user_access_log	InnoDB	178	InnoDB free: 16384 kB
+dotp_user_events	InnoDB	0	InnoDB free: 16384 kB
+dotp_user_preferences	InnoDB	15	InnoDB free: 16384 kB
+dotp_user_roles	InnoDB	0	InnoDB free: 16384 kB
+dotp_user_task_pin	InnoDB	0	InnoDB free: 16384 kB
+dotp_user_tasks	InnoDB	25	InnoDB free: 16384 kB
+dotp_users	InnoDB	21	InnoDB free: 16384 kB
+dotp_wbs_dictionary	InnoDB	39	InnoDB free: 16384 kB; (`wbs_item_id`) REFER `dbdotproject_g6/dotp_project_eap_i

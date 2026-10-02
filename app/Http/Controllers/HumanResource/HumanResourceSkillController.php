@@ -14,7 +14,7 @@ class HumanResourceSkillController extends Controller {
     /**
      * @throws Throwable
      */
-    public function store(Request $request, $hrId): ?JsonResponse {
+    public function store(Request $request, $company, $hrId): ?JsonResponse {
         $request->validate([
             'skill_name' => 'required|string|max:50',
             'skill_type' => 'required|in:technical,behavioral',
@@ -42,7 +42,7 @@ class HumanResourceSkillController extends Controller {
         }
     }
 
-    public function destroy($hrId, $skillId): ?JsonResponse {
+    public function destroy($company, $hrId, $skillId): ?JsonResponse {
         try {
             $hr = HumanResource::findOrFail($hrId);
             $hr->skills()->detach($skillId);

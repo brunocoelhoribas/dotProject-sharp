@@ -1,0 +1,2 @@
+﻿req_id,req_idname,req_description,req_source,req_owner,req_categ_prefix_id,req_priority_id,req_status_id,req_version,req_inclusiondate,req_conclusiondate,eapitem_id,req_testcase,project_id
+1,REQ1,"Tela de login",X1,Cleiton,RF,Alta,Ativo,1.01,2021-12-09,2022-01-28,,,2

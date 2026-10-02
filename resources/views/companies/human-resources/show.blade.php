@@ -383,8 +383,6 @@
         </div>
     </div>
 
-    @includeIf('components.status_modal')
-
     <script>
         let editHrModal;
         let editCostModalInstance;

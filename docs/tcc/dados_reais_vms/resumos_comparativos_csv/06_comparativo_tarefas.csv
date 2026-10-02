@@ -1,0 +1,132 @@
+﻿sistema_origem,task_id,task_name,task_parent,task_milestone,task_project,task_owner,task_start_date,task_duration,task_duration_type,task_hours_worked,task_end_date,task_status,task_priority,task_percent_complete,task_description,task_target_budget,task_related_url,task_creator,task_order,task_client_publish,task_dynamic,task_access,task_notify,task_departments,task_contacts,task_custom,task_type
+dotProject+ (VM 192.168.56.102),18,Nova Atividade,18,0,2,2,2014-10-13 00:00:00,1,24,0,2014-10-13 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),19,Nova Atividade,19,0,2,0,2014-10-13 00:00:00,0,1,0,2014-10-13 00:00:00,0,0,0,NULL,0.00,NULL,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),20,Atividade do pacote de trabalho,20,0,2,2,2014-10-13 00:00:00,1,24,0,2014-10-13 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),32,Nova Atividade,32,0,2,2,2014-10-20 00:00:00,1,24,0,2014-10-20 00:00:00,0,0,50,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),33,Nova Atividade,33,0,2,0,2014-10-23 00:00:00,0,1,0,2014-10-23 00:00:00,0,0,0,NULL,0.00,NULL,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),34,Nova Atividade,34,0,2,2,2014-10-23 00:00:00,1,24,0,2014-10-23 00:00:00,0,0,100,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),35,Nova Atividade,35,0,2,2,2014-10-23 00:00:00,1,24,0,2014-10-23 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),42,Nova Atividade,42,0,2,2,2015-07-20 00:00:00,1,24,0,2015-07-20 00:00:00,0,0,100,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),43,Nova Atividade,43,0,2,0,2015-07-22 00:00:00,0,1,0,2015-07-22 00:00:00,0,0,0,NULL,0.00,NULL,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),44,Nova Atividade,44,0,2,2,2015-07-22 00:00:00,1,24,0,2015-07-22 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),49,Programacao do sistema,49,0,2,2,2014-10-22 00:00:00,3,24,0,2014-11-24 00:00:00,0,0,100,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),50,aquisição dos dispositivos.,50,0,2,2,2014-09-26 00:00:00,34,24,0,2014-10-28 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),62,Treinamento dos usuários,62,0,2,8,2015-10-29 00:00:00,1,24,0,2015-10-29 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),63,Instalação do sistema em servidor web produtivo,63,0,2,8,2015-10-29 00:00:00,1,24,0,2015-10-29 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),64,Instalação de apps nos dispositivos móveis,64,0,2,8,2015-10-29 00:00:00,1,24,0,2015-10-29 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),65,Site da pizzaria atualizado,65,0,2,8,2015-10-29 00:00:00,1,24,0,2015-10-29 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),66,Elaborar plano do projeto.,66,0,2,2,2013-03-05 00:00:00,11,24,0,2013-03-15 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),67,Aprovar plano do projeto.,67,0,2,8,2013-03-18 00:00:00,1,24,0,2013-03-18 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),68,Auditar a qualidade do processo.,68,0,2,8,2013-07-26 00:00:00,2,24,0,2013-07-27 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),69,Realizar as contratações para o projeto.,69,0,2,8,2013-03-20 00:00:00,3,24,0,2013-03-22 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),70,Arquivar os contratos.,70,0,2,8,2013-03-25 00:00:00,3,24,0,2013-03-27 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),71,Realizar reunião de acompanhamento (primeiro bimestre).,71,0,2,8,2013-04-09 00:00:00,1,24,0,2013-04-09 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),72,Realizar reunião de acompanhamento (segundo bimestre).,72,0,2,8,2013-05-20 00:00:00,1,24,0,2013-05-20 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),73,Realizar reunião de acompanhamento (terceiro bimestre).,73,0,2,8,2013-07-20 00:00:00,1,24,0,2013-07-20 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),74,Elaborar relatório do desempenho do projeto (primeiro bimestre).,74,0,2,8,2013-04-10 00:00:00,1,24,0,2013-04-10 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),75,Elaborar relatório do desempenho do projeto (segundo bimestre).,75,0,2,8,2013-05-21 00:00:00,1,24,0,2013-05-21 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),76,Elaborar relatório do desempenho do projeto (terceiro bimestre).,76,0,2,8,2013-07-21 00:00:00,1,24,0,2013-07-21 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),77,Inspecionar qualidade do produto.,77,0,2,8,2013-07-03 00:00:00,1,24,0,2013-07-03 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),78,Obter aceite formal do cliente.,78,0,2,8,2013-07-26 00:00:00,1,24,0,2013-07-26 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),79,Discutir as lições aprendidas.,79,0,2,8,2013-07-26 00:00:00,1,24,0,2013-07-26 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),80,Registrar as lições aprendidas na base de conhecimento.,80,0,2,8,2013-07-27 00:00:00,1,24,0,2013-07-27 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),81,Realizar a reunião de post mortem.,81,0,2,8,2013-07-29 00:00:00,1,24,0,2013-07-29 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),82,Identificar requisitos.,82,0,2,8,2013-02-25 00:00:00,5,24,0,2013-03-01 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),83,Entrevistar usuários do sistema.,83,0,2,8,2013-02-12 00:00:00,4,24,0,2013-02-15 00:00:00,0,0,0,NULL,0.00,,1,-1,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),84,"Modelar os diagramas de caso de uso, classe, sequência, e ER.",84,0,2,8,2013-04-17 00:00:00,9,24,0,2013-04-25 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),85,Elaborar os protótipos das telas de cadastro de clientes e pedidos (web).,85,0,2,8,2013-04-01 00:00:00,8,24,0,2013-04-08 00:00:00,0,0,0,NULL,0.00,,1,1,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),86,Elaborar protótipo da tela de consulta de pedidos (mobile).,86,0,2,8,2013-04-08 00:00:00,2,24,0,2013-04-09 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),87,Programar funcionalidade de cadastro de clientes.,87,0,2,8,2013-05-01 00:00:00,6,24,0,2013-05-06 00:00:00,0,0,0,NULL,0.00,,1,-1,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),88,Realizar teste de unidade sobre o cadastro de clientes.,88,0,2,8,2013-05-07 00:00:00,3,24,0,2013-05-09 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),89,Programar funcionalidade de cadastro de pedidos.,89,0,2,8,2013-05-15 00:00:00,2,24,0,2013-05-16 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),90,Realizar testes de unidade sobre o cadastro de pedidos.,90,0,2,8,2013-05-17 00:00:00,2,24,0,2013-05-18 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),91,Programar funcionalidade para autenticação de clientes e funcionários.,91,0,2,8,2013-05-10 00:00:00,4,24,0,2013-05-13 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),92,Realizar testes de unidade sobre a função de autentição.,92,0,2,8,2013-05-13 00:00:00,2,24,0,2013-05-14 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),93,Programar telas de cadastro de clientes e pedidos.,93,0,2,8,2013-06-03 00:00:00,5,24,0,2013-06-07 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),94,Realizar teste de sistema sobre o cadastro de clientes e cadastro de pedidos.,94,0,2,8,2013-06-10 00:00:00,2,24,0,2013-06-11 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),95,Programar tela web de listagem de pedidos em aberto.,95,0,2,8,2013-06-12 00:00:00,3,24,0,2013-06-14 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),96,Realizar teste de sistema sobre os pedidos em aberto.,96,0,2,8,2013-06-17 00:00:00,2,24,0,2013-06-18 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),97,Integrar função de consulta de pedidos na tela para mobile.,97,0,2,8,2013-06-21 00:00:00,7,24,0,2013-06-27 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),98,Realizar teste de sistema sobre a consulta de pedidos em mobile.,98,0,2,8,2013-06-30 00:00:00,2,24,0,2013-07-01 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),99,Realizar teste de integração entre a tela para mobile e as funções para consulta de pedidos.,99,0,2,8,2013-06-28 00:00:00,2,24,0,2013-06-29 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),100,Preparar o material para ministrar o treinamento.,100,0,2,8,2013-07-10 00:00:00,3,24,0,2013-07-12 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),101,Realizar o treinamento.,101,0,2,8,2013-07-15 00:00:00,4,24,0,2013-07-18 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),102,Realizar o teste de aceite junto aos usuários.,102,0,2,8,2013-07-26 00:00:00,1,24,0,2013-07-26 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),103,Instalar o sistema no servidor produtivo e nos dispositivos móveis.,103,0,2,8,2013-07-24 00:00:00,1,24,0,2013-07-24 00:00:00,0,0,0,NULL,0.00,,1,-1,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),104,Coletar os dispositivos dos entregadores.,104,0,2,8,2013-07-22 00:00:00,1,24,0,2013-07-22 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),105,Instalar apps nos dispositivos.,105,0,2,8,2013-07-23 00:00:00,1,24,0,2013-07-23 00:00:00,0,0,0,NULL,0.00,,1,1,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),106,Integrar módulo web ao site da pizzaria.,106,0,2,8,2013-07-25 00:00:00,1,24,0,2013-07-25 00:00:00,0,0,0,NULL,0.00,,1,1,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),119,Document project requirements,119,0,8,13,2016-03-27 00:00:00,11,24,0,2016-04-07 00:00:00,0,0,100,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),120,Collect the requirements approval,120,0,8,13,2016-04-09 00:00:00,7,24,0,2016-04-15 00:00:00,0,0,100,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),121,Define project WBS,121,0,8,13,2016-03-14 00:00:00,13,24,0,2016-03-26 00:00:00,0,0,50,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),122,Define project activities,122,0,8,13,2016-04-17 00:00:00,11,24,0,2016-04-27 00:00:00,0,0,50,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),126,New activity,126,0,8,13,2016-03-15 00:00:00,1,24,0,2016-03-15 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),127,New activity,127,0,8,0,2016-03-30 00:00:00,0,1,0,2016-03-30 00:00:00,0,0,0,NULL,0.00,NULL,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),128,TESTE DE CADASTRO (2022),128,0,2,2,2021-12-09 00:00:00,1,24,0,2021-12-09 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),129,1.0.0.2.1-Levantamento de Requisitos para Escopo do Projeto,129,0,9,21,2026-05-10 00:00:00,4,24,0,2026-05-13 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),130,1.0.0.2.2-Elicitacao dos requisitos,130,0,9,21,2026-05-04 00:00:00,8,24,0,2026-05-11 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject+ (VM 192.168.56.102),131,Nova tarefa (2026),131,0,2,21,2013-03-20 00:00:00,70,24,0,2013-05-28 00:00:00,0,0,0,NULL,0.00,,1,0,0,0,0,0,NULL,NULL,NULL,0
+dotProject# (VM 192.168.56.101),18,Nova Atividade,18,0,2,2,2014-10-13 00:00:00,1,24,0,2014-10-13 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),19,Nova Atividade,19,0,2,0,2014-10-13 00:00:00,0,1,0,2014-10-13 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),20,Atividade do pacote de trabalho,20,0,2,2,2014-10-13 00:00:00,1,24,0,2014-10-13 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),32,Nova Atividade,32,0,2,2,2014-10-20 00:00:00,1,24,0,2014-10-20 00:00:00,0,0,50,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),33,Nova Atividade,33,0,2,0,2014-10-23 00:00:00,0,1,0,2014-10-23 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),34,Nova Atividade,34,0,2,2,2014-10-23 00:00:00,1,24,0,2014-10-23 00:00:00,0,0,100,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),35,Nova Atividade,35,0,2,2,2014-10-23 00:00:00,1,24,0,2014-10-23 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),42,Nova Atividade,42,0,2,2,2015-07-20 00:00:00,1,24,0,2015-07-20 00:00:00,0,0,100,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),43,Nova Atividade,43,0,2,0,2015-07-22 00:00:00,0,1,0,2015-07-22 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),44,Nova Atividade,44,0,2,2,2015-07-22 00:00:00,1,24,0,2015-07-22 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),49,Programacao do sistema,49,0,2,2,2014-10-22 00:00:00,3,24,0,2014-11-24 00:00:00,0,0,100,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),50,aquisição dos dispositivos.,50,0,2,2,2014-09-26 00:00:00,34,24,0,2014-10-28 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),62,Treinamento dos usuários,62,0,2,8,2015-10-29 00:00:00,1,24,0,2015-10-29 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),63,Instalação do sistema em servidor web produtivo,63,0,2,8,2015-10-29 00:00:00,1,24,0,2015-10-29 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),64,Instalação de apps nos dispositivos móveis,64,0,2,8,2015-10-29 00:00:00,1,24,0,2015-10-29 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),65,Site da pizzaria atualizado,65,0,2,8,2015-10-29 00:00:00,1,24,0,2015-10-29 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),66,Elaborar plano do projeto.,66,0,2,2,2013-03-05 00:00:00,11,24,0,2013-03-15 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),67,Aprovar plano do projeto.,67,0,2,8,2013-03-18 00:00:00,1,24,0,2013-03-18 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),68,Auditar a qualidade do processo.,68,0,2,8,2013-07-26 00:00:00,2,24,0,2013-07-27 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),69,Realizar as contratações para o projeto.,69,0,2,8,2013-03-20 00:00:00,3,24,0,2013-03-22 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),70,Arquivar os contratos.,70,0,2,8,2013-03-25 00:00:00,3,24,0,2013-03-27 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),71,Realizar reunião de acompanhamento (primeiro bimestre).,71,0,2,8,2013-04-09 00:00:00,1,24,0,2013-04-09 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),72,Realizar reunião de acompanhamento (segundo bimestre).,72,0,2,8,2013-05-20 00:00:00,1,24,0,2013-05-20 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),73,Realizar reunião de acompanhamento (terceiro bimestre).,73,0,2,8,2013-07-20 00:00:00,1,24,0,2013-07-20 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),74,Elaborar relatório do desempenho do projeto (primeiro bimestre).,74,0,2,8,2013-04-10 00:00:00,1,24,0,2013-04-10 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),75,Elaborar relatório do desempenho do projeto (segundo bimestre).,75,0,2,8,2013-05-21 00:00:00,1,24,0,2013-05-21 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),76,Elaborar relatório do desempenho do projeto (terceiro bimestre).,76,0,2,8,2013-07-21 00:00:00,1,24,0,2013-07-21 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),77,Inspecionar qualidade do produto.,77,0,2,8,2013-07-03 00:00:00,1,24,0,2013-07-03 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),78,Obter aceite formal do cliente.,78,0,2,8,2013-07-26 00:00:00,1,24,0,2013-07-26 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),79,Discutir as lições aprendidas.,79,0,2,8,2013-07-26 00:00:00,1,24,0,2013-07-26 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),80,Registrar as lições aprendidas na base de conhecimento.,80,0,2,8,2013-07-27 00:00:00,1,24,0,2013-07-27 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),81,Realizar a reunião de post mortem.,81,0,2,8,2013-07-29 00:00:00,1,24,0,2013-07-29 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),82,Identificar requisitos.,82,0,2,8,2013-02-25 00:00:00,5,24,0,2013-03-01 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),83,Entrevistar usuários do sistema.,83,0,2,8,2013-02-12 00:00:00,4,24,0,2013-02-15 00:00:00,0,0,0,,0.00,,1,-1,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),84,"Modelar os diagramas de caso de uso, classe, sequência, e ER.",84,0,2,8,2013-04-17 00:00:00,9,24,0,2013-04-25 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),85,Elaborar os protótipos das telas de cadastro de clientes e pedidos (web).,85,0,2,8,2013-04-01 00:00:00,8,24,0,2013-04-08 00:00:00,0,0,0,,0.00,,1,1,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),86,Elaborar protótipo da tela de consulta de pedidos (mobile).,86,0,2,8,2013-04-08 00:00:00,2,24,0,2013-04-09 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),87,Programar funcionalidade de cadastro de clientes.,87,0,2,8,2013-05-01 00:00:00,6,24,0,2013-05-06 00:00:00,0,0,0,,0.00,,1,-1,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),88,Realizar teste de unidade sobre o cadastro de clientes.,88,0,2,8,2013-05-07 00:00:00,3,24,0,2013-05-09 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),89,Programar funcionalidade de cadastro de pedidos.,89,0,2,8,2013-05-15 00:00:00,2,24,0,2013-05-16 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),90,Realizar testes de unidade sobre o cadastro de pedidos.,90,0,2,8,2013-05-17 00:00:00,2,24,0,2013-05-18 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),91,Programar funcionalidade para autenticação de clientes e funcionários.,91,0,2,8,2013-05-10 00:00:00,4,24,0,2013-05-13 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),92,Realizar testes de unidade sobre a função de autentição.,92,0,2,8,2013-05-13 00:00:00,2,24,0,2013-05-14 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),93,Programar telas de cadastro de clientes e pedidos.,93,0,2,8,2013-06-03 00:00:00,5,24,0,2013-06-07 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),94,Realizar teste de sistema sobre o cadastro de clientes e cadastro de pedidos.,94,0,2,8,2013-06-10 00:00:00,2,24,0,2013-06-11 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),95,Programar tela web de listagem de pedidos em aberto.,95,0,2,8,2013-06-12 00:00:00,3,24,0,2013-06-14 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),96,Realizar teste de sistema sobre os pedidos em aberto.,96,0,2,8,2013-06-17 00:00:00,2,24,0,2013-06-18 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),97,Integrar função de consulta de pedidos na tela para mobile.,97,0,2,8,2013-06-21 00:00:00,7,24,0,2013-06-27 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),98,Realizar teste de sistema sobre a consulta de pedidos em mobile.,98,0,2,8,2013-06-30 00:00:00,2,24,0,2013-07-01 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),99,Realizar teste de integração entre a tela para mobile e as funções para consulta de pedidos.,99,0,2,8,2013-06-28 00:00:00,2,24,0,2013-06-29 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),100,Preparar o material para ministrar o treinamento.,100,0,2,8,2013-07-10 00:00:00,3,24,0,2013-07-12 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),101,Realizar o treinamento.,101,0,2,8,2013-07-15 00:00:00,4,24,0,2013-07-18 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),102,Realizar o teste de aceite junto aos usuários.,102,0,2,8,2013-07-26 00:00:00,1,24,0,2013-07-26 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),103,Instalar o sistema no servidor produtivo e nos dispositivos móveis.,103,0,2,8,2013-07-24 00:00:00,1,24,0,2013-07-24 00:00:00,0,0,0,,0.00,,1,-1,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),104,Coletar os dispositivos dos entregadores.,104,0,2,8,2013-07-22 00:00:00,1,24,0,2013-07-22 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),105,Instalar apps nos dispositivos.,105,0,2,8,2013-07-23 00:00:00,1,24,0,2013-07-23 00:00:00,0,0,0,,0.00,,1,1,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),106,Integrar módulo web ao site da pizzaria.,106,0,2,8,2013-07-25 00:00:00,1,24,0,2013-07-25 00:00:00,0,0,0,,0.00,,1,1,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),119,Document project requirements,119,0,8,13,2016-03-27 00:00:00,11,24,0,2016-04-07 00:00:00,0,0,100,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),120,Collect the requirements approval,120,0,8,13,2016-04-09 00:00:00,7,24,0,2016-04-15 00:00:00,0,0,100,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),121,Define project WBS,121,0,8,13,2016-03-14 00:00:00,13,24,0,2016-03-26 00:00:00,0,0,50,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),122,Define project activities,122,0,8,13,2016-04-17 00:00:00,11,24,0,2016-04-27 00:00:00,0,0,50,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),126,New activity,126,0,8,13,2016-03-15 00:00:00,1,24,0,2016-03-15 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),127,New activity,127,0,8,0,2016-03-30 00:00:00,0,1,0,2016-03-30 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0
+dotProject# (VM 192.168.56.101),128,TESTE DE CADASTRO (2022),128,0,2,2,2021-12-09 00:00:00,1,24,0,2021-12-09 00:00:00,0,0,0,,0.00,,1,0,0,0,0,0,,,,0

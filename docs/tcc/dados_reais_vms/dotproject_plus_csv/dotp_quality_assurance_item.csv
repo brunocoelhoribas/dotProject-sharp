@@ -1,0 +1,6 @@
+﻿id,quality_planning_id,what,who,when,how
+2,1,Gerência de Requisitos,Auditor externo,Mensalmente,Utilizando o MA-MPS (Modelo de avaliação)
+6,1,Gerência do Projeto,Auditor externo,Mensalmente,Utilizando o MA-MPS (Modelo de avaliação)
+7,1,Código SQL,Por revisão do código,Analista de Sistemas,Semanalmente
+12,4,Requirements Management,SCAMPI,External Auditor,Monthly
+13,4,,,,

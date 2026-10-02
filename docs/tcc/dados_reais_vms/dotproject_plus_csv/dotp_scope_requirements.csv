@@ -1,0 +1,4 @@
+﻿req_id,req_idname,req_description,req_source,req_owner,req_categ_prefix_id,req_priority_id,req_status_id,req_version,req_inclusiondate,req_conclusiondate,eapitem_id,req_testcase,project_id
+1,REQ1,Tela de login,X1,Cleiton,RF,Alta,Ativo,1.01,2021-12-09,2022-01-28,NULL,NULL,2
+2,REQ1,Descrever o REQ1,Fonte do REQ1,Proprietario do REQ1,RF,Alta,Adicionado,2026.1,2026-03-02,2026-06-01,184,Descrever localizacao com coordenadas geograficas e tambem identificacao textual.,9
+4,REQ2,Descrever o REQ2,Fonte do REQ2,Proprietario do REQ2,RF,Alta,Adicionado,2026.1,2026-03-02,2026-07-31,184,Acrescentar dados estatisticos do IBGE conforme o ultimo censo demografico,9

@@ -1,0 +1,8 @@
+﻿config_list_id,config_id,config_list_name
+1,44,sql
+2,44,ldap
+3,44,pn
+4,34,app
+5,34,php
+6,52,php
+7,52,smtp

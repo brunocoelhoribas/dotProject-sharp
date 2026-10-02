@@ -1,0 +1,19 @@
+﻿meeting_item_id,meeting_item_description,knownledge_area,language,item_order
+1,Is the use and communication of data following the plan?,comunication,EN,1
+2,Is the schedule being carried out according to plan?,time,EN,1
+3,Is the stakeholder involvement following the plan?,stakeholder,EN,1
+4,Were there changes in the risks?,risk,EN,1
+5,There is new risks?,risk,EN,2
+6,Some contingency action has been carried out?,risk,EN,3
+7,The contingency reserves are been used as planned?,risk,EN,4
+8,The planned risks' responses are effectiveness to solve the risk root cause?,risk,EN,5
+9,Are the costs being carried out according to plan?,cost,EN,2
+10,Os dados do projeto estão seguindo o plano de comunicação?,comunication,pt_br,1
+11,O cronograma está sendo executado de acordo com o plano?,time,pt_br,1
+12,O envolvimento dos stakeholders está seguindo o plano?,stakeholder,pt_br,1
+13,Houve alguma alteração nos riscos?,risk,pt_br,1
+14,Foram identificados novos riscos?,risk,pt_br,2
+15,Alguma ação de contingência foi executada?,risk,pt_br,3
+16,As reservas de contingência estão sendo aplicadas de acordo com o planejado?,risk,pt_br,4
+17,As ações de resposta aos riscos planejadas foram eficazes na correção da causa raíz do risco?,risk,pt_br,5
+18,Os custos do projeto estão ocorrendo de acordo com o plano?,cost,pt_br,2

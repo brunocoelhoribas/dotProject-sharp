@@ -1,0 +1,14 @@
+﻿id,company_id,sort_order,role_name,identation
+1,1,0,"Gerente de projetos",
+2,1,1,"Analista de sistemas",&nbsp;&nbsp;&nbsp;
+3,2,0,"Programador TCE",
+4,2,1,"Analista TCE",
+5,1,2,"Analista de teste",&nbsp;&nbsp;&nbsp;
+6,1,3,Programador,&nbsp;&nbsp;&nbsp;
+7,1,4,"Gerente da qualidade",
+8,4,0,"Project Manager",
+9,4,1,"System Analyst",&nbsp;&nbsp;&nbsp;
+10,4,2,Programmer,&nbsp;&nbsp;&nbsp;
+11,3,0,X,
+12,6,0,"Gerente de Projetos",
+13,6,1,Programador,

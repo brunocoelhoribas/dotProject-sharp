@@ -54,6 +54,7 @@ class UserContact extends Model {
     protected $fillable = [
         'contact_first_name',
         'contact_last_name',
+        'contact_order_by',
         'contact_title',
         'contact_birthday',
         'contact_company',

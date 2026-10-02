@@ -1,0 +1,22 @@
+﻿req_managplan_id,project_id,req_managplan_collect_descr,req_managplan_reqcategories,req_managplan_reqprioritization,req_managplan_trac_descr,req_managplan_config_descr,req_managplan_verif_descr
+1,9,"A coleta de requisitos aborda as principais fases conforme divisao a seguir:<br />
+a) requisitos de infraestrutura fisica;<br />
+b) requisitos de infraestrutura de rede logica;<br />
+c) requisitos de infraestrutura de energia eletrica;<br />
+d) requisitos de arquitetura da solucao proposta (software)<br />
+e) requisitos funcionais do software (1a. Fase - Entrevista)<br />
+f) requisitos funcionais do software (2a. Fase - Sistemas Legados )<br />
+g) requisitos funcionais do software (3a. Fase - Alinhamento com a LGPD )","Categoria 1 - Infraestrutura de Hardware;<br />
+Categoria 2 - Infraestrutura de Rede Logica;<br />
+Categoria 3 - Infraestrutura de Rede Eletrica;<br />
+Categoria 4 - Infraestrutura de Software;<br />
+Categoria 5 - Infraestrutura de Seguranca;<br />
+Categoria 6 - Infraestrutura de Qualidade;","Alta;<br />
+Moderada;<br />
+Baixa;","Processo com Rastreabilidade;
+Processo sem Rastreabilidade;","PGC - Categoria 2 - Infraestrutura de Rede Logica;<br />
+PGC - Categoria 4 - Infraestrutura de Software;<br />
+PGC - Categoria 5 - Infraestrutura de Seguranca;<br />
+PGC - Categoria 6 - Infraestrutura de Qualidade;","Nivel basico;<br />
+Nivel intermediario;<br />
+Nivel avancado;"

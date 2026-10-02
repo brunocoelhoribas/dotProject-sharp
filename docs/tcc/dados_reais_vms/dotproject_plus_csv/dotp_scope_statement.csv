@@ -1,0 +1,9 @@
+﻿scope_id,project_id,scope_description,scope_acceptancecriteria,scope_deliverables,scope_exclusions,scope_constraints,scope_assumptions
+1,9,"A coleta de requisitos aborda as principais fases conforme divisao a seguir:<br /><br />
+a) requisitos de infraestrutura fisica;<br /><br />
+b) requisitos de infraestrutura de rede logica;<br /><br />
+c) requisitos de infraestrutura de energia eletrica;<br /><br />
+d) requisitos de arquitetura da solucao proposta (software);<br /><br />
+e) requisitos funcionais do software (1a. Fase - Entrevista);<br /><br />
+f) requisitos funcionais do software (2a. Fase - Sistemas Legados );<br /><br />
+g) requisitos funcionais do software (3a. Fase - Alinhamento com a LGPD ).",Critérios,Entregas,Exclusões,Restrições,Premissas

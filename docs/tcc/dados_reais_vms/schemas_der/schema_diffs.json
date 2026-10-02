@@ -1,0 +1,31 @@
+{
+  "tables_only_in_vm1": [
+    "dotp_human_resource_performance",
+    "dotp_human_resource_skills",
+    "dotp_raci",
+    "dotp_skills",
+    "migrations"
+  ],
+  "tables_only_in_vm2": [],
+  "column_differences": {
+    "dotp_users": {
+      "added_in_vm1": [],
+      "removed_in_vm1": [],
+      "modified": [
+        {
+          "column": "user_password",
+          "vm1": {
+            "type": "varchar(255)",
+            "nullable": "YES",
+            "key": "MUL"
+          },
+          "vm2": {
+            "type": "varchar(32)",
+            "nullable": "NO",
+            "key": "MUL"
+          }
+        }
+      ]
+    }
+  }
+}

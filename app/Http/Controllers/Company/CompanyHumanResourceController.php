@@ -44,10 +44,18 @@ class CompanyHumanResourceController extends Controller {
                 $contact = UserContact::create([
                     'contact_first_name' => $request->first_name,
                     'contact_last_name' => $request->last_name,
+                    'contact_order_by' => trim($request->last_name . ', ' . $request->first_name),
                     'contact_company' => $company->company_id,
                 ]);
 
-                $username = strtolower($request->first_name . '.' . $request->last_name);
+                $baseUsername = strtolower(trim($request->first_name) . '.' . trim($request->last_name));
+                $baseUsername = preg_replace('/[^a-z0-9\._-]/i', '', $baseUsername) ?: 'user';
+                $username = $baseUsername;
+                $counter = 1;
+                while (User::where('user_username', $username)->exists()) {
+                    $username = $baseUsername . $counter;
+                    $counter++;
+                }
 
                 $user = User::create([
                     'user_username' => $username,
@@ -99,7 +107,7 @@ class CompanyHumanResourceController extends Controller {
     }
 
     public function show(Company $company, $humanResourceId) {
-        $hr = HumanResource::with(['user.contact', 'roles'])->findOrFail($humanResourceId);
+        $hr = HumanResource::with(['user.contact', 'roles', 'skills'])->findOrFail($humanResourceId);
         $availableRoles = $company->roles()->orderBy('human_resources_role_name')->get();
 
         return view('companies.human-resources.show', compact('company', 'hr', 'availableRoles'));

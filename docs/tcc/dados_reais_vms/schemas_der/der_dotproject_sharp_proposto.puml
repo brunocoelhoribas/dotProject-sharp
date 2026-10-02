@@ -1,0 +1,1407 @@
+@startuml
+!theme plain
+skinparam linetype ortho
+skinparam roundcorner 5
+skinparam class {
+    BackgroundColor White
+    ArrowColor #2b5797
+    BorderColor #2b5797
+}
+title DER - dotProject# (Proposto 2026)\nTotal de Tabelas: 145 | Total de Relacionamentos: 128\n
+entity "dotp_acquisition_execution" as dotp_acquisition_execution {
+  * id : int(11) <<PK>>
+  --
+  project_id : int(11)
+  is_delivered : int(11)
+  is_risk_contingency : int(11)
+  value : float
+  date : date
+  description : text
+  reference_id : int(11)
+}
+entity "dotp_acquisition_planning" as dotp_acquisition_planning {
+  * id : int(11) <<PK>>
+  --
+  project_id : int(11)
+  items_to_be_acquired : text
+  contract_type : text
+  documents_to_acquisition : text
+  criteria_for_supplier_selection : text
+  additional_requirements : text
+  supplier_management_process : text
+  acquisition_roles : text
+}
+entity "dotp_acquisition_planning_criteria" as dotp_acquisition_planning_criteria {
+  * id : int(11) <<PK>>
+  --
+  acquisition_id : int(11)
+  criteria : text
+  weight : int(11)
+}
+entity "dotp_acquisition_planning_requirements" as dotp_acquisition_planning_requirements {
+  * id : int(11) <<PK>>
+  --
+  acquisition_id : int(11)
+  requirement : text
+}
+entity "dotp_acquisition_planning_roles" as dotp_acquisition_planning_roles {
+  * id : int(11) <<PK>>
+  --
+  acquisition_id : int(11)
+  role : text
+  responsability : text
+}
+entity "dotp_billingcode" as dotp_billingcode {
+  * billingcode_id : bigint(20) <<PK>>
+  --
+  billingcode_name : varchar(25)
+  billingcode_value : float
+  billingcode_desc : varchar(255)
+  billingcode_status : int(1)
+  company_id : bigint(20)
+}
+entity "dotp_budget" as dotp_budget {
+  * budget_id : int(11) <<PK>>
+  --
+  budget_project_id : int(11)
+  budget_reserve_management : decimal(9,2)
+  budget_sub_total : decimal(9,2)
+  budget_total : decimal(9,2)
+}
+entity "dotp_budget_reserve" as dotp_budget_reserve {
+  * budget_reserve_id : int(11) <<PK>>
+  --
+  budget_reserve_project_id : int(11)
+  budget_reserve_risk_id : int(11)
+  budget_reserve_description : varchar(250)
+  budget_reserve_financial_impact : int(11)
+  budget_reserve_inicial_month : datetime
+  budget_reserve_final_month : datetime
+  budget_reserve_value_total : decimal(9,2)
+}
+entity "dotp_common_notes" as dotp_common_notes {
+  * note_id : int(10) unsigned <<PK>>
+  --
+  note_author : int(10) unsigned
+  note_module : int(10) unsigned
+  note_record_id : int(10) unsigned
+  note_category : int(3) unsigned
+  note_title : varchar(100)
+  note_body : text
+  note_date : datetime
+  note_hours : float
+  note_code : varchar(8)
+  note_created : datetime
+  note_modified : timestamp
+  note_modified_by : int(10) unsigned
+}
+entity "dotp_communication" as dotp_communication {
+  * communication_id : int(11) <<PK>>
+  --
+  communication_title : varchar(255)
+  communication_information : varchar(2000)
+  communication_frequency_id : int(11)
+  communication_channel_id : int(11)
+  communication_project_id : int(11)
+  communication_restrictions : varchar(2000)
+  communication_date : varchar(30)
+  communication_responsible_authorization : varchar(80)
+}
+entity "dotp_communication_channel" as dotp_communication_channel {
+  * communication_channel_id : int(11) <<PK>>
+  --
+  communication_channel : varchar(255)
+}
+entity "dotp_communication_frequency" as dotp_communication_frequency {
+  * communication_frequency_id : int(11) <<PK>>
+  --
+  communication_frequency : varchar(255)
+  communication_frequency_hasdate : char(3)
+}
+entity "dotp_communication_issuing" as dotp_communication_issuing {
+  * communication_issuing_id : int(11) <<PK>>
+  --
+  communication_id : int(11)
+  communication_stakeholder_id : int(11)
+}
+entity "dotp_communication_receptor" as dotp_communication_receptor {
+  * communication_receptor_id : int(11) <<PK>>
+  --
+  communication_id : int(11)
+  communication_stakeholder_id : int(11)
+}
+entity "dotp_companies" as dotp_companies {
+  * company_id : int(10) <<PK>>
+  --
+  company_module : int(10)
+  company_name : varchar(100)
+  company_phone1 : varchar(30)
+  company_phone2 : varchar(30)
+  company_fax : varchar(30)
+  company_address1 : varchar(50)
+  company_address2 : varchar(50)
+  company_city : varchar(30)
+  company_state : varchar(30)
+  company_zip : varchar(11)
+  company_primary_url : varchar(255)
+  company_owner : int(11)
+  company_description : text
+  company_type : int(3)
+  company_email : varchar(255)
+  ... (+1 campos)
+}
+entity "dotp_company_policies" as dotp_company_policies {
+  * company_policies_id : int(11) <<PK>>
+  --
+  company_policies_recognition : text
+  company_policies_policy : text
+  company_policies_safety : text
+  company_policies_company_id : int(11)
+}
+entity "dotp_company_role" as dotp_company_role {
+  * id : int(11) <<PK>>
+  --
+  company_id : int(11)
+  sort_order : int(11)
+  role_name : text
+  identation : text
+}
+entity "dotp_config" as dotp_config {
+  * config_id : int(11) <<PK>>
+  --
+  config_name : varchar(255)
+  config_value : varchar(255)
+  config_group : varchar(255)
+  config_type : varchar(255)
+}
+entity "dotp_config_list" as dotp_config_list {
+  * config_list_id : int(11) <<PK>>
+  --
+  config_id : int(11)
+  config_list_name : varchar(30)
+}
+entity "dotp_contacts" as dotp_contacts {
+  * contact_id : int(11) <<PK>>
+  --
+  contact_first_name : varchar(30)
+  contact_last_name : varchar(30)
+  contact_order_by : varchar(30)
+  contact_title : varchar(50)
+  contact_birthday : date
+  contact_job : varchar(255)
+  contact_company : varchar(100)
+  contact_department : tinytext
+  contact_type : varchar(20)
+  contact_email : varchar(255)
+  contact_email2 : varchar(255)
+  contact_url : varchar(255)
+  contact_phone : varchar(30)
+  contact_phone2 : varchar(30)
+  contact_fax : varchar(30)
+  ... (+17 campos)
+}
+entity "dotp_costs" as dotp_costs {
+  * cost_id : int(11) <<PK>>
+  --
+  cost_type_id : int(11)
+  cost_project_id : int(11)
+  cost_description : varchar(150)
+  cost_quantity : int(11)
+  cost_date_begin : datetime
+  cost_date_end : datetime
+  cost_value_unitary : decimal(9,2)
+  cost_value_total : decimal(9,2)
+  cost_human_resource_id : int(11)
+  cost_human_resource_role_id : int(11)
+}
+entity "dotp_custom_fields_lists" as dotp_custom_fields_lists {
+  field_id : int(11)
+  list_option_id : int(11)
+  list_value : varchar(250)
+}
+entity "dotp_custom_fields_struct" as dotp_custom_fields_struct {
+  * field_id : int(11) <<PK>>
+  --
+  field_module : varchar(30)
+  field_page : varchar(30)
+  field_htmltype : varchar(20)
+  field_datatype : varchar(20)
+  field_order : int(11)
+  field_name : varchar(100)
+  field_extratags : varchar(250)
+  field_description : varchar(250)
+}
+entity "dotp_custom_fields_values" as dotp_custom_fields_values {
+  value_id : int(11)
+  value_module : varchar(30)
+  value_object_id : int(11)
+  value_field_id : int(11)
+  value_charvalue : varchar(250)
+  value_intvalue : int(11)
+}
+entity "dotp_departments" as dotp_departments {
+  * dept_id : int(10) unsigned <<PK>>
+  --
+  dept_parent : int(10) unsigned
+  dept_company : int(10) unsigned
+  dept_name : tinytext
+  dept_phone : varchar(30)
+  dept_fax : varchar(30)
+  dept_address1 : varchar(30)
+  dept_address2 : varchar(30)
+  dept_city : varchar(30)
+  dept_state : varchar(30)
+  dept_zip : varchar(11)
+  dept_url : varchar(25)
+  dept_desc : text
+  dept_owner : int(10) unsigned
+}
+entity "dotp_dotpermissions" as dotp_dotpermissions {
+  acl_id : int(11)
+  user_id : varchar(80)
+  section : varchar(80)
+  axo : varchar(80)
+  permission : varchar(80)
+  allow : int(11)
+  priority : int(11)
+  enabled : int(11)
+}
+entity "dotp_dpversion" as dotp_dpversion {
+  code_version : varchar(10)
+  db_version : int(11)
+  last_db_update : date
+  last_code_update : date
+}
+entity "dotp_eap_item_estimations" as dotp_eap_item_estimations {
+  * id : int(11) <<PK>>
+  --
+  eap_item_id : int(11)
+  size : float
+  size_unit : text
+}
+entity "dotp_event_queue" as dotp_event_queue {
+  * queue_id : int(11) <<PK>>
+  --
+  queue_start : int(11)
+  queue_type : varchar(40)
+  queue_repeat_interval : int(11)
+  queue_repeat_count : int(11)
+  queue_data : longblob
+  queue_callback : varchar(127)
+  queue_owner : int(11)
+  queue_origin_id : int(11)
+  queue_module : varchar(40)
+  queue_batched : int(11)
+}
+entity "dotp_events" as dotp_events {
+  * event_id : int(11) <<PK>>
+  --
+  event_title : varchar(255)
+  event_start_date : datetime
+  event_end_date : datetime
+  event_parent : int(11) unsigned
+  event_description : text
+  event_times_recuring : int(11) unsigned
+  event_recurs : int(11) unsigned
+  event_remind : int(10) unsigned
+  event_icon : varchar(20)
+  event_owner : int(11)
+  event_project : int(11)
+  event_private : tinyint(3)
+  event_type : tinyint(3)
+  event_cwd : tinyint(3)
+  event_notify : tinyint(3)
+}
+entity "dotp_file_folders" as dotp_file_folders {
+  * file_folder_id : int(11) <<PK>>
+  --
+  file_folder_parent : int(11)
+  file_folder_name : varchar(255)
+  file_folder_description : text
+}
+entity "dotp_files" as dotp_files {
+  * file_id : int(11) <<PK>>
+  --
+  file_real_filename : varchar(255)
+  file_folder : int(11)
+  file_project : int(11)
+  file_task : int(11)
+  file_name : varchar(255)
+  file_parent : int(11)
+  file_description : text
+  file_type : varchar(100)
+  file_owner : int(11)
+  file_date : datetime
+  file_size : int(11)
+  file_version : float
+  file_icon : varchar(20)
+  file_category : int(11)
+  file_checkout : varchar(255)
+  ... (+2 campos)
+}
+entity "dotp_files_index" as dotp_files_index {
+  * file_id : int(11) <<PK>>
+  * word : varchar(50) <<PK>>
+  * word_placement : int(11) <<PK>>
+}
+entity "dotp_forum_messages" as dotp_forum_messages {
+  * message_id : int(11) <<PK>>
+  --
+  message_forum : int(11)
+  message_parent : int(11)
+  message_author : int(11)
+  message_editor : int(11)
+  message_title : varchar(255)
+  message_date : datetime
+  message_body : text
+  message_published : tinyint(1)
+}
+entity "dotp_forum_visits" as dotp_forum_visits {
+  visit_user : int(10)
+  visit_forum : int(10)
+  visit_message : int(10)
+  visit_date : timestamp
+}
+entity "dotp_forum_watch" as dotp_forum_watch {
+  watch_user : int(10) unsigned
+  watch_forum : int(10) unsigned
+  watch_topic : int(10) unsigned
+}
+entity "dotp_forums" as dotp_forums {
+  * forum_id : int(11) <<PK>>
+  --
+  forum_project : int(11)
+  forum_status : tinyint(4)
+  forum_owner : int(11)
+  forum_name : varchar(50)
+  forum_create_date : datetime
+  forum_last_date : datetime
+  forum_last_id : int(10) unsigned
+  forum_message_count : int(11)
+  forum_description : varchar(255)
+  forum_moderated : int(11)
+}
+entity "dotp_gacl_acl" as dotp_gacl_acl {
+  * id : int(11) <<PK>>
+  --
+  section_value : varchar(80)
+  allow : int(11)
+  enabled : int(11)
+  return_value : longtext
+  note : longtext
+  updated_date : int(11)
+}
+entity "dotp_gacl_acl_sections" as dotp_gacl_acl_sections {
+  * id : int(11) <<PK>>
+  --
+  value : varchar(80)
+  order_value : int(11)
+  name : varchar(230)
+  hidden : int(11)
+}
+entity "dotp_gacl_acl_seq" as dotp_gacl_acl_seq {
+  id : int(11)
+}
+entity "dotp_gacl_aco" as dotp_gacl_aco {
+  * id : int(11) <<PK>>
+  --
+  section_value : varchar(80)
+  value : varchar(80)
+  order_value : int(11)
+  name : varchar(255)
+  hidden : int(11)
+}
+entity "dotp_gacl_aco_map" as dotp_gacl_aco_map {
+  * acl_id : int(11) <<PK>>
+  * section_value : varchar(80) <<PK>>
+  * value : varchar(80) <<PK>>
+}
+entity "dotp_gacl_aco_sections" as dotp_gacl_aco_sections {
+  * id : int(11) <<PK>>
+  --
+  value : varchar(80)
+  order_value : int(11)
+  name : varchar(230)
+  hidden : int(11)
+}
+entity "dotp_gacl_aco_sections_seq" as dotp_gacl_aco_sections_seq {
+  id : int(11)
+}
+entity "dotp_gacl_aco_seq" as dotp_gacl_aco_seq {
+  id : int(11)
+}
+entity "dotp_gacl_aro" as dotp_gacl_aro {
+  * id : int(11) <<PK>>
+  --
+  section_value : varchar(80)
+  value : varchar(80)
+  order_value : int(11)
+  name : varchar(255)
+  hidden : int(11)
+}
+entity "dotp_gacl_aro_groups" as dotp_gacl_aro_groups {
+  * id : int(11) <<PK>>
+  * value : varchar(80) <<PK>>
+  --
+  parent_id : int(11)
+  lft : int(11)
+  rgt : int(11)
+  name : varchar(255)
+}
+entity "dotp_gacl_aro_groups_id_seq" as dotp_gacl_aro_groups_id_seq {
+  id : int(11)
+}
+entity "dotp_gacl_aro_groups_map" as dotp_gacl_aro_groups_map {
+  * acl_id : int(11) <<PK>>
+  * group_id : int(11) <<PK>>
+}
+entity "dotp_gacl_aro_map" as dotp_gacl_aro_map {
+  * acl_id : int(11) <<PK>>
+  * section_value : varchar(80) <<PK>>
+  * value : varchar(80) <<PK>>
+}
+entity "dotp_gacl_aro_sections" as dotp_gacl_aro_sections {
+  * id : int(11) <<PK>>
+  --
+  value : varchar(80)
+  order_value : int(11)
+  name : varchar(230)
+  hidden : int(11)
+}
+entity "dotp_gacl_aro_sections_seq" as dotp_gacl_aro_sections_seq {
+  id : int(11)
+}
+entity "dotp_gacl_aro_seq" as dotp_gacl_aro_seq {
+  id : int(11)
+}
+entity "dotp_gacl_axo" as dotp_gacl_axo {
+  * id : int(11) <<PK>>
+  --
+  section_value : varchar(80)
+  value : varchar(80)
+  order_value : int(11)
+  name : varchar(255)
+  hidden : int(11)
+}
+entity "dotp_gacl_axo_groups" as dotp_gacl_axo_groups {
+  * id : int(11) <<PK>>
+  * value : varchar(80) <<PK>>
+  --
+  parent_id : int(11)
+  lft : int(11)
+  rgt : int(11)
+  name : varchar(255)
+}
+entity "dotp_gacl_axo_groups_id_seq" as dotp_gacl_axo_groups_id_seq {
+  id : int(11)
+}
+entity "dotp_gacl_axo_groups_map" as dotp_gacl_axo_groups_map {
+  * acl_id : int(11) <<PK>>
+  * group_id : int(11) <<PK>>
+}
+entity "dotp_gacl_axo_map" as dotp_gacl_axo_map {
+  * acl_id : int(11) <<PK>>
+  * section_value : varchar(80) <<PK>>
+  * value : varchar(80) <<PK>>
+}
+entity "dotp_gacl_axo_sections" as dotp_gacl_axo_sections {
+  * id : int(11) <<PK>>
+  --
+  value : varchar(80)
+  order_value : int(11)
+  name : varchar(230)
+  hidden : int(11)
+}
+entity "dotp_gacl_axo_sections_seq" as dotp_gacl_axo_sections_seq {
+  id : int(11)
+}
+entity "dotp_gacl_axo_seq" as dotp_gacl_axo_seq {
+  id : int(11)
+}
+entity "dotp_gacl_groups_aro_map" as dotp_gacl_groups_aro_map {
+  * group_id : int(11) <<PK>>
+  * aro_id : int(11) <<PK>>
+}
+entity "dotp_gacl_groups_axo_map" as dotp_gacl_groups_axo_map {
+  * group_id : int(11) <<PK>>
+  * axo_id : int(11) <<PK>>
+}
+entity "dotp_gacl_phpgacl" as dotp_gacl_phpgacl {
+  * name : varchar(230) <<PK>>
+  --
+  value : varchar(230)
+}
+entity "dotp_history" as dotp_history {
+  * history_id : int(10) unsigned <<PK>>
+  --
+  history_date : datetime
+  history_user : int(10)
+  history_action : varchar(20)
+  history_item : int(10)
+  history_table : varchar(20)
+  history_project : int(10)
+  history_name : varchar(255)
+  history_changes : text
+  history_description : text
+}
+entity "dotp_human_resource" as dotp_human_resource {
+  * human_resource_id : int(11) <<PK>>
+  --
+  human_resource_user_id : int(11)
+  human_resource_lattes_url : text
+  human_resource_mon : int(11)
+  human_resource_tue : int(11)
+  human_resource_wed : int(11)
+  human_resource_thu : int(11)
+  human_resource_fri : int(11)
+  human_resource_sat : int(11)
+  human_resource_sun : int(11)
+}
+entity "dotp_human_resource_allocation" as dotp_human_resource_allocation {
+  * human_resource_allocation_id : int(11) <<PK>>
+  --
+  project_tasks_estimated_roles_id : int(11)
+  human_resource_id : int(11)
+}
+entity "dotp_human_resource_performance" as dotp_human_resource_performance {
+  * id : bigint(20) unsigned <<PK>>
+  --
+  company_id : int(11)
+  human_resource_id : int(11)
+  performance_score : tinyint(4)
+  potential_score : tinyint(4)
+  facilitator_notes : text
+  evaluation_date : date
+  created_at : timestamp
+  updated_at : timestamp
+}
+entity "dotp_human_resource_roles" as dotp_human_resource_roles {
+  * human_resource_roles_id : int(11) <<PK>>
+  --
+  human_resources_role_id : int(11)
+  human_resource_id : int(11)
+}
+entity "dotp_human_resource_skills" as dotp_human_resource_skills {
+  * id : bigint(20) unsigned <<PK>>
+  --
+  human_resource_id : int(11)
+  skill_id : bigint(20) unsigned
+  proficiency_level : tinyint(4)
+}
+entity "dotp_human_resources_role" as dotp_human_resources_role {
+  * human_resources_role_id : int(11) <<PK>>
+  --
+  human_resources_role_name : text
+  human_resources_role_authority : text
+  human_resources_role_responsability : text
+  human_resources_role_competence : text
+  human_resources_role_company_id : int(11)
+}
+entity "dotp_initiating" as dotp_initiating {
+  * initiating_id : int(11) <<PK>>
+  --
+  initiating_title : varchar(255)
+  initiating_manager : int(11)
+  initiating_create_by : int(11)
+  initiating_date_create : datetime
+  initiating_justification : varchar(2000)
+  initiating_objective : varchar(2000)
+  initiating_expected_result : varchar(2000)
+  initiating_premise : varchar(2000)
+  initiating_restrictions : varchar(2000)
+  initiating_budget : float
+  initiating_start_date : date
+  initiating_end_date : date
+  initiating_milestone : varchar(2000)
+  initiating_success : varchar(2000)
+  initiating_approved : int(1)
+  ... (+5 campos)
+}
+entity "dotp_initiating_stakeholder" as dotp_initiating_stakeholder {
+  * initiating_stakeholder_id : int(11) <<PK>>
+  --
+  initiating_id : int(11)
+  contact_id : int(11)
+  stakeholder_responsibility : varchar(100)
+  stakeholder_interest : varchar(100)
+  stakeholder_power : varchar(100)
+  stakeholder_strategy : varchar(100)
+}
+entity "dotp_links" as dotp_links {
+  * link_id : int(11) <<PK>>
+  --
+  link_url : varchar(255)
+  link_project : int(11)
+  link_task : int(11)
+  link_name : varchar(255)
+  link_parent : int(11)
+  link_description : text
+  link_owner : int(11)
+  link_date : datetime
+  link_icon : varchar(20)
+  link_category : int(11)
+}
+entity "dotp_modules" as dotp_modules {
+  * mod_id : int(11) <<PK>>
+  * mod_directory : varchar(64) <<PK>>
+  --
+  mod_name : varchar(64)
+  mod_version : varchar(10)
+  mod_setup_class : varchar(64)
+  mod_type : varchar(64)
+  mod_active : int(1) unsigned
+  mod_ui_name : varchar(20)
+  mod_ui_icon : varchar(64)
+  mod_ui_order : tinyint(3)
+  mod_ui_active : int(1) unsigned
+  mod_description : varchar(255)
+  permissions_item_table : char(100)
+  permissions_item_field : char(100)
+  permissions_item_label : char(100)
+}
+entity "dotp_monitoring_baseline" as dotp_monitoring_baseline {
+  * baseline_id : int(11) <<PK>>
+  --
+  project_id : int(10) unsigned
+  baseline_name : varchar(255)
+  baseline_version : varchar(255)
+  baseline_observation : text
+  user_id : int(11)
+  baseline_date : timestamp
+}
+entity "dotp_monitoring_baseline_task" as dotp_monitoring_baseline_task {
+  * baseline_task_id : int(11) <<PK>>
+  --
+  baseline_id : int(10) unsigned
+  task_id : int(10) unsigned
+  task_start_date : datetime
+  task_duration : float unsigned
+  task_duration_type : int(11)
+  task_hours_worked : float unsigned
+  task_end_date : datetime
+  task_percent_complete : tinyint(4)
+}
+entity "dotp_monitoring_baseline_task_log" as dotp_monitoring_baseline_task_log {
+  * baseline_task_id_log : int(11) <<PK>>
+  --
+  baseline_task_id : int(10) unsigned
+  task_log_id : int(10) unsigned
+  task_log_creator : int(11)
+  task_log_hours : float
+  task_log_date : datetime
+}
+entity "dotp_monitoring_baseline_user_cost" as dotp_monitoring_baseline_user_cost {
+  * baseline_cost_id : int(11) <<PK>>
+  --
+  baseline_id : int(10) unsigned
+  cost_id : int(11) unsigned
+  user_id : int(11) unsigned
+  cost_value : decimal(10,2)
+  cost_per_use : decimal(11,0)
+  cost_dt_begin : datetime
+  cost_dt_end : datetime
+}
+entity "dotp_monitoring_change_request" as dotp_monitoring_change_request {
+  * change_id : int(10) <<PK>>
+  --
+  task_id : int(10)
+  change_impact : int(11)
+  change_status : int(11)
+  change_description : text
+  change_cause : text
+  change_request : text
+  user_id : int(10)
+  change_date_limit : datetime
+  meeting_id : int(10) unsigned
+  project_id : int(10)
+}
+entity "dotp_monitoring_meeting" as dotp_monitoring_meeting {
+  * meeting_id : int(10) unsigned <<PK>>
+  --
+  project_id : int(10) unsigned
+  dt_meeting_begin : timestamp
+  ds_title : text
+  ds_subject : text
+  dt_meeting_end : timestamp
+  meeting_type_id : int(10)
+}
+entity "dotp_monitoring_meeting_item" as dotp_monitoring_meeting_item {
+  * meeting_item_id : int(11) <<PK>>
+  --
+  meeting_item_description : text
+  knownledge_area : text
+  language : text
+  item_order : int(11)
+}
+entity "dotp_monitoring_meeting_item_select" as dotp_monitoring_meeting_item_select {
+  * meeting_item_select_id : int(10) unsigned <<PK>>
+  --
+  meeting_item_id : int(10) unsigned
+  meeting_id : int(10) unsigned
+  status : int(10) unsigned
+}
+entity "dotp_monitoring_meeting_item_senior" as dotp_monitoring_meeting_item_senior {
+  * meeting_item_senior_id : int(10) unsigned <<PK>>
+  --
+  meeting_percentual : decimal(10,2)
+  meeting_size : int(10) unsigned
+  meeting_idc : decimal(10,2)
+  meeting_idp : decimal(10,2)
+  meeting_vp : decimal(10,2)
+  meeting_va : decimal(10,2)
+  meeting_cr : decimal(10,2)
+  meeting_baseline : int(10) unsigned
+  meeting_id : int(10) unsigned
+}
+entity "dotp_monitoring_meeting_item_tasks_delivered" as dotp_monitoring_meeting_item_tasks_delivered {
+  * meeting_item_taks_delivered_id : int(10) unsigned <<PK>>
+  --
+  task_id : int(10) unsigned
+  meeting_id : int(10) unsigned
+}
+entity "dotp_monitoring_meeting_type" as dotp_monitoring_meeting_type {
+  * meeting_type_id : int(11) <<PK>>
+  --
+  meeting_type_name : varchar(255)
+}
+entity "dotp_monitoring_meeting_user" as dotp_monitoring_meeting_user {
+  * meeting_user_id : int(10) unsigned <<PK>>
+  --
+  user_id : int(10) unsigned
+  meeting_id : int(10) unsigned
+}
+entity "dotp_monitoring_quality" as dotp_monitoring_quality {
+  * quality_id : int(11) <<PK>>
+  --
+  quality_type_id : int(11)
+  quality_description : text
+  user_id : int(11)
+  quality_status_id : int(11)
+  quality_date_end : datetime
+  task_id : int(11)
+}
+entity "dotp_monitoring_quality_status" as dotp_monitoring_quality_status {
+  * quality_status_id : int(11) <<PK>>
+  --
+  quality_status_name : varchar(255)
+}
+entity "dotp_monitoring_quality_type" as dotp_monitoring_quality_type {
+  * quality_type_id : int(11) <<PK>>
+  --
+  quality_type_name : varchar(255)
+}
+entity "dotp_monitoring_responsibility_matriz" as dotp_monitoring_responsibility_matriz {
+  * responsibility_id : int(11) <<PK>>
+  --
+  responsibility_description : varchar(255)
+  responsibility_user_id_consultation : int(11)
+  responsibility_user_id_execut : int(11)
+  responsibility_user_id_support : int(11)
+  responsibility_user_id_approve : int(11)
+  project_id : int(11)
+}
+entity "dotp_monitoring_user_cost" as dotp_monitoring_user_cost {
+  * cost_id : int(11) <<PK>>
+  --
+  user_id : int(11)
+  cost_value : decimal(10,2)
+  cost_per_use : decimal(11,0)
+  cost_dt_begin : datetime
+  cost_dt_end : datetime
+}
+entity "dotp_need_for_training" as dotp_need_for_training {
+  * project_id : int(11) <<PK>>
+  --
+  description : text
+}
+entity "dotp_permissions" as dotp_permissions {
+  * permission_id : int(11) <<PK>>
+  --
+  permission_user : int(11)
+  permission_grant_on : varchar(12)
+  permission_item : int(11)
+  permission_value : int(11)
+}
+entity "dotp_post_mortem_analysis" as dotp_post_mortem_analysis {
+  * pma_id : int(11) <<PK>>
+  --
+  project_name : varchar(255)
+  project_start_date : datetime
+  project_end_date : datetime
+  project_planned_start_date : datetime
+  project_planned_end_date : datetime
+  project_meeting_date : datetime
+  planned_budget : text
+  budget : text
+  participants : text
+  project_strength : text
+  project_weaknesses : text
+  improvement_suggestions : text
+  conclusions : text
+}
+entity "dotp_project_contacts" as dotp_project_contacts {
+  project_id : int(10)
+  contact_id : int(10)
+}
+entity "dotp_project_departments" as dotp_project_departments {
+  project_id : int(10)
+  department_id : int(10)
+}
+entity "dotp_project_designer_options" as dotp_project_designer_options {
+  * pd_option_id : int(11) <<PK>>
+  --
+  pd_option_user : int(11)
+  pd_option_view_project : int(1)
+  pd_option_view_gantt : int(1)
+  pd_option_view_tasks : int(1)
+  pd_option_view_actions : int(1)
+  pd_option_view_addtasks : int(1)
+  pd_option_view_files : int(1)
+}
+entity "dotp_project_eap_items" as dotp_project_eap_items {
+  * id : int(11) <<PK>>
+  --
+  project_id : int(11)
+  sort_order : int(11)
+  item_name : text
+  number : text
+  is_leaf : text
+  identation : text
+}
+entity "dotp_project_ear_items" as dotp_project_ear_items {
+  * id : int(11) <<PK>>
+  --
+  project_id : int(11)
+  sort_order : int(11)
+  item_name : text
+  number : text
+  is_leaf : text
+  identation : text
+}
+entity "dotp_project_minutes" as dotp_project_minutes {
+  * id : int(11) <<PK>>
+  --
+  project_id : int(11)
+  minute_date : datetime
+  description : text
+  isEffort : int(11)
+  isDuration : int(11)
+  isResource : int(11)
+  isSize : int(11)
+}
+entity "dotp_project_tasks_estimated_roles" as dotp_project_tasks_estimated_roles {
+  * id : int(11) <<PK>>
+  --
+  task_id : int(11)
+  role_id : int(11)
+}
+entity "dotp_project_tasks_estimations" as dotp_project_tasks_estimations {
+  * id : int(11) <<PK>>
+  --
+  task_id : int(11)
+  effort : float
+  effort_unit : text
+  duration : float
+}
+entity "dotp_projects" as dotp_projects {
+  * project_id : int(11) <<PK>>
+  --
+  project_company : int(11)
+  project_company_internal : int(11)
+  project_department : int(11)
+  project_name : varchar(255)
+  project_short_name : varchar(10)
+  project_owner : int(11)
+  project_url : varchar(255)
+  project_demo_url : varchar(255)
+  project_start_date : datetime
+  project_end_date : datetime
+  project_status : int(11)
+  project_percent_complete : tinyint(4)
+  project_color_identifier : varchar(6)
+  project_description : text
+  project_target_budget : decimal(10,2)
+  ... (+7 campos)
+}
+entity "dotp_quality_assurance_item" as dotp_quality_assurance_item {
+  * id : int(11) <<PK>>
+  --
+  quality_planning_id : int(11)
+  what : text
+  who : text
+  when : text
+  how : text
+}
+entity "dotp_quality_control_analiysis_question" as dotp_quality_control_analiysis_question {
+  * id : int(11) <<PK>>
+  --
+  goal_id : int(11)
+  question : text
+  target : text
+}
+entity "dotp_quality_control_goal" as dotp_quality_control_goal {
+  * id : int(11) <<PK>>
+  --
+  quality_planning_id : int(11)
+  gqm_goal_object : text
+  gqm_goal_propose : text
+  gqm_goal_respect_to : text
+  gqm_goal_point_of_view : text
+  gqm_goal_context : text
+}
+entity "dotp_quality_control_metric" as dotp_quality_control_metric {
+  * id : int(11) <<PK>>
+  --
+  question_id : int(11)
+  metric : text
+  how_to_collect : text
+}
+entity "dotp_quality_control_requirement" as dotp_quality_control_requirement {
+  * id : int(11) <<PK>>
+  --
+  quality_planning_id : int(11)
+  requirement : text
+}
+entity "dotp_quality_planning" as dotp_quality_planning {
+  * id : int(11) <<PK>>
+  --
+  project_id : int(11)
+  quality_controlling : text
+  quality_assurance : text
+  quality_policies : text
+}
+entity "dotp_raci" as dotp_raci {
+  * id : bigint(20) unsigned <<PK>>
+  --
+  human_resource_id : int(11)
+  project_id : int(11)
+  activity_name : varchar(255)
+  raci_role : enum('R','A','C','I')
+  created_at : timestamp
+  updated_at : timestamp
+}
+entity "dotp_resource_tasks" as dotp_resource_tasks {
+  resource_id : int(11)
+  task_id : int(11)
+  percent_allocated : int(11)
+}
+entity "dotp_resource_types" as dotp_resource_types {
+  * resource_type_id : int(11) <<PK>>
+  --
+  resource_type_name : varchar(255)
+  resource_type_note : text
+}
+entity "dotp_resources" as dotp_resources {
+  * resource_id : int(11) <<PK>>
+  --
+  resource_name : varchar(255)
+  resource_key : varchar(64)
+  resource_type : int(11)
+  resource_note : text
+  resource_max_allocation : int(11)
+}
+entity "dotp_risks" as dotp_risks {
+  * risk_id : int(11) <<PK>>
+  --
+  risk_name : varchar(255)
+  risk_cause : varchar(255)
+  risk_consequence : varchar(255)
+  risk_responsible : int(11)
+  risk_description : varchar(2000)
+  risk_probability : varchar(15)
+  risk_impact : varchar(15)
+  risk_answer_to_risk : varchar(2000)
+  risk_project : int(11)
+  risk_task : int(11)
+  risk_notes : varchar(2000)
+  risk_potential_other_projects : varchar(2)
+  risk_lessons_learned : varchar(2000)
+  risk_priority : varchar(15)
+  risk_active : int(11)
+  ... (+9 campos)
+}
+entity "dotp_risks_management_plan" as dotp_risks_management_plan {
+  * risk_plan_id : int(11) <<PK>>
+  --
+  project_id : int(11)
+  probability_super_low : varchar(250)
+  probability_low : varchar(250)
+  probability_medium : varchar(250)
+  probability_high : varchar(250)
+  probability_super_high : varchar(250)
+  impact_super_low : varchar(250)
+  impact_low : varchar(250)
+  impact_medium : varchar(250)
+  impact_high : varchar(250)
+  impact_super_high : varchar(250)
+  matrix_superlow_superlow : varchar(30)
+  matrix_superlow_low : varchar(30)
+  matrix_superlow_medium : varchar(30)
+  matrix_superlow_high : varchar(30)
+  ... (+23 campos)
+}
+entity "dotp_roles" as dotp_roles {
+  * role_id : int(10) unsigned <<PK>>
+  --
+  role_name : varchar(24)
+  role_description : varchar(255)
+  role_type : int(3) unsigned
+  role_module : int(10) unsigned
+}
+entity "dotp_scope_requirement_categories" as dotp_scope_requirement_categories {
+  * req_categ_prefix_id : varchar(3) <<PK>>
+  --
+  req_categ_description : text
+  req_categ_name : varchar(20)
+  req_categ_priority : tinyint(4)
+}
+entity "dotp_scope_requirement_priorities" as dotp_scope_requirement_priorities {
+  * req_priority_id : varchar(20) <<PK>>
+}
+entity "dotp_scope_requirement_status" as dotp_scope_requirement_status {
+  * req_status_id : varchar(20) <<PK>>
+}
+entity "dotp_scope_requirements" as dotp_scope_requirements {
+  * req_id : int(11) <<PK>>
+  --
+  req_idname : varchar(6)
+  req_description : text
+  req_source : varchar(60)
+  req_owner : varchar(60)
+  req_categ_prefix_id : varchar(3)
+  req_priority_id : varchar(20)
+  req_status_id : varchar(20)
+  req_version : varchar(20)
+  req_inclusiondate : date
+  req_conclusiondate : date
+  eapitem_id : int(11)
+  req_testcase : text
+  project_id : int(11)
+}
+entity "dotp_scope_requirements_managplan" as dotp_scope_requirements_managplan {
+  * req_managplan_id : int(11) <<PK>>
+  --
+  project_id : int(11)
+  req_managplan_collect_descr : text
+  req_managplan_reqcategories : text
+  req_managplan_reqprioritization : text
+  req_managplan_trac_descr : text
+  req_managplan_config_descr : text
+  req_managplan_verif_descr : text
+}
+entity "dotp_scope_statement" as dotp_scope_statement {
+  * scope_id : int(11) <<PK>>
+  --
+  project_id : int(11)
+  scope_description : text
+  scope_acceptancecriteria : text
+  scope_deliverables : text
+  scope_exclusions : text
+  scope_constraints : text
+  scope_assumptions : text
+}
+entity "dotp_sessions" as dotp_sessions {
+  * session_id : varchar(60) <<PK>>
+  --
+  session_user : int(11)
+  session_data : longblob
+  session_updated : timestamp
+  session_created : datetime
+}
+entity "dotp_skills" as dotp_skills {
+  * skill_id : bigint(20) unsigned <<PK>>
+  --
+  skill_name : varchar(255)
+  skill_type : enum('technical','behavioral')
+  created_at : timestamp
+  updated_at : timestamp
+}
+entity "dotp_syskeys" as dotp_syskeys {
+  * syskey_id : int(10) unsigned <<PK>>
+  --
+  syskey_name : varchar(48)
+  syskey_label : varchar(255)
+  syskey_type : int(1) unsigned
+  syskey_sep1 : char(2)
+  syskey_sep2 : char(2)
+}
+entity "dotp_sysvals" as dotp_sysvals {
+  * sysval_id : int(10) unsigned <<PK>>
+  --
+  sysval_key_id : int(10) unsigned
+  sysval_title : varchar(48)
+  sysval_value : text
+}
+entity "dotp_task_contacts" as dotp_task_contacts {
+  task_id : int(10)
+  contact_id : int(10)
+}
+entity "dotp_task_departments" as dotp_task_departments {
+  task_id : int(10)
+  department_id : int(10)
+}
+entity "dotp_task_dependencies" as dotp_task_dependencies {
+  * dependencies_task_id : int(11) <<PK>>
+  * dependencies_req_task_id : int(11) <<PK>>
+}
+entity "dotp_task_log" as dotp_task_log {
+  * task_log_id : int(11) <<PK>>
+  --
+  task_log_task : int(11)
+  task_log_name : varchar(255)
+  task_log_description : text
+  task_log_creator : int(11)
+  task_log_hours : float
+  task_log_date : datetime
+  task_log_costcode : varchar(8)
+  task_log_problem : tinyint(1)
+  task_log_reference : tinyint(4)
+  task_log_related_url : varchar(255)
+}
+entity "dotp_task_minute_members" as dotp_task_minute_members {
+  * id : int(11) <<PK>>
+  --
+  user_id : int(11)
+  task_minute_id : int(11)
+}
+entity "dotp_tasks" as dotp_tasks {
+  * task_id : int(11) <<PK>>
+  --
+  task_name : varchar(255)
+  task_parent : int(11)
+  task_milestone : tinyint(1)
+  task_project : int(11)
+  task_owner : int(11)
+  task_start_date : datetime
+  task_duration : float unsigned
+  task_duration_type : int(11)
+  task_hours_worked : float unsigned
+  task_end_date : datetime
+  task_status : int(11)
+  task_priority : tinyint(4)
+  task_percent_complete : tinyint(4)
+  task_description : text
+  task_target_budget : decimal(10,2)
+  ... (+11 campos)
+}
+entity "dotp_tasks_mdp" as dotp_tasks_mdp {
+  * id : int(11) <<PK>>
+  --
+  task_id : int(11)
+  pos_x : int(11)
+  pos_y : int(11)
+}
+entity "dotp_tasks_workpackages" as dotp_tasks_workpackages {
+  * task_id : int(11) <<PK>>
+  --
+  eap_item_id : int(11)
+}
+entity "dotp_tickets" as dotp_tickets {
+  * ticket : int(10) unsigned <<PK>>
+  --
+  ticket_company : int(10)
+  ticket_project : int(10)
+  author : varchar(100)
+  recipient : varchar(100)
+  subject : varchar(100)
+  attachment : tinyint(1) unsigned
+  timestamp : int(10) unsigned
+  type : varchar(15)
+  assignment : int(10) unsigned
+  parent : int(10) unsigned
+  activity : int(10) unsigned
+  priority : tinyint(1) unsigned
+  cc : varchar(255)
+  body : text
+  signature : text
+}
+entity "dotp_user_access_log" as dotp_user_access_log {
+  * user_access_log_id : int(10) unsigned <<PK>>
+  --
+  user_id : int(10) unsigned
+  user_ip : varchar(15)
+  date_time_in : datetime
+  date_time_out : datetime
+  date_time_last_action : datetime
+}
+entity "dotp_user_events" as dotp_user_events {
+  user_id : int(11)
+  event_id : int(11)
+}
+entity "dotp_user_preferences" as dotp_user_preferences {
+  pref_user : varchar(12)
+  pref_name : varchar(72)
+  pref_value : varchar(32)
+}
+entity "dotp_user_roles" as dotp_user_roles {
+  user_id : int(10) unsigned
+  role_id : int(10) unsigned
+}
+entity "dotp_user_task_pin" as dotp_user_task_pin {
+  * user_id : int(11) <<PK>>
+  * task_id : int(10) <<PK>>
+  --
+  task_pinned : tinyint(2)
+}
+entity "dotp_user_tasks" as dotp_user_tasks {
+  * user_id : int(11) <<PK>>
+  * task_id : int(11) <<PK>>
+  --
+  user_type : tinyint(4)
+  perc_assignment : int(11)
+  user_task_priority : tinyint(4)
+}
+entity "dotp_users" as dotp_users {
+  * user_id : int(11) <<PK>>
+  --
+  user_contact : int(11)
+  user_username : varchar(255)
+  user_password : varchar(255)
+  user_parent : int(11)
+  user_type : tinyint(3)
+  user_company : int(11)
+  user_department : int(11)
+  user_owner : int(11)
+  user_signature : text
+}
+entity "dotp_wbs_dictionary" as dotp_wbs_dictionary {
+  * wbs_item_id : int(11) <<PK>>
+  --
+  description : text
+}
+entity "migrations" as migrations {
+  * id : int(10) unsigned <<PK>>
+  --
+  migration : varchar(255)
+  batch : int(11)
+}
+
+' Relacionamentos
+dotp_acquisition_planning }o--|| dotp_projects : project_id
+dotp_communication_issuing }o--|| dotp_contacts : communication_stakeholder_id
+dotp_tasks_workpackages }o--|| dotp_tasks : task_id
+dotp_human_resource_allocation }o--|| dotp_human_resource : human_resource_id
+dotp_human_resource_allocation }o--|| dotp_project_tasks_estimated_roles : project_tasks_estimated_roles_id
+dotp_wbs_dictionary }o--|| dotp_project_eap_items : wbs_item_id
+dotp_project_tasks_estimations }o--|| dotp_tasks : task_id
+dotp_quality_assurance_item }o--|| dotp_quality_planning : quality_planning_id
+dotp_acquisition_execution }o--|| dotp_projects : project_id
+dotp_budget }o--|| dotp_projects : budget_project_id
+dotp_costs }o--|| dotp_human_resource : cost_human_resource_id
+dotp_costs }o--|| dotp_human_resources_role : cost_human_resource_role_id
+dotp_costs }o--|| dotp_projects : cost_project_id
+dotp_scope_requirements_managplan }o--|| dotp_projects : project_id
+dotp_raci }o--|| dotp_human_resource : human_resource_id
+dotp_raci }o--|| dotp_projects : project_id
+dotp_eap_item_estimations }o--|| dotp_project_eap_items : eap_item_id
+dotp_task_minute_members }o--|| dotp_project_minutes : task_minute_id
+dotp_task_minute_members }o--|| dotp_contacts : user_id
+dotp_human_resource_performance }o--|| dotp_companies : company_id
+dotp_human_resource_performance }o--|| dotp_human_resource : human_resource_id
+dotp_quality_control_metric }o--|| dotp_quality_control_analiysis_question : question_id
+dotp_human_resource_skills }o--|| dotp_human_resource : human_resource_id
+dotp_human_resource_skills }o--|| dotp_skills : skill_id
+dotp_project_ear_items }o--|| dotp_projects : project_id
+dotp_quality_control_goal }o--|| dotp_quality_planning : quality_planning_id
+dotp_project_tasks_estimated_roles }o--|| dotp_company_role : role_id
+dotp_project_tasks_estimated_roles }o--|| dotp_tasks : task_id
+dotp_quality_control_analiysis_question }o--|| dotp_quality_control_goal : goal_id
+dotp_project_minutes }o--|| dotp_projects : project_id
+dotp_acquisition_planning_roles }o--|| dotp_acquisition_planning : acquisition_id
+dotp_scope_requirements }o--|| dotp_scope_requirement_categories : req_categ_prefix_id
+dotp_scope_requirements }o--|| dotp_scope_requirement_priorities : req_priority_id
+dotp_scope_requirements }o--|| dotp_scope_requirement_status : req_status_id
+dotp_scope_requirements }o--|| dotp_project_eap_items : eapitem_id
+dotp_scope_requirements }o--|| dotp_projects : project_id
+dotp_company_policies }o--|| dotp_companies : company_policies_company_id
+dotp_acquisition_planning_criteria }o--|| dotp_acquisition_planning : acquisition_id
+dotp_quality_control_requirement }o--|| dotp_quality_planning : quality_planning_id
+dotp_human_resource_roles }o--|| dotp_human_resources_role : human_resources_role_id
+dotp_human_resource_roles }o--|| dotp_human_resource : human_resource_id
+dotp_need_for_training }o--|| dotp_projects : project_id
+dotp_communication_receptor }o--|| dotp_contacts : communication_stakeholder_id
+dotp_quality_planning }o--|| dotp_projects : project_id
+dotp_tasks_mdp }o--|| dotp_tasks : task_id
+dotp_human_resources_role }o--|| dotp_companies : human_resources_role_company_id
+dotp_acquisition_planning_requirements }o--|| dotp_acquisition_planning : acquisition_id
+dotp_human_resource }o--|| dotp_users : human_resource_user_id
+dotp_project_eap_items }o--|| dotp_projects : project_id
+dotp_budget_reserve }o--|| dotp_projects : budget_reserve_project_id
+dotp_scope_statement }o--|| dotp_projects : project_id
+dotp_company_role }o--|| dotp_companies : company_id
+dotp_projects }o--|| dotp_companies : project_company
+dotp_projects }o--|| dotp_users : project_owner
+dotp_departments }o--|| dotp_companies : dept_company
+dotp_departments }o--|| dotp_departments : dept_parent
+dotp_users }o--|| dotp_contacts : user_contact
+dotp_tasks }o--|| dotp_projects : task_project
+dotp_tasks }o--|| dotp_users : task_owner
+dotp_tasks }o--|| dotp_tasks : task_parent
+dotp_user_tasks }o--|| dotp_users : user_id
+dotp_user_tasks }o--|| dotp_tasks : task_id
+dotp_task_log }o--|| dotp_tasks : task_log_task
+dotp_task_log }o--|| dotp_users : task_log_creator
+dotp_task_dependencies }o--|| dotp_tasks : dependencies_task_id
+dotp_risks }o--|| dotp_projects : risk_project
+dotp_initiating }o--|| dotp_projects : project_id
+dotp_initiating_stakeholder }o--|| dotp_initiating : initiating_id
+dotp_initiating_stakeholder }o--|| dotp_contacts : contact_id
+dotp_files }o--|| dotp_projects : file_project
+dotp_files }o--|| dotp_tasks : file_task
+dotp_files }o--|| dotp_users : file_owner
+dotp_billingcode }o--|| dotp_companies : company_id
+dotp_monitoring_baseline }o--|| dotp_projects : project_id
+dotp_monitoring_meeting }o--|| dotp_projects : project_id
+dotp_monitoring_change_request }o--|| dotp_projects : project_id
+dotp_monitoring_change_request }o--|| dotp_users : user_id
+dotp_monitoring_change_request }o--|| dotp_tasks : task_id
+dotp_communication }o--|| dotp_communication_frequency : communication_frequency_id
+dotp_communication }o--|| dotp_communication_channel : communication_channel_id
+dotp_communication_issuing }o--|| dotp_communication : communication_id
+dotp_communication_receptor }o--|| dotp_communication : communication_id
+dotp_config_list }o--|| dotp_config : config_id
+dotp_costs }o--|| dotp_monitoring_user_cost : cost_id
+dotp_custom_fields_lists }o--|| dotp_custom_fields_struct : field_id
+dotp_dotpermissions }o--|| dotp_users : user_id
+dotp_files_index }o--|| dotp_files : file_id
+dotp_monitoring_baseline }o--|| dotp_users : user_id
+dotp_monitoring_baseline_task }o--|| dotp_monitoring_baseline : baseline_id
+dotp_monitoring_baseline_task }o--|| dotp_tasks_workpackages : task_id
+dotp_monitoring_baseline_task_log }o--|| dotp_monitoring_baseline_task : baseline_task_id
+dotp_monitoring_baseline_task_log }o--|| dotp_task_log : task_log_id
+dotp_monitoring_baseline_user_cost }o--|| dotp_monitoring_baseline : baseline_id
+dotp_monitoring_baseline_user_cost }o--|| dotp_monitoring_user_cost : cost_id
+dotp_monitoring_baseline_user_cost }o--|| dotp_users : user_id
+dotp_monitoring_change_request }o--|| dotp_monitoring_meeting : meeting_id
+dotp_monitoring_meeting }o--|| dotp_monitoring_meeting_type : meeting_type_id
+dotp_monitoring_meeting_item_select }o--|| dotp_monitoring_meeting_item : meeting_item_id
+dotp_monitoring_meeting_item_select }o--|| dotp_monitoring_meeting : meeting_id
+dotp_monitoring_meeting_item_senior }o--|| dotp_monitoring_meeting : meeting_id
+dotp_monitoring_meeting_item_tasks_delivered }o--|| dotp_tasks_workpackages : task_id
+dotp_monitoring_meeting_item_tasks_delivered }o--|| dotp_monitoring_meeting : meeting_id
+dotp_monitoring_meeting_user }o--|| dotp_users : user_id
+dotp_monitoring_meeting_user }o--|| dotp_monitoring_meeting : meeting_id
+dotp_monitoring_quality }o--|| dotp_monitoring_quality_type : quality_type_id
+dotp_monitoring_quality }o--|| dotp_users : user_id
+dotp_monitoring_quality }o--|| dotp_monitoring_quality_status : quality_status_id
+dotp_monitoring_quality }o--|| dotp_tasks_workpackages : task_id
+dotp_monitoring_responsibility_matriz }o--|| dotp_projects : project_id
+dotp_monitoring_user_cost }o--|| dotp_users : user_id
+dotp_project_contacts }o--|| dotp_projects : project_id
+dotp_project_contacts }o--|| dotp_contacts : contact_id
+dotp_project_departments }o--|| dotp_projects : project_id
+dotp_resource_tasks }o--|| dotp_resources : resource_id
+dotp_resource_tasks }o--|| dotp_tasks_workpackages : task_id
+dotp_risks_management_plan }o--|| dotp_projects : project_id
+dotp_tasks }o--|| dotp_tasks_workpackages : task_id
+dotp_task_contacts }o--|| dotp_tasks_workpackages : task_id
+dotp_task_contacts }o--|| dotp_contacts : contact_id
+dotp_task_departments }o--|| dotp_tasks_workpackages : task_id
+dotp_user_access_log }o--|| dotp_users : user_id
+dotp_user_events }o--|| dotp_users : user_id
+dotp_user_events }o--|| dotp_events : event_id
+dotp_user_roles }o--|| dotp_users : user_id
+dotp_user_roles }o--|| dotp_roles : role_id
+dotp_user_task_pin }o--|| dotp_users : user_id
+dotp_user_task_pin }o--|| dotp_tasks_workpackages : task_id
+@enduml

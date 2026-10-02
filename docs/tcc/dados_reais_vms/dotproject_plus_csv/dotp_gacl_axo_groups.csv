@@ -1,0 +1,5 @@
+﻿id,parent_id,lft,rgt,name,value
+10,0,1,8,Modules,mod
+11,10,2,3,All Modules,all
+12,10,4,5,Admin Modules,admin
+13,10,6,7,Non-Admin Modules,non_admin

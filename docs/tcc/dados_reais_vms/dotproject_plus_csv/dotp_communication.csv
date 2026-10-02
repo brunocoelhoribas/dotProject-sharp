@@ -1,0 +1,8 @@
+﻿communication_id,communication_title,communication_information,communication_frequency_id,communication_channel_id,communication_project_id,communication_restrictions,communication_date,communication_responsible_authorization
+1,Plano do projeto,Publicar o plano do projeto para obter o acordo entre todos os stakeholders.,2,1,2,,,2
+2,Relatório do progresso do projeto,Divulgar relatório do progresso do projeto para o cliente.,4,1,2,"Os relatórios do projeto serão divulgados no portal da organização, o qual o cliente terá acesso para acompanhamento.",,
+3,Relatório de conclusão do módulo web,Informar conclusão do módulo web ao cliente.,2,1,2,O relatório será emitido somente após a realização de testes de sistema pelo analista de testes.,,
+4,Relatório de conclusão do módulo mobile,Comunicar a conclusão do desenvolvimento do módulo mobile.,2,1,2,Esta comunicação será liberada somente com a autorização do analista de testes após passar pelos testes de sistema.,,
+5,teste,,1,1,5,,,7
+6,Project plan is completed,The project plan is completed and now it is necessary your appreciation.,8,5,8,,,
+7,TESTE TSI20,Teste,9,5,2,Teste,09/12/2021,10

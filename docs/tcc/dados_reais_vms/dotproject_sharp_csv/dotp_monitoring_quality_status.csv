@@ -1,0 +1,4 @@
+﻿quality_status_id,quality_status_name
+1,Pending
+2,Concluded
+3,Canceled

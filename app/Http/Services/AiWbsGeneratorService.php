@@ -18,7 +18,7 @@ class AiWbsGeneratorService {
      * @throws Throwable
      */
     public function generateForProject(Project $project): void {
-        $model = env('OLLAMA_MODEL', 'llama3.2');
+        $model = config('openai.model', env('OLLAMA_MODEL', 'llama3.2'));
 
         $locale = app()->getLocale();
 

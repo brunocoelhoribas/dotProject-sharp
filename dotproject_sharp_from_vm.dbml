@@ -1,0 +1,1771 @@
+Enum "dotp_raci_raci_role_enum" {
+  "R"
+  "A"
+  "C"
+  "I"
+}
+
+Enum "dotp_skills_skill_type_enum" {
+  "technical"
+  "behavioral"
+}
+
+Table "dotp_acquisition_execution" {
+  "id" int(11) [pk, not null, increment]
+  "project_id" int(11) [default: 'NULL']
+  "is_delivered" int(11) [default: 0]
+  "is_risk_contingency" int(11) [default: 0]
+  "value" float [default: 'NULL']
+  "date" date [default: 'NULL']
+  "description" text [default: 'NULL']
+  "reference_id" int(11) [default: 'NULL']
+}
+
+Table "dotp_acquisition_planning" {
+  "id" int(11) [pk, not null, increment]
+  "project_id" int(11) [default: 'NULL']
+  "items_to_be_acquired" text [default: 'NULL']
+  "contract_type" text [default: 'NULL']
+  "documents_to_acquisition" text [default: 'NULL']
+  "criteria_for_supplier_selection" text [default: 'NULL']
+  "additional_requirements" text [default: 'NULL']
+  "supplier_management_process" text [default: 'NULL']
+  "acquisition_roles" text [default: 'NULL']
+}
+
+Table "dotp_acquisition_planning_criteria" {
+  "id" int(11) [pk, not null, increment]
+  "acquisition_id" int(11) [default: 'NULL']
+  "criteria" text [default: 'NULL']
+  "weight" int(11) [default: 'NULL']
+}
+
+Table "dotp_acquisition_planning_requirements" {
+  "id" int(11) [pk, not null, increment]
+  "acquisition_id" int(11) [default: 'NULL']
+  "requirement" text [default: 'NULL']
+}
+
+Table "dotp_acquisition_planning_roles" {
+  "id" int(11) [pk, not null, increment]
+  "acquisition_id" int(11) [default: 'NULL']
+  "role" text [default: 'NULL']
+  "responsability" text [default: 'NULL']
+}
+
+Table "dotp_billingcode" {
+  "billingcode_id" bigint(20) [pk, not null, increment]
+  "billingcode_name" varchar(25) [not null, default: '''']
+  "billingcode_value" float [not null, default: 0]
+  "billingcode_desc" varchar(255) [not null, default: '''']
+  "billingcode_status" int(1) [not null, default: 0]
+  "company_id" bigint(20) [not null, default: 0]
+}
+
+Table "dotp_budget" {
+  "budget_id" int(11) [pk, not null, increment]
+  "budget_project_id" int(11) [not null]
+  "budget_reserve_management" decimal(9,2) [not null]
+  "budget_sub_total" decimal(9,2) [not null]
+  "budget_total" decimal(9,2) [not null]
+}
+
+Table "dotp_budget_reserve" {
+  "budget_reserve_id" int(11) [pk, not null, increment]
+  "budget_reserve_project_id" int(11) [not null]
+  "budget_reserve_risk_id" int(11) [not null]
+  "budget_reserve_description" varchar(250) [default: 'NULL']
+  "budget_reserve_financial_impact" int(11) [default: 'NULL']
+  "budget_reserve_inicial_month" datetime [default: 'NULL']
+  "budget_reserve_final_month" datetime [default: 'NULL']
+  "budget_reserve_value_total" decimal(9,2) [default: 'NULL']
+}
+
+Table "dotp_common_notes" {
+  "note_id" "int(10) unsigned" [pk, not null, increment]
+  "note_author" "int(10) unsigned" [not null, default: 0]
+  "note_module" "int(10) unsigned" [not null, default: 0]
+  "note_record_id" "int(10) unsigned" [not null, default: 0]
+  "note_category" "int(3) unsigned" [not null, default: 0]
+  "note_title" varchar(100) [not null, default: '''']
+  "note_body" text [not null]
+  "note_date" datetime [not null, default: ''0000-00-00 00:00:00'']
+  "note_hours" float [not null, default: 0]
+  "note_code" varchar(8) [not null, default: '''']
+  "note_created" datetime [not null, default: ''0000-00-00 00:00:00'']
+  "note_modified" timestamp [not null, default: 'current_timestamp()']
+  "note_modified_by" "int(10) unsigned" [not null, default: 0]
+}
+
+Table "dotp_communication" {
+  "communication_id" int(11) [pk, not null, increment]
+  "communication_title" varchar(255) [not null]
+  "communication_information" varchar(2000) [not null]
+  "communication_frequency_id" int(11) [not null]
+  "communication_channel_id" int(11) [not null]
+  "communication_project_id" int(11) [not null]
+  "communication_restrictions" varchar(2000) [not null]
+  "communication_date" varchar(30) [not null]
+  "communication_responsible_authorization" varchar(80) [not null]
+}
+
+Table "dotp_communication_channel" {
+  "communication_channel_id" int(11) [pk, not null, increment]
+  "communication_channel" varchar(255) [not null]
+}
+
+Table "dotp_communication_frequency" {
+  "communication_frequency_id" int(11) [pk, not null, increment]
+  "communication_frequency" varchar(255) [not null]
+  "communication_frequency_hasdate" char(3) [default: ''Nao'']
+}
+
+Table "dotp_communication_issuing" {
+  "communication_issuing_id" int(11) [pk, not null, increment]
+  "communication_id" int(11) [not null]
+  "communication_stakeholder_id" int(11) [not null]
+}
+
+Table "dotp_communication_receptor" {
+  "communication_receptor_id" int(11) [pk, not null, increment]
+  "communication_id" int(11) [not null]
+  "communication_stakeholder_id" int(11) [not null]
+}
+
+Table "dotp_companies" {
+  "company_id" int(10) [pk, not null, increment]
+  "company_module" int(10) [not null, default: 0]
+  "company_name" varchar(100) [default: '''']
+  "company_phone1" varchar(30) [default: '''']
+  "company_phone2" varchar(30) [default: '''']
+  "company_fax" varchar(30) [default: '''']
+  "company_address1" varchar(50) [default: '''']
+  "company_address2" varchar(50) [default: '''']
+  "company_city" varchar(30) [default: '''']
+  "company_state" varchar(30) [default: '''']
+  "company_zip" varchar(11) [default: '''']
+  "company_primary_url" varchar(255) [default: '''']
+  "company_owner" int(11) [not null, default: 0]
+  "company_description" text [default: 'NULL']
+  "company_type" int(3) [not null, default: 0]
+  "company_email" varchar(255) [default: 'NULL']
+  "company_custom" longtext [default: 'NULL']
+
+  Indexes {
+    company_owner [type: btree, name: "idx_cpy1"]
+  }
+}
+
+Table "dotp_company_policies" {
+  "company_policies_id" int(11) [pk, not null, increment]
+  "company_policies_recognition" text [default: 'NULL']
+  "company_policies_policy" text [default: 'NULL']
+  "company_policies_safety" text [default: 'NULL']
+  "company_policies_company_id" int(11) [not null]
+
+  Indexes {
+    company_policies_company_id [type: btree, name: "company_policies_company_id"]
+  }
+}
+
+Table "dotp_company_role" {
+  "id" int(11) [pk, not null, increment]
+  "company_id" int(11) [default: 'NULL']
+  "sort_order" int(11) [default: 'NULL']
+  "role_name" text [default: 'NULL']
+  "identation" text [default: 'NULL']
+}
+
+Table "dotp_config" {
+  "config_id" int(11) [pk, not null, increment]
+  "config_name" varchar(255) [unique, not null, default: '''']
+  "config_value" varchar(255) [not null, default: '''']
+  "config_group" varchar(255) [not null, default: '''']
+  "config_type" varchar(255) [not null, default: '''']
+}
+
+Table "dotp_config_list" {
+  "config_list_id" int(11) [pk, not null, increment]
+  "config_id" int(11) [not null, default: 0]
+  "config_list_name" varchar(30) [not null, default: '''']
+
+  Indexes {
+    config_id [type: btree, name: "config_id"]
+  }
+}
+
+Table "dotp_contacts" {
+  "contact_id" int(11) [pk, not null, increment]
+  "contact_first_name" varchar(30) [default: 'NULL']
+  "contact_last_name" varchar(30) [default: 'NULL']
+  "contact_order_by" varchar(30) [not null, default: '''']
+  "contact_title" varchar(50) [default: 'NULL']
+  "contact_birthday" date [default: 'NULL']
+  "contact_job" varchar(255) [default: 'NULL']
+  "contact_company" varchar(100) [not null, default: '''']
+  "contact_department" tinytext [default: 'NULL']
+  "contact_type" varchar(20) [default: 'NULL']
+  "contact_email" varchar(255) [default: 'NULL']
+  "contact_email2" varchar(255) [default: 'NULL']
+  "contact_url" varchar(255) [default: 'NULL']
+  "contact_phone" varchar(30) [default: 'NULL']
+  "contact_phone2" varchar(30) [default: 'NULL']
+  "contact_fax" varchar(30) [default: 'NULL']
+  "contact_mobile" varchar(30) [default: 'NULL']
+  "contact_address1" varchar(60) [default: 'NULL']
+  "contact_address2" varchar(60) [default: 'NULL']
+  "contact_city" varchar(30) [default: 'NULL']
+  "contact_state" varchar(30) [default: 'NULL']
+  "contact_zip" varchar(11) [default: 'NULL']
+  "contact_country" varchar(30) [default: 'NULL']
+  "contact_jabber" varchar(255) [default: 'NULL']
+  "contact_icq" varchar(20) [default: 'NULL']
+  "contact_msn" varchar(255) [default: 'NULL']
+  "contact_yahoo" varchar(255) [default: 'NULL']
+  "contact_aol" varchar(30) [default: 'NULL']
+  "contact_notes" text [default: 'NULL']
+  "contact_project" int(11) [not null, default: 0]
+  "contact_icon" varchar(20) [default: ''obj/contact'']
+  "contact_owner" "int(10) unsigned" [default: 0]
+  "contact_private" "tinyint(3) unsigned" [default: 0]
+
+  Indexes {
+    contact_company [type: btree, name: "idx_co"]
+    contact_order_by [type: btree, name: "idx_oby"]
+    contact_project [type: btree, name: "idx_prp"]
+  }
+}
+
+Table "dotp_costs" {
+  "cost_id" int(11) [pk, not null, increment]
+  "cost_type_id" int(11) [not null]
+  "cost_project_id" int(11) [not null]
+  "cost_description" varchar(150) [not null]
+  "cost_quantity" int(11) [default: 'NULL']
+  "cost_date_begin" datetime [default: 'NULL']
+  "cost_date_end" datetime [default: 'NULL']
+  "cost_value_unitary" decimal(9,2) [default: 'NULL']
+  "cost_value_total" decimal(9,2) [default: 'NULL']
+  "cost_human_resource_id" int(11) [default: 'NULL']
+  "cost_human_resource_role_id" int(11) [default: 'NULL']
+}
+
+Table "dotp_custom_fields_lists" {
+  "field_id" int(11) [default: 'NULL']
+  "list_option_id" int(11) [default: 'NULL']
+  "list_value" varchar(250) [default: 'NULL']
+}
+
+Table "dotp_custom_fields_struct" {
+  "field_id" int(11) [pk, not null]
+  "field_module" varchar(30) [default: 'NULL']
+  "field_page" varchar(30) [default: 'NULL']
+  "field_htmltype" varchar(20) [default: 'NULL']
+  "field_datatype" varchar(20) [default: 'NULL']
+  "field_order" int(11) [default: 'NULL']
+  "field_name" varchar(100) [default: 'NULL']
+  "field_extratags" varchar(250) [default: 'NULL']
+  "field_description" varchar(250) [default: 'NULL']
+}
+
+Table "dotp_custom_fields_values" {
+  "value_id" int(11) [default: 'NULL']
+  "value_module" varchar(30) [default: 'NULL']
+  "value_object_id" int(11) [default: 'NULL']
+  "value_field_id" int(11) [default: 'NULL']
+  "value_charvalue" varchar(250) [default: 'NULL']
+  "value_intvalue" int(11) [default: 'NULL']
+
+  Indexes {
+    value_id [type: btree, name: "idx_cfv_id"]
+  }
+}
+
+Table "dotp_departments" {
+  "dept_id" "int(10) unsigned" [pk, not null, increment]
+  "dept_parent" "int(10) unsigned" [not null, default: 0]
+  "dept_company" "int(10) unsigned" [not null, default: 0]
+  "dept_name" tinytext [not null]
+  "dept_phone" varchar(30) [default: 'NULL']
+  "dept_fax" varchar(30) [default: 'NULL']
+  "dept_address1" varchar(30) [default: 'NULL']
+  "dept_address2" varchar(30) [default: 'NULL']
+  "dept_city" varchar(30) [default: 'NULL']
+  "dept_state" varchar(30) [default: 'NULL']
+  "dept_zip" varchar(11) [default: 'NULL']
+  "dept_url" varchar(25) [default: 'NULL']
+  "dept_desc" text [default: 'NULL']
+  "dept_owner" "int(10) unsigned" [not null, default: 0]
+  Note: 'Department heirarchy under a company'
+}
+
+Table "dotp_dotpermissions" {
+  "acl_id" int(11) [not null, default: 0]
+  "user_id" varchar(80) [not null, default: '''']
+  "section" varchar(80) [not null, default: '''']
+  "axo" varchar(80) [not null, default: '''']
+  "permission" varchar(80) [not null, default: '''']
+  "allow" int(11) [not null, default: 0]
+  "priority" int(11) [not null, default: 0]
+  "enabled" int(11) [not null, default: 0]
+
+  Indexes {
+    (user_id, permission, section, axo) [type: btree, name: "user_id"]
+  }
+}
+
+Table "dotp_dpversion" {
+  "code_version" varchar(10) [not null, default: '''']
+  "db_version" int(11) [not null, default: 0]
+  "last_db_update" date [not null, default: ''0000-00-00'']
+  "last_code_update" date [not null, default: ''0000-00-00'']
+}
+
+Table "dotp_eap_item_estimations" {
+  "id" int(11) [pk, not null, increment]
+  "eap_item_id" int(11) [default: 'NULL']
+  "size" float [default: 'NULL']
+  "size_unit" text [default: 'NULL']
+}
+
+Table "dotp_events" {
+  "event_id" int(11) [pk, not null, increment]
+  "event_title" varchar(255) [not null, default: '''']
+  "event_start_date" datetime [default: 'NULL']
+  "event_end_date" datetime [default: 'NULL']
+  "event_parent" "int(11) unsigned" [not null, default: 0]
+  "event_description" text [default: 'NULL']
+  "event_times_recuring" "int(11) unsigned" [not null, default: 0]
+  "event_recurs" "int(11) unsigned" [not null, default: 0]
+  "event_remind" "int(10) unsigned" [not null, default: 0]
+  "event_icon" varchar(20) [default: ''obj/event'']
+  "event_owner" int(11) [default: 0]
+  "event_project" int(11) [default: 0]
+  "event_private" tinyint(3) [default: 0]
+  "event_type" tinyint(3) [default: 0]
+  "event_cwd" tinyint(3) [default: 0]
+  "event_notify" tinyint(3) [not null, default: 0]
+
+  Indexes {
+    event_owner [type: btree, name: "idx_ev1"]
+    event_project [type: btree, name: "idx_ev2"]
+    event_end_date [type: btree, name: "id_eed"]
+    event_start_date [type: btree, name: "id_esd"]
+    event_parent [type: btree, name: "id_evp"]
+  }
+}
+
+Table "dotp_event_queue" {
+  "queue_id" int(11) [pk, not null, increment]
+  "queue_start" int(11) [not null, default: 0]
+  "queue_type" varchar(40) [not null, default: '''']
+  "queue_repeat_interval" int(11) [not null, default: 0]
+  "queue_repeat_count" int(11) [not null, default: 0]
+  "queue_data" longblob [not null]
+  "queue_callback" varchar(127) [not null, default: '''']
+  "queue_owner" int(11) [not null, default: 0]
+  "queue_origin_id" int(11) [not null, default: 0]
+  "queue_module" varchar(40) [not null, default: '''']
+  "queue_batched" int(11) [not null, default: 0]
+
+  Indexes {
+    queue_module [type: btree, name: "queue_module"]
+    queue_origin_id [type: btree, name: "queue_origin_id"]
+    (queue_batched, queue_start) [type: btree, name: "queue_start"]
+    queue_type [type: btree, name: "queue_type"]
+  }
+}
+
+Table "dotp_files" {
+  "file_id" int(11) [pk, not null, increment]
+  "file_real_filename" varchar(255) [not null, default: '''']
+  "file_folder" int(11) [not null, default: 0]
+  "file_project" int(11) [not null, default: 0]
+  "file_task" int(11) [not null, default: 0]
+  "file_name" varchar(255) [not null, default: '''']
+  "file_parent" int(11) [default: 0]
+  "file_description" text [default: 'NULL']
+  "file_type" varchar(100) [default: 'NULL']
+  "file_owner" int(11) [default: 0]
+  "file_date" datetime [default: 'NULL']
+  "file_size" int(11) [default: 0]
+  "file_version" float [not null, default: 0]
+  "file_icon" varchar(20) [default: ''obj/'']
+  "file_category" int(11) [default: 0]
+  "file_checkout" varchar(255) [not null, default: '''']
+  "file_co_reason" text [default: 'NULL']
+  "file_version_id" int(11) [not null, default: 0]
+
+  Indexes {
+    file_parent [type: btree, name: "idx_file_parent"]
+    file_project [type: btree, name: "idx_file_project"]
+    file_task [type: btree, name: "idx_file_task"]
+    file_version_id [type: btree, name: "idx_file_vid"]
+  }
+}
+
+Table "dotp_files_index" {
+  "file_id" int(11) [not null, default: 0]
+  "word" varchar(50) [not null, default: '''']
+  "word_placement" int(11) [not null, default: 0]
+
+  Indexes {
+    word [type: btree, name: "idx_fwrd"]
+    (file_id, word, word_placement) [pk, name: "PRIMARY"]
+  }
+}
+
+Table "dotp_file_folders" {
+  "file_folder_id" int(11) [pk, not null, increment]
+  "file_folder_parent" int(11) [not null, default: 0]
+  "file_folder_name" varchar(255) [not null, default: '''']
+  "file_folder_description" text [default: 'NULL']
+}
+
+Table "dotp_forums" {
+  "forum_id" int(11) [pk, not null, increment]
+  "forum_project" int(11) [not null, default: 0]
+  "forum_status" tinyint(4) [not null, default: -1]
+  "forum_owner" int(11) [not null, default: 0]
+  "forum_name" varchar(50) [not null, default: '''']
+  "forum_create_date" datetime [default: ''0000-00-00 00:00:00'']
+  "forum_last_date" datetime [default: ''0000-00-00 00:00:00'']
+  "forum_last_id" "int(10) unsigned" [not null, default: 0]
+  "forum_message_count" int(11) [not null, default: 0]
+  "forum_description" varchar(255) [default: 'NULL']
+  "forum_moderated" int(11) [not null, default: 0]
+
+  Indexes {
+    forum_status [type: btree, name: "forum_status"]
+    forum_owner [type: btree, name: "idx_fowner"]
+    forum_project [type: btree, name: "idx_fproject"]
+  }
+}
+
+Table "dotp_forum_messages" {
+  "message_id" int(11) [pk, not null, increment]
+  "message_forum" int(11) [not null, default: 0]
+  "message_parent" int(11) [not null, default: 0]
+  "message_author" int(11) [not null, default: 0]
+  "message_editor" int(11) [not null, default: 0]
+  "message_title" varchar(255) [not null, default: '''']
+  "message_date" datetime [default: ''0000-00-00 00:00:00'']
+  "message_body" text [default: 'NULL']
+  "message_published" tinyint(1) [not null, default: 1]
+
+  Indexes {
+    message_date [type: btree, name: "idx_mdate"]
+    message_forum [type: btree, name: "idx_mforum"]
+    message_parent [type: btree, name: "idx_mparent"]
+  }
+}
+
+Table "dotp_forum_visits" {
+  "visit_user" int(10) [not null, default: 0]
+  "visit_forum" int(10) [not null, default: 0]
+  "visit_message" int(10) [not null, default: 0]
+  "visit_date" timestamp [not null, default: 'current_timestamp()']
+
+  Indexes {
+    (visit_forum, visit_user, visit_message) [type: btree, name: "idx_fv"]
+  }
+}
+
+Table "dotp_forum_watch" {
+  "watch_user" "int(10) unsigned" [not null, default: 0]
+  "watch_forum" "int(10) unsigned" [default: 'NULL']
+  "watch_topic" "int(10) unsigned" [default: 'NULL']
+
+  Indexes {
+    (watch_user, watch_forum) [type: btree, name: "idx_fw1"]
+    (watch_user, watch_topic) [type: btree, name: "idx_fw2"]
+  }
+  Note: 'Links users to the forums/messages they are watching'
+}
+
+Table "dotp_gacl_acl" {
+  "id" int(11) [pk, not null, default: 0]
+  "section_value" varchar(80) [not null, default: ''system'']
+  "allow" int(11) [not null, default: 0]
+  "enabled" int(11) [not null, default: 0]
+  "return_value" longtext [default: 'NULL']
+  "note" longtext [default: 'NULL']
+  "updated_date" int(11) [not null, default: 0]
+
+  Indexes {
+    enabled [type: btree, name: "gacl_enabled_acl"]
+    section_value [type: btree, name: "gacl_section_value_acl"]
+    updated_date [type: btree, name: "gacl_updated_date_acl"]
+  }
+}
+
+Table "dotp_gacl_acl_sections" {
+  "id" int(11) [pk, not null, default: 0]
+  "value" varchar(80) [unique, not null, default: '''']
+  "order_value" int(11) [not null, default: 0]
+  "name" varchar(230) [not null, default: '''']
+  "hidden" int(11) [not null, default: 0]
+
+  Indexes {
+    hidden [type: btree, name: "gacl_hidden_acl_sections"]
+  }
+}
+
+Table "dotp_gacl_acl_seq" {
+  "id" int(11) [not null]
+}
+
+Table "dotp_gacl_aco" {
+  "id" int(11) [pk, not null, default: 0]
+  "section_value" varchar(80) [not null, default: ''0'']
+  "value" varchar(80) [not null, default: '''']
+  "order_value" int(11) [not null, default: 0]
+  "name" varchar(255) [not null, default: '''']
+  "hidden" int(11) [not null, default: 0]
+
+  Indexes {
+    hidden [type: btree, name: "gacl_hidden_aco"]
+    (section_value, value) [unique, name: "gacl_section_value_value_aco"]
+  }
+}
+
+Table "dotp_gacl_aco_map" {
+  "acl_id" int(11) [not null, default: 0]
+  "section_value" varchar(80) [not null, default: ''0'']
+  "value" varchar(80) [not null, default: '''']
+
+  Indexes {
+    (acl_id, section_value, value) [pk, name: "PRIMARY"]
+  }
+}
+
+Table "dotp_gacl_aco_sections" {
+  "id" int(11) [pk, not null, default: 0]
+  "value" varchar(80) [unique, not null, default: '''']
+  "order_value" int(11) [not null, default: 0]
+  "name" varchar(230) [not null, default: '''']
+  "hidden" int(11) [not null, default: 0]
+
+  Indexes {
+    hidden [type: btree, name: "gacl_hidden_aco_sections"]
+  }
+}
+
+Table "dotp_gacl_aco_sections_seq" {
+  "id" int(11) [not null]
+}
+
+Table "dotp_gacl_aco_seq" {
+  "id" int(11) [not null]
+}
+
+Table "dotp_gacl_aro" {
+  "id" int(11) [pk, not null, default: 0]
+  "section_value" varchar(80) [not null, default: ''0'']
+  "value" varchar(80) [not null, default: '''']
+  "order_value" int(11) [not null, default: 0]
+  "name" varchar(255) [not null, default: '''']
+  "hidden" int(11) [not null, default: 0]
+
+  Indexes {
+    hidden [type: btree, name: "gacl_hidden_aro"]
+    (section_value, value) [unique, name: "gacl_section_value_value_aro"]
+  }
+}
+
+Table "dotp_gacl_aro_groups" {
+  "id" int(11) [not null, default: 0]
+  "parent_id" int(11) [not null, default: 0]
+  "lft" int(11) [not null, default: 0]
+  "rgt" int(11) [not null, default: 0]
+  "name" varchar(255) [not null, default: '''']
+  "value" varchar(80) [not null, default: '''']
+
+  Indexes {
+    (lft, rgt) [type: btree, name: "gacl_lft_rgt_aro_groups"]
+    parent_id [type: btree, name: "gacl_parent_id_aro_groups"]
+    value [type: btree, name: "gacl_value_aro_groups"]
+    (id, value) [pk, name: "PRIMARY"]
+  }
+}
+
+Table "dotp_gacl_aro_groups_id_seq" {
+  "id" int(11) [not null]
+}
+
+Table "dotp_gacl_aro_groups_map" {
+  "acl_id" int(11) [not null, default: 0]
+  "group_id" int(11) [not null, default: 0]
+
+  Indexes {
+    (acl_id, group_id) [pk, name: "PRIMARY"]
+  }
+}
+
+Table "dotp_gacl_aro_map" {
+  "acl_id" int(11) [not null, default: 0]
+  "section_value" varchar(80) [not null, default: ''0'']
+  "value" varchar(80) [not null, default: '''']
+
+  Indexes {
+    (acl_id, section_value, value) [pk, name: "PRIMARY"]
+  }
+}
+
+Table "dotp_gacl_aro_sections" {
+  "id" int(11) [pk, not null, default: 0]
+  "value" varchar(80) [unique, not null, default: '''']
+  "order_value" int(11) [not null, default: 0]
+  "name" varchar(230) [not null, default: '''']
+  "hidden" int(11) [not null, default: 0]
+
+  Indexes {
+    hidden [type: btree, name: "gacl_hidden_aro_sections"]
+  }
+}
+
+Table "dotp_gacl_aro_sections_seq" {
+  "id" int(11) [not null]
+}
+
+Table "dotp_gacl_aro_seq" {
+  "id" int(11) [not null]
+}
+
+Table "dotp_gacl_axo" {
+  "id" int(11) [pk, not null, default: 0]
+  "section_value" varchar(80) [not null, default: ''0'']
+  "value" varchar(80) [not null, default: '''']
+  "order_value" int(11) [not null, default: 0]
+  "name" varchar(255) [not null, default: '''']
+  "hidden" int(11) [not null, default: 0]
+
+  Indexes {
+    hidden [type: btree, name: "gacl_hidden_axo"]
+    (section_value, value) [unique, name: "gacl_section_value_value_axo"]
+  }
+}
+
+Table "dotp_gacl_axo_groups" {
+  "id" int(11) [not null, default: 0]
+  "parent_id" int(11) [not null, default: 0]
+  "lft" int(11) [not null, default: 0]
+  "rgt" int(11) [not null, default: 0]
+  "name" varchar(255) [not null, default: '''']
+  "value" varchar(80) [not null, default: '''']
+
+  Indexes {
+    (rgt, lft) [type: btree, name: "gacl_lft_rgt_axo_groups"]
+    parent_id [type: btree, name: "gacl_parent_id_axo_groups"]
+    value [type: btree, name: "gacl_value_axo_groups"]
+    (id, value) [pk, name: "PRIMARY"]
+  }
+}
+
+Table "dotp_gacl_axo_groups_id_seq" {
+  "id" int(11) [not null]
+}
+
+Table "dotp_gacl_axo_groups_map" {
+  "acl_id" int(11) [not null, default: 0]
+  "group_id" int(11) [not null, default: 0]
+
+  Indexes {
+    (acl_id, group_id) [pk, name: "PRIMARY"]
+  }
+}
+
+Table "dotp_gacl_axo_map" {
+  "acl_id" int(11) [not null, default: 0]
+  "section_value" varchar(80) [not null, default: ''0'']
+  "value" varchar(80) [not null, default: '''']
+
+  Indexes {
+    (acl_id, section_value, value) [pk, name: "PRIMARY"]
+  }
+}
+
+Table "dotp_gacl_axo_sections" {
+  "id" int(11) [pk, not null, default: 0]
+  "value" varchar(80) [unique, not null, default: '''']
+  "order_value" int(11) [not null, default: 0]
+  "name" varchar(230) [not null, default: '''']
+  "hidden" int(11) [not null, default: 0]
+
+  Indexes {
+    hidden [type: btree, name: "gacl_hidden_axo_sections"]
+  }
+}
+
+Table "dotp_gacl_axo_sections_seq" {
+  "id" int(11) [not null]
+}
+
+Table "dotp_gacl_axo_seq" {
+  "id" int(11) [not null]
+}
+
+Table "dotp_gacl_groups_aro_map" {
+  "group_id" int(11) [not null, default: 0]
+  "aro_id" int(11) [not null, default: 0]
+
+  Indexes {
+    (group_id, aro_id) [pk, name: "PRIMARY"]
+  }
+}
+
+Table "dotp_gacl_groups_axo_map" {
+  "group_id" int(11) [not null, default: 0]
+  "axo_id" int(11) [not null, default: 0]
+
+  Indexes {
+    (group_id, axo_id) [pk, name: "PRIMARY"]
+  }
+}
+
+Table "dotp_gacl_phpgacl" {
+  "name" varchar(230) [pk, not null, default: '''']
+  "value" varchar(230) [not null, default: '''']
+}
+
+Table "dotp_history" {
+  "history_id" "int(10) unsigned" [pk, not null, increment]
+  "history_date" datetime [not null, default: ''0000-00-00 00:00:00'']
+  "history_user" int(10) [not null, default: 0]
+  "history_action" varchar(20) [not null, default: ''modify'']
+  "history_item" int(10) [not null]
+  "history_table" varchar(20) [not null, default: '''']
+  "history_project" int(10) [not null, default: 0]
+  "history_name" varchar(255) [default: 'NULL']
+  "history_changes" text [default: 'NULL']
+  "history_description" text [default: 'NULL']
+
+  Indexes {
+    history_item [type: btree, name: "index_history_item"]
+    (history_item, history_table) [type: btree, name: "index_history_module"]
+  }
+}
+
+Table "dotp_human_resource" {
+  "human_resource_id" int(11) [pk, not null, increment]
+  "human_resource_user_id" int(11) [not null]
+  "human_resource_lattes_url" text [default: 'NULL']
+  "human_resource_mon" int(11) [default: 'NULL']
+  "human_resource_tue" int(11) [default: 'NULL']
+  "human_resource_wed" int(11) [default: 'NULL']
+  "human_resource_thu" int(11) [default: 'NULL']
+  "human_resource_fri" int(11) [default: 'NULL']
+  "human_resource_sat" int(11) [default: 'NULL']
+  "human_resource_sun" int(11) [default: 'NULL']
+
+  Indexes {
+    human_resource_user_id [type: btree, name: "human_resource_user_id"]
+  }
+}
+
+Table "dotp_human_resources_role" {
+  "human_resources_role_id" int(11) [pk, not null, increment]
+  "human_resources_role_name" text [not null]
+  "human_resources_role_authority" text [default: 'NULL']
+  "human_resources_role_responsability" text [default: 'NULL']
+  "human_resources_role_competence" text [default: 'NULL']
+  "human_resources_role_company_id" int(11) [not null]
+
+  Indexes {
+    human_resources_role_company_id [type: btree, name: "human_resources_role_company_id"]
+  }
+}
+
+Table "dotp_human_resource_allocation" {
+  "human_resource_allocation_id" int(11) [pk, not null, increment]
+  "project_tasks_estimated_roles_id" int(11) [not null]
+  "human_resource_id" int(11) [not null]
+
+  Indexes {
+    human_resource_id [type: btree, name: "human_resource_id"]
+    project_tasks_estimated_roles_id [type: btree, name: "project_tasks_estimated_roles_id"]
+  }
+}
+
+Table "dotp_human_resource_performance" {
+  "id" "bigint(20) unsigned" [pk, not null, increment]
+  "company_id" int(11) [not null]
+  "human_resource_id" int(11) [not null]
+  "performance_score" tinyint(4) [not null, note: '1: Low, 2: Medium, 3: High']
+  "potential_score" tinyint(4) [not null, note: '1: Low, 2: Medium, 3: High']
+  "facilitator_notes" text [default: 'NULL']
+  "evaluation_date" date [not null]
+  "created_at" timestamp [default: 'NULL']
+  "updated_at" timestamp [default: 'NULL']
+}
+
+Table "dotp_human_resource_roles" {
+  "human_resource_roles_id" int(11) [pk, not null, increment]
+  "human_resources_role_id" int(11) [not null]
+  "human_resource_id" int(11) [not null]
+
+  Indexes {
+    human_resources_role_id [type: btree, name: "human_resources_role_id"]
+    human_resource_id [type: btree, name: "human_resource_id"]
+  }
+}
+
+Table "dotp_human_resource_skills" {
+  "id" "bigint(20) unsigned" [pk, not null, increment]
+  "human_resource_id" int(11) [not null]
+  "skill_id" "bigint(20) unsigned" [not null]
+  "proficiency_level" tinyint(4) [not null, default: 1]
+}
+
+Table "dotp_initiating" {
+  "initiating_id" int(11) [pk, not null, increment]
+  "initiating_title" varchar(255) [not null]
+  "initiating_manager" int(11) [not null]
+  "initiating_create_by" int(11) [not null]
+  "initiating_date_create" datetime [not null]
+  "initiating_justification" varchar(2000) [default: 'NULL']
+  "initiating_objective" varchar(2000) [default: 'NULL']
+  "initiating_expected_result" varchar(2000) [default: 'NULL']
+  "initiating_premise" varchar(2000) [default: 'NULL']
+  "initiating_restrictions" varchar(2000) [default: 'NULL']
+  "initiating_budget" float [default: 0]
+  "initiating_start_date" date [default: 'NULL']
+  "initiating_end_date" date [default: 'NULL']
+  "initiating_milestone" varchar(2000) [default: 'NULL']
+  "initiating_success" varchar(2000) [default: 'NULL']
+  "initiating_approved" int(1) [default: 0]
+  "initiating_authorized" int(1) [default: 0]
+  "initiating_completed" int(1) [not null, default: 0]
+  "initiating_approved_comments" varchar(2000) [default: 'NULL']
+  "initiating_authorized_comments" varchar(2000) [default: 'NULL']
+  "project_id" int(11) [default: 'NULL']
+}
+
+Table "dotp_initiating_stakeholder" {
+  "initiating_stakeholder_id" int(11) [pk, not null, increment]
+  "initiating_id" int(11) [not null]
+  "contact_id" int(11) [not null]
+  "stakeholder_responsibility" varchar(100) [default: 'NULL']
+  "stakeholder_interest" varchar(100) [default: 'NULL']
+  "stakeholder_power" varchar(100) [default: 'NULL']
+  "stakeholder_strategy" varchar(100) [default: 'NULL']
+}
+
+Table "dotp_links" {
+  "link_id" int(11) [pk, not null, increment]
+  "link_url" varchar(255) [not null, default: '''']
+  "link_project" int(11) [not null, default: 0]
+  "link_task" int(11) [not null, default: 0]
+  "link_name" varchar(255) [not null, default: '''']
+  "link_parent" int(11) [default: 0]
+  "link_description" text [default: 'NULL']
+  "link_owner" int(11) [default: 0]
+  "link_date" datetime [default: 'NULL']
+  "link_icon" varchar(20) [default: ''obj/'']
+  "link_category" int(11) [not null, default: 0]
+
+  Indexes {
+    link_parent [type: btree, name: "idx_link_parent"]
+    link_project [type: btree, name: "idx_link_project"]
+    link_task [type: btree, name: "idx_link_task"]
+  }
+}
+
+Table "dotp_modules" {
+  "mod_id" int(11) [not null, increment]
+  "mod_name" varchar(64) [not null, default: '''']
+  "mod_directory" varchar(64) [not null, default: '''']
+  "mod_version" varchar(10) [not null, default: '''']
+  "mod_setup_class" varchar(64) [not null, default: '''']
+  "mod_type" varchar(64) [not null, default: '''']
+  "mod_active" "int(1) unsigned" [not null, default: 0]
+  "mod_ui_name" varchar(20) [not null, default: '''']
+  "mod_ui_icon" varchar(64) [not null, default: '''']
+  "mod_ui_order" tinyint(3) [not null, default: 0]
+  "mod_ui_active" "int(1) unsigned" [not null, default: 0]
+  "mod_description" varchar(255) [not null, default: '''']
+  "permissions_item_table" char(100) [default: 'NULL']
+  "permissions_item_field" char(100) [default: 'NULL']
+  "permissions_item_label" char(100) [default: 'NULL']
+
+  Indexes {
+    (mod_id, mod_directory) [pk, name: "PRIMARY"]
+  }
+}
+
+Table "dotp_monitoring_baseline" {
+  "baseline_id" int(11) [pk, not null, increment]
+  "project_id" "int(10) unsigned" [not null, default: 0]
+  "baseline_name" varchar(255) [default: 'NULL']
+  "baseline_version" varchar(255) [default: 'NULL']
+  "baseline_observation" text [default: 'NULL']
+  "user_id" int(11) [not null]
+  "baseline_date" timestamp [not null, default: ''0000-00-00 00:00:00'']
+}
+
+Table "dotp_monitoring_baseline_task" {
+  "baseline_task_id" int(11) [pk, not null, increment]
+  "baseline_id" "int(10) unsigned" [not null, default: 0]
+  "task_id" "int(10) unsigned" [not null, default: 0]
+  "task_start_date" datetime [default: 'NULL']
+  "task_duration" "float unsigned" [default: 0]
+  "task_duration_type" int(11) [not null, default: 1]
+  "task_hours_worked" "float unsigned" [default: 0]
+  "task_end_date" datetime [default: 'NULL']
+  "task_percent_complete" tinyint(4) [default: 'NULL']
+}
+
+Table "dotp_monitoring_baseline_task_log" {
+  "baseline_task_id_log" int(11) [pk, not null, increment]
+  "baseline_task_id" "int(10) unsigned" [not null, default: 0]
+  "task_log_id" "int(10) unsigned" [not null, default: 0]
+  "task_log_creator" int(11) [not null, default: 0]
+  "task_log_hours" float [not null, default: 0]
+  "task_log_date" datetime [default: 'NULL']
+}
+
+Table "dotp_monitoring_baseline_user_cost" {
+  "baseline_cost_id" int(11) [pk, not null, increment]
+  "baseline_id" "int(10) unsigned" [not null, default: 0]
+  "cost_id" "int(11) unsigned" [not null, default: 0]
+  "user_id" "int(11) unsigned" [not null]
+  "cost_value" decimal(10,2) [default: 0.00]
+  "cost_per_use" decimal(11,0) [default: 'NULL']
+  "cost_dt_begin" datetime [not null]
+  "cost_dt_end" datetime [default: 'NULL']
+}
+
+Table "dotp_monitoring_change_request" {
+  "change_id" int(10) [pk, not null, increment]
+  "task_id" int(10) [default: 0]
+  "change_impact" int(11) [not null, default: 0]
+  "change_status" int(11) [default: 'NULL']
+  "change_description" text [not null]
+  "change_cause" text [not null]
+  "change_request" text [not null]
+  "user_id" int(10) [not null, default: 0]
+  "change_date_limit" datetime [not null, default: ''0000-00-00 00:00:00'']
+  "meeting_id" "int(10) unsigned" [default: 'NULL']
+  "project_id" int(10) [not null]
+}
+
+Table "dotp_monitoring_meeting" {
+  "meeting_id" "int(10) unsigned" [pk, not null, increment]
+  "project_id" "int(10) unsigned" [not null, default: 0]
+  "dt_meeting_begin" timestamp [not null, default: 'current_timestamp()']
+  "ds_title" text [not null]
+  "ds_subject" text [not null]
+  "dt_meeting_end" timestamp [not null, default: ''0000-00-00 00:00:00'']
+  "meeting_type_id" int(10) [not null]
+}
+
+Table "dotp_monitoring_meeting_item" {
+  "meeting_item_id" int(11) [pk, not null, increment]
+  "meeting_item_description" text [default: 'NULL']
+  "knownledge_area" text [default: 'NULL']
+  "language" text [default: 'NULL']
+  "item_order" int(11) [default: 'NULL']
+}
+
+Table "dotp_monitoring_meeting_item_select" {
+  "meeting_item_select_id" "int(10) unsigned" [pk, not null, increment]
+  "meeting_item_id" "int(10) unsigned" [not null, default: 0]
+  "meeting_id" "int(10) unsigned" [not null, default: 0]
+  "status" "int(10) unsigned" [not null, default: 0]
+}
+
+Table "dotp_monitoring_meeting_item_senior" {
+  "meeting_item_senior_id" "int(10) unsigned" [pk, not null, increment]
+  "meeting_percentual" decimal(10,2) [default: 0.00]
+  "meeting_size" "int(10) unsigned" [not null, default: 0]
+  "meeting_idc" decimal(10,2) [default: 0.00]
+  "meeting_idp" decimal(10,2) [default: 0.00]
+  "meeting_vp" decimal(10,2) [default: 0.00]
+  "meeting_va" decimal(10,2) [default: 0.00]
+  "meeting_cr" decimal(10,2) [default: 0.00]
+  "meeting_baseline" "int(10) unsigned" [not null, default: 0]
+  "meeting_id" "int(10) unsigned" [not null, default: 0]
+}
+
+Table "dotp_monitoring_meeting_item_tasks_delivered" {
+  "meeting_item_taks_delivered_id" "int(10) unsigned" [pk, not null, increment]
+  "task_id" "int(10) unsigned" [not null, default: 0]
+  "meeting_id" "int(10) unsigned" [not null, default: 0]
+}
+
+Table "dotp_monitoring_meeting_type" {
+  "meeting_type_id" int(11) [pk, not null, increment]
+  "meeting_type_name" varchar(255) [default: 'NULL']
+}
+
+Table "dotp_monitoring_meeting_user" {
+  "meeting_user_id" "int(10) unsigned" [pk, not null, increment]
+  "user_id" "int(10) unsigned" [not null, default: 0]
+  "meeting_id" "int(10) unsigned" [not null, default: 0]
+}
+
+Table "dotp_monitoring_quality" {
+  "quality_id" int(11) [pk, not null, increment]
+  "quality_type_id" int(11) [not null]
+  "quality_description" text [default: 'NULL']
+  "user_id" int(11) [default: 'NULL']
+  "quality_status_id" int(11) [not null]
+  "quality_date_end" datetime [default: 'NULL']
+  "task_id" int(11) [not null]
+}
+
+Table "dotp_monitoring_quality_status" {
+  "quality_status_id" int(11) [pk, not null, increment]
+  "quality_status_name" varchar(255) [default: 'NULL']
+}
+
+Table "dotp_monitoring_quality_type" {
+  "quality_type_id" int(11) [pk, not null, increment]
+  "quality_type_name" varchar(255) [default: 'NULL']
+}
+
+Table "dotp_monitoring_responsibility_matriz" {
+  "responsibility_id" int(11) [pk, not null, increment]
+  "responsibility_description" varchar(255) [default: 'NULL']
+  "responsibility_user_id_consultation" int(11) [default: 'NULL']
+  "responsibility_user_id_execut" int(11) [default: 'NULL']
+  "responsibility_user_id_support" int(11) [default: 'NULL']
+  "responsibility_user_id_approve" int(11) [default: 'NULL']
+  "project_id" int(11) [not null]
+}
+
+Table "dotp_monitoring_user_cost" {
+  "cost_id" int(11) [pk, not null, increment]
+  "user_id" int(11) [not null]
+  "cost_value" decimal(10,2) [default: 0.00]
+  "cost_per_use" decimal(11,0) [default: 'NULL']
+  "cost_dt_begin" datetime [not null]
+  "cost_dt_end" datetime [default: 'NULL']
+}
+
+Table "dotp_need_for_training" {
+  "project_id" int(11) [pk, not null]
+  "description" text [default: 'NULL']
+}
+
+Table "dotp_permissions" {
+  "permission_id" int(11) [pk, not null, increment]
+  "permission_user" int(11) [not null, default: 0]
+  "permission_grant_on" varchar(12) [not null, default: '''']
+  "permission_item" int(11) [not null, default: 0]
+  "permission_value" int(11) [not null, default: 0]
+
+  Indexes {
+    permission_user [type: btree, name: "idx_puser"]
+    permission_value [type: btree, name: "idx_pvalue"]
+    (permission_grant_on, permission_item, permission_user) [unique, name: "idx_pgrant_on"]
+  }
+}
+
+Table "dotp_post_mortem_analysis" {
+  "pma_id" int(11) [pk, not null, increment]
+  "project_name" varchar(255) [not null, default: '''']
+  "project_start_date" datetime [default: 'NULL']
+  "project_end_date" datetime [default: 'NULL']
+  "project_planned_start_date" datetime [default: 'NULL']
+  "project_planned_end_date" datetime [default: 'NULL']
+  "project_meeting_date" datetime [default: 'NULL']
+  "planned_budget" text [default: 'NULL']
+  "budget" text [default: 'NULL']
+  "participants" text [default: 'NULL']
+  "project_strength" text [default: 'NULL']
+  "project_weaknesses" text [default: 'NULL']
+  "improvement_suggestions" text [default: 'NULL']
+  "conclusions" text [default: 'NULL']
+}
+
+Table "dotp_projects" {
+  "project_id" int(11) [pk, not null, increment]
+  "project_company" int(11) [not null, default: 0]
+  "project_company_internal" int(11) [not null, default: 0]
+  "project_department" int(11) [not null, default: 0]
+  "project_name" varchar(255) [default: 'NULL']
+  "project_short_name" varchar(10) [default: 'NULL']
+  "project_owner" int(11) [default: 0]
+  "project_url" varchar(255) [default: 'NULL']
+  "project_demo_url" varchar(255) [default: 'NULL']
+  "project_start_date" datetime [default: 'NULL']
+  "project_end_date" datetime [default: 'NULL']
+  "project_status" int(11) [default: 0]
+  "project_percent_complete" tinyint(4) [default: 0]
+  "project_color_identifier" varchar(6) [default: ''eeeeee'']
+  "project_description" text [default: 'NULL']
+  "project_target_budget" decimal(10,2) [default: 0.00]
+  "project_actual_budget" decimal(10,2) [default: 0.00]
+  "project_creator" int(11) [default: 0]
+  "project_private" "tinyint(3) unsigned" [default: 0]
+  "project_departments" char(100) [default: 'NULL']
+  "project_contacts" char(100) [default: 'NULL']
+  "project_priority" tinyint(4) [default: 0]
+  "project_type" smallint(6) [not null, default: 0]
+
+  Indexes {
+    project_end_date [type: btree, name: "idx_edate"]
+    project_company [type: btree, name: "idx_proj1"]
+    project_owner [type: btree, name: "idx_project_owner"]
+    project_start_date [type: btree, name: "idx_sdate"]
+    project_short_name [type: btree, name: "project_short_name"]
+  }
+}
+
+Table "dotp_project_contacts" {
+  "project_id" int(10) [not null]
+  "contact_id" int(10) [not null]
+}
+
+Table "dotp_project_departments" {
+  "project_id" int(10) [not null]
+  "department_id" int(10) [not null]
+}
+
+Table "dotp_project_designer_options" {
+  "pd_option_id" int(11) [pk, not null, increment]
+  "pd_option_user" int(11) [unique, not null, default: 0]
+  "pd_option_view_project" int(1) [not null, default: 1]
+  "pd_option_view_gantt" int(1) [not null, default: 1]
+  "pd_option_view_tasks" int(1) [not null, default: 1]
+  "pd_option_view_actions" int(1) [not null, default: 1]
+  "pd_option_view_addtasks" int(1) [not null, default: 1]
+  "pd_option_view_files" int(1) [not null, default: 1]
+}
+
+Table "dotp_project_eap_items" {
+  "id" int(11) [pk, not null, increment]
+  "project_id" int(11) [default: 'NULL']
+  "sort_order" int(11) [default: 'NULL']
+  "item_name" text [default: 'NULL']
+  "number" text [default: 'NULL']
+  "is_leaf" text [default: 'NULL']
+  "identation" text [default: 'NULL']
+}
+
+Table "dotp_project_ear_items" {
+  "id" int(11) [pk, not null, increment]
+  "project_id" int(11) [default: 'NULL']
+  "sort_order" int(11) [default: 'NULL']
+  "item_name" text [default: 'NULL']
+  "number" text [default: 'NULL']
+  "is_leaf" text [default: 'NULL']
+  "identation" text [default: 'NULL']
+}
+
+Table "dotp_project_minutes" {
+  "id" int(11) [pk, not null, increment]
+  "project_id" int(11) [default: 'NULL']
+  "minute_date" datetime [default: 'NULL']
+  "description" text [default: 'NULL']
+  "isEffort" int(11) [default: 0]
+  "isDuration" int(11) [default: 0]
+  "isResource" int(11) [default: 0]
+  "isSize" int(11) [default: 0]
+}
+
+Table "dotp_project_tasks_estimated_roles" {
+  "id" int(11) [pk, not null, increment]
+  "task_id" int(11) [default: 'NULL']
+  "role_id" int(11) [default: 'NULL']
+}
+
+Table "dotp_project_tasks_estimations" {
+  "id" int(11) [pk, not null, increment]
+  "task_id" int(11) [default: 'NULL']
+  "effort" float [default: 'NULL']
+  "effort_unit" text [default: 'NULL']
+  "duration" float [default: 'NULL']
+}
+
+Table "dotp_quality_assurance_item" {
+  "id" int(11) [pk, not null, increment]
+  "quality_planning_id" int(11) [default: 'NULL']
+  "what" text [default: 'NULL']
+  "who" text [default: 'NULL']
+  "when" text [default: 'NULL']
+  "how" text [default: 'NULL']
+}
+
+Table "dotp_quality_control_analiysis_question" {
+  "id" int(11) [pk, not null, increment]
+  "goal_id" int(11) [default: 'NULL']
+  "question" text [default: 'NULL']
+  "target" text [default: 'NULL']
+}
+
+Table "dotp_quality_control_goal" {
+  "id" int(11) [pk, not null, increment]
+  "quality_planning_id" int(11) [default: 'NULL']
+  "gqm_goal_object" text [default: 'NULL']
+  "gqm_goal_propose" text [default: 'NULL']
+  "gqm_goal_respect_to" text [default: 'NULL']
+  "gqm_goal_point_of_view" text [default: 'NULL']
+  "gqm_goal_context" text [default: 'NULL']
+}
+
+Table "dotp_quality_control_metric" {
+  "id" int(11) [pk, not null, increment]
+  "question_id" int(11) [default: 'NULL']
+  "metric" text [default: 'NULL']
+  "how_to_collect" text [default: 'NULL']
+}
+
+Table "dotp_quality_control_requirement" {
+  "id" int(11) [pk, not null, increment]
+  "quality_planning_id" int(11) [default: 'NULL']
+  "requirement" text [default: 'NULL']
+}
+
+Table "dotp_quality_planning" {
+  "id" int(11) [pk, not null, increment]
+  "project_id" int(11) [default: 'NULL']
+  "quality_controlling" text [default: 'NULL']
+  "quality_assurance" text [default: 'NULL']
+  "quality_policies" text [default: 'NULL']
+}
+
+Table "dotp_raci" {
+  "id" "bigint(20) unsigned" [pk, not null, increment]
+  "human_resource_id" int(11) [not null]
+  "project_id" int(11) [not null]
+  "activity_name" varchar(255) [not null]
+  "raci_role" dotp_raci_raci_role_enum [not null]
+  "created_at" timestamp [default: 'NULL']
+  "updated_at" timestamp [default: 'NULL']
+}
+
+Table "dotp_resources" {
+  "resource_id" int(11) [pk, not null, increment]
+  "resource_name" varchar(255) [not null, default: '''']
+  "resource_key" varchar(64) [not null, default: '''']
+  "resource_type" int(11) [not null, default: 0]
+  "resource_note" text [not null]
+  "resource_max_allocation" int(11) [not null, default: 100]
+
+  Indexes {
+    resource_name [type: btree, name: "resource_name"]
+    resource_type [type: btree, name: "resource_type"]
+  }
+}
+
+Table "dotp_resource_tasks" {
+  "resource_id" int(11) [not null, default: 0]
+  "task_id" int(11) [not null, default: 0]
+  "percent_allocated" int(11) [not null, default: 100]
+
+  Indexes {
+    resource_id [type: btree, name: "resource_id"]
+    (task_id, resource_id) [type: btree, name: "task_id"]
+  }
+}
+
+Table "dotp_resource_types" {
+  "resource_type_id" int(11) [pk, not null, increment]
+  "resource_type_name" varchar(255) [not null, default: '''']
+  "resource_type_note" text [default: 'NULL']
+}
+
+Table "dotp_risks" {
+  "risk_id" int(11) [pk, not null, increment]
+  "risk_name" varchar(255) [not null]
+  "risk_cause" varchar(255) [not null]
+  "risk_consequence" varchar(255) [not null]
+  "risk_responsible" int(11) [not null]
+  "risk_description" varchar(2000) [default: 'NULL']
+  "risk_probability" varchar(15) [not null]
+  "risk_impact" varchar(15) [not null]
+  "risk_answer_to_risk" varchar(2000) [default: 'NULL']
+  "risk_project" int(11) [default: 'NULL']
+  "risk_task" int(11) [default: 'NULL']
+  "risk_notes" varchar(2000) [default: 'NULL']
+  "risk_potential_other_projects" varchar(2) [not null]
+  "risk_lessons_learned" varchar(2000) [default: 'NULL']
+  "risk_priority" varchar(15) [not null]
+  "risk_active" int(11) [not null]
+  "risk_strategy" int(11) [not null]
+  "risk_prevention_actions" varchar(2000) [default: 'NULL']
+  "risk_contingency_plan" varchar(2000) [default: 'NULL']
+  "risk_period_start_date" date [default: 'NULL']
+  "risk_period_end_date" date [default: 'NULL']
+  "risk_status" varchar(45) [default: 'NULL']
+  "risk_ear_classification" varchar(45) [default: 'NULL']
+  "risk_triggers" varchar(2000) [default: 'NULL']
+  "risk_is_contingency" int(11) [default: 'NULL']
+}
+
+Table "dotp_risks_management_plan" {
+  "risk_plan_id" int(11) [pk, not null, default: 0]
+  "project_id" int(11) [default: 'NULL']
+  "probability_super_low" varchar(250) [default: 'NULL']
+  "probability_low" varchar(250) [default: 'NULL']
+  "probability_medium" varchar(250) [default: 'NULL']
+  "probability_high" varchar(250) [default: 'NULL']
+  "probability_super_high" varchar(250) [default: 'NULL']
+  "impact_super_low" varchar(250) [default: 'NULL']
+  "impact_low" varchar(250) [default: 'NULL']
+  "impact_medium" varchar(250) [default: 'NULL']
+  "impact_high" varchar(250) [default: 'NULL']
+  "impact_super_high" varchar(250) [default: 'NULL']
+  "matrix_superlow_superlow" varchar(30) [default: 'NULL']
+  "matrix_superlow_low" varchar(30) [default: 'NULL']
+  "matrix_superlow_medium" varchar(30) [default: 'NULL']
+  "matrix_superlow_high" varchar(30) [default: 'NULL']
+  "matrix_superlow_superhigh" varchar(30) [default: 'NULL']
+  "matrix_low_superlow" varchar(30) [default: 'NULL']
+  "matrix_low_low" varchar(30) [default: 'NULL']
+  "matrix_low_medium" varchar(30) [default: 'NULL']
+  "matrix_low_high" varchar(30) [default: 'NULL']
+  "matrix_low_superhigh" varchar(30) [default: 'NULL']
+  "matrix_medium_superlow" varchar(30) [default: 'NULL']
+  "matrix_medium_low" varchar(30) [default: 'NULL']
+  "matrix_medium_medium" varchar(30) [default: 'NULL']
+  "matrix_medium_high" varchar(30) [default: 'NULL']
+  "matrix_medium_superhigh" varchar(30) [default: 'NULL']
+  "matrix_high_superlow" varchar(30) [default: 'NULL']
+  "matrix_high_low" varchar(30) [default: 'NULL']
+  "matrix_high_medium" varchar(30) [default: 'NULL']
+  "matrix_high_high" varchar(30) [default: 'NULL']
+  "matrix_high_superhigh" varchar(30) [default: 'NULL']
+  "matrix_superhigh_superlow" varchar(30) [default: 'NULL']
+  "matrix_superhigh_low" varchar(30) [default: 'NULL']
+  "matrix_superhigh_medium" varchar(30) [default: 'NULL']
+  "matrix_superhigh_high" varchar(30) [default: 'NULL']
+  "matrix_superhigh_superhigh" varchar(30) [default: 'NULL']
+  "risk_contengency_reserve_protocol" varchar(500) [default: 'NULL']
+  "risk_revision_frequency" varchar(3) [default: 'NULL']
+}
+
+Table "dotp_roles" {
+  "role_id" "int(10) unsigned" [pk, not null, increment]
+  "role_name" varchar(24) [not null, default: '''']
+  "role_description" varchar(255) [not null, default: '''']
+  "role_type" "int(3) unsigned" [not null, default: 0]
+  "role_module" "int(10) unsigned" [not null, default: 0]
+}
+
+Table "dotp_scope_requirements" {
+  "req_id" int(11) [pk, not null, increment]
+  "req_idname" varchar(6) [not null]
+  "req_description" text [not null]
+  "req_source" varchar(60) [not null]
+  "req_owner" varchar(60) [not null]
+  "req_categ_prefix_id" varchar(3) [not null]
+  "req_priority_id" varchar(20) [not null]
+  "req_status_id" varchar(20) [not null]
+  "req_version" varchar(20) [default: 'NULL']
+  "req_inclusiondate" date [not null]
+  "req_conclusiondate" date [default: 'NULL']
+  "eapitem_id" int(11) [default: 'NULL']
+  "req_testcase" text [default: 'NULL']
+  "project_id" int(11) [not null]
+
+  Indexes {
+    eapitem_id [type: btree, name: "eapitem_id"]
+    project_id [type: btree, name: "project_id"]
+    req_categ_prefix_id [type: btree, name: "req_categ_prefix_id"]
+    req_priority_id [type: btree, name: "req_priority_id"]
+    req_status_id [type: btree, name: "req_status_id"]
+  }
+}
+
+Table "dotp_scope_requirements_managplan" {
+  "req_managplan_id" int(11) [pk, not null, increment]
+  "project_id" int(11) [not null]
+  "req_managplan_collect_descr" text [default: 'NULL']
+  "req_managplan_reqcategories" text [default: 'NULL']
+  "req_managplan_reqprioritization" text [default: 'NULL']
+  "req_managplan_trac_descr" text [default: 'NULL']
+  "req_managplan_config_descr" text [default: 'NULL']
+  "req_managplan_verif_descr" text [default: 'NULL']
+
+  Indexes {
+    project_id [type: btree, name: "project_id"]
+  }
+}
+
+Table "dotp_scope_requirement_categories" {
+  "req_categ_prefix_id" varchar(3) [pk, not null]
+  "req_categ_description" text [default: 'NULL']
+  "req_categ_name" varchar(20) [not null]
+  "req_categ_priority" tinyint(4) [default: 'NULL']
+}
+
+Table "dotp_scope_requirement_priorities" {
+  "req_priority_id" varchar(20) [pk, not null]
+}
+
+Table "dotp_scope_requirement_status" {
+  "req_status_id" varchar(20) [pk, not null]
+}
+
+Table "dotp_scope_statement" {
+  "scope_id" int(11) [pk, not null, increment]
+  "project_id" int(11) [not null]
+  "scope_description" text [default: 'NULL']
+  "scope_acceptancecriteria" text [default: 'NULL']
+  "scope_deliverables" text [default: 'NULL']
+  "scope_exclusions" text [default: 'NULL']
+  "scope_constraints" text [default: 'NULL']
+  "scope_assumptions" text [default: 'NULL']
+
+  Indexes {
+    project_id [type: btree, name: "project_id"]
+  }
+}
+
+Table "dotp_sessions" {
+  "session_id" varchar(60) [pk, not null, default: '''']
+  "session_user" int(11) [not null, default: 0]
+  "session_data" longblob [default: 'NULL']
+  "session_updated" timestamp [not null, default: 'current_timestamp()']
+  "session_created" datetime [not null, default: ''0000-00-00 00:00:00'']
+
+  Indexes {
+    session_created [type: btree, name: "session_created"]
+    session_updated [type: btree, name: "session_updated"]
+  }
+}
+
+Table "dotp_skills" {
+  "skill_id" "bigint(20) unsigned" [pk, not null, increment]
+  "skill_name" varchar(255) [not null]
+  "skill_type" dotp_skills_skill_type_enum [not null, default: ''technical'']
+  "created_at" timestamp [default: 'NULL']
+  "updated_at" timestamp [default: 'NULL']
+}
+
+Table "dotp_syskeys" {
+  "syskey_id" "int(10) unsigned" [pk, not null, increment]
+  "syskey_name" varchar(48) [unique, not null, default: '''']
+  "syskey_label" varchar(255) [not null, default: '''']
+  "syskey_type" "int(1) unsigned" [not null, default: 0]
+  "syskey_sep1" char(2) [default: ''\n'']
+  "syskey_sep2" char(2) [not null, default: ''|'']
+}
+
+Table "dotp_sysvals" {
+  "sysval_id" "int(10) unsigned" [pk, not null, increment]
+  "sysval_key_id" "int(10) unsigned" [not null, default: 0]
+  "sysval_title" varchar(48) [unique, not null, default: '''']
+  "sysval_value" text [not null]
+}
+
+Table "dotp_tasks" {
+  "task_id" int(11) [pk, not null, increment]
+  "task_name" varchar(255) [default: 'NULL']
+  "task_parent" int(11) [default: 0]
+  "task_milestone" tinyint(1) [default: 0]
+  "task_project" int(11) [not null, default: 0]
+  "task_owner" int(11) [not null, default: 0]
+  "task_start_date" datetime [default: 'NULL']
+  "task_duration" "float unsigned" [default: 0]
+  "task_duration_type" int(11) [not null, default: 1]
+  "task_hours_worked" "float unsigned" [default: 0]
+  "task_end_date" datetime [default: 'NULL']
+  "task_status" int(11) [default: 0]
+  "task_priority" tinyint(4) [default: 0]
+  "task_percent_complete" tinyint(4) [default: 0]
+  "task_description" text [default: 'NULL']
+  "task_target_budget" decimal(10,2) [default: 0.00]
+  "task_related_url" varchar(255) [default: 'NULL']
+  "task_creator" int(11) [not null, default: 0]
+  "task_order" int(11) [not null, default: 0]
+  "task_client_publish" tinyint(1) [not null, default: 0]
+  "task_dynamic" tinyint(1) [not null, default: 0]
+  "task_access" int(11) [not null, default: 0]
+  "task_notify" int(11) [not null, default: 0]
+  "task_departments" char(100) [default: 'NULL']
+  "task_contacts" char(100) [default: 'NULL']
+  "task_custom" longtext [default: 'NULL']
+  "task_type" smallint(6) [not null, default: 0]
+
+  Indexes {
+    task_start_date [type: btree, name: "idx_task1"]
+    task_end_date [type: btree, name: "idx_task2"]
+    task_order [type: btree, name: "idx_task_order"]
+    task_owner [type: btree, name: "idx_task_owner"]
+    task_parent [type: btree, name: "idx_task_parent"]
+    task_project [type: btree, name: "idx_task_project"]
+  }
+}
+
+Table "dotp_tasks_mdp" {
+  "id" int(11) [pk, not null, increment]
+  "task_id" int(11) [default: 'NULL']
+  "pos_x" int(11) [default: 'NULL']
+  "pos_y" int(11) [default: 'NULL']
+}
+
+Table "dotp_tasks_workpackages" {
+  "task_id" int(11) [pk, not null, default: 0]
+  "eap_item_id" int(11) [default: 'NULL']
+}
+
+Table "dotp_task_contacts" {
+  "task_id" int(10) [not null]
+  "contact_id" int(10) [not null]
+
+  Indexes {
+    task_id [type: btree, name: "idx_task_contacts"]
+  }
+}
+
+Table "dotp_task_departments" {
+  "task_id" int(10) [not null]
+  "department_id" int(10) [not null]
+
+  Indexes {
+    task_id [type: btree, name: "idx_task_departments"]
+  }
+}
+
+Table "dotp_task_dependencies" {
+  "dependencies_task_id" int(11) [not null]
+  "dependencies_req_task_id" int(11) [not null]
+
+  Indexes {
+    (dependencies_task_id, dependencies_req_task_id) [pk, name: "PRIMARY"]
+  }
+}
+
+Table "dotp_task_log" {
+  "task_log_id" int(11) [pk, not null, increment]
+  "task_log_task" int(11) [not null, default: 0]
+  "task_log_name" varchar(255) [default: 'NULL']
+  "task_log_description" text [default: 'NULL']
+  "task_log_creator" int(11) [not null, default: 0]
+  "task_log_hours" float [not null, default: 0]
+  "task_log_date" datetime [default: 'NULL']
+  "task_log_costcode" varchar(8) [not null, default: '''']
+  "task_log_problem" tinyint(1) [default: 0]
+  "task_log_reference" tinyint(4) [default: 0]
+  "task_log_related_url" varchar(255) [default: 'NULL']
+
+  Indexes {
+    task_log_task [type: btree, name: "idx_log_task"]
+  }
+}
+
+Table "dotp_task_minute_members" {
+  "id" int(11) [pk, not null, increment]
+  "user_id" int(11) [default: 'NULL']
+  "task_minute_id" int(11) [default: 'NULL']
+}
+
+Table "dotp_tickets" {
+  "ticket" "int(10) unsigned" [pk, not null, increment]
+  "ticket_company" int(10) [not null, default: 0]
+  "ticket_project" int(10) [not null, default: 0]
+  "author" varchar(100) [not null, default: '''']
+  "recipient" varchar(100) [not null, default: '''']
+  "subject" varchar(100) [not null, default: '''']
+  "attachment" "tinyint(1) unsigned" [not null, default: 0]
+  "timestamp" "int(10) unsigned" [not null, default: 0]
+  "type" varchar(15) [not null, default: '''']
+  "assignment" "int(10) unsigned" [not null, default: 0]
+  "parent" "int(10) unsigned" [not null, default: 0]
+  "activity" "int(10) unsigned" [not null, default: 0]
+  "priority" "tinyint(1) unsigned" [not null, default: 1]
+  "cc" varchar(255) [not null, default: '''']
+  "body" text [not null]
+  "signature" text [default: 'NULL']
+
+  Indexes {
+    parent [type: btree, name: "parent"]
+    type [type: btree, name: "type"]
+  }
+}
+
+Table "dotp_users" {
+  "user_id" int(11) [pk, not null, increment]
+  "user_contact" int(11) [not null, default: 0]
+  "user_username" varchar(255) [not null, default: '''']
+  "user_password" varchar(255) [default: 'NULL']
+  "user_parent" int(11) [not null, default: 0]
+  "user_type" tinyint(3) [not null, default: 0]
+  "user_company" int(11) [default: 0]
+  "user_department" int(11) [default: 0]
+  "user_owner" int(11) [not null, default: 0]
+  "user_signature" text [default: 'NULL']
+
+  Indexes {
+    user_password [type: btree, name: "idx_pwd"]
+    user_username [type: btree, name: "idx_uid"]
+    user_parent [type: btree, name: "idx_user_parent"]
+  }
+}
+
+Table "dotp_user_access_log" {
+  "user_access_log_id" "int(10) unsigned" [pk, not null, increment]
+  "user_id" "int(10) unsigned" [not null]
+  "user_ip" varchar(15) [not null]
+  "date_time_in" datetime [default: ''0000-00-00 00:00:00'']
+  "date_time_out" datetime [default: ''0000-00-00 00:00:00'']
+  "date_time_last_action" datetime [default: ''0000-00-00 00:00:00'']
+}
+
+Table "dotp_user_events" {
+  "user_id" int(11) [not null, default: 0]
+  "event_id" int(11) [not null, default: 0]
+
+  Indexes {
+    (event_id, user_id) [type: btree, name: "uek1"]
+    (event_id, user_id) [type: btree, name: "uek2"]
+  }
+}
+
+Table "dotp_user_preferences" {
+  "pref_user" varchar(12) [not null, default: '''']
+  "pref_name" varchar(72) [not null, default: '''']
+  "pref_value" varchar(32) [not null, default: '''']
+
+  Indexes {
+    (pref_user, pref_name) [type: btree, name: "pref_user"]
+  }
+}
+
+Table "dotp_user_roles" {
+  "user_id" "int(10) unsigned" [not null, default: 0]
+  "role_id" "int(10) unsigned" [not null, default: 0]
+}
+
+Table "dotp_user_tasks" {
+  "user_id" int(11) [not null, default: 0]
+  "user_type" tinyint(4) [not null, default: 0]
+  "task_id" int(11) [not null, default: 0]
+  "perc_assignment" int(11) [not null, default: 100]
+  "user_task_priority" tinyint(4) [default: 0]
+
+  Indexes {
+    task_id [type: btree, name: "idx_user_tasks"]
+    user_type [type: btree, name: "user_type"]
+    (user_id, task_id) [pk, name: "PRIMARY"]
+  }
+}
+
+Table "dotp_user_task_pin" {
+  "user_id" int(11) [not null, default: 0]
+  "task_id" int(10) [not null, default: 0]
+  "task_pinned" tinyint(2) [not null, default: 1]
+
+  Indexes {
+    (user_id, task_id) [pk, name: "PRIMARY"]
+  }
+}
+
+Table "dotp_wbs_dictionary" {
+  "wbs_item_id" int(11) [pk, not null]
+  "description" text [default: 'NULL']
+}
+
+Table "migrations" {
+  "id" "int(10) unsigned" [pk, not null, increment]
+  "migration" varchar(255) [not null]
+  "batch" int(11) [not null]
+}
+
+Ref "FK_PROJECT_AQC_EXE":"dotp_projects"."project_id" ?<? "dotp_acquisition_execution"."project_id" [update: restrict, delete: cascade]
+
+Ref "FK_PROJECT_QUALITY":"dotp_projects"."project_id" ?<? "dotp_acquisition_planning"."project_id" [update: restrict, delete: cascade]
+
+Ref "FK_ACQUISITION_CRITERIA":"dotp_acquisition_planning"."id" ?<? "dotp_acquisition_planning_criteria"."acquisition_id" [update: restrict, delete: cascade]
+
+Ref "FK_AQUISITION_REQUIREMENT":"dotp_acquisition_planning"."id" ?<? "dotp_acquisition_planning_requirements"."acquisition_id" [update: restrict, delete: cascade]
+
+Ref "FK_ACQUISITION_ROLE":"dotp_acquisition_planning"."id" ?<? "dotp_acquisition_planning_roles"."acquisition_id" [update: restrict, delete: cascade]
+
+Ref "fk_budget_project_id":"dotp_projects"."project_id" <? "dotp_budget"."budget_project_id" [delete: cascade]
+
+Ref "fk_budget_reserve_project_id":"dotp_projects"."project_id" <? "dotp_budget_reserve"."budget_reserve_project_id" [delete: cascade]
+
+Ref "fk_communication_issuing":"dotp_contacts"."contact_id" <? "dotp_communication_issuing"."communication_stakeholder_id" [delete: cascade]
+
+Ref "fk_communication_receptor":"dotp_contacts"."contact_id" <? "dotp_communication_receptor"."communication_stakeholder_id" [delete: cascade]
+
+Ref "dotp_company_policies_ibfk_1":"dotp_companies"."company_id" <? "dotp_company_policies"."company_policies_company_id" [update: restrict, delete: cascade]
+
+Ref "fk_role_company":"dotp_companies"."company_id" ?<? "dotp_company_role"."company_id" [update: restrict, delete: cascade]
+
+Ref "fk_cost_human_resource_id":"dotp_human_resource"."human_resource_id" ?<? "dotp_costs"."cost_human_resource_id" [delete: cascade]
+
+Ref "fk_cost_human_resource_role_id":"dotp_human_resources_role"."human_resources_role_id" ?<? "dotp_costs"."cost_human_resource_role_id" [delete: cascade]
+
+Ref "fk_cost_project_id":"dotp_projects"."project_id" <? "dotp_costs"."cost_project_id" [update: cascade, delete: cascade]
+
+Ref "fk_estimation_eap_item":"dotp_project_eap_items"."id" ?<? "dotp_eap_item_estimations"."eap_item_id" [update: restrict, delete: cascade]
+
+Ref "dotp_human_resource_ibfk_1":"dotp_users"."user_id" <? "dotp_human_resource"."human_resource_user_id" [update: restrict, delete: cascade]
+
+Ref "dotp_human_resources_role_ibfk_1":"dotp_companies"."company_id" <? "dotp_human_resources_role"."human_resources_role_company_id" [update: restrict, delete: cascade]
+
+Ref "dotp_human_resource_allocation_ibfk_1":"dotp_human_resource"."human_resource_id" <? "dotp_human_resource_allocation"."human_resource_id" [update: cascade, delete: cascade]
+
+Ref "dotp_human_resource_allocation_ibfk_2":"dotp_project_tasks_estimated_roles"."id" <? "dotp_human_resource_allocation"."project_tasks_estimated_roles_id" [update: cascade, delete: cascade]
+
+Ref "dotp_human_resource_performance_company_id_foreign":"dotp_companies"."company_id" <? "dotp_human_resource_performance"."company_id" [update: restrict, delete: cascade]
+
+Ref "dotp_human_resource_performance_human_resource_id_foreign":"dotp_human_resource"."human_resource_id" <? "dotp_human_resource_performance"."human_resource_id" [update: restrict, delete: cascade]
+
+Ref "dotp_human_resource_roles_ibfk_1":"dotp_human_resources_role"."human_resources_role_id" <? "dotp_human_resource_roles"."human_resources_role_id" [update: restrict, delete: cascade]
+
+Ref "dotp_human_resource_roles_ibfk_2":"dotp_human_resource"."human_resource_id" <? "dotp_human_resource_roles"."human_resource_id" [update: restrict, delete: cascade]
+
+Ref "dotp_human_resource_skills_human_resource_id_foreign":"dotp_human_resource"."human_resource_id" <? "dotp_human_resource_skills"."human_resource_id" [update: restrict, delete: cascade]
+
+Ref "dotp_human_resource_skills_skill_id_foreign":"dotp_skills"."skill_id" <? "dotp_human_resource_skills"."skill_id" [update: restrict, delete: cascade]
+
+Ref "FK_PROJECT_NEED_FOR_TRAINING":"dotp_projects"."project_id" <? "dotp_need_for_training"."project_id" [update: restrict, delete: cascade]
+
+Ref "fk_eap_item_project":"dotp_projects"."project_id" ?<? "dotp_project_eap_items"."project_id" [update: restrict, delete: cascade]
+
+Ref "fk_ear_item_project":"dotp_projects"."project_id" ?<? "dotp_project_ear_items"."project_id" [update: restrict, delete: cascade]
+
+Ref "fk_minute_project":"dotp_projects"."project_id" ?<? "dotp_project_minutes"."project_id" [update: restrict, delete: cascade]
+
+Ref "fk_estimation_roles":"dotp_company_role"."id" ?<? "dotp_project_tasks_estimated_roles"."role_id" [update: restrict, delete: cascade]
+
+Ref "fk_estimation_task_roles":"dotp_tasks"."task_id" ?<? "dotp_project_tasks_estimated_roles"."task_id" [update: restrict, delete: cascade]
+
+Ref "fk_estimation_task_attributes":"dotp_tasks"."task_id" ?<? "dotp_project_tasks_estimations"."task_id" [update: restrict, delete: cascade]
+
+Ref "FK_PROJECT_QUALITY_ASSURANCE_ITEM":"dotp_quality_planning"."id" ?<? "dotp_quality_assurance_item"."quality_planning_id" [update: restrict, delete: cascade]
+
+Ref "FK_PROJECT_QUALITY_GOAL_QUESTION":"dotp_quality_control_goal"."id" ?<? "dotp_quality_control_analiysis_question"."goal_id" [update: restrict, delete: cascade]
+
+Ref "FK_PROJECT_QUALITY_CONTROL_GOAL":"dotp_quality_planning"."id" ?<? "dotp_quality_control_goal"."quality_planning_id" [update: restrict, delete: cascade]
+
+Ref "FK_PROJECT_QUALITY_METRIC":"dotp_quality_control_analiysis_question"."id" ?<? "dotp_quality_control_metric"."question_id" [update: restrict, delete: cascade]
+
+Ref "FK_PROJECT_QUALITY_CONTROL_REQUIREMENT":"dotp_quality_planning"."id" ?<? "dotp_quality_control_requirement"."quality_planning_id" [update: restrict, delete: cascade]
+
+Ref "FK_PROJECT_ACQUISITION":"dotp_projects"."project_id" ?<? "dotp_quality_planning"."project_id" [update: restrict, delete: cascade]
+
+Ref "dotp_raci_human_resource_id_foreign":"dotp_human_resource"."human_resource_id" <? "dotp_raci"."human_resource_id" [update: restrict, delete: cascade]
+
+Ref "dotp_raci_project_id_foreign":"dotp_projects"."project_id" <? "dotp_raci"."project_id" [update: restrict, delete: cascade]
+
+Ref "dotp_scope_requirements_ibfk_1":"dotp_scope_requirement_categories"."req_categ_prefix_id" <? "dotp_scope_requirements"."req_categ_prefix_id" [update: restrict, delete: restrict]
+
+Ref "dotp_scope_requirements_ibfk_2":"dotp_scope_requirement_priorities"."req_priority_id" <? "dotp_scope_requirements"."req_priority_id" [update: restrict, delete: restrict]
+
+Ref "dotp_scope_requirements_ibfk_3":"dotp_scope_requirement_status"."req_status_id" <? "dotp_scope_requirements"."req_status_id" [update: restrict, delete: restrict]
+
+Ref "dotp_scope_requirements_ibfk_4":"dotp_project_eap_items"."id" ?<? "dotp_scope_requirements"."eapitem_id" [update: restrict, delete: restrict]
+
+Ref "dotp_scope_requirements_ibfk_5":"dotp_projects"."project_id" <? "dotp_scope_requirements"."project_id" [update: restrict, delete: restrict]
+
+Ref "dotp_scope_requirements_managplan_ibfk_1":"dotp_projects"."project_id" <? "dotp_scope_requirements_managplan"."project_id" [update: restrict, delete: restrict]
+
+Ref "dotp_scope_statement_ibfk_1":"dotp_projects"."project_id" <? "dotp_scope_statement"."project_id" [update: restrict, delete: restrict]
+
+Ref "fk_mdp_task":"dotp_tasks"."task_id" ?<? "dotp_tasks_mdp"."task_id" [update: restrict, delete: cascade]
+
+Ref "fk_task_eap_item":"dotp_tasks"."task_id" <? "dotp_tasks_workpackages"."task_id" [update: restrict, delete: cascade]
+
+Ref "fk_task_minute_partipant_task":"dotp_project_minutes"."id" ?<? "dotp_task_minute_members"."task_minute_id" [update: restrict, delete: cascade]
+
+Ref "fk_task_minute_partipant_user":"dotp_contacts"."contact_id" ?<? "dotp_task_minute_members"."user_id"
+
+Ref "FK_WBS_ITEM_DICTIONARY":"dotp_project_eap_items"."id" <? "dotp_wbs_dictionary"."wbs_item_id" [update: restrict, delete: cascade]

@@ -23,6 +23,10 @@ return [
             'date_to' => 'End Date',
             'filter_btn' => 'Filter',
             'clear_btn' => 'Clear',
+            'all_time' => 'All Time',
+            'project_period' => '2013 - 2016 (Active)',
+            'placeholder_from' => 'From beginning',
+            'placeholder_to' => 'Until today',
         ],
 
         'cards' => [
@@ -33,9 +37,15 @@ return [
         ],
 
         'charts' => [
-            'timeline_title' => 'Projects Started (Last 6 Months)',
+            'timeline_title' => 'Projects & Tasks Timeline',
+            'timeline_projects' => 'Projects Started',
+            'timeline_tasks' => 'Tasks Planned / Started',
+            'timeline_monthly' => 'Monthly',
+            'timeline_yearly' => 'Yearly',
             'status_title' => 'Status Distribution',
-            'no_data' => 'No project data available.',
+            'status_projects' => 'Projects',
+            'status_tasks' => 'Tasks',
+            'no_data' => 'No data available for this period.',
         ],
 
         'latest_projects' => [

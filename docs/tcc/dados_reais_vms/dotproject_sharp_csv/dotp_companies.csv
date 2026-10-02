@@ -1,0 +1,8 @@
+﻿company_id,company_module,company_name,company_phone1,company_phone2,company_fax,company_address1,company_address2,company_city,company_state,company_zip,company_primary_url,company_owner,company_description,company_type,company_email,company_custom
+1,0,"Grupo de Qualidade de Software",32374107,,,"Trindade, Campus Universitário",,Florianópolis,"Santa Catarina",88063530,,1,,6,rafael.queiroz@posgrad.ufsc.br,
+2,0,"Tribunal de Contas do Estado do Rio de Janeiro",,,,,,,,,,1,,0,teste,
+3,0,Code+,,,,,,,,,,11,,0,,
+4,0,"Quality Software Group","+55 48 3456-7890",,"+55 48 3456-7891","Trindade, Campus Universitário",,Florianópolis,"Santa Catarina",88045-567,http://www.gqs.ufsc.br/,11,,0,contact@gqs.com,
+5,0,"USO PESSOAL S/A",4721040800,,4721040800,"Rua Joaquimm Garcia, S/n",,CamboriÃº,SC,88310456,http://www.camboriu.ifc.edu.br/,12,"Empresa criada de forma didÃ¡tica.",6,usopessoal@ifc.edu.br,
+6,0,"EMPRESA BSI18 LTDA",4721040800,,4721040800,"Rua Joaquimm Garcia, S/n",,CamboriÃº,SC,88340000,http://www.camboriu.ifc.edu.br/,1,"Empresa de carÃ¡cter didÃ¡tico para os primeiros passos.",6,bsi18@ifc.edu.br,
+7,0,"[TSI-EaD] Instituto Federal Catarinense",47999812970,,473346-1161,"Rua Joaquim Garcia, S/N",,CamboriÃº,SC,88340-000,http://www.camboriu.ifc.edu.br,1,"Instituto tem a missÃ£o de educar e formar bons cidadÃ£os!",5,andre.moraes@ifc.edu.br,

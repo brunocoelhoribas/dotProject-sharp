@@ -16,7 +16,7 @@ class AiAssistantService {
      * @throws JsonException
      */
     public function askProjectAssistant(?Project $currentProject, string $userMessage, array $chatHistory = []): string {
-        $model = env('OLLAMA_MODEL', 'llama3.2');
+        $model = config('openai.model', env('OLLAMA_MODEL', 'llama3.2'));
 
         $locale = app()->getLocale();
         $languageMap = [
@@ -26,53 +26,45 @@ class AiAssistantService {
         ];
         $targetLanguage = $languageMap[$locale] ?? 'Português do Brasil';
 
-        $companies = Company::select('company_id', 'company_name')->get();
+        $countCompanies = Company::count();
+        $countProjects  = Project::count();
 
-        $allProjects = Project::select(
-            'project_id',
-            'project_name',
-            'project_status',
-            'project_company',
-            'project_target_budget',
-            'project_percent_complete'
-        )
-            ->with(['company:company_id,company_name', 'owner.contact:contact_id,contact_first_name'])
-            ->get();
+        $statusCounts = Project::selectRaw('project_status, count(*) as total')
+            ->groupBy('project_status')
+            ->pluck('total', 'project_status')
+            ->toArray();
 
-        $systemContext = [
-            'countCompanies' => $companies->count(),
-            'companies' => $companies->toArray(),
-            'countProjects' => $allProjects->count(),
-            'projectsSummary' => $allProjects->toArray(),
+        // Contexto global mínimo — apenas métricas, sem listagem de projetos
+        $contextParts = [
+            "Empresas: $countCompanies",
+            "Projetos: $countProjects",
+            "Status(0=proposta,1=aberto,2=andamento,3=pausa,4=concluido,5=cancelado): " . json_encode($statusCounts),
         ];
 
         if ($currentProject) {
-            $currentProject->load(['owner.contact']);
+            $currentProject->load(['company:company_id,company_name', 'owner.contact:contact_id,contact_first_name']);
 
-            $projectData = $currentProject->toArray();
-            $projectData['tasks'] = Task::where('task_project', $currentProject->project_id)->get()->toArray();
-            $systemContext['projeto_atual_visualizado'] = $projectData;
+            $tasks = Task::where('task_project', $currentProject->project_id)
+                ->select('task_name', 'task_status', 'task_percent_complete', 'task_end_date')
+                ->limit(8)
+                ->get()
+                ->map(fn ($t) => "{$t->task_name} (status:{$t->task_status} {$t->task_percent_complete}%)")
+                ->join('; ');
+
+            $contextParts[] = "PROJETO ATUAL: id={$currentProject->project_id}"
+                . " nome=\"{$currentProject->project_name}\""
+                . " empresa=\"{$currentProject->company?->company_name}\""
+                . " responsavel=\"{$currentProject->owner?->contact?->contact_first_name}\""
+                . " status={$currentProject->project_status}"
+                . " progresso={$currentProject->project_percent_complete}%"
+                . " orcamento={$currentProject->project_target_budget}"
+                . " descricao=\"{$currentProject->project_description}\"";
+            $contextParts[] = "TAREFAS DO PROJETO ATUAL: $tasks";
         }
 
-        $contextJson = json_encode($systemContext, JSON_THROW_ON_ERROR);
+        $contextBlock = implode("\n", $contextParts);
 
-        $systemPrompt = "
-            Você é um assistente de Inteligência Artificial Especialista em Gerenciamento de Projetos (PMO) integrado ao sistema dotProject+.
-            Você tem conhecimento global sobre todas as empresas e projetos do sistema.
-
-            REGRA CRÍTICA DE IDIOMA: Você DEVE se comunicar e responder a todas as perguntas estritamente no idioma: $targetLanguage.
-            Mesmo se o usuário digitar uma pergunta em outro idioma, traduza internamente e responda sempre em $targetLanguage.
-
-            Aqui estão os dados reais e atuais do banco de dados do sistema para você usar como base:
-            $contextJson
-
-            Suas regras de comportamento:
-            - Seja direto, profissional e prestativo.
-            - Se o usuário perguntar sobre o 'projeto atual', consulte a chave 'projeto_atual_visualizado'.
-            - Se perguntar sobre outros projetos ou visão geral, use a chave 'projectsSummary'.
-            - Não invente dados. Se não estiver no JSON de contexto, diga que você ainda não tem acesso a essa informação.
-            - Use formatação Markdown (negrito, listas) para tornar a leitura fácil no chat.
-        ";
+        $systemPrompt = "Você é um assistente PMO do sistema dotProject#. Responda SEMPRE em $targetLanguage, de forma direta e concisa (máximo 3 parágrafos ou 5 itens de lista). Use Markdown. Não invente dados.\n\nDADOS DO SISTEMA:\n$contextBlock";
 
         $messages = [
             [
@@ -80,8 +72,12 @@ class AiAssistantService {
             ]
         ];
 
-        foreach ($chatHistory as $msg) {
-            $messages[] = ['role' => $msg['role'], 'content' => $msg['content']];
+        // Limita o histórico às últimas 4 mensagens para manter a inferência rápida na CPU
+        $recentHistory = array_slice($chatHistory, -4);
+        foreach ($recentHistory as $msg) {
+            if (!empty($msg['role']) && !empty($msg['content'])) {
+                $messages[] = ['role' => $msg['role'], 'content' => $msg['content']];
+            }
         }
 
         $messages[] = ['role' => 'user', 'content' => $userMessage];
@@ -91,7 +87,7 @@ class AiAssistantService {
                 'model' => $model,
                 'messages' => $messages,
                 'temperature' => 0.4,
-                'max_tokens' => 1024,
+                'max_tokens' => 350,
             ]);
 
             return $response->choices[0]->message->content ?? '';

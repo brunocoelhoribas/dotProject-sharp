@@ -135,8 +135,8 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/quality/metric/{metric}', [PlanningQualityController::class, 'destroyMetric'])->name('quality.destroy_metric');
 
         Route::post('/communication/event', [CommunicationController::class, 'store'])->name('communication.store');
-        Route::get('/communication/event/{communication}', [CommunicationController::class, 'show'])->name('show');
-        Route::put('/communication/event/{communication}', [CommunicationController::class, 'update'])->name('update');
+        Route::get('/communication/event/{communication}', [CommunicationController::class, 'show'])->name('communication.show');
+        Route::put('/communication/event/{communication}', [CommunicationController::class, 'update'])->name('communication.update');
         Route::delete('/communication/event/{communication}', [CommunicationController::class, 'destroy'])->name('communication.destroy');
         Route::post('/communication/channel', [CommunicationController::class, 'storeChannel'])->name('communication.store_channel');
         Route::post('/channel/delete', [CommunicationController::class, 'destroyChannel'])->name('communication.destroy_channel');

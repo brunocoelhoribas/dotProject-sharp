@@ -1,0 +1,1749 @@
+// ============================================================================
+// DER Completo - dotProject# (Proposto 2026 - VM 192.168.56.101)
+// Total de Tabelas: 145
+// Total de Relacionamentos Mapeados: 128
+// Compativel com: https://dbdiagram.io e DBeaver
+// ============================================================================
+
+
+// ------------------------------------------------------------
+// Modulo: 01_NUCLEO_PROJETOS_E_ORGANIZACAO
+// ------------------------------------------------------------
+
+Table "dotp_companies" {
+  "company_id" int(10) [pk, increment]
+  "company_module" int(10) [not null]
+  "company_name" varchar(100)
+  "company_phone1" varchar(30)
+  "company_phone2" varchar(30)
+  "company_fax" varchar(30)
+  "company_address1" varchar(50)
+  "company_address2" varchar(50)
+  "company_city" varchar(30)
+  "company_state" varchar(30)
+  "company_zip" varchar(11)
+  "company_primary_url" varchar(255)
+  "company_owner" int(11) [not null]
+  "company_description" text
+  "company_type" int(3) [not null]
+  "company_email" varchar(255)
+  "company_custom" longtext
+}
+
+Table "dotp_contacts" {
+  "contact_id" int(11) [pk, increment]
+  "contact_first_name" varchar(30)
+  "contact_last_name" varchar(30)
+  "contact_order_by" varchar(30) [not null]
+  "contact_title" varchar(50)
+  "contact_birthday" date
+  "contact_job" varchar(255)
+  "contact_company" varchar(100) [not null]
+  "contact_department" tinytext
+  "contact_type" varchar(20)
+  "contact_email" varchar(255)
+  "contact_email2" varchar(255)
+  "contact_url" varchar(255)
+  "contact_phone" varchar(30)
+  "contact_phone2" varchar(30)
+  "contact_fax" varchar(30)
+  "contact_mobile" varchar(30)
+  "contact_address1" varchar(60)
+  "contact_address2" varchar(60)
+  "contact_city" varchar(30)
+  "contact_state" varchar(30)
+  "contact_zip" varchar(11)
+  "contact_country" varchar(30)
+  "contact_jabber" varchar(255)
+  "contact_icq" varchar(20)
+  "contact_msn" varchar(255)
+  "contact_yahoo" varchar(255)
+  "contact_aol" varchar(30)
+  "contact_notes" text
+  "contact_project" int(11) [not null]
+  "contact_icon" varchar(20)
+  "contact_owner" int(10) unsigned
+  "contact_private" tinyint(3) unsigned
+}
+
+Table "dotp_departments" {
+  "dept_id" int(10) unsigned [pk, increment]
+  "dept_parent" int(10) unsigned [not null]
+  "dept_company" int(10) unsigned [not null]
+  "dept_name" tinytext [not null]
+  "dept_phone" varchar(30)
+  "dept_fax" varchar(30)
+  "dept_address1" varchar(30)
+  "dept_address2" varchar(30)
+  "dept_city" varchar(30)
+  "dept_state" varchar(30)
+  "dept_zip" varchar(11)
+  "dept_url" varchar(25)
+  "dept_desc" text
+  "dept_owner" int(10) unsigned [not null]
+}
+
+Table "dotp_project_contacts" {
+  "project_id" int(10) [not null]
+  "contact_id" int(10) [not null]
+}
+
+Table "dotp_project_departments" {
+  "project_id" int(10) [not null]
+  "department_id" int(10) [not null]
+}
+
+Table "dotp_projects" {
+  "project_id" int(11) [pk, increment]
+  "project_company" int(11) [not null]
+  "project_company_internal" int(11) [not null]
+  "project_department" int(11) [not null]
+  "project_name" varchar(255)
+  "project_short_name" varchar(10)
+  "project_owner" int(11)
+  "project_url" varchar(255)
+  "project_demo_url" varchar(255)
+  "project_start_date" datetime
+  "project_end_date" datetime
+  "project_status" int(11)
+  "project_percent_complete" tinyint(4)
+  "project_color_identifier" varchar(6)
+  "project_description" text
+  "project_target_budget" decimal(10,2)
+  "project_actual_budget" decimal(10,2)
+  "project_creator" int(11)
+  "project_private" tinyint(3) unsigned
+  "project_departments" char(100)
+  "project_contacts" char(100)
+  "project_priority" tinyint(4)
+  "project_type" smallint(6) [not null]
+}
+
+Table "dotp_users" {
+  "user_id" int(11) [pk, increment]
+  "user_contact" int(11) [not null]
+  "user_username" varchar(255) [not null]
+  "user_password" varchar(255)
+  "user_parent" int(11) [not null]
+  "user_type" tinyint(3) [not null]
+  "user_company" int(11)
+  "user_department" int(11)
+  "user_owner" int(11) [not null]
+  "user_signature" text
+}
+
+
+// ------------------------------------------------------------
+// Modulo: 02_TAREFAS_CRONOGRAMA_EAP
+// ------------------------------------------------------------
+
+Table "dotp_eap_item_estimations" {
+  "id" int(11) [pk, increment]
+  "eap_item_id" int(11)
+  "size" float
+  "size_unit" text
+}
+
+Table "dotp_monitoring_baseline_task" {
+  "baseline_task_id" int(11) [pk, increment]
+  "baseline_id" int(10) unsigned [not null]
+  "task_id" int(10) unsigned [not null]
+  "task_start_date" datetime
+  "task_duration" float unsigned
+  "task_duration_type" int(11) [not null]
+  "task_hours_worked" float unsigned
+  "task_end_date" datetime
+  "task_percent_complete" tinyint(4)
+}
+
+Table "dotp_monitoring_baseline_task_log" {
+  "baseline_task_id_log" int(11) [pk, increment]
+  "baseline_task_id" int(10) unsigned [not null]
+  "task_log_id" int(10) unsigned [not null]
+  "task_log_creator" int(11) [not null]
+  "task_log_hours" float [not null]
+  "task_log_date" datetime
+}
+
+Table "dotp_monitoring_meeting_item_tasks_delivered" {
+  "meeting_item_taks_delivered_id" int(10) unsigned [pk, increment]
+  "task_id" int(10) unsigned [not null]
+  "meeting_id" int(10) unsigned [not null]
+}
+
+Table "dotp_project_eap_items" {
+  "id" int(11) [pk, increment]
+  "project_id" int(11)
+  "sort_order" int(11)
+  "item_name" text
+  "number" text
+  "is_leaf" text
+  "identation" text
+}
+
+Table "dotp_project_tasks_estimated_roles" {
+  "id" int(11) [pk, increment]
+  "task_id" int(11)
+  "role_id" int(11)
+}
+
+Table "dotp_project_tasks_estimations" {
+  "id" int(11) [pk, increment]
+  "task_id" int(11)
+  "effort" float
+  "effort_unit" text
+  "duration" float
+}
+
+Table "dotp_resource_tasks" {
+  "resource_id" int(11) [not null]
+  "task_id" int(11) [not null]
+  "percent_allocated" int(11) [not null]
+}
+
+Table "dotp_task_contacts" {
+  "task_id" int(10) [not null]
+  "contact_id" int(10) [not null]
+}
+
+Table "dotp_task_departments" {
+  "task_id" int(10) [not null]
+  "department_id" int(10) [not null]
+}
+
+Table "dotp_task_dependencies" {
+  "dependencies_task_id" int(11) [pk]
+  "dependencies_req_task_id" int(11) [pk]
+}
+
+Table "dotp_task_log" {
+  "task_log_id" int(11) [pk, increment]
+  "task_log_task" int(11) [not null]
+  "task_log_name" varchar(255)
+  "task_log_description" text
+  "task_log_creator" int(11) [not null]
+  "task_log_hours" float [not null]
+  "task_log_date" datetime
+  "task_log_costcode" varchar(8) [not null]
+  "task_log_problem" tinyint(1)
+  "task_log_reference" tinyint(4)
+  "task_log_related_url" varchar(255)
+}
+
+Table "dotp_task_minute_members" {
+  "id" int(11) [pk, increment]
+  "user_id" int(11)
+  "task_minute_id" int(11)
+}
+
+Table "dotp_tasks" {
+  "task_id" int(11) [pk, increment]
+  "task_name" varchar(255)
+  "task_parent" int(11)
+  "task_milestone" tinyint(1)
+  "task_project" int(11) [not null]
+  "task_owner" int(11) [not null]
+  "task_start_date" datetime
+  "task_duration" float unsigned
+  "task_duration_type" int(11) [not null]
+  "task_hours_worked" float unsigned
+  "task_end_date" datetime
+  "task_status" int(11)
+  "task_priority" tinyint(4)
+  "task_percent_complete" tinyint(4)
+  "task_description" text
+  "task_target_budget" decimal(10,2)
+  "task_related_url" varchar(255)
+  "task_creator" int(11) [not null]
+  "task_order" int(11) [not null]
+  "task_client_publish" tinyint(1) [not null]
+  "task_dynamic" tinyint(1) [not null]
+  "task_access" int(11) [not null]
+  "task_notify" int(11) [not null]
+  "task_departments" char(100)
+  "task_contacts" char(100)
+  "task_custom" longtext
+  "task_type" smallint(6) [not null]
+}
+
+Table "dotp_tasks_mdp" {
+  "id" int(11) [pk, increment]
+  "task_id" int(11)
+  "pos_x" int(11)
+  "pos_y" int(11)
+}
+
+Table "dotp_tasks_workpackages" {
+  "task_id" int(11) [pk]
+  "eap_item_id" int(11)
+}
+
+Table "dotp_user_task_pin" {
+  "user_id" int(11) [pk]
+  "task_id" int(10) [pk]
+  "task_pinned" tinyint(2) [not null]
+}
+
+Table "dotp_user_tasks" {
+  "user_id" int(11) [pk]
+  "user_type" tinyint(4) [not null]
+  "task_id" int(11) [pk]
+  "perc_assignment" int(11) [not null]
+  "user_task_priority" tinyint(4)
+}
+
+Table "dotp_wbs_dictionary" {
+  "wbs_item_id" int(11) [pk]
+  "description" text
+}
+
+
+// ------------------------------------------------------------
+// Modulo: 03_RH_COMPETENCIAS_RACI_DESEMPENHO
+// ------------------------------------------------------------
+
+Table "dotp_acquisition_planning_roles" {
+  "id" int(11) [pk, increment]
+  "acquisition_id" int(11)
+  "role" text
+  "responsability" text
+}
+
+Table "dotp_company_role" {
+  "id" int(11) [pk, increment]
+  "company_id" int(11)
+  "sort_order" int(11)
+  "role_name" text
+  "identation" text
+}
+
+Table "dotp_human_resource" {
+  "human_resource_id" int(11) [pk, increment]
+  "human_resource_user_id" int(11) [not null]
+  "human_resource_lattes_url" text
+  "human_resource_mon" int(11)
+  "human_resource_tue" int(11)
+  "human_resource_wed" int(11)
+  "human_resource_thu" int(11)
+  "human_resource_fri" int(11)
+  "human_resource_sat" int(11)
+  "human_resource_sun" int(11)
+}
+
+Table "dotp_human_resource_allocation" {
+  "human_resource_allocation_id" int(11) [pk, increment]
+  "project_tasks_estimated_roles_id" int(11) [not null]
+  "human_resource_id" int(11) [not null]
+}
+
+Table "dotp_human_resource_performance" {
+  "id" bigint(20) unsigned [pk, increment]
+  "company_id" int(11) [not null]
+  "human_resource_id" int(11) [not null]
+  "performance_score" tinyint(4) [not null]
+  "potential_score" tinyint(4) [not null]
+  "facilitator_notes" text
+  "evaluation_date" date [not null]
+  "created_at" timestamp
+  "updated_at" timestamp
+}
+
+Table "dotp_human_resource_roles" {
+  "human_resource_roles_id" int(11) [pk, increment]
+  "human_resources_role_id" int(11) [not null]
+  "human_resource_id" int(11) [not null]
+}
+
+Table "dotp_human_resource_skills" {
+  "id" bigint(20) unsigned [pk, increment]
+  "human_resource_id" int(11) [not null]
+  "skill_id" bigint(20) unsigned [not null]
+  "proficiency_level" tinyint(4) [not null]
+}
+
+Table "dotp_human_resources_role" {
+  "human_resources_role_id" int(11) [pk, increment]
+  "human_resources_role_name" text [not null]
+  "human_resources_role_authority" text
+  "human_resources_role_responsability" text
+  "human_resources_role_competence" text
+  "human_resources_role_company_id" int(11) [not null]
+}
+
+Table "dotp_raci" {
+  "id" bigint(20) unsigned [pk, increment]
+  "human_resource_id" int(11) [not null]
+  "project_id" int(11) [not null]
+  "activity_name" varchar(255) [not null]
+  "raci_role" enum('R','A','C','I') [not null]
+  "created_at" timestamp
+  "updated_at" timestamp
+}
+
+Table "dotp_roles" {
+  "role_id" int(10) unsigned [pk, increment]
+  "role_name" varchar(24) [not null]
+  "role_description" varchar(255) [not null]
+  "role_type" int(3) unsigned [not null]
+  "role_module" int(10) unsigned [not null]
+}
+
+Table "dotp_skills" {
+  "skill_id" bigint(20) unsigned [pk, increment]
+  "skill_name" varchar(255) [not null]
+  "skill_type" enum('technical','behavioral') [not null]
+  "created_at" timestamp
+  "updated_at" timestamp
+}
+
+Table "dotp_user_roles" {
+  "user_id" int(10) unsigned [not null]
+  "role_id" int(10) unsigned [not null]
+}
+
+
+// ------------------------------------------------------------
+// Modulo: 04_CUSTOS_ORCAMENTO_MONITORAMENTO
+// ------------------------------------------------------------
+
+Table "dotp_billingcode" {
+  "billingcode_id" bigint(20) [pk, increment]
+  "billingcode_name" varchar(25) [not null]
+  "billingcode_value" float [not null]
+  "billingcode_desc" varchar(255) [not null]
+  "billingcode_status" int(1) [not null]
+  "company_id" bigint(20) [not null]
+}
+
+Table "dotp_budget" {
+  "budget_id" int(11) [pk, increment]
+  "budget_project_id" int(11) [not null]
+  "budget_reserve_management" decimal(9,2) [not null]
+  "budget_sub_total" decimal(9,2) [not null]
+  "budget_total" decimal(9,2) [not null]
+}
+
+Table "dotp_budget_reserve" {
+  "budget_reserve_id" int(11) [pk, increment]
+  "budget_reserve_project_id" int(11) [not null]
+  "budget_reserve_risk_id" int(11) [not null]
+  "budget_reserve_description" varchar(250)
+  "budget_reserve_financial_impact" int(11)
+  "budget_reserve_inicial_month" datetime
+  "budget_reserve_final_month" datetime
+  "budget_reserve_value_total" decimal(9,2)
+}
+
+Table "dotp_costs" {
+  "cost_id" int(11) [pk, increment]
+  "cost_type_id" int(11) [not null]
+  "cost_project_id" int(11) [not null]
+  "cost_description" varchar(150) [not null]
+  "cost_quantity" int(11)
+  "cost_date_begin" datetime
+  "cost_date_end" datetime
+  "cost_value_unitary" decimal(9,2)
+  "cost_value_total" decimal(9,2)
+  "cost_human_resource_id" int(11)
+  "cost_human_resource_role_id" int(11)
+}
+
+Table "dotp_monitoring_baseline" {
+  "baseline_id" int(11) [pk, increment]
+  "project_id" int(10) unsigned [not null]
+  "baseline_name" varchar(255)
+  "baseline_version" varchar(255)
+  "baseline_observation" text
+  "user_id" int(11) [not null]
+  "baseline_date" timestamp [not null]
+}
+
+Table "dotp_monitoring_baseline_user_cost" {
+  "baseline_cost_id" int(11) [pk, increment]
+  "baseline_id" int(10) unsigned [not null]
+  "cost_id" int(11) unsigned [not null]
+  "user_id" int(11) unsigned [not null]
+  "cost_value" decimal(10,2)
+  "cost_per_use" decimal(11,0)
+  "cost_dt_begin" datetime [not null]
+  "cost_dt_end" datetime
+}
+
+Table "dotp_monitoring_user_cost" {
+  "cost_id" int(11) [pk, increment]
+  "user_id" int(11) [not null]
+  "cost_value" decimal(10,2)
+  "cost_per_use" decimal(11,0)
+  "cost_dt_begin" datetime [not null]
+  "cost_dt_end" datetime
+}
+
+
+// ------------------------------------------------------------
+// Modulo: 05_RISCOS_E_EAR
+// ------------------------------------------------------------
+
+Table "dotp_project_ear_items" {
+  "id" int(11) [pk, increment]
+  "project_id" int(11)
+  "sort_order" int(11)
+  "item_name" text
+  "number" text
+  "is_leaf" text
+  "identation" text
+}
+
+Table "dotp_risks" {
+  "risk_id" int(11) [pk, increment]
+  "risk_name" varchar(255) [not null]
+  "risk_cause" varchar(255) [not null]
+  "risk_consequence" varchar(255) [not null]
+  "risk_responsible" int(11) [not null]
+  "risk_description" varchar(2000)
+  "risk_probability" varchar(15) [not null]
+  "risk_impact" varchar(15) [not null]
+  "risk_answer_to_risk" varchar(2000)
+  "risk_project" int(11)
+  "risk_task" int(11)
+  "risk_notes" varchar(2000)
+  "risk_potential_other_projects" varchar(2) [not null]
+  "risk_lessons_learned" varchar(2000)
+  "risk_priority" varchar(15) [not null]
+  "risk_active" int(11) [not null]
+  "risk_strategy" int(11) [not null]
+  "risk_prevention_actions" varchar(2000)
+  "risk_contingency_plan" varchar(2000)
+  "risk_period_start_date" date
+  "risk_period_end_date" date
+  "risk_status" varchar(45)
+  "risk_ear_classification" varchar(45)
+  "risk_triggers" varchar(2000)
+  "risk_is_contingency" int(11)
+}
+
+Table "dotp_risks_management_plan" {
+  "risk_plan_id" int(11) [pk]
+  "project_id" int(11)
+  "probability_super_low" varchar(250)
+  "probability_low" varchar(250)
+  "probability_medium" varchar(250)
+  "probability_high" varchar(250)
+  "probability_super_high" varchar(250)
+  "impact_super_low" varchar(250)
+  "impact_low" varchar(250)
+  "impact_medium" varchar(250)
+  "impact_high" varchar(250)
+  "impact_super_high" varchar(250)
+  "matrix_superlow_superlow" varchar(30)
+  "matrix_superlow_low" varchar(30)
+  "matrix_superlow_medium" varchar(30)
+  "matrix_superlow_high" varchar(30)
+  "matrix_superlow_superhigh" varchar(30)
+  "matrix_low_superlow" varchar(30)
+  "matrix_low_low" varchar(30)
+  "matrix_low_medium" varchar(30)
+  "matrix_low_high" varchar(30)
+  "matrix_low_superhigh" varchar(30)
+  "matrix_medium_superlow" varchar(30)
+  "matrix_medium_low" varchar(30)
+  "matrix_medium_medium" varchar(30)
+  "matrix_medium_high" varchar(30)
+  "matrix_medium_superhigh" varchar(30)
+  "matrix_high_superlow" varchar(30)
+  "matrix_high_low" varchar(30)
+  "matrix_high_medium" varchar(30)
+  "matrix_high_high" varchar(30)
+  "matrix_high_superhigh" varchar(30)
+  "matrix_superhigh_superlow" varchar(30)
+  "matrix_superhigh_low" varchar(30)
+  "matrix_superhigh_medium" varchar(30)
+  "matrix_superhigh_high" varchar(30)
+  "matrix_superhigh_superhigh" varchar(30)
+  "risk_contengency_reserve_protocol" varchar(500)
+  "risk_revision_frequency" varchar(3)
+}
+
+
+// ------------------------------------------------------------
+// Modulo: 06_INICIACAO_TAP
+// ------------------------------------------------------------
+
+Table "dotp_initiating" {
+  "initiating_id" int(11) [pk, increment]
+  "initiating_title" varchar(255) [not null]
+  "initiating_manager" int(11) [not null]
+  "initiating_create_by" int(11) [not null]
+  "initiating_date_create" datetime [not null]
+  "initiating_justification" varchar(2000)
+  "initiating_objective" varchar(2000)
+  "initiating_expected_result" varchar(2000)
+  "initiating_premise" varchar(2000)
+  "initiating_restrictions" varchar(2000)
+  "initiating_budget" float
+  "initiating_start_date" date
+  "initiating_end_date" date
+  "initiating_milestone" varchar(2000)
+  "initiating_success" varchar(2000)
+  "initiating_approved" int(1)
+  "initiating_authorized" int(1)
+  "initiating_completed" int(1) [not null]
+  "initiating_approved_comments" varchar(2000)
+  "initiating_authorized_comments" varchar(2000)
+  "project_id" int(11)
+}
+
+Table "dotp_initiating_stakeholder" {
+  "initiating_stakeholder_id" int(11) [pk, increment]
+  "initiating_id" int(11) [not null]
+  "contact_id" int(11) [not null]
+  "stakeholder_responsibility" varchar(100)
+  "stakeholder_interest" varchar(100)
+  "stakeholder_power" varchar(100)
+  "stakeholder_strategy" varchar(100)
+}
+
+
+// ------------------------------------------------------------
+// Modulo: 07_QUALIDADE
+// ------------------------------------------------------------
+
+Table "dotp_monitoring_quality" {
+  "quality_id" int(11) [pk, increment]
+  "quality_type_id" int(11) [not null]
+  "quality_description" text
+  "user_id" int(11)
+  "quality_status_id" int(11) [not null]
+  "quality_date_end" datetime
+  "task_id" int(11) [not null]
+}
+
+Table "dotp_monitoring_quality_status" {
+  "quality_status_id" int(11) [pk, increment]
+  "quality_status_name" varchar(255)
+}
+
+Table "dotp_monitoring_quality_type" {
+  "quality_type_id" int(11) [pk, increment]
+  "quality_type_name" varchar(255)
+}
+
+Table "dotp_quality_assurance_item" {
+  "id" int(11) [pk, increment]
+  "quality_planning_id" int(11)
+  "what" text
+  "who" text
+  "when" text
+  "how" text
+}
+
+Table "dotp_quality_control_analiysis_question" {
+  "id" int(11) [pk, increment]
+  "goal_id" int(11)
+  "question" text
+  "target" text
+}
+
+Table "dotp_quality_control_goal" {
+  "id" int(11) [pk, increment]
+  "quality_planning_id" int(11)
+  "gqm_goal_object" text
+  "gqm_goal_propose" text
+  "gqm_goal_respect_to" text
+  "gqm_goal_point_of_view" text
+  "gqm_goal_context" text
+}
+
+Table "dotp_quality_control_metric" {
+  "id" int(11) [pk, increment]
+  "question_id" int(11)
+  "metric" text
+  "how_to_collect" text
+}
+
+Table "dotp_quality_control_requirement" {
+  "id" int(11) [pk, increment]
+  "quality_planning_id" int(11)
+  "requirement" text
+}
+
+Table "dotp_quality_planning" {
+  "id" int(11) [pk, increment]
+  "project_id" int(11)
+  "quality_controlling" text
+  "quality_assurance" text
+  "quality_policies" text
+}
+
+
+// ------------------------------------------------------------
+// Modulo: 08_COMUNICACOES
+// ------------------------------------------------------------
+
+Table "dotp_communication" {
+  "communication_id" int(11) [pk, increment]
+  "communication_title" varchar(255) [not null]
+  "communication_information" varchar(2000) [not null]
+  "communication_frequency_id" int(11) [not null]
+  "communication_channel_id" int(11) [not null]
+  "communication_project_id" int(11) [not null]
+  "communication_restrictions" varchar(2000) [not null]
+  "communication_date" varchar(30) [not null]
+  "communication_responsible_authorization" varchar(80) [not null]
+}
+
+Table "dotp_communication_channel" {
+  "communication_channel_id" int(11) [pk, increment]
+  "communication_channel" varchar(255) [not null]
+}
+
+Table "dotp_communication_frequency" {
+  "communication_frequency_id" int(11) [pk, increment]
+  "communication_frequency" varchar(255) [not null]
+  "communication_frequency_hasdate" char(3)
+}
+
+Table "dotp_communication_issuing" {
+  "communication_issuing_id" int(11) [pk, increment]
+  "communication_id" int(11) [not null]
+  "communication_stakeholder_id" int(11) [not null]
+}
+
+Table "dotp_communication_receptor" {
+  "communication_receptor_id" int(11) [pk, increment]
+  "communication_id" int(11) [not null]
+  "communication_stakeholder_id" int(11) [not null]
+}
+
+Table "dotp_monitoring_meeting" {
+  "meeting_id" int(10) unsigned [pk, increment]
+  "project_id" int(10) unsigned [not null]
+  "dt_meeting_begin" timestamp [not null]
+  "ds_title" text [not null]
+  "ds_subject" text [not null]
+  "dt_meeting_end" timestamp [not null]
+  "meeting_type_id" int(10) [not null]
+}
+
+Table "dotp_monitoring_meeting_item" {
+  "meeting_item_id" int(11) [pk, increment]
+  "meeting_item_description" text
+  "knownledge_area" text
+  "language" text
+  "item_order" int(11)
+}
+
+Table "dotp_monitoring_meeting_item_select" {
+  "meeting_item_select_id" int(10) unsigned [pk, increment]
+  "meeting_item_id" int(10) unsigned [not null]
+  "meeting_id" int(10) unsigned [not null]
+  "status" int(10) unsigned [not null]
+}
+
+Table "dotp_monitoring_meeting_item_senior" {
+  "meeting_item_senior_id" int(10) unsigned [pk, increment]
+  "meeting_percentual" decimal(10,2)
+  "meeting_size" int(10) unsigned [not null]
+  "meeting_idc" decimal(10,2)
+  "meeting_idp" decimal(10,2)
+  "meeting_vp" decimal(10,2)
+  "meeting_va" decimal(10,2)
+  "meeting_cr" decimal(10,2)
+  "meeting_baseline" int(10) unsigned [not null]
+  "meeting_id" int(10) unsigned [not null]
+}
+
+Table "dotp_monitoring_meeting_type" {
+  "meeting_type_id" int(11) [pk, increment]
+  "meeting_type_name" varchar(255)
+}
+
+Table "dotp_monitoring_meeting_user" {
+  "meeting_user_id" int(10) unsigned [pk, increment]
+  "user_id" int(10) unsigned [not null]
+  "meeting_id" int(10) unsigned [not null]
+}
+
+
+// ------------------------------------------------------------
+// Modulo: 09_AQUISICOES
+// ------------------------------------------------------------
+
+Table "dotp_acquisition_execution" {
+  "id" int(11) [pk, increment]
+  "project_id" int(11)
+  "is_delivered" int(11)
+  "is_risk_contingency" int(11)
+  "value" float
+  "date" date
+  "description" text
+  "reference_id" int(11)
+}
+
+Table "dotp_acquisition_planning" {
+  "id" int(11) [pk, increment]
+  "project_id" int(11)
+  "items_to_be_acquired" text
+  "contract_type" text
+  "documents_to_acquisition" text
+  "criteria_for_supplier_selection" text
+  "additional_requirements" text
+  "supplier_management_process" text
+  "acquisition_roles" text
+}
+
+Table "dotp_acquisition_planning_criteria" {
+  "id" int(11) [pk, increment]
+  "acquisition_id" int(11)
+  "criteria" text
+  "weight" int(11)
+}
+
+Table "dotp_acquisition_planning_requirements" {
+  "id" int(11) [pk, increment]
+  "acquisition_id" int(11)
+  "requirement" text
+}
+
+
+// ------------------------------------------------------------
+// Modulo: 10_ESCOPO_E_REQUISITOS
+// ------------------------------------------------------------
+
+Table "dotp_scope_requirement_categories" {
+  "req_categ_prefix_id" varchar(3) [pk]
+  "req_categ_description" text
+  "req_categ_name" varchar(20) [not null]
+  "req_categ_priority" tinyint(4)
+}
+
+Table "dotp_scope_requirement_priorities" {
+  "req_priority_id" varchar(20) [pk]
+}
+
+Table "dotp_scope_requirement_status" {
+  "req_status_id" varchar(20) [pk]
+}
+
+Table "dotp_scope_requirements" {
+  "req_id" int(11) [pk, increment]
+  "req_idname" varchar(6) [not null]
+  "req_description" text [not null]
+  "req_source" varchar(60) [not null]
+  "req_owner" varchar(60) [not null]
+  "req_categ_prefix_id" varchar(3) [not null]
+  "req_priority_id" varchar(20) [not null]
+  "req_status_id" varchar(20) [not null]
+  "req_version" varchar(20)
+  "req_inclusiondate" date [not null]
+  "req_conclusiondate" date
+  "eapitem_id" int(11)
+  "req_testcase" text
+  "project_id" int(11) [not null]
+}
+
+Table "dotp_scope_requirements_managplan" {
+  "req_managplan_id" int(11) [pk, increment]
+  "project_id" int(11) [not null]
+  "req_managplan_collect_descr" text
+  "req_managplan_reqcategories" text
+  "req_managplan_reqprioritization" text
+  "req_managplan_trac_descr" text
+  "req_managplan_config_descr" text
+  "req_managplan_verif_descr" text
+}
+
+Table "dotp_scope_statement" {
+  "scope_id" int(11) [pk, increment]
+  "project_id" int(11) [not null]
+  "scope_description" text
+  "scope_acceptancecriteria" text
+  "scope_deliverables" text
+  "scope_exclusions" text
+  "scope_constraints" text
+  "scope_assumptions" text
+}
+
+
+// ------------------------------------------------------------
+// Modulo: 11_SISTEMA_E_SEGURANCA
+// ------------------------------------------------------------
+
+Table "dotp_config" {
+  "config_id" int(11) [pk, increment]
+  "config_name" varchar(255) [not null]
+  "config_value" varchar(255) [not null]
+  "config_group" varchar(255) [not null]
+  "config_type" varchar(255) [not null]
+}
+
+Table "dotp_config_list" {
+  "config_list_id" int(11) [pk, increment]
+  "config_id" int(11) [not null]
+  "config_list_name" varchar(30) [not null]
+}
+
+Table "dotp_custom_fields_lists" {
+  "field_id" int(11)
+  "list_option_id" int(11)
+  "list_value" varchar(250)
+}
+
+Table "dotp_custom_fields_struct" {
+  "field_id" int(11) [pk]
+  "field_module" varchar(30)
+  "field_page" varchar(30)
+  "field_htmltype" varchar(20)
+  "field_datatype" varchar(20)
+  "field_order" int(11)
+  "field_name" varchar(100)
+  "field_extratags" varchar(250)
+  "field_description" varchar(250)
+}
+
+Table "dotp_custom_fields_values" {
+  "value_id" int(11)
+  "value_module" varchar(30)
+  "value_object_id" int(11)
+  "value_field_id" int(11)
+  "value_charvalue" varchar(250)
+  "value_intvalue" int(11)
+}
+
+Table "dotp_dotpermissions" {
+  "acl_id" int(11) [not null]
+  "user_id" varchar(80) [not null]
+  "section" varchar(80) [not null]
+  "axo" varchar(80) [not null]
+  "permission" varchar(80) [not null]
+  "allow" int(11) [not null]
+  "priority" int(11) [not null]
+  "enabled" int(11) [not null]
+}
+
+Table "dotp_gacl_acl" {
+  "id" int(11) [pk]
+  "section_value" varchar(80) [not null]
+  "allow" int(11) [not null]
+  "enabled" int(11) [not null]
+  "return_value" longtext
+  "note" longtext
+  "updated_date" int(11) [not null]
+}
+
+Table "dotp_gacl_acl_sections" {
+  "id" int(11) [pk]
+  "value" varchar(80) [not null]
+  "order_value" int(11) [not null]
+  "name" varchar(230) [not null]
+  "hidden" int(11) [not null]
+}
+
+Table "dotp_gacl_acl_seq" {
+  "id" int(11) [not null]
+}
+
+Table "dotp_gacl_aco" {
+  "id" int(11) [pk]
+  "section_value" varchar(80) [not null]
+  "value" varchar(80) [not null]
+  "order_value" int(11) [not null]
+  "name" varchar(255) [not null]
+  "hidden" int(11) [not null]
+}
+
+Table "dotp_gacl_aco_map" {
+  "acl_id" int(11) [pk]
+  "section_value" varchar(80) [pk]
+  "value" varchar(80) [pk]
+}
+
+Table "dotp_gacl_aco_sections" {
+  "id" int(11) [pk]
+  "value" varchar(80) [not null]
+  "order_value" int(11) [not null]
+  "name" varchar(230) [not null]
+  "hidden" int(11) [not null]
+}
+
+Table "dotp_gacl_aco_sections_seq" {
+  "id" int(11) [not null]
+}
+
+Table "dotp_gacl_aco_seq" {
+  "id" int(11) [not null]
+}
+
+Table "dotp_gacl_aro" {
+  "id" int(11) [pk]
+  "section_value" varchar(80) [not null]
+  "value" varchar(80) [not null]
+  "order_value" int(11) [not null]
+  "name" varchar(255) [not null]
+  "hidden" int(11) [not null]
+}
+
+Table "dotp_gacl_aro_groups" {
+  "id" int(11) [pk]
+  "parent_id" int(11) [not null]
+  "lft" int(11) [not null]
+  "rgt" int(11) [not null]
+  "name" varchar(255) [not null]
+  "value" varchar(80) [pk]
+}
+
+Table "dotp_gacl_aro_groups_id_seq" {
+  "id" int(11) [not null]
+}
+
+Table "dotp_gacl_aro_groups_map" {
+  "acl_id" int(11) [pk]
+  "group_id" int(11) [pk]
+}
+
+Table "dotp_gacl_aro_map" {
+  "acl_id" int(11) [pk]
+  "section_value" varchar(80) [pk]
+  "value" varchar(80) [pk]
+}
+
+Table "dotp_gacl_aro_sections" {
+  "id" int(11) [pk]
+  "value" varchar(80) [not null]
+  "order_value" int(11) [not null]
+  "name" varchar(230) [not null]
+  "hidden" int(11) [not null]
+}
+
+Table "dotp_gacl_aro_sections_seq" {
+  "id" int(11) [not null]
+}
+
+Table "dotp_gacl_aro_seq" {
+  "id" int(11) [not null]
+}
+
+Table "dotp_gacl_axo" {
+  "id" int(11) [pk]
+  "section_value" varchar(80) [not null]
+  "value" varchar(80) [not null]
+  "order_value" int(11) [not null]
+  "name" varchar(255) [not null]
+  "hidden" int(11) [not null]
+}
+
+Table "dotp_gacl_axo_groups" {
+  "id" int(11) [pk]
+  "parent_id" int(11) [not null]
+  "lft" int(11) [not null]
+  "rgt" int(11) [not null]
+  "name" varchar(255) [not null]
+  "value" varchar(80) [pk]
+}
+
+Table "dotp_gacl_axo_groups_id_seq" {
+  "id" int(11) [not null]
+}
+
+Table "dotp_gacl_axo_groups_map" {
+  "acl_id" int(11) [pk]
+  "group_id" int(11) [pk]
+}
+
+Table "dotp_gacl_axo_map" {
+  "acl_id" int(11) [pk]
+  "section_value" varchar(80) [pk]
+  "value" varchar(80) [pk]
+}
+
+Table "dotp_gacl_axo_sections" {
+  "id" int(11) [pk]
+  "value" varchar(80) [not null]
+  "order_value" int(11) [not null]
+  "name" varchar(230) [not null]
+  "hidden" int(11) [not null]
+}
+
+Table "dotp_gacl_axo_sections_seq" {
+  "id" int(11) [not null]
+}
+
+Table "dotp_gacl_axo_seq" {
+  "id" int(11) [not null]
+}
+
+Table "dotp_gacl_groups_aro_map" {
+  "group_id" int(11) [pk]
+  "aro_id" int(11) [pk]
+}
+
+Table "dotp_gacl_groups_axo_map" {
+  "group_id" int(11) [pk]
+  "axo_id" int(11) [pk]
+}
+
+Table "dotp_gacl_phpgacl" {
+  "name" varchar(230) [pk]
+  "value" varchar(230) [not null]
+}
+
+Table "dotp_permissions" {
+  "permission_id" int(11) [pk, increment]
+  "permission_user" int(11) [not null]
+  "permission_grant_on" varchar(12) [not null]
+  "permission_item" int(11) [not null]
+  "permission_value" int(11) [not null]
+}
+
+Table "dotp_sessions" {
+  "session_id" varchar(60) [pk]
+  "session_user" int(11) [not null]
+  "session_data" longblob
+  "session_updated" timestamp [not null]
+  "session_created" datetime [not null]
+}
+
+Table "migrations" {
+  "id" int(10) unsigned [pk, increment]
+  "migration" varchar(255) [not null]
+  "batch" int(11) [not null]
+}
+
+
+// ------------------------------------------------------------
+// Modulo: 12_ENTIDADES_AUXILIARES
+// ------------------------------------------------------------
+
+Table "dotp_common_notes" {
+  "note_id" int(10) unsigned [pk, increment]
+  "note_author" int(10) unsigned [not null]
+  "note_module" int(10) unsigned [not null]
+  "note_record_id" int(10) unsigned [not null]
+  "note_category" int(3) unsigned [not null]
+  "note_title" varchar(100) [not null]
+  "note_body" text [not null]
+  "note_date" datetime [not null]
+  "note_hours" float [not null]
+  "note_code" varchar(8) [not null]
+  "note_created" datetime [not null]
+  "note_modified" timestamp [not null]
+  "note_modified_by" int(10) unsigned [not null]
+}
+
+Table "dotp_company_policies" {
+  "company_policies_id" int(11) [pk, increment]
+  "company_policies_recognition" text
+  "company_policies_policy" text
+  "company_policies_safety" text
+  "company_policies_company_id" int(11) [not null]
+}
+
+Table "dotp_dpversion" {
+  "code_version" varchar(10) [not null]
+  "db_version" int(11) [not null]
+  "last_db_update" date [not null]
+  "last_code_update" date [not null]
+}
+
+Table "dotp_event_queue" {
+  "queue_id" int(11) [pk, increment]
+  "queue_start" int(11) [not null]
+  "queue_type" varchar(40) [not null]
+  "queue_repeat_interval" int(11) [not null]
+  "queue_repeat_count" int(11) [not null]
+  "queue_data" longblob [not null]
+  "queue_callback" varchar(127) [not null]
+  "queue_owner" int(11) [not null]
+  "queue_origin_id" int(11) [not null]
+  "queue_module" varchar(40) [not null]
+  "queue_batched" int(11) [not null]
+}
+
+Table "dotp_events" {
+  "event_id" int(11) [pk, increment]
+  "event_title" varchar(255) [not null]
+  "event_start_date" datetime
+  "event_end_date" datetime
+  "event_parent" int(11) unsigned [not null]
+  "event_description" text
+  "event_times_recuring" int(11) unsigned [not null]
+  "event_recurs" int(11) unsigned [not null]
+  "event_remind" int(10) unsigned [not null]
+  "event_icon" varchar(20)
+  "event_owner" int(11)
+  "event_project" int(11)
+  "event_private" tinyint(3)
+  "event_type" tinyint(3)
+  "event_cwd" tinyint(3)
+  "event_notify" tinyint(3) [not null]
+}
+
+Table "dotp_file_folders" {
+  "file_folder_id" int(11) [pk, increment]
+  "file_folder_parent" int(11) [not null]
+  "file_folder_name" varchar(255) [not null]
+  "file_folder_description" text
+}
+
+Table "dotp_files" {
+  "file_id" int(11) [pk, increment]
+  "file_real_filename" varchar(255) [not null]
+  "file_folder" int(11) [not null]
+  "file_project" int(11) [not null]
+  "file_task" int(11) [not null]
+  "file_name" varchar(255) [not null]
+  "file_parent" int(11)
+  "file_description" text
+  "file_type" varchar(100)
+  "file_owner" int(11)
+  "file_date" datetime
+  "file_size" int(11)
+  "file_version" float [not null]
+  "file_icon" varchar(20)
+  "file_category" int(11)
+  "file_checkout" varchar(255) [not null]
+  "file_co_reason" text
+  "file_version_id" int(11) [not null]
+}
+
+Table "dotp_files_index" {
+  "file_id" int(11) [pk]
+  "word" varchar(50) [pk]
+  "word_placement" int(11) [pk]
+}
+
+Table "dotp_forum_messages" {
+  "message_id" int(11) [pk, increment]
+  "message_forum" int(11) [not null]
+  "message_parent" int(11) [not null]
+  "message_author" int(11) [not null]
+  "message_editor" int(11) [not null]
+  "message_title" varchar(255) [not null]
+  "message_date" datetime
+  "message_body" text
+  "message_published" tinyint(1) [not null]
+}
+
+Table "dotp_forum_visits" {
+  "visit_user" int(10) [not null]
+  "visit_forum" int(10) [not null]
+  "visit_message" int(10) [not null]
+  "visit_date" timestamp [not null]
+}
+
+Table "dotp_forum_watch" {
+  "watch_user" int(10) unsigned [not null]
+  "watch_forum" int(10) unsigned
+  "watch_topic" int(10) unsigned
+}
+
+Table "dotp_forums" {
+  "forum_id" int(11) [pk, increment]
+  "forum_project" int(11) [not null]
+  "forum_status" tinyint(4) [not null]
+  "forum_owner" int(11) [not null]
+  "forum_name" varchar(50) [not null]
+  "forum_create_date" datetime
+  "forum_last_date" datetime
+  "forum_last_id" int(10) unsigned [not null]
+  "forum_message_count" int(11) [not null]
+  "forum_description" varchar(255)
+  "forum_moderated" int(11) [not null]
+}
+
+Table "dotp_history" {
+  "history_id" int(10) unsigned [pk, increment]
+  "history_date" datetime [not null]
+  "history_user" int(10) [not null]
+  "history_action" varchar(20) [not null]
+  "history_item" int(10) [not null]
+  "history_table" varchar(20) [not null]
+  "history_project" int(10) [not null]
+  "history_name" varchar(255)
+  "history_changes" text
+  "history_description" text
+}
+
+Table "dotp_links" {
+  "link_id" int(11) [pk, increment]
+  "link_url" varchar(255) [not null]
+  "link_project" int(11) [not null]
+  "link_task" int(11) [not null]
+  "link_name" varchar(255) [not null]
+  "link_parent" int(11)
+  "link_description" text
+  "link_owner" int(11)
+  "link_date" datetime
+  "link_icon" varchar(20)
+  "link_category" int(11) [not null]
+}
+
+Table "dotp_modules" {
+  "mod_id" int(11) [pk, increment]
+  "mod_name" varchar(64) [not null]
+  "mod_directory" varchar(64) [pk]
+  "mod_version" varchar(10) [not null]
+  "mod_setup_class" varchar(64) [not null]
+  "mod_type" varchar(64) [not null]
+  "mod_active" int(1) unsigned [not null]
+  "mod_ui_name" varchar(20) [not null]
+  "mod_ui_icon" varchar(64) [not null]
+  "mod_ui_order" tinyint(3) [not null]
+  "mod_ui_active" int(1) unsigned [not null]
+  "mod_description" varchar(255) [not null]
+  "permissions_item_table" char(100)
+  "permissions_item_field" char(100)
+  "permissions_item_label" char(100)
+}
+
+Table "dotp_monitoring_change_request" {
+  "change_id" int(10) [pk, increment]
+  "task_id" int(10)
+  "change_impact" int(11) [not null]
+  "change_status" int(11)
+  "change_description" text [not null]
+  "change_cause" text [not null]
+  "change_request" text [not null]
+  "user_id" int(10) [not null]
+  "change_date_limit" datetime [not null]
+  "meeting_id" int(10) unsigned
+  "project_id" int(10) [not null]
+}
+
+Table "dotp_monitoring_responsibility_matriz" {
+  "responsibility_id" int(11) [pk, increment]
+  "responsibility_description" varchar(255)
+  "responsibility_user_id_consultation" int(11)
+  "responsibility_user_id_execut" int(11)
+  "responsibility_user_id_support" int(11)
+  "responsibility_user_id_approve" int(11)
+  "project_id" int(11) [not null]
+}
+
+Table "dotp_need_for_training" {
+  "project_id" int(11) [pk]
+  "description" text
+}
+
+Table "dotp_post_mortem_analysis" {
+  "pma_id" int(11) [pk, increment]
+  "project_name" varchar(255) [not null]
+  "project_start_date" datetime
+  "project_end_date" datetime
+  "project_planned_start_date" datetime
+  "project_planned_end_date" datetime
+  "project_meeting_date" datetime
+  "planned_budget" text
+  "budget" text
+  "participants" text
+  "project_strength" text
+  "project_weaknesses" text
+  "improvement_suggestions" text
+  "conclusions" text
+}
+
+Table "dotp_project_designer_options" {
+  "pd_option_id" int(11) [pk, increment]
+  "pd_option_user" int(11) [not null]
+  "pd_option_view_project" int(1) [not null]
+  "pd_option_view_gantt" int(1) [not null]
+  "pd_option_view_tasks" int(1) [not null]
+  "pd_option_view_actions" int(1) [not null]
+  "pd_option_view_addtasks" int(1) [not null]
+  "pd_option_view_files" int(1) [not null]
+}
+
+Table "dotp_project_minutes" {
+  "id" int(11) [pk, increment]
+  "project_id" int(11)
+  "minute_date" datetime
+  "description" text
+  "isEffort" int(11)
+  "isDuration" int(11)
+  "isResource" int(11)
+  "isSize" int(11)
+}
+
+Table "dotp_resource_types" {
+  "resource_type_id" int(11) [pk, increment]
+  "resource_type_name" varchar(255) [not null]
+  "resource_type_note" text
+}
+
+Table "dotp_resources" {
+  "resource_id" int(11) [pk, increment]
+  "resource_name" varchar(255) [not null]
+  "resource_key" varchar(64) [not null]
+  "resource_type" int(11) [not null]
+  "resource_note" text [not null]
+  "resource_max_allocation" int(11) [not null]
+}
+
+Table "dotp_syskeys" {
+  "syskey_id" int(10) unsigned [pk, increment]
+  "syskey_name" varchar(48) [not null]
+  "syskey_label" varchar(255) [not null]
+  "syskey_type" int(1) unsigned [not null]
+  "syskey_sep1" char(2)
+  "syskey_sep2" char(2) [not null]
+}
+
+Table "dotp_sysvals" {
+  "sysval_id" int(10) unsigned [pk, increment]
+  "sysval_key_id" int(10) unsigned [not null]
+  "sysval_title" varchar(48) [not null]
+  "sysval_value" text [not null]
+}
+
+Table "dotp_tickets" {
+  "ticket" int(10) unsigned [pk, increment]
+  "ticket_company" int(10) [not null]
+  "ticket_project" int(10) [not null]
+  "author" varchar(100) [not null]
+  "recipient" varchar(100) [not null]
+  "subject" varchar(100) [not null]
+  "attachment" tinyint(1) unsigned [not null]
+  "timestamp" int(10) unsigned [not null]
+  "type" varchar(15) [not null]
+  "assignment" int(10) unsigned [not null]
+  "parent" int(10) unsigned [not null]
+  "activity" int(10) unsigned [not null]
+  "priority" tinyint(1) unsigned [not null]
+  "cc" varchar(255) [not null]
+  "body" text [not null]
+  "signature" text
+}
+
+Table "dotp_user_access_log" {
+  "user_access_log_id" int(10) unsigned [pk, increment]
+  "user_id" int(10) unsigned [not null]
+  "user_ip" varchar(15) [not null]
+  "date_time_in" datetime
+  "date_time_out" datetime
+  "date_time_last_action" datetime
+}
+
+Table "dotp_user_events" {
+  "user_id" int(11) [not null]
+  "event_id" int(11) [not null]
+}
+
+Table "dotp_user_preferences" {
+  "pref_user" varchar(12) [not null]
+  "pref_name" varchar(72) [not null]
+  "pref_value" varchar(32) [not null]
+}
+
+// ============================================================================
+// RELACIONAMENTOS (Chaves Estrangeiras Explicitas e Integridade Logica)
+// ============================================================================
+
+Ref: "dotp_acquisition_planning"."project_id" > "dotp_projects"."project_id" // [EXPLICIT]
+Ref: "dotp_communication_issuing"."communication_stakeholder_id" > "dotp_contacts"."contact_id" // [EXPLICIT]
+Ref: "dotp_tasks_workpackages"."task_id" > "dotp_tasks"."task_id" // [EXPLICIT]
+Ref: "dotp_human_resource_allocation"."human_resource_id" > "dotp_human_resource"."human_resource_id" // [EXPLICIT]
+Ref: "dotp_human_resource_allocation"."project_tasks_estimated_roles_id" > "dotp_project_tasks_estimated_roles"."id" // [EXPLICIT]
+Ref: "dotp_wbs_dictionary"."wbs_item_id" > "dotp_project_eap_items"."id" // [EXPLICIT]
+Ref: "dotp_project_tasks_estimations"."task_id" > "dotp_tasks"."task_id" // [EXPLICIT]
+Ref: "dotp_quality_assurance_item"."quality_planning_id" > "dotp_quality_planning"."id" // [EXPLICIT]
+Ref: "dotp_acquisition_execution"."project_id" > "dotp_projects"."project_id" // [EXPLICIT]
+Ref: "dotp_budget"."budget_project_id" > "dotp_projects"."project_id" // [EXPLICIT]
+Ref: "dotp_costs"."cost_human_resource_id" > "dotp_human_resource"."human_resource_id" // [EXPLICIT]
+Ref: "dotp_costs"."cost_human_resource_role_id" > "dotp_human_resources_role"."human_resources_role_id" // [EXPLICIT]
+Ref: "dotp_costs"."cost_project_id" > "dotp_projects"."project_id" // [EXPLICIT]
+Ref: "dotp_scope_requirements_managplan"."project_id" > "dotp_projects"."project_id" // [EXPLICIT]
+Ref: "dotp_raci"."human_resource_id" > "dotp_human_resource"."human_resource_id" // [EXPLICIT]
+Ref: "dotp_raci"."project_id" > "dotp_projects"."project_id" // [EXPLICIT]
+Ref: "dotp_eap_item_estimations"."eap_item_id" > "dotp_project_eap_items"."id" // [EXPLICIT]
+Ref: "dotp_task_minute_members"."task_minute_id" > "dotp_project_minutes"."id" // [EXPLICIT]
+Ref: "dotp_task_minute_members"."user_id" > "dotp_contacts"."contact_id" // [EXPLICIT]
+Ref: "dotp_human_resource_performance"."company_id" > "dotp_companies"."company_id" // [EXPLICIT]
+Ref: "dotp_human_resource_performance"."human_resource_id" > "dotp_human_resource"."human_resource_id" // [EXPLICIT]
+Ref: "dotp_quality_control_metric"."question_id" > "dotp_quality_control_analiysis_question"."id" // [EXPLICIT]
+Ref: "dotp_human_resource_skills"."human_resource_id" > "dotp_human_resource"."human_resource_id" // [EXPLICIT]
+Ref: "dotp_human_resource_skills"."skill_id" > "dotp_skills"."skill_id" // [EXPLICIT]
+Ref: "dotp_project_ear_items"."project_id" > "dotp_projects"."project_id" // [EXPLICIT]
+Ref: "dotp_quality_control_goal"."quality_planning_id" > "dotp_quality_planning"."id" // [EXPLICIT]
+Ref: "dotp_project_tasks_estimated_roles"."role_id" > "dotp_company_role"."id" // [EXPLICIT]
+Ref: "dotp_project_tasks_estimated_roles"."task_id" > "dotp_tasks"."task_id" // [EXPLICIT]
+Ref: "dotp_quality_control_analiysis_question"."goal_id" > "dotp_quality_control_goal"."id" // [EXPLICIT]
+Ref: "dotp_project_minutes"."project_id" > "dotp_projects"."project_id" // [EXPLICIT]
+Ref: "dotp_acquisition_planning_roles"."acquisition_id" > "dotp_acquisition_planning"."id" // [EXPLICIT]
+Ref: "dotp_scope_requirements"."req_categ_prefix_id" > "dotp_scope_requirement_categories"."req_categ_prefix_id" // [EXPLICIT]
+Ref: "dotp_scope_requirements"."req_priority_id" > "dotp_scope_requirement_priorities"."req_priority_id" // [EXPLICIT]
+Ref: "dotp_scope_requirements"."req_status_id" > "dotp_scope_requirement_status"."req_status_id" // [EXPLICIT]
+Ref: "dotp_scope_requirements"."eapitem_id" > "dotp_project_eap_items"."id" // [EXPLICIT]
+Ref: "dotp_scope_requirements"."project_id" > "dotp_projects"."project_id" // [EXPLICIT]
+Ref: "dotp_company_policies"."company_policies_company_id" > "dotp_companies"."company_id" // [EXPLICIT]
+Ref: "dotp_acquisition_planning_criteria"."acquisition_id" > "dotp_acquisition_planning"."id" // [EXPLICIT]
+Ref: "dotp_quality_control_requirement"."quality_planning_id" > "dotp_quality_planning"."id" // [EXPLICIT]
+Ref: "dotp_human_resource_roles"."human_resources_role_id" > "dotp_human_resources_role"."human_resources_role_id" // [EXPLICIT]
+Ref: "dotp_human_resource_roles"."human_resource_id" > "dotp_human_resource"."human_resource_id" // [EXPLICIT]
+Ref: "dotp_need_for_training"."project_id" > "dotp_projects"."project_id" // [EXPLICIT]
+Ref: "dotp_communication_receptor"."communication_stakeholder_id" > "dotp_contacts"."contact_id" // [EXPLICIT]
+Ref: "dotp_quality_planning"."project_id" > "dotp_projects"."project_id" // [EXPLICIT]
+Ref: "dotp_tasks_mdp"."task_id" > "dotp_tasks"."task_id" // [EXPLICIT]
+Ref: "dotp_human_resources_role"."human_resources_role_company_id" > "dotp_companies"."company_id" // [EXPLICIT]
+Ref: "dotp_acquisition_planning_requirements"."acquisition_id" > "dotp_acquisition_planning"."id" // [EXPLICIT]
+Ref: "dotp_human_resource"."human_resource_user_id" > "dotp_users"."user_id" // [EXPLICIT]
+Ref: "dotp_project_eap_items"."project_id" > "dotp_projects"."project_id" // [EXPLICIT]
+Ref: "dotp_budget_reserve"."budget_reserve_project_id" > "dotp_projects"."project_id" // [EXPLICIT]
+Ref: "dotp_scope_statement"."project_id" > "dotp_projects"."project_id" // [EXPLICIT]
+Ref: "dotp_company_role"."company_id" > "dotp_companies"."company_id" // [EXPLICIT]
+Ref: "dotp_projects"."project_company" > "dotp_companies"."company_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_projects"."project_owner" > "dotp_users"."user_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_departments"."dept_company" > "dotp_companies"."company_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_departments"."dept_parent" > "dotp_departments"."dept_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_users"."user_contact" > "dotp_contacts"."contact_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_tasks"."task_project" > "dotp_projects"."project_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_tasks"."task_owner" > "dotp_users"."user_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_tasks"."task_parent" > "dotp_tasks"."task_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_user_tasks"."user_id" > "dotp_users"."user_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_user_tasks"."task_id" > "dotp_tasks"."task_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_task_log"."task_log_task" > "dotp_tasks"."task_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_task_log"."task_log_creator" > "dotp_users"."user_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_task_dependencies"."dependencies_task_id" > "dotp_tasks"."task_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_task_dependencies"."dependencies_req_task_id" > "dotp_tasks"."task_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_risks"."risk_project" > "dotp_projects"."project_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_initiating"."project_id" > "dotp_projects"."project_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_initiating_stakeholder"."initiating_id" > "dotp_initiating"."initiating_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_initiating_stakeholder"."contact_id" > "dotp_contacts"."contact_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_files"."file_project" > "dotp_projects"."project_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_files"."file_task" > "dotp_tasks"."task_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_files"."file_owner" > "dotp_users"."user_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_billingcode"."company_id" > "dotp_companies"."company_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_monitoring_baseline"."project_id" > "dotp_projects"."project_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_monitoring_meeting"."project_id" > "dotp_projects"."project_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_monitoring_change_request"."project_id" > "dotp_projects"."project_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_monitoring_change_request"."user_id" > "dotp_users"."user_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_monitoring_change_request"."task_id" > "dotp_tasks"."task_id" // [LOGICAL_DOMAIN]
+Ref: "dotp_communication"."communication_frequency_id" > "dotp_communication_frequency"."communication_frequency_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_communication"."communication_channel_id" > "dotp_communication_channel"."communication_channel_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_communication_issuing"."communication_id" > "dotp_communication"."communication_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_communication_receptor"."communication_id" > "dotp_communication"."communication_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_config_list"."config_id" > "dotp_config"."config_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_costs"."cost_id" > "dotp_monitoring_user_cost"."cost_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_custom_fields_lists"."field_id" > "dotp_custom_fields_struct"."field_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_dotpermissions"."user_id" > "dotp_users"."user_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_files_index"."file_id" > "dotp_files"."file_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_baseline"."user_id" > "dotp_users"."user_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_baseline_task"."baseline_id" > "dotp_monitoring_baseline"."baseline_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_baseline_task"."task_id" > "dotp_tasks_workpackages"."task_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_baseline_task_log"."baseline_task_id" > "dotp_monitoring_baseline_task"."baseline_task_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_baseline_task_log"."task_log_id" > "dotp_task_log"."task_log_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_baseline_user_cost"."baseline_id" > "dotp_monitoring_baseline"."baseline_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_baseline_user_cost"."cost_id" > "dotp_monitoring_user_cost"."cost_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_baseline_user_cost"."user_id" > "dotp_users"."user_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_change_request"."meeting_id" > "dotp_monitoring_meeting"."meeting_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_meeting"."meeting_type_id" > "dotp_monitoring_meeting_type"."meeting_type_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_meeting_item_select"."meeting_item_id" > "dotp_monitoring_meeting_item"."meeting_item_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_meeting_item_select"."meeting_id" > "dotp_monitoring_meeting"."meeting_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_meeting_item_senior"."meeting_id" > "dotp_monitoring_meeting"."meeting_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_meeting_item_tasks_delivered"."task_id" > "dotp_tasks_workpackages"."task_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_meeting_item_tasks_delivered"."meeting_id" > "dotp_monitoring_meeting"."meeting_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_meeting_user"."user_id" > "dotp_users"."user_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_meeting_user"."meeting_id" > "dotp_monitoring_meeting"."meeting_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_quality"."quality_type_id" > "dotp_monitoring_quality_type"."quality_type_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_quality"."user_id" > "dotp_users"."user_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_quality"."quality_status_id" > "dotp_monitoring_quality_status"."quality_status_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_quality"."task_id" > "dotp_tasks_workpackages"."task_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_responsibility_matriz"."project_id" > "dotp_projects"."project_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_monitoring_user_cost"."user_id" > "dotp_users"."user_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_project_contacts"."project_id" > "dotp_projects"."project_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_project_contacts"."contact_id" > "dotp_contacts"."contact_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_project_departments"."project_id" > "dotp_projects"."project_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_resource_tasks"."resource_id" > "dotp_resources"."resource_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_resource_tasks"."task_id" > "dotp_tasks_workpackages"."task_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_risks_management_plan"."project_id" > "dotp_projects"."project_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_tasks"."task_id" > "dotp_tasks_workpackages"."task_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_task_contacts"."task_id" > "dotp_tasks_workpackages"."task_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_task_contacts"."contact_id" > "dotp_contacts"."contact_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_task_departments"."task_id" > "dotp_tasks_workpackages"."task_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_user_access_log"."user_id" > "dotp_users"."user_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_user_events"."user_id" > "dotp_users"."user_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_user_events"."event_id" > "dotp_events"."event_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_user_roles"."user_id" > "dotp_users"."user_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_user_roles"."role_id" > "dotp_roles"."role_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_user_task_pin"."user_id" > "dotp_users"."user_id" // [LOGICAL_FK_CONVENTION]
+Ref: "dotp_user_task_pin"."task_id" > "dotp_tasks_workpackages"."task_id" // [LOGICAL_FK_CONVENTION]
+
+// ============================================================================
+// TABLE GROUPS PARA VISUALIZACAO MODULAR NO DBDATAPROJECT / DBDATAGRAM.IO
+// ============================================================================
+
+TableGroup Nucleo_Organizacional {
+  dotp_companies
+  dotp_contacts
+  dotp_departments
+  dotp_project_contacts
+  dotp_project_departments
+  dotp_projects
+  dotp_users
+}
+
+TableGroup Cronograma_Tarefas_EAP {
+  dotp_tasks
+  dotp_task_log
+  dotp_task_dependencies
+  dotp_tasks_workpackages
+  dotp_project_eap_items
+  dotp_wbs_dictionary
+  dotp_tasks_mdp
+  dotp_task_contacts
+  dotp_task_departments
+  dotp_task_minute_members
+  dotp_project_tasks_estimations
+  dotp_project_tasks_estimated_roles
+  dotp_eap_item_estimations
+  dotp_user_tasks
+  dotp_user_task_pin
+  dotp_resource_tasks
+  dotp_monitoring_baseline_task
+  dotp_monitoring_baseline_task_log
+  dotp_monitoring_meeting_item_tasks_delivered
+}
+
+TableGroup Recursos_Humanos_CHA_RACI_9Box {
+  dotp_human_resource
+  dotp_human_resources_role
+  dotp_human_resource_roles
+  dotp_skills
+  dotp_human_resource_skills
+  dotp_raci
+  dotp_human_resource_performance
+  dotp_human_resource_allocation
+  dotp_roles
+  dotp_user_roles
+  dotp_company_role
+  dotp_acquisition_planning_roles
+}
+
+TableGroup Custos_Orcamento_EVM {
+  dotp_budget
+  dotp_budget_reserve
+  dotp_costs
+  dotp_billingcode
+  dotp_monitoring_baseline
+  dotp_monitoring_baseline_user_cost
+  dotp_monitoring_user_cost
+}
+
+TableGroup Gestao_de_Riscos {
+  dotp_risks
+  dotp_risks_management_plan
+  dotp_project_ear_items
+}
+
+TableGroup Qualidade {
+  dotp_quality_planning
+  dotp_quality_assurance_item
+  dotp_quality_control_goal
+  dotp_quality_control_requirement
+  dotp_quality_control_metric
+  dotp_quality_control_analiysis_question
+  dotp_monitoring_quality
+  dotp_monitoring_quality_status
+  dotp_monitoring_quality_type
+}
+
+TableGroup Comunicacoes_e_Reunioes {
+  dotp_communication
+  dotp_communication_channel
+  dotp_communication_frequency
+  dotp_communication_issuing
+  dotp_communication_receptor
+  dotp_monitoring_meeting
+  dotp_monitoring_meeting_item
+  dotp_monitoring_meeting_item_select
+  dotp_monitoring_meeting_item_senior
+  dotp_monitoring_meeting_type
+  dotp_monitoring_meeting_user
+}
+
+TableGroup Aquisicoes {
+  dotp_acquisition_execution
+  dotp_acquisition_planning
+  dotp_acquisition_planning_criteria
+  dotp_acquisition_planning_requirements
+}
+
+TableGroup Escopo_e_Iniciacao {
+  dotp_initiating
+  dotp_initiating_stakeholder
+  dotp_scope_statement
+  dotp_scope_requirements
+  dotp_scope_requirements_managplan
+  dotp_scope_requirement_categories
+  dotp_scope_requirement_priorities
+  dotp_scope_requirement_status
+}
+
+TableGroup Seguranca_phpGACL {
+  dotp_gacl_acl
+  dotp_gacl_acl_sections
+  dotp_gacl_acl_seq
+  dotp_gacl_aco
+  dotp_gacl_aco_map
+  dotp_gacl_aco_sections
+  dotp_gacl_aco_sections_seq
+  dotp_gacl_aco_seq
+  dotp_gacl_aro
+  dotp_gacl_aro_groups
+  dotp_gacl_aro_groups_id_seq
+  dotp_gacl_aro_groups_map
+  dotp_gacl_aro_map
+  dotp_gacl_aro_sections
+  dotp_gacl_aro_sections_seq
+  dotp_gacl_aro_seq
+  dotp_gacl_axo
+  dotp_gacl_axo_groups
+  dotp_gacl_axo_groups_id_seq
+  dotp_gacl_axo_groups_map
+  dotp_gacl_axo_map
+  dotp_gacl_axo_sections
+  dotp_gacl_axo_sections_seq
+  dotp_gacl_axo_seq
+  dotp_gacl_groups_aro_map
+  dotp_gacl_groups_axo_map
+  dotp_gacl_phpgacl
+}
+
+TableGroup Sistema_e_Suporte {
+  dotp_config
+  dotp_config_list
+  dotp_custom_fields_lists
+  dotp_custom_fields_struct
+  dotp_custom_fields_values
+  dotp_dotpermissions
+  dotp_permissions
+  dotp_sessions
+  migrations
+  dotp_common_notes
+  dotp_company_policies
+  dotp_dpversion
+  dotp_event_queue
+  dotp_events
+  dotp_file_folders
+  dotp_files
+  dotp_files_index
+  dotp_forum_messages
+  dotp_forum_visits
+  dotp_forum_watch
+  dotp_forums
+  dotp_history
+  dotp_links
+  dotp_modules
+  dotp_monitoring_change_request
+  dotp_monitoring_responsibility_matriz
+  dotp_need_for_training
+  dotp_post_mortem_analysis
+  dotp_project_designer_options
+  dotp_project_minutes
+  dotp_resource_types
+  dotp_resources
+  dotp_syskeys
+  dotp_sysvals
+  dotp_tickets
+  dotp_user_access_log
+  dotp_user_events
+  dotp_user_preferences
+}

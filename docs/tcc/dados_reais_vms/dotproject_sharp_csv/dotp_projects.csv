@@ -1,0 +1,29 @@
+﻿project_id,project_company,project_company_internal,project_department,project_name,project_short_name,project_owner,project_url,project_demo_url,project_start_date,project_end_date,project_status,project_percent_complete,project_color_identifier,project_description,project_target_budget,project_actual_budget,project_creator,project_private,project_departments,project_contacts,project_priority,project_type
+2,1,0,0,"Sistema de pizzaria do Tio Chico","Unidade In",2,,,"2013-02-01 00:00:00","2013-08-01 23:59:59",2,3,FFFFFF,"O objetivo deste projeto é desenvolver um sistema para a venda online de pizzas por meio do web site da pizzaria Tio Chico. O sistema também consiste em um módulo acessí­vel por meio de dispositivos móveis, utilizados pelos entregadores, o qual suporte a verificação dos detalhes das entregas pendentes (endereço de entrega, valor total, itens pedidos).
+
+O escopo deste projeto inclui um módulo web, que abrange a evolução do site da pizzaria para agregar a funcionalidade de solicitação de pizzas pelos clientes. Para isto o sistema deve manter o cadastro dos clientes, e possibilitar a autenticação dos mesmos. O processo de solicitação de pizzas deve suportar que sejam informados os sabores e tamanhos das pizzas e forma de pagamento. Este módulo deve apresentar o valor final do pedido ao cliente. Outra parte do módulo web será acessível apenas aos atendentes, para consultar os pedidos solicitados. Uma segunda parte do sistema é um módulo para dispositivos móveis, que será utilizado pelos entregadores para consultar os detalhes dos pedidos em aberto. No escopo do projeto está incluso a realização de treinamento aos atendentes da pizzaria, para capacita-los nos conhecimentos em informática, e instruí-los quanto a realização de operações no sistema.
+
+Também está incluso a instalação do aplicativo em servidor web produtivo, e nos dispositivos móveis.
+Os critérios de aceite são:
+a) o sistema instalado em ambiente produtivo, tanto na web como nos dispositivos móveis;
+b) treinamento realizado de acordo coma carga horária prevista;
+c) data de entrega e valor final do projeto dentro do orçamento e prazo acordados.
+As entregas previstas durante o projeto são:
+a) Módulo do sistema web: agregando ao site funcionalidades para solicitação de pizzas, cadastro e autenticação de clientes, e consulta de pedidos (acessí­vel apenas aos atendentes);
+b) Módulo para dispositivos móveis: aplicativo que suporte a consulta dos detalhes dos pedidos em aberto;
+c) Serviço de instalação do sistema no servidor web produtivo, e do aplicativo nos dispositivos móveis;
+d) Serviço de treinamento aos funcionários da pizzaria.
+
+Estão fora do escopo deste projeto:
+a) O pagamento dos pedidos não será realizado pelo sistema. Este será realizado em campo, pelo  entregador, no ato da entrega da pizza aos clientes. O sistema apenas registra durante o pedido online a forma de pagamento;
+b) A portabilidade entre dispositivos móveis será restrita aos dispositivos que utilizem o sistema operacional Android. O módulo para dispositivos móveis não será suportado em dispositivos com outros sistemas operacionais, como, por exemplo, iOS e Windows. As restrições que o projeto deverá atender são: a) a data de entrega do sistema deve ocorrer antes do dia 1 de setembro de 2013; b) O orçamento não deve ultrapassar R$ 110.000,00;
+c) A interface gráfica do módulo web e do módulo para dispositivos móveis devem seguir os padrões de design da pizzaria.
+
+Consideram-se premissas para que o projeto possa ser desenvolvido dentro das restrições estipuladas que o contratante irá fornecer os equipamentos de hardware necessários (computadores para os atendentes, servidor, e dispositivos móveis), assim como o acesso à  internet no ambiente de produção.",110000.00,0.00,11,0,0,,0,0
+8,4,0,0,"Pizza System - Uncle Chico","Pizza Syst",13,,,"2016-03-14 00:00:00","2016-09-01 23:59:59",2,0,FFFFFF,"This project aims to develop a computional system where customers may request their pizza, and employess may verify these requests when preparing and delivering each request.
+
+This system is composed of two main modules:
+
+Web module: A web page which customers may inform their requests, selecting the pizza information, such as flavor and size, select the drink, and also inform the address for delivery.
+
+Mobile module: An app acessed from smart phones, which employess may consult the request information when are in field delivering pizzas.",30000.00,0.00,12,0,0,,0,0

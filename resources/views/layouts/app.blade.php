@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>@yield('title', 'dotProject+ 2025')</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}?v={{ file_exists(public_path('css/custom.css')) ? filemtime(public_path('css/custom.css')) : time() }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/frappe-gantt@0.6.1/dist/frappe-gantt.min.css">
     @stack('styles')
 </head>
@@ -33,16 +35,21 @@
          id="aiChatWidget"
          style="position: fixed; bottom: 105px; right: 30px; width: 380px; height: 550px; max-height: calc(100vh - 140px); z-index: 1050; border-radius: 1rem; overflow: hidden;">
 
-        <div class="card-header bg-dark text-white border-0 p-3 d-flex justify-content-between align-items-center">
+        <div class="card-header bg-dark text-white border-0 p-3 d-flex justify-content-between align-items-center" data-bs-theme="dark">
             <div class="d-flex align-items-center gap-2">
                 <i class="bi bi-stars text-warning fs-5"></i>
                 <h6 class="mb-0 fw-bold">{{ __('chat.title') }}</h6>
             </div>
-            <div class="d-flex align-items-center gap-2">
-                <button type="button" class="btn btn-link text-white-50 p-0 me-1" id="clearAiChatBtn" title="{{ __('chat.clear_history') }}" aria-label="{{ __('chat.clear_history') }}" style="transition: color 0.2s;">
+            <div class="d-flex align-items-center gap-1">
+                <button type="button" class="btn btn-link text-white-50 p-1 me-1" id="clearAiChatBtn" title="{{ __('chat.clear_history') }}" aria-label="{{ __('chat.clear_history') }}" style="transition: color 0.2s;">
                     <i class="bi bi-trash fs-5"></i>
                 </button>
-                <button type="button" class="btn-close btn-close-white" id="closeAiChatBtn" aria-label="Close"></button>
+                <button type="button" class="btn btn-link text-white-50 p-1 me-1" id="minimizeAiChatBtn" title="Minimizar" aria-label="Minimizar" style="transition: color 0.2s;">
+                    <i class="bi bi-dash-lg fs-5"></i>
+                </button>
+                <button type="button" class="btn btn-link text-white p-1" id="closeAiChatBtn" title="Fechar" aria-label="Fechar" style="transition: opacity 0.2s;">
+                    <i class="bi bi-x-lg fs-5"></i>
+                </button>
             </div>
         </div>
 
@@ -72,6 +79,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         const toggleBtn = document.getElementById('toggleAiChatBtn');
         const closeBtn = document.getElementById('closeAiChatBtn');
+        const minimizeBtn = document.getElementById('minimizeAiChatBtn');
         const clearBtn = document.getElementById('clearAiChatBtn');
         const chatWidget = document.getElementById('aiChatWidget');
         const chatInput = document.getElementById('chat-input');
@@ -149,29 +157,91 @@
             });
         }
 
-        function toggleChat() {
-            if (chatWidget.classList.contains('show')) {
-                chatWidget.classList.remove('show');
+        function openChat() {
+            if (!chatWidget) return;
+            chatWidget.classList.add('show');
+            if (toggleBtn) {
+                toggleBtn.innerHTML = '<i class="bi bi-x-lg fs-3"></i>';
+                toggleBtn.style.transform = 'scale(0.9)';
+                toggleBtn.setAttribute('title', 'Fechar Chat');
+            }
+            setTimeout(() => { if (chatInput) chatInput.focus(); }, 150);
+            sessionStorage.setItem('ai_chat_state', 'open');
+        }
+
+        function closeChat() {
+            if (!chatWidget) return;
+            chatWidget.classList.remove('show');
+            if (toggleBtn) {
+                toggleBtn.innerHTML = '<i class="bi bi-robot fs-3"></i>';
                 toggleBtn.style.transform = 'scale(1)';
-                sessionStorage.setItem('ai_chat_state', 'closed');
+                toggleBtn.setAttribute('title', 'Abrir Chat');
+            }
+            sessionStorage.setItem('ai_chat_state', 'closed');
+        }
+
+        function toggleChat() {
+            if (!chatWidget) return;
+            if (chatWidget.classList.contains('show')) {
+                closeChat();
             } else {
-                chatWidget.classList.add('show');
-                toggleBtn.style.transform = 'scale(0.8)';
-                setTimeout(() => chatInput.focus(), 100);
-                sessionStorage.setItem('ai_chat_state', 'open');
+                openChat();
             }
         }
 
-        toggleBtn.addEventListener('click', toggleChat);
-        closeBtn.addEventListener('click', toggleChat);
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleChat();
+            });
+        }
 
-        clearBtn.addEventListener('click', function () {
-            if (confirm('Deseja realmente limpar o histórico de conversas deste contexto?')) {
-                localStorage.removeItem(chatHistoryKey);
-                chatHistory = [];
-                renderChat();
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeChat();
+            });
+        }
+
+        if (minimizeBtn) {
+            minimizeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeChat();
+            });
+        }
+
+        // Fechar ao clicar fora do widget
+        document.addEventListener('click', function(e) {
+            if (chatWidget && chatWidget.classList.contains('show')) {
+                if (!chatWidget.contains(e.target) && (!toggleBtn || !toggleBtn.contains(e.target))) {
+                    closeChat();
+                }
             }
         });
+
+        // Fechar com a tecla ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && chatWidget && chatWidget.classList.contains('show')) {
+                closeChat();
+            }
+        });
+
+        // Evitar que cliques dentro do chat fechem o widget
+        if (chatWidget) {
+            chatWidget.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
+
+        if (clearBtn) {
+            clearBtn.addEventListener('click', function () {
+                if (confirm('Deseja realmente limpar o histórico de conversas deste contexto?')) {
+                    localStorage.removeItem(chatHistoryKey);
+                    chatHistory = [];
+                    renderChat();
+                }
+            });
+        }
 
         chatForm.addEventListener('submit', function (e) {
             e.preventDefault();
@@ -190,11 +260,12 @@
             const loadingId = appendLoading();
 
             try {
-                const response = await fetch('{{ route('chat.assistant') }}', {
+                const response = await fetch('{{ route('chat.assistant', [], false) }}', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '{{ csrf_token() }}',
+                        'Accept': 'application/json'
                     },
                     body: JSON.stringify({
                         message: message,
@@ -203,23 +274,37 @@
                     })
                 });
 
-                const data = await response.json();
-                document.getElementById(loadingId).remove();
+                let data = null;
+                const contentType = response.headers.get('content-type') || '';
+                if (contentType.includes('application/json')) {
+                    try {
+                        data = await response.json();
+                    } catch (e) {
+                        data = null;
+                    }
+                }
 
-                if (response.ok) {
+                const loader = document.getElementById(loadingId);
+                if (loader) loader.remove();
+
+                if (response.ok && data && data.reply) {
                     appendMessageMarkup('ai', data.reply);
                     chatHistory.push({ role: 'user', content: message });
                     chatHistory.push({ role: 'assistant', content: data.reply });
                     saveHistory();
                 } else {
-                    const errorMessage = data.error ? data.error : '{{ __('chat.error_connection') }}';
+                    const errorMessage = (data && data.error) 
+                        ? data.error 
+                        : (response.status === 504 || response.status === 502)
+                            ? 'O modelo de IA demorou mais que o esperado para responder. Tente uma pergunta mais específica.'
+                            : '{{ __('chat.error_connection') }}';
                     appendMessageMarkup('ai', `<span class="text-danger"><i class="bi bi-exclamation-triangle me-1"></i> ${errorMessage}</span>`);
                 }
 
             } catch (error) {
                 const loader = document.getElementById(loadingId);
                 if (loader) loader.remove();
-                appendMessageMarkup('ai', '<span class="text-danger"><i class="bi bi-exclamation-triangle me-1"></i> {{ __('chat.error_network') }}</span>');
+                appendMessageMarkup('ai', `<span class="text-danger"><i class="bi bi-exclamation-triangle me-1"></i> {{ __('chat.error_network') }} (${error.message})</span>`);
             }
         }
 
@@ -281,17 +366,22 @@
         const storedState = sessionStorage.getItem('ai_chat_state');
         if (storedState === 'open') {
             chatWidget.style.transition = 'none';
-            toggleBtn.style.transition = 'none';
+            if (toggleBtn) toggleBtn.style.transition = 'none';
             chatWidget.classList.add('show');
-            toggleBtn.style.transform = 'scale(0.8)';
+            if (toggleBtn) {
+                toggleBtn.innerHTML = '<i class="bi bi-x-lg fs-3"></i>';
+                toggleBtn.style.transform = 'scale(0.9)';
+                toggleBtn.setAttribute('title', 'Fechar Chat');
+            }
             // Forçar reflow para aplicar instantaneamente
             chatWidget.offsetHeight;
             chatWidget.style.transition = '';
-            toggleBtn.style.transition = '';
+            if (toggleBtn) toggleBtn.style.transition = '';
         }
     });
 </script>
 @endauth
+@includeIf('components.status_modal')
 @stack('scripts')
 </body>
 </html>

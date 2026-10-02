@@ -1,0 +1,5 @@
+﻿id,project_id,quality_controlling,quality_assurance,quality_policies
+1,2,NULL,NULL,"O projeto deve ser realizado atendendo ao modelo MPS.BR no nível G, que inclui as áreas de processos de Gerência de Requisitos e Gerência de Projetos.
+A implementação deve seguir os padrões Open SQL. "
+4,8,NULL,NULL,"The project must attend the CMMI-DEV level 2, particulary the project planning and requirements management process areas.
+The project must be implemented adopting the OPEN-SQL standard."

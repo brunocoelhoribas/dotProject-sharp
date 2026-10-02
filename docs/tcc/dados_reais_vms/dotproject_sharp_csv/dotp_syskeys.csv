@@ -1,0 +1,14 @@
+﻿syskey_id,syskey_name,syskey_label,syskey_type,syskey_sep1,syskey_sep2
+1,SelectList,"Enter values for list",0,"
+",|
+2,CustomField,"Serialized array in the following format:
+<KEY>|<SERIALIZED ARRAY>
+
+Serialized Array:
+[type] => text | checkbox | select | textarea | label
+[name] => <Field's name>
+[options] => <html capture options>
+[selects] => <options for select and checkbox>",0,"
+",|
+3,ColorSelection,"Hex color values for type=>color association.",0,"
+",|

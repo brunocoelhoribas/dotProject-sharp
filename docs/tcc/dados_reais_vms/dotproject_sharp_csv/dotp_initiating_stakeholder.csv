@@ -1,0 +1,13 @@
+﻿initiating_stakeholder_id,initiating_id,contact_id,stakeholder_responsibility,stakeholder_interest,stakeholder_power,stakeholder_strategy
+1,1,13,Patrocinador,1,1,"Gerencie perto"
+2,1,3,Programador,1,2,"Mantenha informado"
+3,1,2,"Gerente de projetos",1,1,"Gerencie perto"
+4,1,10,"Analista de sistemas",2,1,"Mantenha satisfeito"
+5,1,14,"Atendente da pizzaria.",1,2,"Mantenha informado"
+6,1,15,"Atendente da pizzaria.",1,1,"Gerencie perto"
+7,1,16,"Entregador da pizzaria.",1,2,"Mantenha informado"
+8,2,7,,0,0,
+9,6,21,"Manage the project",1,1,"Keep constantly informed about progress."
+10,6,22,,0,0,
+11,6,23,,0,0,
+12,7,26,-,2,2,"Monitore (Mínimo esforço)"

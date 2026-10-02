@@ -28,7 +28,10 @@ class ProjectController extends Controller
 
     public function index(Request $request): View
     {
-        $filterStatus = $request->query('status', 'all');
+        $filterStatus = $request->query('status');
+        if ($filterStatus === null || $filterStatus === '' || $filterStatus === 'all') {
+            $filterStatus = 'all';
+        }
         $filterOwner = $request->query('owner');
         $filterCompany = $request->query('company');
 
@@ -277,12 +280,28 @@ class ProjectController extends Controller
 
     private function getProjectStatus(): array
     {
-        return $this->getSysVal('ProjectStatus');
+        $statuses = $this->getSysVal('ProjectStatus');
+        foreach ($statuses as $id => $name) {
+            if (\Illuminate\Support\Facades\Lang::has("projects/views.status.{$id}")) {
+                $statuses[$id] = __("projects/views.status.{$id}");
+            } elseif (\Illuminate\Support\Facades\Lang::has("projects/views.status.{$name}")) {
+                $statuses[$id] = __("projects/views.status.{$name}");
+            }
+        }
+        return $statuses;
     }
 
     private function getProjectPriorities(): array
     {
-        return $this->getSysVal('ProjectPriority');
+        $priorities = $this->getSysVal('ProjectPriority');
+        foreach ($priorities as $id => $name) {
+            if (\Illuminate\Support\Facades\Lang::has("projects/views.priority.{$id}")) {
+                $priorities[$id] = __("projects/views.priority.{$id}");
+            } elseif (\Illuminate\Support\Facades\Lang::has("projects/views.priority.{$name}")) {
+                $priorities[$id] = __("projects/views.priority.{$name}");
+            }
+        }
+        return $priorities;
     }
 
     private function getSysVal(string $title): array
@@ -296,7 +315,7 @@ class ProjectController extends Controller
             return [];
         }
 
-        preg_match_all('/(-?\d+)\|(\D+)/', $data, $matches);
+        preg_match_all('/(-?\d+)\|([^\r\n]+)/', $data, $matches);
 
         $status = [];
         if (!empty($matches[1]) && !empty($matches[2])) {

@@ -1,0 +1,106 @@
+﻿sysval_id,sysval_key_id,sysval_title,sysval_value
+1,1,ProjectStatus,"0|Not Defined
+1|Proposed
+2|In Planning
+3|In Progress
+4|On Hold
+5|Complete
+6|Template
+7|Archived"
+2,1,CompanyType,"0|Not Applicable
+1|Client
+2|Vendor
+3|Supplier
+4|Consultant
+5|Government
+6|Internal"
+3,1,TaskDurationType,"1|hours
+24|days"
+4,1,EventType,"0|General
+1|Appointment
+2|Meeting
+3|All Day Event
+4|Anniversary
+5|Reminder"
+5,1,TaskStatus,"0|Active
+-1|Inactive"
+6,1,TaskType,"0|Unknown
+1|Administrative
+2|Operative"
+7,1,ProjectType,"0|Unknown
+1|Administrative
+2|Operative"
+8,3,ProjectColors,"Web|FFE0AE
+Engineering|AEFFB2
+HelpDesk|FFFCAE
+System Administration|FFAEAE"
+9,1,FileType,"0|Unknown
+1|Document
+2|Application"
+10,1,TaskPriority,"-1|low
+0|normal
+1|high"
+11,1,ProjectPriority,"-1|low
+0|normal
+1|high"
+12,1,ProjectPriorityColor,"-1|#E5F7FF
+0|
+1|#FFDCB3"
+13,1,TaskLogReference,"0|Not Defined
+1|Email
+2|Helpdesk
+3|Phone Call
+4|Fax"
+14,1,TaskLogReferenceImage,"0| 1|./images/obj/email.gif 2|./modules/helpdesk/images/helpdesk.png 3|./images/obj/phone.gif 4|./images/icons/stock_print-16.png"
+15,1,UserType,"0|Default User
+1|Administrator
+2|CEO
+3|Director
+4|Branch Manager
+5|Manager
+6|Supervisor
+7|Employee"
+16,1,ProjectRequiredFields,"f.project_name.value.length|<3
+f.project_color_identifier.value.length|<3
+f.project_company.options[f.project_company.selectedIndex].value|<1"
+17,2,TicketNotify,"0|admin@example.com
+1|admin@example.com
+2|admin@example.com
+3|admin@example.com
+4|admin@example.com"
+18,1,TicketPriority,"0|Low
+1|Normal
+2|High
+3|Highest
+4|911"
+19,1,TicketStatus,"0|Open
+1|Closed
+2|Deleted"
+20,1,RiskImpact,"0|LBL_SUPER_LOW_M
+1|LBL_LOW_M
+2|LBL_MEDIUM_M
+3|LBL_HIGH_M
+4|LBL_SUPER_HIGH_M"
+21,1,RiskProbability,"0|LBL_SUPER_LOW_F
+1|LBL_LOW_F
+2|LBL_MEDIUM_F
+3|LBL_HIGH_F
+4|LBL_SUPER_HIGH_F"
+22,1,RiskStatus,"0|LBL_RISK_STATUS_IDENTIFIED
+1|LBL_RISK_STATUS_MONITORED
+2|LBL_RISK_STATUS_MATERIALIZED
+3|LBL_RISK_STATUS_FINISHED"
+23,1,RiskPotential,"0|LBL_NO
+1|LBL_YES"
+24,1,RiskPriority,"0|LBL_LOW_F
+1|LBL_MEDIUM_F
+2|LBL_HIGH_F"
+25,1,RiskActive,"0|LBL_YES
+1|LBL_NO"
+26,1,RiskStrategy,"0|LBL_ACCEPT
+1|LBL_ELIMINATE
+2|LBL_MITIGATE
+3|LBL_TRANSFER"
+27,1,LinkType,"0|Unknown
+1|Document
+2|Application"

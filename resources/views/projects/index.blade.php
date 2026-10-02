@@ -15,7 +15,9 @@
                       method="GET"
                       action="{{ route('projects.index') }}">
 
-                    <input type="hidden" name="status" value="{{ $filterStatus }}">
+                    @if($filterStatus !== 'all')
+                        <input type="hidden" name="status" value="{{ $filterStatus }}">
+                    @endif
 
                     <div>
                         <label for="owner" class="form-label fw-bold small text-muted mb-0">{{ __('projects/views.index.filters.owner') }}</label>
@@ -53,15 +55,15 @@
             <ul class="nav nav-tabs nav-tabs-dotproject mb-3">
                 <li class="nav-item">
                     <a class="nav-link {{ $filterStatus === 'all' ? 'active' : '' }}"
-                       href="{{ route('projects.index', array_merge(request()->query(), ['status' => 'all'])) }}">
+                       href="{{ route('projects.index', array_merge(request()->except(['status', 'page']), ['status' => 'all'])) }}">
                         {{ __('projects/views.index.filters.status_all') }}
                     </a>
                 </li>
 
                 @foreach($statuses as $id => $name)
                     <li class="nav-item">
-                        <a class="nav-link {{ (int) $filterStatus === (int) $id ? 'active' : '' }}"
-                           href="{{ route('projects.index', array_merge(request()->query(), ['status' => $id])) }}">
+                        <a class="nav-link {{ $filterStatus !== 'all' && (string) $filterStatus === (string) $id ? 'active' : '' }}"
+                           href="{{ route('projects.index', array_merge(request()->except('page'), ['status' => $id])) }}">
                             {{ $name }}
                         </a>
                     </li>

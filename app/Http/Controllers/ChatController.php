@@ -10,6 +10,7 @@ use App\Http\Services\AiAssistantService;
 
 class ChatController extends Controller {
     public function chatWithAssistant(Request $request, AiAssistantService $aiService): ?JsonResponse {
+        set_time_limit(300);
         $request->validate([
             'message' => 'required|string',
             'history' => 'nullable|array',

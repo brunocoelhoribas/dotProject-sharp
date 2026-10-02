@@ -1,0 +1,12 @@
+﻿id,project_id,items_to_be_acquired,contract_type,documents_to_acquisition,criteria_for_supplier_selection,additional_requirements,supplier_management_process,acquisition_roles
+2,8,web designer,Fixed Price,"The work to be carried out includes the following items:
+1. Development of screens for customers perform new requests, and a screen for employees see open requests.
+2. Follow the pizzeria identity in the proposed screens.",Formation (Weight: 1) <br />Hour/rate (Weight: 1) <br />Availability (Weight: 1) <br />,The service must be concluded within 2 months<br />,"1. Request a quote
+2. Quote evaluation
+3. Confirm the quote acceptance
+4. Allocate the hired resources
+5. Track the work execution.
+6.Payment
+7. Contract closure.",Project Manager: Track the work execution.<br />Hired professional: Carry out the work him was hired for.<br />
+3,2,teste,Preço fixo,teste,critério 1 (Peso: 2) <br />critério 2 (Peso: 1) <br />,x<br />y<br />,teste,resp 1: teste<br />resp 2: teste<br />
+4,2,Servidor de Jogos (Hardware),Tempo & material,Edital de compra,Empresa com CNPJ. (Peso: 10) <br />,Empresa do estado de Santa Catarina<br />,Consulta PÃºblica,Gerente de Projetos: Autorizar compra<br />

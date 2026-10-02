@@ -1,0 +1,13 @@
+﻿id,project_id,sort_order,item_name,number,is_leaf,identation
+1,2,0,Riscos,1,0,
+2,2,1,Interno,1.1,0,&nbsp;&nbsp;&nbsp;
+3,2,2,Organizacional,1.1.1,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4,2,3,Tecnológico,1.1.2,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5,2,4,Externo,1.2,0,&nbsp;&nbsp;&nbsp;
+6,2,5,Político,1.2.1,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+7,2,6,Catastrofe,1.2.2,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8,2,7,"EAR! artalizado",2,1,
+10,8,0,Risks,1,0,
+11,8,1,Internal,1.1,0,&nbsp;&nbsp;&nbsp;
+12,8,2,Organizational,1.1.1,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+13,8,3,Technological,1.1.2,1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

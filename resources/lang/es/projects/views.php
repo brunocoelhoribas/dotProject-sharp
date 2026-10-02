@@ -32,6 +32,34 @@ return [
         ],
     ],
 
+    'status' => [
+        0 => 'No Definido',
+        1 => 'Propuesto',
+        2 => 'En Planificación',
+        3 => 'En Progreso',
+        4 => 'En Espera',
+        5 => 'Completo',
+        6 => 'Plantilla',
+        7 => 'Archivado',
+        'Not Defined' => 'No Definido',
+        'Proposed' => 'Propuesto',
+        'In Planning' => 'En Planificación',
+        'In Progress' => 'En Progreso',
+        'On Hold' => 'En Espera',
+        'Complete' => 'Completo',
+        'Template' => 'Plantilla',
+        'Archived' => 'Archivado',
+    ],
+
+    'priority' => [
+        -1 => 'Baja',
+        0 => 'Normal',
+        1 => 'Alta',
+        'low' => 'Baja',
+        'normal' => 'Normal',
+        'high' => 'Alta',
+    ],
+
     'edit' => [
         'page_title' => 'Editar Proyecto: :name',
         'title' => 'Editar Proyecto',

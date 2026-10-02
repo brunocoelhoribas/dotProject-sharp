@@ -1,0 +1,37 @@
+﻿id,section_value,value,order_value,name,hidden
+10,sys,acl,1,"ACL Administration",0
+11,app,admin,1,"User Administration",0
+12,app,calendar,2,Calendar,0
+13,app,events,2,Events,0
+14,app,companies,3,Companies,0
+15,app,contacts,4,Contacts,0
+16,app,departments,5,Departments,0
+17,app,files,6,Files,0
+18,app,file_folders,6,"File Folders",0
+19,app,forums,7,Forums,0
+20,app,help,8,Help,0
+21,app,projects,9,Projects,0
+22,app,system,10,"System Administration",0
+23,app,tasks,11,Tasks,0
+24,app,task_log,11,"Task Logs",0
+25,app,ticketsmith,12,Tickets,0
+26,app,public,13,Public,0
+27,app,roles,14,"Roles Administration",0
+28,app,users,15,"User Table",0
+29,app,closure,1,Closure,0
+30,app,communication,1,Communication,0
+31,app,initiating,1,Initiating,0
+32,app,stakeholder,1,Stakeholder,0
+35,app,costs,1,Costs,0
+36,app,monitoringandcontrol,1,"Monitoring and Controlling",0
+37,app,dotproject_plus,1,dotProject+,0
+40,app,human_resources,1,"Human Resources",0
+41,app,risks,1,Risks,0
+47,app,timeplanning,1,"Time Planning",0
+48,users,12,0,"Group 1",0
+49,app,projectdesigner,1,ProjectDesigner,0
+50,app,scopeplanning,1,"Scope Planning",0
+51,app,resources,1,Resources,0
+52,app,history,1,History,0
+53,app,links,1,Links,0
+54,app,smartsearch,1,SmartSearch,0

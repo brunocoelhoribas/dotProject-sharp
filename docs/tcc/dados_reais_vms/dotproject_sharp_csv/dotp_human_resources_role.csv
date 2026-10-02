@@ -1,0 +1,39 @@
+﻿human_resources_role_id,human_resources_role_name,human_resources_role_authority,human_resources_role_responsability,human_resources_role_competence,human_resources_role_company_id
+1,"Gerente de projetos","Pode alocar os membros da equipe nas atividades que desejar, e tambêm pode solicitar aquisição dos materiais e serviços essenciais para o trabalho.","Elaborar o termo de abertura do projeto.
+Elaborar o plano do projeto.
+Executar o plano do projeto.
+Monitorar e controlar o projeto.
+Encerrar formalmente o projeto.","Deve possuir treinamento na área de gerência de projetos e preferencialmente ser certificado PMP.",1
+2,Programador,"Requisitar as ferramentas de software e hardware necessárias para execução de seu trabalho. Solicitar treinamento quando alocado para uma atividade a qual não possui competência.","Executar as atividades do projeto as quais foi alocado. Realizar testes de unidade e integração nos componentes de software os quais está trabalhando.","Formação completa em cursos superior de Ciência da Computação ou Sistemas de Informação. Possuir certificações nas linguagens de programação as quais foi alocado.",1
+3,"Programador TCE",,ddddddd,,2
+4,"Analista TCE",,sss,,2
+5,"Analista de teste","Exigir a execução dos testes antes de qualquer entrega.","Escrever os casos de teste. Executar os testes de sistema, e acompanhar o cliente na execução dos testes de aceite.","Formação em curso superior em Ciência da Computação ou Sistemas da Informação.",1
+6,"Analista de sistemas","Agendar reuniões com o cliente sempre que necessário. Definir tecnologias apropriadas para construção do produto, respeitando as restrições impostas pelo cliente.","Realizar reuniões junto aos clientes para reconhecimento do negócio.
+Modelar o negócio do cliente e identificar requisitos de software que suportem uma solução apropriada.
+Modelar a solução e apresenta-la à  equipe e ao cliente. Validar requisitos e modelos de sistema junto ao cliente.","Formação em Ciência da Computação ou Sistemas da Informação.
+Entendimento de modelagem de sistemas. Certificação em UML é desejável.",1
+7,"Gerente da qualidade","Denunciar não conformidades do processo ou do produto ao gerente de projetos.","Executar auditorias internas de acordo com as especificações das normas adotadas pela organização. 
+Buscar discrepâncias entre o processo executado e o processo definido.
+Realiza inspeções nos componentes de software desenvolvidos pela organização, e confere seu suporte/desempenho em relação à especificação.","Graduação de nível superior em alguma área da tecnologia da informação. Conhecimento sobre os modelos de maturidade e capacidade de software.",1
+8,"Project Manager","Allocate team members in project activities.
+Request acquisitions of items necessary to the project.
+Dismiss team members.","Develop the project plan.
+Get the project plan approved by project sponsor.
+Select the project team.
+Control the project work.","Interpersonal abilities.
+General knowledge in the project application area.
+Project Management knowledge.",4
+9,Programmer,"Ask for questions when something related to his duties are not properly documentted.","Perform the coding of request use cases.
+Answer the about effort estimations when requested by the project manager.
+Carry out the unit testes of his developments.","Proficiency on JAVA programming language.
+Knowledghe on Software Engenerring including:
+- Project life cycle.
+- UML documentation.
+- Software testesing",4
+10,"System Analyst",,"Document the project requirements.
+Design the software solution.",,4
+11,X,,,,3
+12,"Gerente de Projetos",Gerencial,"Gerenciar equipes e projetos","Administrador
+Analista Financeiro
+TecnÃ³logo em Sistemas de InformaÃ§Ã£o",6
+13,Programador,Executora,"Desenvolvimento de Softwares",ProgramaÃ§Ã£o,6

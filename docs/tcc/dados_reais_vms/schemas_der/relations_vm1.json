@@ -1,0 +1,1026 @@
+[
+  {
+    "from_table": "dotp_acquisition_planning",
+    "from_col": "project_id",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "explicit",
+    "name": "FK_PROJECT_QUALITY"
+  },
+  {
+    "from_table": "dotp_communication_issuing",
+    "from_col": "communication_stakeholder_id",
+    "to_table": "dotp_contacts",
+    "to_col": "contact_id",
+    "type": "explicit",
+    "name": "fk_communication_issuing"
+  },
+  {
+    "from_table": "dotp_tasks_workpackages",
+    "from_col": "task_id",
+    "to_table": "dotp_tasks",
+    "to_col": "task_id",
+    "type": "explicit",
+    "name": "fk_task_eap_item"
+  },
+  {
+    "from_table": "dotp_human_resource_allocation",
+    "from_col": "human_resource_id",
+    "to_table": "dotp_human_resource",
+    "to_col": "human_resource_id",
+    "type": "explicit",
+    "name": "dotp_human_resource_allocation_ibfk_1"
+  },
+  {
+    "from_table": "dotp_human_resource_allocation",
+    "from_col": "project_tasks_estimated_roles_id",
+    "to_table": "dotp_project_tasks_estimated_roles",
+    "to_col": "id",
+    "type": "explicit",
+    "name": "dotp_human_resource_allocation_ibfk_2"
+  },
+  {
+    "from_table": "dotp_wbs_dictionary",
+    "from_col": "wbs_item_id",
+    "to_table": "dotp_project_eap_items",
+    "to_col": "id",
+    "type": "explicit",
+    "name": "FK_WBS_ITEM_DICTIONARY"
+  },
+  {
+    "from_table": "dotp_project_tasks_estimations",
+    "from_col": "task_id",
+    "to_table": "dotp_tasks",
+    "to_col": "task_id",
+    "type": "explicit",
+    "name": "fk_estimation_task_attributes"
+  },
+  {
+    "from_table": "dotp_quality_assurance_item",
+    "from_col": "quality_planning_id",
+    "to_table": "dotp_quality_planning",
+    "to_col": "id",
+    "type": "explicit",
+    "name": "FK_PROJECT_QUALITY_ASSURANCE_ITEM"
+  },
+  {
+    "from_table": "dotp_acquisition_execution",
+    "from_col": "project_id",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "explicit",
+    "name": "FK_PROJECT_AQC_EXE"
+  },
+  {
+    "from_table": "dotp_budget",
+    "from_col": "budget_project_id",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "explicit",
+    "name": "fk_budget_project_id"
+  },
+  {
+    "from_table": "dotp_costs",
+    "from_col": "cost_human_resource_id",
+    "to_table": "dotp_human_resource",
+    "to_col": "human_resource_id",
+    "type": "explicit",
+    "name": "fk_cost_human_resource_id"
+  },
+  {
+    "from_table": "dotp_costs",
+    "from_col": "cost_human_resource_role_id",
+    "to_table": "dotp_human_resources_role",
+    "to_col": "human_resources_role_id",
+    "type": "explicit",
+    "name": "fk_cost_human_resource_role_id"
+  },
+  {
+    "from_table": "dotp_costs",
+    "from_col": "cost_project_id",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "explicit",
+    "name": "fk_cost_project_id"
+  },
+  {
+    "from_table": "dotp_scope_requirements_managplan",
+    "from_col": "project_id",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "explicit",
+    "name": "dotp_scope_requirements_managplan_ibfk_1"
+  },
+  {
+    "from_table": "dotp_raci",
+    "from_col": "human_resource_id",
+    "to_table": "dotp_human_resource",
+    "to_col": "human_resource_id",
+    "type": "explicit",
+    "name": "dotp_raci_human_resource_id_foreign"
+  },
+  {
+    "from_table": "dotp_raci",
+    "from_col": "project_id",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "explicit",
+    "name": "dotp_raci_project_id_foreign"
+  },
+  {
+    "from_table": "dotp_eap_item_estimations",
+    "from_col": "eap_item_id",
+    "to_table": "dotp_project_eap_items",
+    "to_col": "id",
+    "type": "explicit",
+    "name": "fk_estimation_eap_item"
+  },
+  {
+    "from_table": "dotp_task_minute_members",
+    "from_col": "task_minute_id",
+    "to_table": "dotp_project_minutes",
+    "to_col": "id",
+    "type": "explicit",
+    "name": "fk_task_minute_partipant_task"
+  },
+  {
+    "from_table": "dotp_task_minute_members",
+    "from_col": "user_id",
+    "to_table": "dotp_contacts",
+    "to_col": "contact_id",
+    "type": "explicit",
+    "name": "fk_task_minute_partipant_user"
+  },
+  {
+    "from_table": "dotp_human_resource_performance",
+    "from_col": "company_id",
+    "to_table": "dotp_companies",
+    "to_col": "company_id",
+    "type": "explicit",
+    "name": "dotp_human_resource_performance_company_id_foreign"
+  },
+  {
+    "from_table": "dotp_human_resource_performance",
+    "from_col": "human_resource_id",
+    "to_table": "dotp_human_resource",
+    "to_col": "human_resource_id",
+    "type": "explicit",
+    "name": "dotp_human_resource_performance_human_resource_id_foreign"
+  },
+  {
+    "from_table": "dotp_quality_control_metric",
+    "from_col": "question_id",
+    "to_table": "dotp_quality_control_analiysis_question",
+    "to_col": "id",
+    "type": "explicit",
+    "name": "FK_PROJECT_QUALITY_METRIC"
+  },
+  {
+    "from_table": "dotp_human_resource_skills",
+    "from_col": "human_resource_id",
+    "to_table": "dotp_human_resource",
+    "to_col": "human_resource_id",
+    "type": "explicit",
+    "name": "dotp_human_resource_skills_human_resource_id_foreign"
+  },
+  {
+    "from_table": "dotp_human_resource_skills",
+    "from_col": "skill_id",
+    "to_table": "dotp_skills",
+    "to_col": "skill_id",
+    "type": "explicit",
+    "name": "dotp_human_resource_skills_skill_id_foreign"
+  },
+  {
+    "from_table": "dotp_project_ear_items",
+    "from_col": "project_id",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "explicit",
+    "name": "fk_ear_item_project"
+  },
+  {
+    "from_table": "dotp_quality_control_goal",
+    "from_col": "quality_planning_id",
+    "to_table": "dotp_quality_planning",
+    "to_col": "id",
+    "type": "explicit",
+    "name": "FK_PROJECT_QUALITY_CONTROL_GOAL"
+  },
+  {
+    "from_table": "dotp_project_tasks_estimated_roles",
+    "from_col": "role_id",
+    "to_table": "dotp_company_role",
+    "to_col": "id",
+    "type": "explicit",
+    "name": "fk_estimation_roles"
+  },
+  {
+    "from_table": "dotp_project_tasks_estimated_roles",
+    "from_col": "task_id",
+    "to_table": "dotp_tasks",
+    "to_col": "task_id",
+    "type": "explicit",
+    "name": "fk_estimation_task_roles"
+  },
+  {
+    "from_table": "dotp_quality_control_analiysis_question",
+    "from_col": "goal_id",
+    "to_table": "dotp_quality_control_goal",
+    "to_col": "id",
+    "type": "explicit",
+    "name": "FK_PROJECT_QUALITY_GOAL_QUESTION"
+  },
+  {
+    "from_table": "dotp_project_minutes",
+    "from_col": "project_id",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "explicit",
+    "name": "fk_minute_project"
+  },
+  {
+    "from_table": "dotp_acquisition_planning_roles",
+    "from_col": "acquisition_id",
+    "to_table": "dotp_acquisition_planning",
+    "to_col": "id",
+    "type": "explicit",
+    "name": "FK_ACQUISITION_ROLE"
+  },
+  {
+    "from_table": "dotp_scope_requirements",
+    "from_col": "req_categ_prefix_id",
+    "to_table": "dotp_scope_requirement_categories",
+    "to_col": "req_categ_prefix_id",
+    "type": "explicit",
+    "name": "dotp_scope_requirements_ibfk_1"
+  },
+  {
+    "from_table": "dotp_scope_requirements",
+    "from_col": "req_priority_id",
+    "to_table": "dotp_scope_requirement_priorities",
+    "to_col": "req_priority_id",
+    "type": "explicit",
+    "name": "dotp_scope_requirements_ibfk_2"
+  },
+  {
+    "from_table": "dotp_scope_requirements",
+    "from_col": "req_status_id",
+    "to_table": "dotp_scope_requirement_status",
+    "to_col": "req_status_id",
+    "type": "explicit",
+    "name": "dotp_scope_requirements_ibfk_3"
+  },
+  {
+    "from_table": "dotp_scope_requirements",
+    "from_col": "eapitem_id",
+    "to_table": "dotp_project_eap_items",
+    "to_col": "id",
+    "type": "explicit",
+    "name": "dotp_scope_requirements_ibfk_4"
+  },
+  {
+    "from_table": "dotp_scope_requirements",
+    "from_col": "project_id",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "explicit",
+    "name": "dotp_scope_requirements_ibfk_5"
+  },
+  {
+    "from_table": "dotp_company_policies",
+    "from_col": "company_policies_company_id",
+    "to_table": "dotp_companies",
+    "to_col": "company_id",
+    "type": "explicit",
+    "name": "dotp_company_policies_ibfk_1"
+  },
+  {
+    "from_table": "dotp_acquisition_planning_criteria",
+    "from_col": "acquisition_id",
+    "to_table": "dotp_acquisition_planning",
+    "to_col": "id",
+    "type": "explicit",
+    "name": "FK_ACQUISITION_CRITERIA"
+  },
+  {
+    "from_table": "dotp_quality_control_requirement",
+    "from_col": "quality_planning_id",
+    "to_table": "dotp_quality_planning",
+    "to_col": "id",
+    "type": "explicit",
+    "name": "FK_PROJECT_QUALITY_CONTROL_REQUIREMENT"
+  },
+  {
+    "from_table": "dotp_human_resource_roles",
+    "from_col": "human_resources_role_id",
+    "to_table": "dotp_human_resources_role",
+    "to_col": "human_resources_role_id",
+    "type": "explicit",
+    "name": "dotp_human_resource_roles_ibfk_1"
+  },
+  {
+    "from_table": "dotp_human_resource_roles",
+    "from_col": "human_resource_id",
+    "to_table": "dotp_human_resource",
+    "to_col": "human_resource_id",
+    "type": "explicit",
+    "name": "dotp_human_resource_roles_ibfk_2"
+  },
+  {
+    "from_table": "dotp_need_for_training",
+    "from_col": "project_id",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "explicit",
+    "name": "FK_PROJECT_NEED_FOR_TRAINING"
+  },
+  {
+    "from_table": "dotp_communication_receptor",
+    "from_col": "communication_stakeholder_id",
+    "to_table": "dotp_contacts",
+    "to_col": "contact_id",
+    "type": "explicit",
+    "name": "fk_communication_receptor"
+  },
+  {
+    "from_table": "dotp_quality_planning",
+    "from_col": "project_id",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "explicit",
+    "name": "FK_PROJECT_ACQUISITION"
+  },
+  {
+    "from_table": "dotp_tasks_mdp",
+    "from_col": "task_id",
+    "to_table": "dotp_tasks",
+    "to_col": "task_id",
+    "type": "explicit",
+    "name": "fk_mdp_task"
+  },
+  {
+    "from_table": "dotp_human_resources_role",
+    "from_col": "human_resources_role_company_id",
+    "to_table": "dotp_companies",
+    "to_col": "company_id",
+    "type": "explicit",
+    "name": "dotp_human_resources_role_ibfk_1"
+  },
+  {
+    "from_table": "dotp_acquisition_planning_requirements",
+    "from_col": "acquisition_id",
+    "to_table": "dotp_acquisition_planning",
+    "to_col": "id",
+    "type": "explicit",
+    "name": "FK_AQUISITION_REQUIREMENT"
+  },
+  {
+    "from_table": "dotp_human_resource",
+    "from_col": "human_resource_user_id",
+    "to_table": "dotp_users",
+    "to_col": "user_id",
+    "type": "explicit",
+    "name": "dotp_human_resource_ibfk_1"
+  },
+  {
+    "from_table": "dotp_project_eap_items",
+    "from_col": "project_id",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "explicit",
+    "name": "fk_eap_item_project"
+  },
+  {
+    "from_table": "dotp_budget_reserve",
+    "from_col": "budget_reserve_project_id",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "explicit",
+    "name": "fk_budget_reserve_project_id"
+  },
+  {
+    "from_table": "dotp_scope_statement",
+    "from_col": "project_id",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "explicit",
+    "name": "dotp_scope_statement_ibfk_1"
+  },
+  {
+    "from_table": "dotp_company_role",
+    "from_col": "company_id",
+    "to_table": "dotp_companies",
+    "to_col": "company_id",
+    "type": "explicit",
+    "name": "fk_role_company"
+  },
+  {
+    "from_table": "dotp_projects",
+    "from_col": "project_company",
+    "to_table": "dotp_companies",
+    "to_col": "company_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_projects_project_company"
+  },
+  {
+    "from_table": "dotp_projects",
+    "from_col": "project_owner",
+    "to_table": "dotp_users",
+    "to_col": "user_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_projects_project_owner"
+  },
+  {
+    "from_table": "dotp_departments",
+    "from_col": "dept_company",
+    "to_table": "dotp_companies",
+    "to_col": "company_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_departments_dept_company"
+  },
+  {
+    "from_table": "dotp_departments",
+    "from_col": "dept_parent",
+    "to_table": "dotp_departments",
+    "to_col": "dept_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_departments_dept_parent"
+  },
+  {
+    "from_table": "dotp_users",
+    "from_col": "user_contact",
+    "to_table": "dotp_contacts",
+    "to_col": "contact_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_users_user_contact"
+  },
+  {
+    "from_table": "dotp_tasks",
+    "from_col": "task_project",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_tasks_task_project"
+  },
+  {
+    "from_table": "dotp_tasks",
+    "from_col": "task_owner",
+    "to_table": "dotp_users",
+    "to_col": "user_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_tasks_task_owner"
+  },
+  {
+    "from_table": "dotp_tasks",
+    "from_col": "task_parent",
+    "to_table": "dotp_tasks",
+    "to_col": "task_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_tasks_task_parent"
+  },
+  {
+    "from_table": "dotp_user_tasks",
+    "from_col": "user_id",
+    "to_table": "dotp_users",
+    "to_col": "user_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_user_tasks_user_id"
+  },
+  {
+    "from_table": "dotp_user_tasks",
+    "from_col": "task_id",
+    "to_table": "dotp_tasks",
+    "to_col": "task_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_user_tasks_task_id"
+  },
+  {
+    "from_table": "dotp_task_log",
+    "from_col": "task_log_task",
+    "to_table": "dotp_tasks",
+    "to_col": "task_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_task_log_task_log_task"
+  },
+  {
+    "from_table": "dotp_task_log",
+    "from_col": "task_log_creator",
+    "to_table": "dotp_users",
+    "to_col": "user_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_task_log_task_log_creator"
+  },
+  {
+    "from_table": "dotp_task_dependencies",
+    "from_col": "dependencies_task_id",
+    "to_table": "dotp_tasks",
+    "to_col": "task_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_task_dependencies_dependencies_task_id"
+  },
+  {
+    "from_table": "dotp_task_dependencies",
+    "from_col": "dependencies_req_task_id",
+    "to_table": "dotp_tasks",
+    "to_col": "task_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_task_dependencies_dependencies_req_task_id"
+  },
+  {
+    "from_table": "dotp_risks",
+    "from_col": "risk_project",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_risks_risk_project"
+  },
+  {
+    "from_table": "dotp_initiating",
+    "from_col": "project_id",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_initiating_project_id"
+  },
+  {
+    "from_table": "dotp_initiating_stakeholder",
+    "from_col": "initiating_id",
+    "to_table": "dotp_initiating",
+    "to_col": "initiating_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_initiating_stakeholder_initiating_id"
+  },
+  {
+    "from_table": "dotp_initiating_stakeholder",
+    "from_col": "contact_id",
+    "to_table": "dotp_contacts",
+    "to_col": "contact_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_initiating_stakeholder_contact_id"
+  },
+  {
+    "from_table": "dotp_files",
+    "from_col": "file_project",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_files_file_project"
+  },
+  {
+    "from_table": "dotp_files",
+    "from_col": "file_task",
+    "to_table": "dotp_tasks",
+    "to_col": "task_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_files_file_task"
+  },
+  {
+    "from_table": "dotp_files",
+    "from_col": "file_owner",
+    "to_table": "dotp_users",
+    "to_col": "user_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_files_file_owner"
+  },
+  {
+    "from_table": "dotp_billingcode",
+    "from_col": "company_id",
+    "to_table": "dotp_companies",
+    "to_col": "company_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_billingcode_company_id"
+  },
+  {
+    "from_table": "dotp_monitoring_baseline",
+    "from_col": "project_id",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_monitoring_baseline_project_id"
+  },
+  {
+    "from_table": "dotp_monitoring_meeting",
+    "from_col": "project_id",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_monitoring_meeting_project_id"
+  },
+  {
+    "from_table": "dotp_monitoring_change_request",
+    "from_col": "project_id",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_monitoring_change_request_project_id"
+  },
+  {
+    "from_table": "dotp_monitoring_change_request",
+    "from_col": "user_id",
+    "to_table": "dotp_users",
+    "to_col": "user_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_monitoring_change_request_user_id"
+  },
+  {
+    "from_table": "dotp_monitoring_change_request",
+    "from_col": "task_id",
+    "to_table": "dotp_tasks",
+    "to_col": "task_id",
+    "type": "logical_domain",
+    "name": "rel_dotp_monitoring_change_request_task_id"
+  },
+  {
+    "from_table": "dotp_communication",
+    "from_col": "communication_frequency_id",
+    "to_table": "dotp_communication_frequency",
+    "to_col": "communication_frequency_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_communication_communication_frequency_id"
+  },
+  {
+    "from_table": "dotp_communication",
+    "from_col": "communication_channel_id",
+    "to_table": "dotp_communication_channel",
+    "to_col": "communication_channel_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_communication_communication_channel_id"
+  },
+  {
+    "from_table": "dotp_communication_issuing",
+    "from_col": "communication_id",
+    "to_table": "dotp_communication",
+    "to_col": "communication_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_communication_issuing_communication_id"
+  },
+  {
+    "from_table": "dotp_communication_receptor",
+    "from_col": "communication_id",
+    "to_table": "dotp_communication",
+    "to_col": "communication_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_communication_receptor_communication_id"
+  },
+  {
+    "from_table": "dotp_config_list",
+    "from_col": "config_id",
+    "to_table": "dotp_config",
+    "to_col": "config_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_config_list_config_id"
+  },
+  {
+    "from_table": "dotp_costs",
+    "from_col": "cost_id",
+    "to_table": "dotp_monitoring_user_cost",
+    "to_col": "cost_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_costs_cost_id"
+  },
+  {
+    "from_table": "dotp_custom_fields_lists",
+    "from_col": "field_id",
+    "to_table": "dotp_custom_fields_struct",
+    "to_col": "field_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_custom_fields_lists_field_id"
+  },
+  {
+    "from_table": "dotp_dotpermissions",
+    "from_col": "user_id",
+    "to_table": "dotp_users",
+    "to_col": "user_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_dotpermissions_user_id"
+  },
+  {
+    "from_table": "dotp_files_index",
+    "from_col": "file_id",
+    "to_table": "dotp_files",
+    "to_col": "file_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_files_index_file_id"
+  },
+  {
+    "from_table": "dotp_monitoring_baseline",
+    "from_col": "user_id",
+    "to_table": "dotp_users",
+    "to_col": "user_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_baseline_user_id"
+  },
+  {
+    "from_table": "dotp_monitoring_baseline_task",
+    "from_col": "baseline_id",
+    "to_table": "dotp_monitoring_baseline",
+    "to_col": "baseline_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_baseline_task_baseline_id"
+  },
+  {
+    "from_table": "dotp_monitoring_baseline_task",
+    "from_col": "task_id",
+    "to_table": "dotp_tasks_workpackages",
+    "to_col": "task_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_baseline_task_task_id"
+  },
+  {
+    "from_table": "dotp_monitoring_baseline_task_log",
+    "from_col": "baseline_task_id",
+    "to_table": "dotp_monitoring_baseline_task",
+    "to_col": "baseline_task_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_baseline_task_log_baseline_task_id"
+  },
+  {
+    "from_table": "dotp_monitoring_baseline_task_log",
+    "from_col": "task_log_id",
+    "to_table": "dotp_task_log",
+    "to_col": "task_log_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_baseline_task_log_task_log_id"
+  },
+  {
+    "from_table": "dotp_monitoring_baseline_user_cost",
+    "from_col": "baseline_id",
+    "to_table": "dotp_monitoring_baseline",
+    "to_col": "baseline_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_baseline_user_cost_baseline_id"
+  },
+  {
+    "from_table": "dotp_monitoring_baseline_user_cost",
+    "from_col": "cost_id",
+    "to_table": "dotp_monitoring_user_cost",
+    "to_col": "cost_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_baseline_user_cost_cost_id"
+  },
+  {
+    "from_table": "dotp_monitoring_baseline_user_cost",
+    "from_col": "user_id",
+    "to_table": "dotp_users",
+    "to_col": "user_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_baseline_user_cost_user_id"
+  },
+  {
+    "from_table": "dotp_monitoring_change_request",
+    "from_col": "meeting_id",
+    "to_table": "dotp_monitoring_meeting",
+    "to_col": "meeting_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_change_request_meeting_id"
+  },
+  {
+    "from_table": "dotp_monitoring_meeting",
+    "from_col": "meeting_type_id",
+    "to_table": "dotp_monitoring_meeting_type",
+    "to_col": "meeting_type_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_meeting_meeting_type_id"
+  },
+  {
+    "from_table": "dotp_monitoring_meeting_item_select",
+    "from_col": "meeting_item_id",
+    "to_table": "dotp_monitoring_meeting_item",
+    "to_col": "meeting_item_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_meeting_item_select_meeting_item_id"
+  },
+  {
+    "from_table": "dotp_monitoring_meeting_item_select",
+    "from_col": "meeting_id",
+    "to_table": "dotp_monitoring_meeting",
+    "to_col": "meeting_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_meeting_item_select_meeting_id"
+  },
+  {
+    "from_table": "dotp_monitoring_meeting_item_senior",
+    "from_col": "meeting_id",
+    "to_table": "dotp_monitoring_meeting",
+    "to_col": "meeting_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_meeting_item_senior_meeting_id"
+  },
+  {
+    "from_table": "dotp_monitoring_meeting_item_tasks_delivered",
+    "from_col": "task_id",
+    "to_table": "dotp_tasks_workpackages",
+    "to_col": "task_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_meeting_item_tasks_delivered_task_id"
+  },
+  {
+    "from_table": "dotp_monitoring_meeting_item_tasks_delivered",
+    "from_col": "meeting_id",
+    "to_table": "dotp_monitoring_meeting",
+    "to_col": "meeting_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_meeting_item_tasks_delivered_meeting_id"
+  },
+  {
+    "from_table": "dotp_monitoring_meeting_user",
+    "from_col": "user_id",
+    "to_table": "dotp_users",
+    "to_col": "user_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_meeting_user_user_id"
+  },
+  {
+    "from_table": "dotp_monitoring_meeting_user",
+    "from_col": "meeting_id",
+    "to_table": "dotp_monitoring_meeting",
+    "to_col": "meeting_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_meeting_user_meeting_id"
+  },
+  {
+    "from_table": "dotp_monitoring_quality",
+    "from_col": "quality_type_id",
+    "to_table": "dotp_monitoring_quality_type",
+    "to_col": "quality_type_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_quality_quality_type_id"
+  },
+  {
+    "from_table": "dotp_monitoring_quality",
+    "from_col": "user_id",
+    "to_table": "dotp_users",
+    "to_col": "user_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_quality_user_id"
+  },
+  {
+    "from_table": "dotp_monitoring_quality",
+    "from_col": "quality_status_id",
+    "to_table": "dotp_monitoring_quality_status",
+    "to_col": "quality_status_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_quality_quality_status_id"
+  },
+  {
+    "from_table": "dotp_monitoring_quality",
+    "from_col": "task_id",
+    "to_table": "dotp_tasks_workpackages",
+    "to_col": "task_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_quality_task_id"
+  },
+  {
+    "from_table": "dotp_monitoring_responsibility_matriz",
+    "from_col": "project_id",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_responsibility_matriz_project_id"
+  },
+  {
+    "from_table": "dotp_monitoring_user_cost",
+    "from_col": "user_id",
+    "to_table": "dotp_users",
+    "to_col": "user_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_monitoring_user_cost_user_id"
+  },
+  {
+    "from_table": "dotp_project_contacts",
+    "from_col": "project_id",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_project_contacts_project_id"
+  },
+  {
+    "from_table": "dotp_project_contacts",
+    "from_col": "contact_id",
+    "to_table": "dotp_contacts",
+    "to_col": "contact_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_project_contacts_contact_id"
+  },
+  {
+    "from_table": "dotp_project_departments",
+    "from_col": "project_id",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_project_departments_project_id"
+  },
+  {
+    "from_table": "dotp_resource_tasks",
+    "from_col": "resource_id",
+    "to_table": "dotp_resources",
+    "to_col": "resource_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_resource_tasks_resource_id"
+  },
+  {
+    "from_table": "dotp_resource_tasks",
+    "from_col": "task_id",
+    "to_table": "dotp_tasks_workpackages",
+    "to_col": "task_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_resource_tasks_task_id"
+  },
+  {
+    "from_table": "dotp_risks_management_plan",
+    "from_col": "project_id",
+    "to_table": "dotp_projects",
+    "to_col": "project_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_risks_management_plan_project_id"
+  },
+  {
+    "from_table": "dotp_tasks",
+    "from_col": "task_id",
+    "to_table": "dotp_tasks_workpackages",
+    "to_col": "task_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_tasks_task_id"
+  },
+  {
+    "from_table": "dotp_task_contacts",
+    "from_col": "task_id",
+    "to_table": "dotp_tasks_workpackages",
+    "to_col": "task_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_task_contacts_task_id"
+  },
+  {
+    "from_table": "dotp_task_contacts",
+    "from_col": "contact_id",
+    "to_table": "dotp_contacts",
+    "to_col": "contact_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_task_contacts_contact_id"
+  },
+  {
+    "from_table": "dotp_task_departments",
+    "from_col": "task_id",
+    "to_table": "dotp_tasks_workpackages",
+    "to_col": "task_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_task_departments_task_id"
+  },
+  {
+    "from_table": "dotp_user_access_log",
+    "from_col": "user_id",
+    "to_table": "dotp_users",
+    "to_col": "user_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_user_access_log_user_id"
+  },
+  {
+    "from_table": "dotp_user_events",
+    "from_col": "user_id",
+    "to_table": "dotp_users",
+    "to_col": "user_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_user_events_user_id"
+  },
+  {
+    "from_table": "dotp_user_events",
+    "from_col": "event_id",
+    "to_table": "dotp_events",
+    "to_col": "event_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_user_events_event_id"
+  },
+  {
+    "from_table": "dotp_user_roles",
+    "from_col": "user_id",
+    "to_table": "dotp_users",
+    "to_col": "user_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_user_roles_user_id"
+  },
+  {
+    "from_table": "dotp_user_roles",
+    "from_col": "role_id",
+    "to_table": "dotp_roles",
+    "to_col": "role_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_user_roles_role_id"
+  },
+  {
+    "from_table": "dotp_user_task_pin",
+    "from_col": "user_id",
+    "to_table": "dotp_users",
+    "to_col": "user_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_user_task_pin_user_id"
+  },
+  {
+    "from_table": "dotp_user_task_pin",
+    "from_col": "task_id",
+    "to_table": "dotp_tasks_workpackages",
+    "to_col": "task_id",
+    "type": "logical_fk_convention",
+    "name": "fk_dotp_user_task_pin_task_id"
+  }
+]
